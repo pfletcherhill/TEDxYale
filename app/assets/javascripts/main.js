@@ -40,7 +40,8 @@ $(document).ready(function () {
 			$(this).css({"border-bottom":"10px solid #00CC66","height":"100px"});
 			$(".container").css("height","780px");
 			$(".join_explanation").hide();
-			$("body").scrollTo( {top:100, left:0}, 250);
+			//$("body").scrollTo( {top:100, left:0}, 250);
+			$("body").animate({scrollTop : 100}, 250)
 			$(".join_app").show();
 			$(".join_app_description").html("The Design and Branding Team will be in charge of the upkeep and expansion of the unified, visionary and unique image of TEDxYale.");
 			$("#join_app_pos_1").css({"width":"307px","margin-left":"0px"});
@@ -68,7 +69,8 @@ $(document).ready(function () {
 			$(this).css({"border-bottom":"10px solid #FFCC00","height":"100px"});
 			$(".container").css("height","780px");
 			$(".join_explanation").hide();
-			$("body").scrollTo( {top:100, left:0}, 250);
+			//$("body").scrollTo( {top:100, left:0}, 250);
+			$("body").animate({scrollTop : 100}, 250)
 			$(".join_app").show();
 			$(".join_app_description").html("The Events Team will be responsible for the organisation and execution of all TEDxYale events, including TEDxYale 2013, Salons and Livestreams.");
 			$("#join_app_pos_1").css({"width":"225px","margin-left":"0px"});
@@ -96,7 +98,8 @@ $(document).ready(function () {
 			$(this).css({"border-bottom":"10px solid #8F2400","height":"100px"});
 			$(".container").css("height","780px");
 			$(".join_explanation").hide();
-			$("body").scrollTo( {top:100, left:0}, 250);
+			//$("body").scrollTo( {top:100, left:0}, 250);
+			$("body").animate({scrollTop : 100}, 250)
 			$(".join_app").show();
 			$(".join_app_description").html("The Finance Team will be responsible for all fiscal decisions regarding TEDxYale.");
 			$("#join_app_pos_1").css({"width":"307px","margin-left":"0px"});
@@ -124,7 +127,8 @@ $(document).ready(function () {
 			$(this).css({"border-bottom":"10px solid #9933FF","height":"100px"});
 			$(".container").css("height","780px");
 			$(".join_explanation").hide();
-			$("body").scrollTo( {top:100, left:0}, 250);
+			//$("body").scrollTo( {top:100, left:0}, 250);
+			$("body").animate({scrollTop : 100}, 250)
 			$(".join_app").show();
 			$(".join_app_description").html("The Production Team will be responsible for the on-the-day technical smooth running of both TEDxYale 2013 and other TEDxYale events, such as Livestreams and Salons.");
 			$("#join_app_pos_1").css({"width":"176px","margin-left":"0px"});
