@@ -106,7 +106,7 @@ $(document).ready(function () {
 			$("#pos_1_title").html("EXECUTIVE DIRECTOR");
 			$("#pos_1_description").html("You will be fully accountable for your team and should have domain expertise. You will be responsible for weekly team meetings with other execs and the curators. This is a significant commitment. (Please note you can be the executive director as well as fill other positions on the team).");
 			$("#pos_2_title").html("FINANCE DIRECTOR");
-			$("#pos_2_description").html("You will be responsible for filing taxes, keeping the books, invoicing and reimbursements for TEDxYale expenses. You will also be required to ensure 501c3 compliance. Experience handling large sums of money will be crucial.");
+			$("#pos_2_description").html("You will be responsible for filing taxes, keeping the books, invoicing and reimbursements for TEDxYale expenses. You will also be required to ensure 501c3 compliance. Experience handling finances is crucial.");
 			$("#pos_3_title").html("FUNDRAISING DESIGNER");
 			$("#pos_3_description").html("You will be responsible for sponsorship management and fundraising campaigns. You will work closely with the marketing director to raise money.");
 			$("#pos_4_title").html("");
@@ -134,7 +134,7 @@ $(document).ready(function () {
 			$("#pos_1_title").html("STAGE MANAGER");
 			$("#pos_1_description").html("You will be responsible for running TEDxYale as a theatrical event. This involves overseeing lights, sound, set and video. You will be responsible for weekly team meetings with other execs and the curators. This is a significant commitment.");
 			$("#pos_2_title").html("SET DESIGNER");
-			$("#pos_2_description").html("You will be responsible for building the set for TEDxYale 2013 and any other TEDxYale events where a set may be required.");
+			$("#pos_2_description").html("You will be responsible for building the set for TEDxYale 2013 and any other TEDxYale events where a set may be required, such as filming the trailer or some salons.");
 			$("#pos_3_title").html("LIGHTS & SOUND DIRECTOR");
 			$("#pos_3_description").html("You will be responsible for coordinating the lights and sound for TEDxYale 2013 and any other TEDxYale events such as Salons.");
 			$("#pos_4_title").html("VIDEO DIRECTOR");
