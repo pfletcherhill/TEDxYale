@@ -11,7 +11,8 @@ $(document).ready(function () {
 			$(".container").css("height","780px");
 			$(".join_explanation").hide();
 			//$("body").scrollTo( {top:100, left:0}, 250);
-			$("body").scrollTop(100);
+			//$("body").scrollTop({100}, 250);
+			$("body").animate({scrollTop : 100}, 250)
 			$(".join_app").show();
 			$(".join_app_description").html("The Community and Public Relations Team will be responsible for the public face of TEDxYale through social media and community outreach initiatives.");
 			$("#join_app_pos_1").css({"width":"225px","margin-left":"0px"});
