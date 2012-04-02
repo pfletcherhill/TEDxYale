@@ -1,5 +1,5 @@
 class AdminsController < ApplicationController
-  before_filter :require_login
+  #before_filter :require_login
 
   def require_login
     unless logged_in?
