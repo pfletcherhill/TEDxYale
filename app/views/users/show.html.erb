@@ -1,5 +1,12 @@
 <div class="show_container">
-<%= link_to "Back", "/users" %><br/>
+<%= link_to "Back", "/users", :class => "show_back" %>
+<div class="show_team">
+	<% if @user.team == "community_pr" %>Community & PR Team Appplicant<% else %><% end %>
+	<% if @user.team == "design" %>Design & Branding Team Applicant<% else %><% end %>
+	<% if @user.team == "events" %>Events Team Applicant<% else %><% end %>
+	<% if @user.team == "fiannce" %>Finance Team Applicant<% else %><% end %>
+	<% if @user.team == "production" %>Produdction Team Applicant<% else %><% end %>
+</div><br/>
 <b>Name:</b> <%= @user.name %><br/>
 <b>Email:</b> <%= @user.email %><br/>
 <b>Year:</b> <%= @user.year %><br/>

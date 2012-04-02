@@ -967,10 +967,13 @@ body {
 .show_container {
 	width:960px;
 	padding:20px;
-	border-radius:5px;
+	/*border-radius:5px;*/
 	-webkit-box-shadow: 0 0px 3px rgba(0,0,0,0.4);
 	-moz-box-shadow: 0 0px 3px rgba(0,0,0,0.4);
 	box-shadow: 0 0px 3px rgba(0,0,0,0.4);
 	background:#fff;
 	font-family:arial;
+}
+.show_team {
+	float:right;
 }
