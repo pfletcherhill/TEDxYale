@@ -5,7 +5,7 @@
   <%= stylesheet_link_tag    "style", :media => "all" %>
   <%= javascript_include_tag "jquery", "main", "application" %>
   <%= csrf_meta_tags %>
-  <script src="http://www.tedxyale.com/wp-content/themes/tedxyale/jquery.scrollTo-min.js"></script>
+  <!--<script src="http://www.tedxyale.com/wp-content/themes/tedxyale/jquery.scrollTo-min.js"></script>-->
 </head>
 <body>
 
@@ -18,7 +18,7 @@
 		    <a href="/logout" class="header_item_link"><div class="header_item">Logout</div></a>
 			<a href="/users" class="header_item_link"><div class="header_item"><%= current_admin.name %></div></a>
 		<% else %> 
-		<a href="/users" class="header_item_link"><div class="header_item">YOU</div></a>
+		<a href="/users" class="header_item_link"><div class="header_item">LOGIN</div></a>
 		<% end %>
 		<a href="/" class="header_item_link"><div class="header_item" id="item_apply">JOIN THE TEAM</div></a>
 		<!--<a href="/events" class="header_item_link"><div class="header_item" id="item_events">EVENTS</div></a>-->
