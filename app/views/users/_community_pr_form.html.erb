@@ -1,0 +1,73 @@
+<%= form_for(@user) do |f| %>
+  <% if @user.errors.any? %>
+    <div class="error_explanation">
+      <!--<h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>-->
+
+      <% @user.errors.full_messages.each do |msg| %>
+        <%= msg %>.
+      <% end %>
+    </div>
+  <% end %>
+  
+  <%= f.hidden_field :team, :value => "community_pr" %>
+  
+  <div class="field">
+    <span class="field_label">Full Name:</span><br/>
+    <%= f.text_field :name, :class => "field_input_comm" %>
+  </div>
+  
+  <div class="field">
+    <span class="field_label">Email Address:</span><br/>
+    <%= f.text_field :email, :class => "field_input_comm" %>
+  </div>
+  
+  <div class="field">
+    <span class="field_label">Yale Affiliation and Year of Graduation</span><br/>
+    <%= f.text_field :year, :class => "field_input_comm" %>
+  </div>
+  
+  <div class="field_check">
+  	<span class="field_label">Which position(s) are you applying for?</span><br/>
+  	<%= f.check_box 'exec' %><span class="field_label_check">Executive Director</span><br/>
+  	<%= f.check_box 'social_media_director' %><span class="field_label_check">Social Media Director</span><br/>
+  	<%= f.check_box 'marketing_director' %><span class="field_label_check">Marketing Director</span><br/>
+  	<%= f.check_box 'social_director' %><span class="field_label_check">Social Director</span><br/>
+  </div>
+  
+  <div class="field_text">
+    <span class="field_label">In a few brief sentences, tell us who you are.</span><br/>
+    <%= f.text_area :bio, :class => "field_textarea_comm" %>
+  </div>
+  
+  <div class="field_text">
+    <span class="field_label">What is your favorite TED talk? Why?</span><br/>
+    <%= f.text_area :ted_talk, :class => "field_textarea_comm" %>
+  </div>
+  
+  <div class="field_text">
+    <span class="field_label">Who would you like to hear speak at TED?</span><br/>
+    <%= f.text_field :speaker, :class => "field_speaker_comm" %>
+  </div>
+  
+  <div class="field_text">
+  	<span class="field_label">Please check all you are comfortable using:</span><br/>
+  	<%= f.check_box 'facebook' %><span class="field_label_check">Facebook</span><br/>
+  	<%= f.check_box 'twitter' %><span class="field_label_check">Twitter</span><br/>
+  	<%= f.check_box :tumblr %><span class="field_label_check">Tumblr</span><br/>
+  	<%= f.check_box :google %><span class="field_label_check">Google+</span><br/>
+  </div>
+  
+  <div class="field_text">
+    <span class="field_label">In your opinion, what is the best way to bolster the public image of TEDxYale?</span><br/>
+    <%= f.text_area :question, :class => "field_textarea_comm" %>
+  </div>
+  
+  <div class="field_text">
+    <span class="field_label">What experience have you had to qualify you for a position on the Community & PR team?</span><br/>
+    <%= f.text_area :experience, :class => "field_textarea_comm" %>
+  </div>
+  
+  <div class="actions">
+    <%= f.submit "Apply to Join the Team", :class => "comm_submit_button"%>
+  </div>
+<% end %>

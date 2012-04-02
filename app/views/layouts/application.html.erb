@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>TEDxYale</title>
+  <%= stylesheet_link_tag    "style", :media => "all" %>
+  <%= javascript_include_tag "jquery", "main", "application" %>
+  <%= csrf_meta_tags %>
+  <script src="http://www.tedxyale.com/wp-content/themes/tedxyale/jquery.scrollTo-min.js"></script>
+</head>
+<body>
+
+<!--Header Start-->
+<div class="header">
+	<div id="header_container">
+		<a href="/"><img src="/assets/logo.png" id="logo"/></a>
+		<!--<a href="/you" class="header_item_link"><div class="header_item" id="item_you">YOU</div></a>-->
+		<% if current_admin %>
+		    <a href="/logout" class="header_item_link"><div class="header_item">Logout</div></a>
+			<a href="/users" class="header_item_link"><div class="header_item"><%= current_admin.name %></div></a>
+		<% else %> 
+		<a href="/users" class="header_item_link"><div class="header_item">YOU</div></a>
+		<% end %>
+		<a href="/" class="header_item_link"><div class="header_item" id="item_apply">JOIN THE TEAM</div></a>
+		<!--<a href="/events" class="header_item_link"><div class="header_item" id="item_events">EVENTS</div></a>-->
+	</div>
+</div>
+<!--Header End-->
+
+<!--Notices-->
+<div class="join_explanation"><%= notice %></div>
+
+<!--Body Start-->
+<div class="container">
+	<div id="body_container">
+	<%= yield %>
+	</div>
+</div>
+<!--Body End-->
+
+<!--Footer Start-->
+<!--<div class="footer">
+	<div id="footer_container">
+	</div>
+</div>-->
+<!--Footer End-->
+
+</body>
+</html>

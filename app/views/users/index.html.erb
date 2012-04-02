@@ -1,0 +1,80 @@
+<div class="application_header" id="comm_header">
+	Community & Public Relations Team Applicants
+</div>
+<div class="index_box">
+	<% @comm_users.each do |user| %>
+	<a href="users/<%= user.id %>" style="text-decoration:none">
+		<div class="index_user">
+			<div class="index_user_name"><%= user.name %></div>
+			<div class="index_user_email"><%= user.email %></div>
+			<div class="index_user_year"><%= user.year %></div>
+		</div>
+		<div class="hidden_user">
+			<div class="hidden_name">
+			</div>
+		</div>
+	</a>
+	<% end %>
+</div>
+
+<div class="application_header" id="design_header">
+	Design & Branding Team Applicants
+</div>
+<div class="index_box">
+	<% @design_users.each do |user| %>
+	<a href="users/<%= user.id %>" style="text-decoration:none">
+		<div class="index_user">
+			<div class="index_user_name"><%= user.name %></div>
+			<div class="index_user_email"><%= user.email %></div>
+			<div class="index_user_year"><%= user.year %></div>
+		</div>
+	</a>
+	<% end %>
+</div>
+
+<div class="application_header" id="events_header">
+	Events Team Applicants
+</div>
+<div class="index_box">
+	<% @events_users.each do |user| %>
+	<a href="users/<%= user.id %>" style="text-decoration:none">
+		<div class="index_user">
+			<div class="index_user_name"><%= user.name %></div>
+			<div class="index_user_email"><%= user.email %></div>
+			<div class="index_user_year"><%= user.year %></div>
+		</div>
+	</a>
+	<% end %>
+</div>
+
+<div class="application_header" id="finance_header">
+	Finance Team Applicants
+</div>
+<div class="index_box">
+	<% @finance_users.each do |user| %>
+	<a href="users/<%= user.id %>" style="text-decoration:none">
+		<div class="index_user">
+			<div class="index_user_name"><%= user.name %></div>
+			<div class="index_user_email"><%= user.email %></div>
+			<div class="index_user_year"><%= user.year %></div>
+		</div>
+	</a>
+	<% end %>
+</div>
+
+<div class="application_header" id="production_header">
+	Production Team Applicants
+</div>
+<div class="index_box">
+	<% @prod_users.each do |user| %>
+	<a href="users/<%= user.id %>" style="text-decoration:none">
+		<div class="index_user">
+			<div class="index_user_name"><%= user.name %></div>
+			<div class="index_user_email"><%= user.email %></div>
+			<div class="index_user_year"><%= user.year %></div>
+		</div>
+	</a>
+	<% end %>
+</div>
+<div class="index_footer">
+</div>

@@ -1,0 +1,37 @@
+<div class="show_container">
+<%= link_to "Back", "/users" %><br/>
+<b>Name:</b> <%= @user.name %><br/>
+<b>Email:</b> <%= @user.email %><br/>
+<b>Year:</b> <%= @user.year %><br/>
+<b>Positions:</b><br/>
+	<% if @user.exec == true %>Executive Director<br/><% else %><% end %>
+	<% if @user.social_media_director == true %>Social Media Director<br/><% else %><% end %>
+	<% if @user.marketing_director == true %>Marketing Director<br/><% else %><% end %>
+	<% if @user.social_director == true %>Social Director<br/><% else %><% end %>
+<b>Bio:</b><br/>
+<%= @user.bio %><br/>
+<b>Favorite TED talk:</b><br/>
+<%= @user.ted_talk %><br/>
+<b>Speaker:</b> <%= @user.speaker %><br/>
+<b>Skills:</b><br/>
+	<% if @user.facebook == true %>Facebook<br/><% else %><% end %>
+	<% if @user.twitter == true %>Twitter<br/><% else %><% end %>
+	<% if @user.tumblr == true %>Tumblr<br/><% else %><% end %>
+	<% if @user.google == true %>Google+<br/><% else %><% end %>
+	<% if @user.final_cut == true %>Final Cut<br/><% else %><% end %>
+	<% if @user.photoshop == true %>Photoshop<br/><% else %><% end %>
+	<% if @user.lights == true %>Lights<br/><% else %><% end %>
+	<% if @user.sound == true %>Sounds<br/><% else %><% end %>
+	<% if @user.video == true %>Video Equipment<br/><% else %><% end %>
+	<% if @user.html == true %>HTML<br/><% else %><% end %>
+	<% if @user.css == true %>CSS<br/><% else %><% end %>
+	<% if @user.jquery == true %>JQuery<br/><% else %><% end %>
+	<% if @user.javascript == true %>Javascript<br/><% else %><% end %>
+	<% if @user.ror == true %>Ruby on Rails<br/><% else %><% end %>
+	<% if @user.in_design == true %>In Design<br/><% else %><% end %>
+	<% if @user.illustrator == true %>Illustrator<br/><% else %><% end %>
+<b>Question:</b><br/>
+<%= @user.question %><br/>
+<b>Experience:</b><br/>
+<%= @user.experience %><br/>
+</div>
