@@ -1,44 +1,84 @@
 <div class="show_container">
-<%= link_to "Back", "/users", :class => "show_back" %>
-<div class="show_team">
-	<% if @user.team == "community_pr" %>Community & PR Team Appplicant<% else %><% end %>
-	<% if @user.team == "design" %>Design & Branding Team Applicant<% else %><% end %>
-	<% if @user.team == "events" %>Events Team Applicant<% else %><% end %>
-	<% if @user.team == "fiannce" %>Finance Team Applicant<% else %><% end %>
-	<% if @user.team == "production" %>Produdction Team Applicant<% else %><% end %>
-</div><br/>
-<b>Name:</b> <%= @user.name %><br/>
-<b>Email:</b> <%= @user.email %><br/>
-<b>Year:</b> <%= @user.year %><br/>
-<b>Positions:</b><br/>
-	<% if @user.exec == true %>Executive Director<br/><% else %><% end %>
-	<% if @user.social_media_director == true %>Social Media Director<br/><% else %><% end %>
-	<% if @user.marketing_director == true %>Marketing Director<br/><% else %><% end %>
-	<% if @user.social_director == true %>Social Director<br/><% else %><% end %>
-<b>Bio:</b><br/>
-<%= @user.bio %><br/>
-<b>Favorite TED talk:</b><br/>
-<%= @user.ted_talk %><br/>
-<b>Speaker:</b> <%= @user.speaker %><br/>
-<b>Skills:</b><br/>
-	<% if @user.facebook == true %>Facebook<br/><% else %><% end %>
-	<% if @user.twitter == true %>Twitter<br/><% else %><% end %>
-	<% if @user.tumblr == true %>Tumblr<br/><% else %><% end %>
-	<% if @user.google == true %>Google+<br/><% else %><% end %>
-	<% if @user.final_cut == true %>Final Cut<br/><% else %><% end %>
-	<% if @user.photoshop == true %>Photoshop<br/><% else %><% end %>
-	<% if @user.lights == true %>Lights<br/><% else %><% end %>
-	<% if @user.sound == true %>Sounds<br/><% else %><% end %>
-	<% if @user.video == true %>Video Equipment<br/><% else %><% end %>
-	<% if @user.html == true %>HTML<br/><% else %><% end %>
-	<% if @user.css == true %>CSS<br/><% else %><% end %>
-	<% if @user.jquery == true %>JQuery<br/><% else %><% end %>
-	<% if @user.javascript == true %>Javascript<br/><% else %><% end %>
-	<% if @user.ror == true %>Ruby on Rails<br/><% else %><% end %>
-	<% if @user.in_design == true %>In Design<br/><% else %><% end %>
-	<% if @user.illustrator == true %>Illustrator<br/><% else %><% end %>
-<b>Question:</b><br/>
-<%= @user.question %><br/>
-<b>Experience:</b><br/>
-<%= @user.experience %><br/>
+	<div class="show_header show_<%= @user.team %>">
+		<div class="show_name"><%= @user.name %></div>
+		<div class="show_team">
+			<% if @user.team == "community_pr" %>Community & PR Team Appplicant<% else %><% end %>
+			<% if @user.team == "design" %>Design & Branding Team Applicant<% else %><% end %>
+			<% if @user.team == "events" %>Events Team Applicant<% else %><% end %>
+			<% if @user.team == "fiannce" %>Finance Team Applicant<% else %><% end %>
+			<% if @user.team == "production" %>Produdction Team Applicant<% else %><% end %>
+		</div>
+	</div>
+	<div class="show_email">
+		<div class="show_label show_<%= @user.team %>">Email Address:</div>
+		<div class="show_box"><%= @user.email %></div>
+	</div>
+	<div class="show_year">
+		<div class="show_label show_<%= @user.team %>">Yale Affiliation and Year of Graduation:</div>
+		<div class="show_box"><%= @user.year %></div>
+	</div>
+	<div class="show_positions">
+		<div class="show_label show_<%= @user.team %>">Which position(s) are you applying for?</div>
+		<% if @user.exec == true %><div class="show_positions_box">Executive Director</div><% else %><% end %>
+		<% if @user.social_media_director == true %><div class="show_positions_box">Social Media Director</div><% else %><% end %>
+		<% if @user.marketing_director == true %><div class="show_positions_box">Marketing Director</div><% else %><% end %>
+		<% if @user.social_director == true %><div class="show_positions_box">Social Director</div><% else %><% end %>
+		<% if @user.developer == true %><div class="show_positions_box">Developer</div><% else %><% end %>
+		<% if @user.designer == true %><div class="show_positions_box">Graphic Designer</div><% else %><% end %>
+		<% if @user.conference_director == true %><div class="show_positions_box">Conference Director</div><% else %><% end %>
+		<% if @user.salons_director == true %><div class="show_positions_box">Salons Director</div><% else %><% end %>
+		<% if @user.speakers_director == true %><div class="show_positions_box">Speakers Director</div><% else %><% end %>
+		<% if @user.finance_director == true %><div class="show_positions_box">Finance Director</div><% else %><% end %>
+		<% if @user.fundraising_director == true %><div class="show_positions_box">Fundraising Director</div><% else %><% end %>
+		<% if @user.stage_manager == true %><div class="show_positions_box">Stage Manager</div><% else %><% end %>
+		<% if @user.set_designer == true %><div class="show_positions_box">Set Designer</div><% else %><% end %>
+		<% if @user.lights_sound_director == true %><div class="show_positions_box">Lights & Sound Director</div><% else %><% end %>
+		<% if @user.video_director == true %><div class="show_positions_box">Video Director</div><% else %><% end %>
+		<% if @user.photographer == true %><div class="show_positions_box">Photographer</div><% else %><% end %>
+	</div>
+	<div class="show_positions">
+		<div class="show_label show_<%= @user.team %>">In a few brief sentences, tell us who you are.</div>
+		<div class="show_answer_box"><%= @user.bio %></div>
+	</div>
+	<div class="show_positions">
+		<div class="show_label show_<%= @user.team %>">What is your favorite TED talk? Why?</div>
+		<div class="show_answer_box"><%= @user.ted_talk %></div>
+	</div>
+	<div class="show_positions">
+		<div class="show_label show_<%= @user.team %>">Who would you like to hear speak at TED?</div>
+		<div class="show_answer_box"><%= @user.speaker %></div>
+	</div>
+	<div class="show_positions">
+		<div class="show_label show_<%= @user.team %>">Please check all you are comfortable using:</div>
+		<% if @user.facebook == true %><div class="show_positions_box">Facebook</div><% else %><% end %>
+		<% if @user.twitter == true %><div class="show_positions_box">Twitter</div><% else %><% end %>
+		<% if @user.tumblr == true %><div class="show_positions_box">Tumblr</div><% else %><% end %>
+		<% if @user.google == true %><div class="show_positions_box">Google+</div><% else %><% end %>
+		<% if @user.final_cut == true %><div class="show_positions_box">Final Cut</div><% else %><% end %>
+		<% if @user.photoshop == true %><div class="show_positions_box">Photoshop</div><% else %><% end %>
+		<% if @user.lights == true %><div class="show_positions_box">Lights</div><% else %><% end %>
+		<% if @user.sound == true %><div class="show_positions_box">Sounds</div><% else %><% end %>
+		<% if @user.video == true %><div class="show_positions_box">Video Equipment</div><% else %><% end %>
+		<% if @user.html == true %><div class="show_positions_box">HTML</div><% else %><% end %>
+		<% if @user.css == true %><div class="show_positions_box">CSS</div><% else %><% end %>
+		<% if @user.jquery == true %><div class="show_positions_box">JQuery</div><% else %><% end %>
+		<% if @user.javascript == true %><div class="show_positions_box">Javascript</div><% else %><% end %>
+		<% if @user.ror == true %><div class="show_positions_box">Ruby on Rails</div><% else %><% end %>
+		<% if @user.in_design == true %><div class="show_positions_box">In Design</div><% else %><% end %>
+		<% if @user.illustrator == true %><div class="show_positions_box">Illustrator</div><% else %><% end %>
+	</div>
+	<div class="show_positions">
+		<div class="show_label show_<%= @user.team %>">
+			<% if @user.team == "community_pr" %>In your opinion, what is the best way to bolster the public image of TEDxYale?<% else %><% end %>
+			<% if @user.team == "design" %>What is your design philosophy? How would you improve this web page?<% else %><% end %>
+			<% if @user.team == "events" %>What do you believe is the key to running a successful event? How would you make this happen?<% else %><% end %>
+			<% if @user.team == "fiannce" %>In your opinion, what fundraising strategy should TEDxYale implement? Why?<% else %><% end %>
+			<% if @user.team == "production" %>TED is known for putting on incredible productions at its annual conferences. What would you bring to TEDxYale to ensure that the 2013 conference production is as good as it can be?<% else %><% end %>
+		</div>
+		<div class="show_answer_box"><%= @user.question %></div>
+	</div>
+	<div class="show_positions">
+		<div class="show_label show_<%= @user.team %>">What experience have you had to qualify you for a position on the Community & PR team?</div>
+		<div class="show_answer_box"><%= @user.experience %></div>
+	</div>
 </div>
