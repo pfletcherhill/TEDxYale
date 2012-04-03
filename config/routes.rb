@@ -2,7 +2,7 @@ TEDxYale::Application.routes.draw do
 
   resources :users
 
-  root :to => "users#join"
+  root :to => "users#event_saman"
   
   match "/join/community_pr" => "users#community_pr"
   
@@ -27,5 +27,8 @@ TEDxYale::Application.routes.draw do
   get "login" => "sessions#new", :as => "login"
   get "logout" => "sessions#destroy", :as => "logout" 
   
+  match "/salons" => "users#event_saman"
+  
+  match "/join" => "users#join"
   
 end

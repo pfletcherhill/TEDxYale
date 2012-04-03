@@ -6,7 +6,7 @@ body {
 	padding:0px;
 	margin:0px;
 	border:0px;
-	background:#eee;
+	background:#fafafa;
 }
 .header {
 	width:100%;
@@ -18,7 +18,7 @@ body {
 	position:fixed;
 	top:0px;
 	left:0px;
-	z-index:1;
+	z-index:100;
 	border-bottom:1px solid #aaa;
 }
 .container {
@@ -26,7 +26,7 @@ body {
 	width:100%;
 	margin-top:52px;
 	padding-top:20px;
-	background:#EEEEEE
+	background:#fafafa;
 }
 #body_container {
 	width:1000px;
@@ -205,8 +205,7 @@ body {
 	font-size:60px;
 	line-height:80px;
 	font-weight:bold;
-	color:#fff;
-	text-shadow: -1px -1px 0 rgba(0,0,0,0.2);
+	color:#E60000;
 	text-align:center;
 }
 .join_description {
@@ -245,7 +244,7 @@ body {
 	box-shadow: 0 -1px 2px rgba(0,0,0,0.3);
 	opacity:0.8;
 	display:none;
-	z-index:3;
+	z-index:20;
 }
 .join_item {
 	width:158px;
@@ -253,9 +252,9 @@ body {
 	float:left;
 	margin-right:1px;
 	margin-left:1px;
-	-webkit-box-shadow: 0 0px 3px rgba(0,0,0,0.2);
-	-moz-box-shadow: 0 0px 3px rgba(0,0,0,0.2);
-	box-shadow: 0 0px 3px rgba(0,0,0,0.2);
+	-webkit-box-shadow: 0 0px 3px rgba(0,0,0,0.4);
+	-moz-box-shadow: 0 0px 3px rgba(0,0,0,0.4);
+	box-shadow: 0 0px 3px rgba(0,0,0,0.4);
 	background: -moz-linear-gradient(0% 100% 90deg, #eee, #fff);
 	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#fff), to(#eee));
 	background: -moz-linear-gradient(0% 100% 90deg, #eee, #fff);
@@ -500,6 +499,12 @@ body {
 	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#9933FF), to(#7A29CC));
 	background: -moz-linear-gradient(0% 100% 90deg, #7A29CC, #9933FF);
 	-pie-background: linear-gradient(#9933FF, #7A29CC);
+}
+#event_header {
+	background: -moz-linear-gradient(0% 100% 90deg, #000, #000);
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#000), to(#000));
+	background: -moz-linear-gradient(0% 100% 90deg, #000, #000);
+	-pie-background: linear-gradient(#000, #000);
 }
 .team_application {
 	height:928px;
@@ -1059,4 +1064,112 @@ body {
 	box-shadow: 0 0px 3px rgba(0,0,0,0.4);
 	margin-bottom:20px;
 	line-height:25px;
+}
+/*Event Page*/
+.event_page_info {
+	width:960px;
+	padding:20px;
+	background:#fff;
+	-webkit-box-shadow: 0 0px 3px rgba(0,0,0,0.4);
+	-moz-box-shadow: 0 0px 3px rgba(0,0,0,0.4);
+	box-shadow: 0 0px 3px rgba(0,0,0,0.4);
+	margin:0px;
+	margin-top:-10px;
+	z-index:10;
+	position:relative;
+	clear:both;
+	height:410px;
+}
+.event_image {
+	margin:0px;
+	padding:0px;
+	z-index:1;
+	margin-top:-20px;
+	position:relative;
+}
+.event_details {
+	width:470px;
+	height:500px;
+	float:left;
+	line-height:45px;
+	font-size:30px;
+	color:#444;
+	font-family:arial;
+}
+.event_register {
+	width:470px;
+	height:500px;
+	margin-left:20px;
+	float:left;
+}
+.event_label_header {
+	width:100%;
+	height:18px;
+	line-height:18px;
+	font-size:14px;
+	color:#E60000;
+	font-family:arial;
+	font-weight:bold;
+	text-align:center;
+}
+.event_label_line {
+	width:100%;
+	height:3px;
+	background:#E60000;
+	border:0px;
+	margin-top:5px;
+	margin-bottom:15px;
+}
+.event_field, .event_actions {
+	width:470px;
+	height:90px;
+	margin-top:10px;
+}
+.event_field_label {
+	width:470px;
+	font-size:20px;
+	line-height:28px;
+	color:#444;
+	font-family:arial;
+	font-weight:bold;
+}
+.event_input {
+	width:450px;
+	height:30px;
+	padding:10px;
+	line-height:30px;
+	font-size:25px;
+	color:#E60000;
+	background:#fafafa;
+	border:1px solid #dadada;
+}
+.event_input:hover {
+	border:1px solid #E60000;
+}
+.event_submit {
+	width:470px;
+	text-align:center;
+	height:50px;
+	line-height:50px;
+	font-size:25px;
+	color:#fff;
+	text-shadow: -1px -1px 0 rgba(0,0,0,0.3);
+	background: -moz-linear-gradient(0% 100% 90deg, #CF0000, #E60000);
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#E60000), to(#CF0000));
+	background: -moz-linear-gradient(0% 100% 90deg, #CF0000, #E60000);
+	-pie-background: linear-gradient(#E60000, #CF0000);
+	border:0px;
+	border-radius:5px;
+	padding:0px;
+	-webkit-box-shadow: 0 0px 3px rgba(0,0,0,0.4);
+	-moz-box-shadow: 0 0px 3px rgba(0,0,0,0.4);
+	box-shadow: 0 0px 3px rgba(0,0,0,0.4);
+	cursor:pointer;
+	margin-top:5px;
+}
+.event_submit:hover {
+	background: -moz-linear-gradient(0% 100% 90deg, #D83030, #E60000);
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#E60000), to(#D83030));
+	background: -moz-linear-gradient(0% 100% 90deg, #D83030, #E60000);
+	-pie-background: linear-gradient(#E60000, #D83030);
 }

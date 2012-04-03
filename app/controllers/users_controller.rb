@@ -21,6 +21,7 @@ class UsersController < ApplicationController
     @events_users = User.where(:team => "events")
     @finance_users = User.where(:team => "finance")
     @prod_users = User.where(:team => "production")
+    @attendees = User.where(:team => "event_saman")
     
     respond_to do |format|
       format.html # index.html.erb
@@ -61,8 +62,10 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
 
     respond_to do |format|
-      if @user.save
-        format.html { redirect_to "/", notice: 'Thank you for applying. We will contact you shortly with more information. Feel free to apply to another team as well.' }
+      if (@user.save && @user.team == "event_saman")
+      	format.html { redirect_to "/", notice: 'Thank you for registering. Feel free to share the event with your friends' }
+      elsif (@user.save && @user.team != "event_saman")
+        format.html { redirect_to "/join", notice: 'Thank you for applying. We will contact you shortly with more information. Feel free to apply to another team as well.' }
       else
         format.html { render action: @user.team }
         format.json { render json: @user.errors, status: :unprocessable_entity }
@@ -139,6 +142,15 @@ class UsersController < ApplicationController
   	
   	respond_to do |format|
       format.html # new.html.erb
+      format.json { render json: @user }
+    end
+  end
+  
+  def event_saman
+    @user = User.new
+    
+    respond_to do |format|
+      format.html
       format.json { render json: @user }
     end
   end
