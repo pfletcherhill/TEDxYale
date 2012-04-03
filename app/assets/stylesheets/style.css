@@ -1048,6 +1048,7 @@ body {
 	box-shadow: 0 0px 3px rgba(0,0,0,0.4);
 	margin-right:10px;
 	margin-bottom:20px;
+	line-height:25px;
 }
 .show_answer_box {
 	width:980px;
@@ -1057,4 +1058,5 @@ body {
 	-moz-box-shadow: 0 0px 3px rgba(0,0,0,0.4);
 	box-shadow: 0 0px 3px rgba(0,0,0,0.4);
 	margin-bottom:20px;
+	line-height:25px;
 }
