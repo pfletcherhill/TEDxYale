@@ -1,0 +1,50 @@
+<!--<img class="event_image" src="/assets/Arbabi_web.jpg"/>-->
+<div class="event_page_info">
+	<div class="event_details">
+		<div class="event_label_header">SALON DETAILS</div>
+		<hr class="event_label_line"/>
+		6:00-7:30 pm<br/>
+		Tuesday, April 10th<br/>
+		Room 307, Sculpture Building<br/>
+		36 Edgewood Ave.<br/>
+		Appetizers will be served<br/>
+	</div>
+	<div class="event_register">
+		<div class="event_label_header">RESERVE YOUR SPOT</div>
+		<hr class="event_label_line"/>
+		<%= form_for(@user) do |f| %>
+			<% if @user.errors.any? %>
+				<div class="error_explanation">		
+				<% @user.errors.full_messages.each do |msg| %>
+				<%= msg %>.
+			  	<% end %>
+				</div>
+		  <% end %>
+		  
+		  <%= f.hidden_field :team, :value => "event_saman" %>
+		  
+		  <div class="event_field">
+			<span class="event_field_label">Full Name:</span>
+			<%= f.text_field :name, :class => "event_input" %>
+		  </div>
+		  
+		  <div class="event_field">
+			<span class="event_field_label">Email Address:</span>
+			<%= f.text_field :email, :class => "event_input" %>
+		  </div>
+		  
+		  <div class="event_field">
+			<span class="event_field_label">Yale Affiliation and Year of Graduation</span>
+			<%= f.text_field :year, :class => "event_input" %>
+		  </div>
+		  
+		  <div class="event_actions">
+			<%= f.submit "Reserve Your Spot", :class => "event_submit"%>
+		  </div>
+		<% end %>
+	</div>
+	<!--<div class="event_details">
+		<div class="event_label_header">SHARE THIS EVENT</div>
+		<hr class="event_label_line"/>
+	</div>-->
+</div>
