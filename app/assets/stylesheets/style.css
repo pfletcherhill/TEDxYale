@@ -995,6 +995,18 @@ body {
 .show_community_pr {
 	color:#0099FF;
 }
+.show_design {
+	color:#00CC66;
+}
+.show_events {
+	color:#FFCC00;
+}
+.show_finance {
+	color:#8F2400;
+}
+.show_production {
+	color:#9933FF;
+}
 .show_name {
 	float:left;
 	font-weight:bold;
