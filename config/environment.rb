@@ -5,4 +5,4 @@ require File.expand_path('../application', __FILE__)
 TEDxYale::Application.initialize!
 
 #Mailer method
-config.action_mailer.delivery_method = :smtp
+#config.action_mailer.delivery_method = :smtp
