@@ -64,7 +64,7 @@ class UsersController < ApplicationController
     respond_to do |format|
       if (@user.save && @user.team == "event_saman")
       	# Tell the UserMailer to send a confirmation Email after save
-        #UserMailer.welcome_email(@user).deliver
+        UserMailer.welcome_email(@user).deliver
         
       	format.html { redirect_to "/", notice: 'Thank you for registering. You should receive a confirmation email shortly. Feel free to share the event with your friends' }
       elsif (@user.save && @user.team != "event_saman")
