@@ -17,11 +17,17 @@ class UsersController < ApplicationController
   def index
     @users = User.all
     @comm_users = User.where(:team => "community_pr")
+    @comm_number = @comm_users.count 
     @design_users = User.where(:team => "design")
+    @design_number = @design_users.count
     @events_users = User.where(:team => "events")
+    @events_number = @events_users.count
     @finance_users = User.where(:team => "finance")
+    @finance_number = @finance_users.count
     @prod_users = User.where(:team => "production")
+    @production_number = @prod_users.count
     @attendees = User.where(:team => "event_saman")
+    @attendees_number = @attendees.count
     
     respond_to do |format|
       format.html # index.html.erb

@@ -1,5 +1,5 @@
 <div class="application_header" id="comm_header">
-	Community & Public Relations Team Applicants
+	Community & Public Relations Team Applicants (<%= @comm_number %>)
 </div>
 <div class="index_box">
 	<% @comm_users.each do |user| %>
@@ -18,7 +18,7 @@
 </div>
 
 <div class="application_header" id="design_header">
-	Design & Branding Team Applicants
+	Design & Branding Team Applicants (<%= @design_number %>)
 </div>
 <div class="index_box">
 	<% @design_users.each do |user| %>
@@ -33,7 +33,7 @@
 </div>
 
 <div class="application_header" id="events_header">
-	Events Team Applicants
+	Events Team Applicants (<%= @events_number %>)
 </div>
 <div class="index_box">
 	<% @events_users.each do |user| %>
@@ -48,7 +48,7 @@
 </div>
 
 <div class="application_header" id="finance_header">
-	Finance Team Applicants
+	Finance Team Applicants (<%= @finance_number %>)
 </div>
 <div class="index_box">
 	<% @finance_users.each do |user| %>
@@ -63,7 +63,7 @@
 </div>
 
 <div class="application_header" id="production_header">
-	Production Team Applicants
+	Production Team Applicants (<%= @production_number %>)
 </div>
 <div class="index_box">
 	<% @prod_users.each do |user| %>
@@ -78,7 +78,7 @@
 </div>
 
 <div class="application_header" id="event_header">
-	Saman Salon Attendees
+	Saman Salon Attendees (<%= @attendees_number %>)
 </div>
 <div class="index_box">
 	<% @attendees.each do |user| %>
@@ -86,7 +86,7 @@
 			<div class="index_user_name"><%= user.name %></div>
 			<div class="index_user_email"><%= user.email %></div>
 			<div class="index_user_year"><%= user.year %></div>
-			<div class="index_user_year"><%= link_to 'Destroy', user, confirm: 'Are you sure?', method: :delete %></div>
+			<div class="index_user_delete"><%= link_to 'Destroy', user, confirm: 'Are you sure?', method: :delete %></div>
 		</div>
 	<% end %>
 </div>

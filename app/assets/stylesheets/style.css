@@ -879,7 +879,12 @@ body {
 }
 .index_user_year {
 	height:25px;
-	width:200px;
+	width:300px;
+	float:left;
+}
+.index_user_delete {
+	height:25px;
+	width:50px;
 	float:left;
 }
 .login_container {
