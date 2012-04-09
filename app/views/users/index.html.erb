@@ -90,13 +90,13 @@
 		</div>
 	<% end %>
 </div>
-<br/>
-<!--<table>
-	<tr>
-		<% @attendees.each do |user| %>
-		<td><%= user.name %></td>
-		<td><%= user.email %></td>
-	</tr>
-</table>-->
+<table>
+<% @attendees.each do |user| %>
+  <tr>
+    <td><%= user.name %></td>
+    <td><%= user.email %></td>
+  </tr>
+<% end %>
+</table>
 <div class="index_footer">
 </div>
