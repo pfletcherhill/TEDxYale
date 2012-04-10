@@ -1,0 +1,10 @@
+<div class="index_box">
+	<% @registers.each do |user| %>
+		<div class="index_user">
+			<div class="index_user_name"><%= user.name %></div>
+			<div class="index_user_email"><%= user.email %></div>
+			<div class="index_user_year"><%= user.year %></div>
+			<div class="index_user_delete"><%= link_to "Check In", check_in_user_path(:id => user), :method => :put %></div>
+		</div>
+	<% end %>
+</div>
