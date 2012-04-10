@@ -229,4 +229,9 @@ $(document).ready(function () {
 	else if ($(".error_explanation").html().length = 0) {
 		$(".error_explanation").hide();
 	}
+	$(".registration_user").click( 
+		function() {
+			$(this).animate({"height":"120px"}, 100);
+			//$("active.registration_user_check-in").show();
+		});
 });

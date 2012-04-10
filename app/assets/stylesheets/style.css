@@ -1198,3 +1198,69 @@ body {
 	background: -moz-linear-gradient(0% 100% 90deg, #D83030, #E60000);
 	-pie-background: linear-gradient(#E60000, #D83030);
 }
+/*Registration Styling*/
+.registration_box {
+	background:#fff;
+	margin-top: 2px;
+	width: 960px;
+	margin-left:20px;
+	margin-right:20px;
+	-webkit-box-shadow: 0 0px 3px rgba(0,0,0,0.2);
+	-moz-box-shadow: 0 0px 3px rgba(0,0,0,0.2);
+	box-shadow: 0 0px 3px rgba(0,0,0,0.2);
+	font-family: arial;
+	position: relative;
+	margin-bottom:20px;
+}
+.registration_user {
+	height:40px;
+	width:920px;
+	padding:5px;
+	padding-left:20px;
+	padding-right:20px;
+	border-bottom:1px solid #aaa;
+	color:#444;
+	font-weight:bold;
+	font-size:30px;
+	line-height:40px;
+	cursor:pointer;
+	position:relative;
+	overflow:hidden;
+}
+.registration_user:hover {
+	background: -moz-linear-gradient(0% 100% 90deg, #dadada, #fafafa);
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#fafafa), to(#dadada));
+	background: -moz-linear-gradient(0% 100% 90deg, #dadada, #fafafa);
+	-pie-background: linear-gradient(#fafafa, #dadada);
+	color:#000;
+}
+.registration_user_name {
+	height:30px;
+	width:460px;
+	float:left;
+}
+.registration_user_check-in {
+	color:#fff;
+	position:absolute;
+	top:60px;
+	left:20px;
+	width:920px;
+	padding-top:10px;
+	padding-bottom:10px;
+	font-size:25px;
+	line-height:30px;
+	border-radius:5px;
+	text-align:center;
+	cursor:pointer;
+	border:0px;
+	text-shadow: -1px -1px rgba(0, 0, 0, 0.2);
+	font-family: arial;
+	-webkit-background-clip: padding-box;
+	-webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.4);
+	-moz-box-shadow: 0 1px 3px rgba(0,0,0,0.4);
+	box-shadow: 0 1px 3px rgba(0,0,0,0.4);
+	background: -moz-linear-gradient(0% 100% 90deg, #CF0000, #E60000);
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#E60000), to(#CF0000));
+	background: -moz-linear-gradient(0% 100% 90deg, #CF0000, #E60000);
+	-pie-background: linear-gradient(#E60000, #CF0000);
+}
