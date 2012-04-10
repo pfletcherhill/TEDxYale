@@ -3,7 +3,7 @@
 	<% @registers.each do |user| %>
 		<div class="registration_user">
 			<div class="registration_user_name"><%= user.name %></div>
-			<div class="registration_user_name"><%= user.email %></div>
+			<!--<div class="registration_user_name"><%= user.email %></div>-->
 			<%= link_to "Check In", check_in_user_path(:id => user), :method => :put, :class => "registration_user_check-in" %>
 		</div>
 	<% end %>

@@ -1213,7 +1213,7 @@ body {
 	margin-bottom:20px;
 }
 .registration_user {
-	height:60px;
+	height:100px;
 	width:920px;
 	padding:5px;
 	padding-left:20px;
@@ -1222,7 +1222,7 @@ body {
 	color:#444;
 	font-weight:bold;
 	font-size:45px;
-	line-height:60px;
+	line-height:100px;
 	cursor:pointer;
 	position:relative;
 	overflow:hidden;
@@ -1235,14 +1235,14 @@ body {
 	color:#000;
 }
 .registration_user_name {
-	height:50px;
+	height:90px;
 	width:460px;
 	float:left;
 }
 .registration_user_check-in {
 	color:#fff;
 	position:absolute;
-	top:80px;
+	top:110px;
 	left:20px;
 	width:920px;
 	padding-top:20px;
