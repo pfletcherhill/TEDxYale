@@ -231,7 +231,7 @@ $(document).ready(function () {
 	}
 	$(".registration_user").click( 
 		function() {
-			$(this).animate({"height":"120px"}, 100);
+			$(this).animate({"height":"180px"}, 100);
 			//$("active.registration_user_check-in").show();
 		});
 });

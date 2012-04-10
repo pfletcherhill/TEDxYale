@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   
-  before_filter :require_login, :only => ["index", "show", "edit", "update"]
+  before_filter :require_login, :only => ["index", "show", "edit", "update", "registration"]
 
   def require_login
     unless logged_in?
@@ -39,7 +39,7 @@ class UsersController < ApplicationController
   
   def registration
     @users = User.all
-    @registers = User.where(:team => "event_saman", :status => false)
+    @registers = User.where(:team => "event_saman", :status => false).order("name");
     
     respond_to do |format|
       format.html

@@ -39,6 +39,7 @@
 		<% if current_admin %>
 		    <a href="/logout" class="header_item_link"><div class="header_item">Logout</div></a>
 			<a href="/users" class="header_item_link"><div class="header_item"><%= current_admin.name %></div></a>
+			<a href="/registration" class="header_item_link"><div class="header_item">Registration</div></a>
 		<% else %> 
 		<a href="/users" class="header_item_link"><div class="header_item">LOGIN</div></a>
 		<% end %>
