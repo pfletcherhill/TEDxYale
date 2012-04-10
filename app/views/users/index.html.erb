@@ -78,6 +78,19 @@
 </div>
 
 <div class="application_header" id="event_header">
+	Checked-In Attendees (<%= @confirms_number %>)
+</div>
+<div class="index_box">
+	<% @confirms.each do |user| %>
+		<div class="index_user">
+			<div class="index_user_name"><%= user.name %></div>
+			<div class="index_user_email"><%= user.email %></div>
+			<div class="index_user_year"><%= user.year %></div>
+		</div>
+	<% end %>
+</div>
+
+<div class="application_header" id="event_header">
 	Saman Salon Attendees (<%= @attendees_number %>)
 </div>
 <div class="index_box">

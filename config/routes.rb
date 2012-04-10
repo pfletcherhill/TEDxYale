@@ -31,4 +31,7 @@ TEDxYale::Application.routes.draw do
   
   match "/join" => "users#join"
   
+  match "/registration" => "users#registration"
+  
+  match "check_in" => "users#check_in", :as => "check_in_user"
 end

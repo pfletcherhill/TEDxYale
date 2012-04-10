@@ -28,9 +28,21 @@ class UsersController < ApplicationController
     @production_number = @prod_users.count
     @attendees = User.where(:team => "event_saman")
     @attendees_number = @attendees.count
+    @confirms = User.where(:team => "event_saman", :status => true)
+    @confirms_number = @confirms.count
     
     respond_to do |format|
       format.html # index.html.erb
+      format.json { render json: @users }
+    end
+  end
+  
+  def registration
+    @users = User.all
+    @registers = User.where(:team => "event_saman", :status => false)
+    
+    respond_to do |format|
+      format.html
       format.json { render json: @users }
     end
   end
@@ -81,7 +93,16 @@ class UsersController < ApplicationController
       end
     end
   end
-
+  
+  def check_in
+    user = User.find(params[:id])
+    user.update_attributes(:status => true)
+    respond_to do |format|
+      format.html { redirect_to "/registration" }
+      format.json { head :no_content }
+    end
+  end
+  
   # PUT /users/1
   # PUT /users/1.json
   def update

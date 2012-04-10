@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120402025125) do
+ActiveRecord::Schema.define(:version => 20120410061932) do
 
   create_table "admins", :force => true do |t|
     t.string   "email"
@@ -64,8 +64,9 @@ ActiveRecord::Schema.define(:version => 20120402025125) do
     t.boolean  "lights_sound_director"
     t.boolean  "video_director"
     t.boolean  "photographer"
-    t.datetime "created_at",            :null => false
-    t.datetime "updated_at",            :null => false
+    t.datetime "created_at",                               :null => false
+    t.datetime "updated_at",                               :null => false
+    t.boolean  "status",                :default => false
   end
 
 end
