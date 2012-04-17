@@ -66,6 +66,7 @@ ActiveRecord::Schema.define(:version => 20120410061932) do
     t.boolean  "photographer"
     t.datetime "created_at",                               :null => false
     t.datetime "updated_at",                               :null => false
+    t.boolean  "statusr"
     t.boolean  "status",                :default => false
   end
 

@@ -84,9 +84,14 @@ class UsersController < ApplicationController
       	# Tell the UserMailer to send a confirmation Email after save
         #UserMailer.welcome_email(@user).deliver
         
-      	format.html { redirect_to "/", notice: 'Thank you for registering. Feel free to share the event with your friends' }
+      	format.html { redirect_to "/salons", notice: 'Thank you for registering. Feel free to share the event with your friends' }
+      	
+      elsif (@user.save && @user.team == "subscribe")
+        format.html { redirect_to "/subscribe", notice: 'Thank you for subscribing!' }
+        
       elsif (@user.save && @user.team != "event_saman")
         format.html { redirect_to "/join", notice: 'Thank you for applying. We will contact you shortly with more information. Feel free to apply to another team as well.' }
+      
       else
         format.html { render action: @user.team }
         format.json { render json: @user.errors, status: :unprocessable_entity }
@@ -184,4 +189,14 @@ class UsersController < ApplicationController
       format.json { render json: @user }
     end
   end
+  
+  def subscribe
+    @user = User.new
+    
+    respond_to do |format|
+      format.html
+      format.json { render json: @user }
+    end
+  end 
+  
 end

@@ -2,7 +2,9 @@ TEDxYale::Application.routes.draw do
 
   resources :users
 
-  root :to => "users#event_saman"
+  root :to => "users#subscribe"
+  
+  match "/subscribe" => "users#subscribe"
   
   match "/join/community_pr" => "users#community_pr"
   
