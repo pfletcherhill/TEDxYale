@@ -30,6 +30,8 @@ class UsersController < ApplicationController
     @attendees_number = @attendees.count
     @confirms = User.where(:team => "event_saman", :status => true)
     @confirms_number = @confirms.count
+    @subscriptions = User.where(:team => "subscribe")
+    @subscriptions_number = @subscriptions.count
     
     respond_to do |format|
       format.html # index.html.erb
@@ -87,7 +89,7 @@ class UsersController < ApplicationController
       	format.html { redirect_to "/salons", notice: 'Thank you for registering. Feel free to share the event with your friends' }
       	
       elsif (@user.save && @user.team == "subscribe")
-        format.html { redirect_to "/subscribe", notice: 'Thank you for subscribing!' }
+        format.html { redirect_to "/", notice: 'Thank you for subscribing!' }
         
       elsif (@user.save && @user.team != "event_saman")
         format.html { redirect_to "/join", notice: 'Thank you for applying. We will contact you shortly with more information. Feel free to apply to another team as well.' }

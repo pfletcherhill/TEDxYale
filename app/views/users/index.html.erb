@@ -78,6 +78,20 @@
 </div>
 
 <div class="application_header" id="event_header">
+	Subscriptions (<%= @subscriptions_number %>)
+</div>
+<div class="index_box">
+	<% @subscriptions.each do |user| %>
+		<div class="index_user">
+			<div class="index_user_name"><%= user.name %></div>
+			<div class="index_user_email"><%= user.email %></div>
+			<div class="index_user_year"><%= user.year %></div>
+			<div class="index_user_delete"><%= link_to 'Destroy', user, confirm: 'Are you sure?', method: :delete %></div>
+		</div>
+	<% end %>
+</div>
+
+<div class="application_header" id="event_header">
 	Checked-In Attendees (<%= @confirms_number %>)
 </div>
 <div class="index_box">
