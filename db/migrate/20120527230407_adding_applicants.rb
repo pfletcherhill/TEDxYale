@@ -1,6 +1,6 @@
-class CreateUsers < ActiveRecord::Migration
+class AddingApplicants < ActiveRecord::Migration
   def change
-    create_table :users do |t|
+    create_table :applicants do |t|
       t.string :team
 	    t.string :name
   	  t.string :email
@@ -45,14 +45,9 @@ class CreateUsers < ActiveRecord::Migration
 	  
       t.timestamps
     end
-    
-    create_table :admins do |t|
-      t.string :email
+    create_table :subscriptions do |t|
       t.string :name
-      t.string :password_hash
-      t.string :password_salt
-      
-      t.timestamps
+      t.string :email
     end
   end
 end
