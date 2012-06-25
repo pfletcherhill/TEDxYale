@@ -44,7 +44,7 @@ class CreateUsers < ActiveRecord::Migration
     create_table :speakers do |t|
       t.string :name
       t.text :bio
-      t.string :image_url
+      t.has_attached_file :thumbnail
       t.string :twitter
       
       t.timestamps
