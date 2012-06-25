@@ -88,4 +88,7 @@ TEDxYale::Application.routes.draw do
   
   match "add_attended" => "attendees#add_attended", :as => "add_attendees"
   
+  #speakers
+  resources :speakers
+  
 end

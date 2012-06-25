@@ -21,6 +21,7 @@
           .speaker
             .name= speaker.name
             .bio= speaker.bio
+        %a( href="/speakers/new") Add a Speaker
         %p Event Location:
         %p= f.text_field :location, :value => @event.location
         %p Location Address:

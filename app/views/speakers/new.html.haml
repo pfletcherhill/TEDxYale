@@ -1,0 +1,11 @@
+.wrapper
+  =form_for @speaker do |f|
+    %p Name:
+    %p= f.text_field :name
+    %p Bio
+    %p= f.text_area :bio
+    %p Twitter Link
+    %p= f.text_field :twitter
+    %p Thumbnail Upload
+    %p= f.file_field :thumbnail
+    %p= f.submit "Update Event"

@@ -4,4 +4,6 @@ class Speaker < ActiveRecord::Base
   
   validates_presence_of :name
   
+  has_attached_file :thumbnail, :styles => { :medium => "130x100" }
+  
 end
