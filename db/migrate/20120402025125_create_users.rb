@@ -27,6 +27,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :thumbnail_content_type
       t.integer :thumbnail_file_size
       t.datetime :thumbnail_updated_at
+      t.datetime :datetime
       t.string :sort
       
       t.timestamps
