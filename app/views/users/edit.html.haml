@@ -21,5 +21,8 @@
             .item
               .label Graduation Year:
               = f.text_field :year, :value => @user.year
+            .item
+              .label Admin?
+              = f.text_field :admin, :value => @user.admin
             
             = f.submit "Update Preferences"
