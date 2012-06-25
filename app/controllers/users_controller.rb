@@ -136,5 +136,23 @@ class UsersController < ApplicationController
       end
     end
   end  
+  
+  def promote
+    @user = User.find(params[:user_id])
+    @user.admin = 'a'
+    @user.save
     
+    if @user.save
+      respond_to do |format|
+        format.html { redirect_to "/admin/users", :notice => "User promoted" }
+        format.json { head :no_content }
+      end
+    else
+      respond_to do |format|
+        format.html { redirect_to "/admin/users", :notice => "Please try again" }
+        format.json { head :no_content }
+      end
+    end
+  end
+   
 end

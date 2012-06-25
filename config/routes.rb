@@ -43,6 +43,8 @@ TEDxYale::Application.routes.draw do
   
   match "/admin/tv" => "admin#tv"
   
+  match "promote" => "users#promote", :as => "promote_users"
+  
   #Wiki
   
   resources :posts
