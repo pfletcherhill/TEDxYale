@@ -132,7 +132,8 @@
   }
   .user {
     width: 800px;
-    height: 30px;
+    height: auto;
+    clear: both;
     border-bottom: 1px solid #dadada;
     cursor: pointer;
     .name {
