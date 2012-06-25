@@ -28,10 +28,10 @@ class UsersController < ApplicationController
   def create  
     @user = User.new(params[:user])  
     if @user.save  
-      UserMailer.welcome_email(@user).deliver
+      #UserMailer.welcome_email(@user).deliver
       
       session[:user_id] = @user.id   
-      redirect_to root_url, :notice => "Welcome #{@user.name}!"  
+      redirect_to "/dashboard/current_events", :notice => "Welcome #{@user.name}!"  
     else  
       render "new"  
     end  
