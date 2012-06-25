@@ -29,6 +29,8 @@
         %p= f.text_field :location_url
         %p Date and Time:
         %p= datetime_select("event","datetime", :start_year => 2011, :order => [:month, :day, :year])
-        %p Image Upload:
-        %p= f.file_field :image
+        %p Header Upload:
+        %p= f.file_field :header
+        %p Thumbnail Upload:
+        %p= f.file_field :thumbnail
         %p= f.submit "Create Event"
