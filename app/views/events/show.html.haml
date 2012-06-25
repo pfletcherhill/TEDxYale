@@ -1,7 +1,7 @@
 .wrapper
   .event
     .left
-      - if @event.image
+      - if @event.header
         .image
           =image_tag @event.header.url(:large)
       .info
