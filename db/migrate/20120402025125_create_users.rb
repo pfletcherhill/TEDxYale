@@ -19,14 +19,8 @@ class CreateUsers < ActiveRecord::Migration
       t.string :location_state
       t.string :location_zipcode
       t.boolean :published, :default => false
-      t.string :header_file_name
-      t.string :header_content_type
-      t.integer :header_file_size
-      t.datetime :header_updated_at
-      t.string :thumbnail_file_name
-      t.string :thumbnail_content_type
-      t.integer :thumbnail_file_size
-      t.datetime :thumbnail_updated_at
+      t.has_attached_file :header
+      t.has_attached_file :thumbnail
       t.datetime :datetime
       t.string :sort
       
