@@ -1,0 +1,493 @@
+// Place all the styles related to the Events controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@font-face { font-family: Helveticaneue; src: url('/assets/helveticaneue.otf'); } 
+@font-face { font-family: Helveticaneuebold; src: url('/assets/helveticaneuebold.otf'); }
+@font-face { font-family: Helveticaneuelight; src: url('/assets/helveticaneuelight.otf'); }
+
+
+.registration_back {
+	background: #fff;
+	width: 960px;
+	height: 110px;
+	margin: 20px auto;
+	font-weight: bold;
+	font-size: 45px;
+	line-height: 110px;
+	position: relative;
+	cursor: pointer;
+	overflow: hidden;
+	text-align: center;
+	box-shadow: 0 0 3px rgba(0,0,0,0.2);
+	a {
+	  display: block;
+	  width: 100%;
+	  height: 100%;
+	  text-decoration: none;
+	  color: #444
+	}
+	&:hover {
+	  background: -moz-linear-gradient(0% 100% 90deg, #dadada, #fafafa);
+	  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#fafafa), to(#dadada));
+    background: -moz-linear-gradient(0% 100% 90deg, #dadada, #fafafa);
+    -pie-background: linear-gradient(#fafafa, #dadada);
+  	color:#000;
+	}
+}
+//Event Show
+.event {
+  padding: 5px;
+  .left {
+    float: left;
+    width: 660px;
+    margin-top: 10px;
+    .image {
+      width: 100%;
+      position: relative;
+      z-index: 0;
+      img {
+        width: 660px;
+      }
+    }
+    .info {
+      padding-right: 20px;
+      .title {
+        h2 {
+          font-size: 35px;
+          font-family: Helveticaneuebold, 'times new roman', arial, sans-serif;
+          font-weight: bold;
+          padding: 15px 0;
+          margin: 5px 0;
+        }
+      }
+      .about {
+        border-bottom: 1px solid #dadada;
+        padding-bottom: 25px;
+        font-family: Helveticaneuelight;
+        font-size: 16px;
+        line-height: 22px;
+        color: #777;
+      }
+    }
+    .speakers {
+      margin: 20px 0px;
+      .image {
+        float: left;
+        width: 100px;
+        margin-right: 20px;
+        img {
+          width: 100px;
+        }
+      }
+      .details {
+        float: left;
+        width: 520px;
+        .name {
+          font-family: Helveticaneuebold;
+          font-size: 18px;
+          margin-bottom: 5px;
+        }
+        .bio {
+          font-family: Helveticaneuelight;
+          font-size: 15px;
+          color: #777;
+        }
+        .twitter {
+          margin-top: 10px;
+          img {
+            width: 25px;
+            height: 25px;
+            float: left;
+          }
+          a {
+            float: left;
+            font-family: Helveticaneuelight;
+            color: #29ABE2;
+            font-size: 15px;
+            text-decoration: none;
+            line-height: 25px;
+            padding-left: 3px;
+            &:hover {
+              text-decoration:underline;
+            }
+          }
+        }
+      }
+    }
+  }
+  .right {
+    float:left;
+    width: 280px;
+    position:relative;
+    z-index: 1;
+    .attend {
+      width: 100%;
+      height: 80px;
+      text-align: center;
+      vertical-align: middle;
+      box-shadow: 0 0 3px rgba(0,0,0,0.4);
+      background: #f9f9f9;
+      padding: 25px;
+      padding-bottom: 30px;
+      border-top-right-radius: 3px;
+      border-top-left-radius: 3px;
+      p {
+        margin-top: -35px;
+        color: #f7f7f7;
+        text-shadow: -1px -1px 1px rgba(0,0,0,0.3);
+        font-size: 10px;
+        z-index: -1;
+      }
+      a.register {
+        padding: 15px;
+        display: block;
+        width: 250px;
+        height: 50px;
+        color: #fff;
+        text-shadow: -1px -1px 1px rgba(0,0,0,0.3);
+        text-decoration: none;
+        font-size: 21px;
+        line-height: 50px;
+        font-family: Helveticaneuelight;
+        background: -moz-linear-gradient(0% 100% 90deg, #00CC00, #00E600);
+    	  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#00E600), to(#00CC00));
+        background: -moz-linear-gradient(0% 100% 90deg, #00CC00, #00E600);
+        -pie-background: linear-gradient(#00E600, #00CC00);
+        border: 1px solid #239023;
+        border-radius: 2px;
+        z-index: 1;
+        &:hover {
+          background: #00E600;
+        }
+        &:active {
+          background: -moz-linear-gradient(0% 100% 90deg, #00E600, #00CC00);
+      	  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#00CC00), to(#00E600));
+          background: -moz-linear-gradient(0% 100% 90deg, #00E600, #00CC00);
+          -pie-background: linear-gradient(#00CC00, #00E600);
+        }
+        img {
+          margin-bottom: -8px;
+          margin-right: 10px;
+        }
+      }
+      a.registered {
+        padding: 15px;
+        display: block;
+        width: 250px;
+        height: 50px;
+        color: #fff;
+        text-shadow: -1px -1px 1px rgba(0,0,0,0.3);
+        text-decoration: none;
+        font-size: 21px;
+        line-height: 50px;
+        font-family: Helveticaneuelight;
+        background: -moz-linear-gradient(0% 100% 90deg, #0099FF, #19A3FF);
+    	  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#19A3FF), to(#0099FF));
+        background: -moz-linear-gradient(0% 100% 90deg, #0099FF, #19A3FF);
+        -pie-background: linear-gradient(#19A3FF, #0099FF);
+        border: 1px solid #006BB2;
+        border-radius: 2px;
+        z-index: 1;
+        &:hover {
+          background: #E60000;
+          border: 1px solid #990000;
+        }
+        &:active {
+          background: -moz-linear-gradient(0% 100% 90deg, #E60000, #CC0000);
+      	  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#CC0000), to(#E60000));
+          background: -moz-linear-gradient(0% 100% 90deg, #E60000, #CC0000);
+          -pie-background: linear-gradient(#CC0000, #E60000);
+        }
+        img {
+          margin-bottom: -8px;
+          margin-right: 10px;
+        }
+      }
+      .past {
+        padding: 15px;
+        display: block;
+        width: 250px;
+        height: 50px;
+        color: #777;
+        text-decoration: none;
+        font-size: 21px;
+        line-height: 50px;
+        font-family: Helveticaneuelight;
+        background: #dadada;
+        border-radius: 2px;
+        z-index: 1;
+      }
+    }
+    .details {
+      width: 100%;
+      box-shadow: 0 0 3px rgba(0,0,0,0.3);
+      background: #fff;
+      padding: 25px;
+      margin-top: 2px;
+      padding-bottom: 30px;
+      border-bottom-right-radius: 3px;
+      border-bottom-left-radius: 3px;
+      .date {
+        font-family: Helveticaneuebold;
+        font-size: 15px;
+        line-height: 25px;
+      }
+      .time {
+        font-family: Helveticaneue;
+        font-size: 14px;
+        line-height: 20px;
+        color: #333;
+        margin-bottom: 20px;
+      }
+      .location {
+        padding: 15px 0;
+        margin-bottom: 10px;
+        border-top: 1px solid #dadada;
+        h2 {
+          font-size: 15px;
+          line-height: 25px;
+          padding: 0px;
+          margin: 0px;
+          font-family: Helveticaneuebold;
+          font-weight: normal;
+        }
+        h3 {
+          font-size: 14px;
+          line-height: 20px;
+          padding: 0px;
+          margin: 0px;
+          font-family: Helveticaneue;
+          font-weight: normal;
+          color: #333;
+        }
+        a {
+          font-family: Helveticaneue;
+          color: #ff0000;
+          margin-bottom: 10px;
+        }
+      }
+      .links {
+        padding: 15px 0;
+        border-top: 1px solid #dadada;
+        a {
+          text-decoration: none;
+          span {
+            font-size: 13px;
+            color: #111;
+            padding: 10px 0;
+            cursor:pointer;
+          }
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+        .published {
+          float: right;
+          img {
+            height: 10px;
+          }
+        }
+      }
+    }
+  }
+}
+//Event Index
+.events {
+  clear: both;
+  h2 {
+    font-family: Helveticaneuebold;
+    font-size: 25px;
+    line-height: 35px;
+    width: 100%;
+    border-bottom: 1px solid #dadada;
+    margin: 0;
+    text-align: center;
+  }
+  h5 {
+    font-family: Helveticaneuelight;
+    font-size: 14px;
+    color: #777;
+    padding: 10px 0;
+    margin: 0;
+  }
+}
+.carousal {
+  background-image: url('/assets/bg.png');
+  padding: 30px 0;
+  box-shadow: 0 0 3px rgba(0,0,0,0.4) inset;
+  margin-top: 20px;
+  height: 340px;
+  position: relative;
+  z-index: 0;
+  .wrapper_events {
+    width: 1050px;
+    position:relative;
+    margin-left:auto;
+    margin-right:auto;
+    min-height: 100%;
+    clear: both;
+    height: auto;
+    .event_carousal {
+      float: left;
+      width: 300px;
+      height: 280px;
+      margin: 0 25px;
+      background: #fff;
+      box-shadow: 0 0 3px rgba(0,0,0,0.4);
+      cursor: pointer;
+      &:first-child {
+        margin-left: 0px;
+      }
+      &:hover {
+        box-shadow: 0 0 5px rgba(0,0,0,0.6);
+        -webkit-transition: .3s;
+        .image {
+          box-shadow: 0 0 5px rgba(0,0,0,0.6);
+          -webkit-transition: .3s;
+        }
+      }
+      .image {
+        width: 300px;
+        background: #fff;
+        border: 5px solid #fff;
+        margin-left: -5px;
+        position: relative;
+        box-shadow: 0 0 4px rgba(0,0,0,0.3);
+        img {
+          margin-bottom: -3px;
+          box-shadow: 0 0 2px rgba(0,0,0,0.4) inset;
+        }
+        .date {
+          position: absolute;
+          bottom: 3px;
+          right: 0px;
+          font-family: Helveticaneuebold;
+          color: #fff;
+          font-size: 40px;
+        }
+      }
+      .name {
+        padding: 10px;
+        font-size: 18px;
+        font-family: Helveticaneuebold;
+        a {
+          color: #333;
+          text-decoration: none;
+        }
+      }
+      .location {
+        font-family: Helveticaneuelight;
+        padding: 0 10px;
+        margin-top: -5px;
+        color: #777;
+      }
+    }
+    .events_menu {
+      width: 100%;
+      height: 45px;
+      position: absolute;
+      bottom: -28px;
+      left: 25px;
+      .item {
+        float: left;
+        height: 45px;
+        background: #fafafa;
+        width: 150px;
+        margin-left: 5px;
+        position: relative;
+        cursor: pointer;
+        border: 1px solid #dadada;
+        border-bottom: none;
+        text-align: center;
+        line-height: 45px;
+        font-family: Helveticaneue;
+        color: #555;
+        font-size: 15px;
+        &:first-child {
+          margin-left: 0px;
+        }
+        &:hover {
+          background: #fcfcfc;
+          border: 1px solid #C4C4C4;
+          border-bottom: none;
+          -webkit-transition: background .5s;
+        }
+        &.selected {
+          border: 1px solid #C4C4C4;
+          border-bottom: none;
+          height: 46px;
+          &:hover {
+            background: #fafafa;
+          }
+        }
+      }
+    }
+  }
+}
+.wrapper {
+  .all {
+    padding: 30px 0;
+    .event {
+      height: 130px;
+      padding: 15px 0;
+      border-top: 1px solid #dadada;
+      position: relative;
+      .event_cover {
+        display: none;
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+      &:first-child {
+        border-top: none;
+      }
+      .image {
+        float: left;
+        padding-left: 1px;
+        width: 210px;
+        img {
+          width: 180px;
+          box-shadow: 0 0 2px rgba(0,0,0,0.4);
+          border: 3px solid #fff;
+        }
+      }
+      .details {
+        float: left;
+        width: 799px;
+        padding: 5px 0;
+        .name {
+          padding-bottom: 3px;
+          a {
+            font-family: Helveticaneuebold;
+            font-size: 20px;
+            color: #333;
+            text-decoration: none;
+          }
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+        .date {
+          font-family: Helveticaneue;
+          font-size: 13px;
+          color: #333;
+          padding-bottom: 5px;
+        }
+        .description {
+          font-family: Helveticaneuelight;
+          font-size: 13px;
+          padding-right: 20px;
+          color: #555;
+        }
+      }
+      .datetime {
+        float: left;
+        width: 140px;
+        background: #dadada;
+      }
+    }
+  }
+}

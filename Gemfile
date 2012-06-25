@@ -43,3 +43,9 @@ gem "heroku"
 
 #Thin Server
 gem 'thin'
+
+#Haml
+gem 'haml'
+
+#Paperclip
+gem "paperclip", "~> 3.0"

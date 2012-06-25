@@ -1,0 +1,25 @@
+.wrapper
+  = render :partial => 'dashboard'
+  .menu_right
+    .dashboard
+      .view.past_events
+        %h2
+          %span You've Attended:
+          %span.count #{@past_events.count} Events
+          %span.add_attended Attend an event that isn't below?
+        .add_event
+          =form_for @attendee do |f|
+            =f.select :event_id, options_from_collection_for_select(@published_events, :id, :name)
+            =f.hidden_field :user_id, :value => current_user.id
+            =f.hidden_field :checked_in, :value => true
+            = f.submit "Add Event To Your Attended List"
+        -@past_events.each do |event|
+          -if event.datetime.past?
+            .list_event
+              .image
+                %a( href="/event/#{event.id}")=image_tag event.thumbnail.url(:medium)
+              .info
+                %a.name( href="/event/#{event.id}")= event.name
+                .date= event.datetime.strftime('%A, %B %e, %G')
+                .time= event.datetime.strftime('%l:%M %p')
+                .location= event.location

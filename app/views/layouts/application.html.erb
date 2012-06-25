@@ -2,12 +2,12 @@
 <html>
 <head>
   <title>TEDxYale</title>
-  <%= stylesheet_link_tag    "style", :media => "all" %>
-  <%= javascript_include_tag "jquery", "main", "application" %>
+  <%= stylesheet_link_tag "application", :media => "all" %>
+  <%= javascript_include_tag "jquery", "scrollto", "application" %>
   <%= csrf_meta_tags %>
   <meta property="og:title" content="TEDxYale" /> 
-  <meta property="og:image" content="http://tedxyale.com/assets/logo.png" /> 
-  <meta property="og:description" content="Yale's Hub of Innovation and Discovery" /> 
+  <meta property="og:image" content="/assets/fb_logo.jpg" /> 
+  <meta property="og:description" content="Yale's Hub of Innovation and Discovery. TEDxYale is where students and professionals share their stories and experiences." /> 
   <script type="text/javascript">
 
 	  var _gaq = _gaq || [];
@@ -27,17 +27,26 @@
 <!--Header Start-->
 <div class="header">
 	<div id="header_container">
-		<a href="/"><img src="/assets/logo.png" id="logo"/></a>
-		<!--<a href="/you" class="header_item_link"><div class="header_item" id="item_you">YOU</div></a>-->
-		<% if current_admin %>
-		    <a href="/logout" class="header_item_link"><div class="header_item">Logout</div></a>
-			<a href="/users" class="header_item_link"><div class="header_item"><%= current_admin.name %></div></a>
-			<a href="/registration" class="header_item_link"><div class="header_item">Registration</div></a>
+	  <% if current_user %>
+		  <a href="/dashboard/current_events" class="logo_link"><img src="/assets/logo.png" id="logo"/></a>
+		<% else %>
+		  <a href="/" class="logo_link"><img src="/assets/logo.png" id="logo"/></a>
+		<% end %>
+		<% if current_user %>
+		  <a href="/logout" class="header_item_link"><div class="header_item">Logout</div></a>
+		  <% if current_admin %>
+		    <a href="/wiki" class="header_item_link"><div class="header_item">Wiki</div></a>
+		    <a href="/admin/events" class="header_item_link"><div class="header_item">Admin</div></a>
+			  <a href="/dashboard/current_events" class="header_item_link"><div class="header_item"><%= current_user.name %></div></a>
+			<% else%>
+			  <a href="/dashboard/current_events" class="header_item_link"><div class="header_item"><%= current_user.name %></div></a>
+			<% end %>
 		<% else %> 
 		<a href="/users" class="header_item_link"><div class="header_item">LOGIN</div></a>
 		<% end %>
-		<a href="/join" class="header_item_link"><div class="header_item" id="item_apply">JOIN THE TEAM</div></a>
-		<a href="/salons" class="header_item_link"><div class="header_item" id="item_events">SALONS</div></a>-->
+		<a href="/about" class="header_item_link"><div class="header_item" id="item_events">ABOUT</div></a>
+		<!--<a href="/tv" class="header_item_link"><div class="header_item" id="item_events">TV</div></a>-->
+		<a href="/events" class="header_item_link"><div class="header_item" id="item_events">EVENTS</div></a>
 	</div>
 </div>
 <!--Header End-->
@@ -47,17 +56,24 @@
 
 <!--Body Start-->
 <div class="container">
-	<div id="body_container">
 	<%= yield %>
-	</div>
+	<div class="padding"></div>
 </div>
 <!--Body End-->
 
 <!--Footer Start-->
-<!--<div class="footer">
-	<div id="footer_container">
-	</div>
-</div>-->
+<div class="footer">
+  <div class="footer_container">
+    <div class="item_first">
+      <a class="facebook" href="http://www.facebook.com/TEDxYale"><img src="/assets/facebook.png"/>Connect on Facebook</a>
+      <a class="twitter" href="https://twitter.com/#!/TEDxYale"><img src="/assets/twitter.png"/>Follow on Twitter</a>
+      <p> © TEDxYale 2012</p>
+    </div>
+    <div class="item">
+      <div class="title">What is TEDx?<span>This independent TEDx event is operated under license from TED.</span></div>
+      <p>In the spirit of ideas worth spreading, TED has created a program called TEDx. TEDx is a program of local, self-organized events that bring people together to share a TED-like experience. Our event is called TEDxYale, where x = independently organized TED event. At our TEDxYale event, TEDTalks video and live speakers will combine to spark deep discussion and connection in a small group. The TED Conference provides general guidance for the TEDx program, but individual TEDx events, including ours, are self-organized.</p>
+    </div>
+</div>
 <!--Footer End-->
 
 <!--Gauges Script-->

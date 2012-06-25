@@ -1,3 +1,169 @@
 // Place all the styles related to the Admin controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.admin_menu {
+  width: 180px;
+  background: #fff;
+  -webkit-box-shadow: 0 0 2px rgba(0,0,0,0.4);
+	-moz-box-shadow: 0 0 2px rgba(0,0,0,0.4);
+	box-shadow: 0 0 2px rgba(0,0,0,0.4);
+	position:fixed;
+	.title {
+	  color: #ff0000;
+	  padding: 10px;
+	}
+	.item {
+	  padding: 10px;
+	}
+}
+.admin_container {
+  width: 800px;
+  margin-left: 200px;
+  min-height: 300px;
+  .title {
+    text-transform: uppercase;
+    height: 30px;
+    width: 100%;
+    font-size: 22px;
+    font-weight: bold;
+  }
+  .form {
+    width: 550px;
+    float: left;
+    #event_header {
+      background: transparent;
+    }
+  }
+  .list {
+    width: 200px;
+    float: left;
+  }
+}
+.index {
+  
+}
+.events {
+  .create_event {
+    float: right;
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+  .header_row {
+    height: 30px;
+    background: #333;
+    .label {
+      float:left;
+      color: #fff;
+      padding: 5px;
+      line-height:20px;
+    }
+    .name {
+      width: 240px;
+    }
+    .location {
+      width: 250px;
+    }
+    .date {
+      width: 190px;
+    }
+    .attending {
+      width: 70px;
+    }
+  }
+  .event {
+    width: 800px;
+    min-height: 30px;
+    height: auto;
+    border-bottom: 1px solid #dadada;
+    cursor:pointer;
+    line-height: 20px;
+    padding: 0px;
+    &:hover {
+      background: #eee;
+    }
+    .name, .location, .date, .attending {
+      padding: 5px;
+      float: left;
+    }
+    .name {
+      width: 240px;
+      img {
+        height: 10px;
+      }
+    }
+    .location {
+      width: 250px;
+    }
+    .date {
+      width: 190px;
+    }
+    .attending {
+      width: 80px;
+    }
+  }
+}
+.finance {
+  
+}
+.users {
+  .header_row {
+    height: 30px;
+    background: #333;
+    .label {
+      float:left;
+      color: #fff;
+      padding: 5px;
+      line-height:20px;
+    }
+    .name {
+      width: 200px;
+    }
+    .email {
+      width: 230px;
+    }
+    .affiliation {
+      width: 140px;
+    }
+    .year, .admin {
+      width: 60px;
+    }
+  }
+  .user {
+    width: 800px;
+    height: 30px;
+    border-bottom: 1px solid #dadada;
+    cursor: pointer;
+    .name {
+      float: left;
+      width: 200px;
+      padding: 5px;
+      line-height: 20px;
+    }
+    .email {
+      float: left;
+      width: 230px;
+      padding: 5px;
+      line-height: 20px;
+    }
+    .affiliation {
+      float: left;
+      width: 140px;
+      padding: 5px;
+      line-height: 20px;
+    }
+    .year, .admin {
+      float: left;
+      width: 60px;
+      padding: 5px;
+      line-height: 20px;
+    }
+    &:hover {
+      background: #eee;
+    }
+  }
+}
+.wiki {
+  
+}

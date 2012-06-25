@@ -40,3 +40,9 @@ gem 'bcrypt-ruby', :require => 'bcrypt'
 
 #Heroku
 gem "heroku"
+
+#Thin Server
+gem 'thin'
+
+#Haml
+gem 'haml'

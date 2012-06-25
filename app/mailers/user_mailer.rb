@@ -1,9 +1,9 @@
 class UserMailer < ActionMailer::Base
-  default :from => "info@tedxyale.com"
- 
+  default from: "curator@tedxyale.com"
+  
   def welcome_email(user)
-    @user = user
-    @url  = "http://tedxyale.com"
-    mail(:to => user.email, :subject => "TEDxYale Salon Confirmation")
-  end
+      @user = user
+      @url  = "http://tedxyale.com/login"
+      mail(:to => user.email, :subject => "Welcome to TEDxYale")
+    end
 end

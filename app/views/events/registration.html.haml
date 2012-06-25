@@ -1,0 +1,11 @@
+.wrapper
+  .error_explanation
+  .registration_back
+    %a( href= "/events/#{@event.id}/edit") Back to #{@event.name}
+    / = link_to "Back to #{@event.name}", "/events/#{@event.id}/edit"
+  .registration_box
+    - @checked_out_users.each do |user|
+      .registration_user
+        .registration_user_name= user.name
+        = link_to "Check In", check_in_attendees_path(:user_id => user, :event_id => @event.id), :method => :put, :class => "registration_user_check-in"
+  .index_footer

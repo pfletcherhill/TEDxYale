@@ -1,0 +1,52 @@
+// Place all the styles related to the About controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.wrapper {
+  .about_title {
+    font-family: Helveticaneuebold;
+    font-size: 25px;
+    line-height: 35px;
+    width: 100%;
+    border-bottom: 1px solid #dadada;
+    margin: 0;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  .left {
+    width: 280px;
+    margin-right: 20px;
+    float: left;
+    ul {
+      list-style-type: none;
+      padding: 0px;
+      li {
+        font-family: Helveticaneuebold;
+        border-bottom: 1px solid #DADADA;
+        font-size: 15px;
+        position: relative;
+        z-index: 0;
+        cursor: pointer;
+        color: #333;
+        text-decoration: none;
+        padding: 10px;
+        &:hover {
+          background: #eee;
+          background-image: url('/assets/menu_arrow.png');
+          background-repeat: no-repeat;
+          background-position: 265px;
+          background-size: 7px;
+        }
+      }
+    }
+  }
+  .right {
+    width: 700px;
+    float: left;
+    h3 {
+      font-family: Helveticaneuebold;
+    }
+    p {
+      font-family: Helveticaneuelight;
+    }
+  }
+}

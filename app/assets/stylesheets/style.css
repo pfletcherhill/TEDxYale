@@ -1,199 +1,6 @@
 /*TEDxYale Stylesheet*/
 /*By Paul Fletcher-Hill*/
 
-/*General Styling*/
-body {
-	padding:0px;
-	margin:0px;
-	border:0px;
-	background:#fafafa;
-}
-.header {
-	width:100%;
-	height:50px;
-	background:#1C2025;
-	-webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.2);
-	-moz-box-shadow: 0 1px 3px rgba(0,0,0,0.2);
-	box-shadow: 0 1px 3px rgba(0,0,0,0.2);
-	position:fixed;
-	top:0px;
-	left:0px;
-	z-index:100;
-	border-bottom:1px solid #aaa;
-}
-.container {
-	height:480px;
-	width:100%;
-	margin-top:52px;
-	padding-top:20px;
-	background:#fafafa;
-}
-#body_container {
-	width:1000px;
-	height:460px;
-	position:relative;
-	margin-left:auto;
-	margin-right:auto;
-}
-.footer {
-	width:100%;
-	height:100px;
-	background:#fff;
-	position:absolute;
-	bottom:0px;
-	left:0px;
-}
-
-/*Header Styling*/
-#header_container {
-	height:50px;
-	width:100%;
-}
-#logo {
-	height:36px;
-	padding:7px 15px 7px 15px;
-	cursor:pointer;
-	/*-webkit-box-shadow: 0 0px 4px rgba(0,0,0,0.2);
-	-moz-box-shadow: 0 0px 4px rgba(0,0,0,0.2);
-	box-shadow: 0 0px 4px rgba(0,0,0,0.2);*/
-}
-#logo:hover {
-	padding:4px 12px 4px 12px;
-	border:3px solid #fff;
-	/*background:#000;*/
-}
-.header_item {
-	padding:15px 30px 15px 30px;
-	border-right:1px solid #aaa;
-	line-height:20px;
-	font-size:16px;
-	float:right;
-	cursor:pointer;
-	font-family:helvetica;
-	color:#fff;
-}
-.header_item_link {
-	text-decoration:none;
-	text-transform:uppercase;
-}
-.header_item:hover {
-	padding:12px 28px 12px 27px;
-	margin:0px;
-	border:3px solid #fff;
-}
-/*Body Styling*/
-.events_box {
-	width:470px;
-	height:530px;
-	position:absolute;
-	top:0px;
-	left:0px;
-	background:#fff;
-	padding:10px;
-	-webkit-box-shadow: 0 0px 3px rgba(0,0,0,0.2);
-	-moz-box-shadow: 0 0px 3px rgba(0,0,0,0.2);
-	box-shadow: 0 0px 3px rgba(0,0,0,0.2);
-}
-.join_box {
-	width:470px;
-	height:530px;
-	position:absolute;
-	top:0px;
-	left:510px;
-	background:#fff;
-	padding:10px;
-	-webkit-box-shadow: 0 0px 3px rgba(0,0,0,0.2);
-	-moz-box-shadow: 0 0px 3px rgba(0,0,0,0.2);
-	box-shadow: 0 0px 3px rgba(0,0,0,0.2);
-}
-.home_label {
-	font-size:12px;
-	line-height:14px;
-	color:#444;
-	font-family:helvetica;
-	font-weight:bold;
-}
-.home_line {
-	width:100%;
-	height:1px;
-	border:0px;
-	margin:0px;
-	padding:0px;
-	background:#444;
-}
-.events_image {
-	width:470px;
-	height:300px;
-	background:#dadada;
-	margin-top:10px;
-}
-.event_info {
-	width:490px;
-	font-size:40px;
-	line-height:50px;
-	font-family: "museo-slab-1", "museo-slab-2", Georgia, "Times New Roman", serif;
-	color:#1C2025;
-	margin-top:10px;
-}
-.home_button {
-	color:#fff;
-	margin-top:20px;
-	padding-left:20px;
-	padding-right:20px;
-	padding-top:10px;
-	padding-bottom:10px;
-	font-size:40px;
-	line-height:50px;
-	border-radius:10px;
-	text-align:center;
-	cursor:pointer;
-	text-shadow: 0 -1px rgba(0, 0, 0, 0.3);
-	font-family: "museo-slab-1", "museo-slab-2", Georgia, "Times New Roman", serif;
-	background: -moz-linear-gradient(0% 100% 90deg, #C00, red);
-	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(red), to(#C00));
-	background: -moz-linear-gradient(0% 100% 90deg, #C00, red);
-	-pie-background: linear-gradient(#FF0000, #CC0000);
-	-webkit-background-clip: padding-box;
-	-webkit-box-shadow: 0 1px 2px rgba(0,0,0,0.6);
-	-moz-box-shadow: 0 1px 2px rgba(0,0,0,0.6);
-	box-shadow: 0 1px 2px rgba(0,0,0,0.6);
-}
-.home_button:hover {
-	background: -moz-linear-gradient(0% 100% 90deg, red, red);
-	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(red), to(red));
-	background: -moz-linear-gradient(0% 100% 90deg, red, red);
-	-pie-background: linear-gradient(#FF0000, #FF0000);
-	-webkit-box-shadow: 0 2px 3px rgba(0,0,0,0.6);
-	-moz-box-shadow: 0 2px 3px rgba(0,0,0,0.6);
-	box-shadow: 0 2px 3px rgba(0,0,0,0.6);
-}
-
-/*Event Styling*/
-.event_description {
-	width:700px;
-	height:500px;
-	position:absolute;
-	top:0px;
-	left:0px;
-}
-.event_registration {
-	height:500px;
-	width:260px;
-	position:absolute;
-	top:0px;
-	left:720px;
-	padding:10px;
-	background:#fff;
-	-webkit-box-shadow: 0 0px 3px rgba(0,0,0,0.2);
-	-moz-box-shadow: 0 0px 3px rgba(0,0,0,0.2);
-	box-shadow: 0 0px 3px rgba(0,0,0,0.2);
-}
-
-.form_header {
-	font-size:30px;
-	text-shadow: 0 -1px rgba(0, 0, 0, 0.3);
-	font-family: "museo-slab-1", "museo-slab-2", Georgia, "Times New Roman", serif;
-}
 /*Join Styling*/
 .join_header {
 	width:1000px;
@@ -317,15 +124,15 @@ body {
 	font-size:13px;
 	line-height:18px;
 }
-.selected {
-	background: -moz-linear-gradient(0% 100% 90deg, #fff, #fafafa);
-	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#fafafa), to(#fff));
-	background: -moz-linear-gradient(0% 100% 90deg, #fff, #fafafa);
-	-pie-background: linear-gradient(#fafafa, #fff);
-	-webkit-box-shadow: 0 0px 3px rgba(0,0,0,0.2);
-	-moz-box-shadow: 0 0px 3px rgba(0,0,0,0.2);
-	box-shadow: 0 0px 3px rgba(0,0,0,0.2);
-}
+/*.selected {
+  background: -moz-linear-gradient(0% 100% 90deg, #fff, #fafafa);
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#fafafa), to(#fff));
+  background: -moz-linear-gradient(0% 100% 90deg, #fff, #fafafa);
+  -pie-background: linear-gradient(#fafafa, #fff);
+  -webkit-box-shadow: 0 0px 3px rgba(0,0,0,0.2);
+  -moz-box-shadow: 0 0px 3px rgba(0,0,0,0.2);
+  box-shadow: 0 0px 3px rgba(0,0,0,0.2);
+}*/
 #comm_pr_item {
 	border-top-left-radius:10px;
 	border-bottom-left-radius:10px;
@@ -959,16 +766,6 @@ body {
 	background: -moz-linear-gradient(0% 100% 90deg, #812000, #8F2400);
 	-pie-background: linear-gradient(#8F2400, #812000);
 }
-.login_input, #password {
-	width:440px;
-	height:40px;
-	padding:10px;
-	font-family:arial;
-	font-size:30px;
-	line-height:40px;
-	color:#8F2400;
-	margin-top:5px;
-}
 .login_label {
 	font-size:20px;
 	color:#444;
@@ -1299,6 +1096,7 @@ body {
 	color:#E60000;
 	background:#fafafa;
 	border:1px solid #dadada;
+	outline: none;
 }
 .subscribe_input:hover {
 	border:1px solid #E60000;

@@ -1,0 +1,11 @@
+.wrapper
+  = render :partial => 'menu'
+  .menu_right.has_list
+    .wiki
+      -@wikis.each do |wiki|
+        .title
+          = wiki.title
+          %a( href="/posts/#{wiki.id}/edit") Edit This Entry
+        .body=wiki.body.html_safe
+.padding
+      

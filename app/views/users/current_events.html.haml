@@ -1,0 +1,19 @@
+.wrapper
+  = render :partial => 'dashboard'
+  .menu_right
+    .dashboard
+      .view.current_events
+        %h2 
+          %span You're Signed Up For:
+          %span.count #{@future_events.count} Events
+        -@future_events.each do |event|
+          -if event.datetime.past?
+          -else
+            .list_event
+              .image
+                %a( href="/event/#{event.id}")=image_tag event.thumbnail.url(:medium)
+              .info
+                %a.name( href="/event/#{event.id}")= event.name
+                .date= event.datetime.strftime('%A, %B %e, %G')
+                .time= event.datetime.strftime('%l:%M %p')
+                .location= event.location

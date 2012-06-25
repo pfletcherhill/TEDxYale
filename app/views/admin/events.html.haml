@@ -1,0 +1,26 @@
+.wrapper
+  = render :partial => 'menu'
+
+  .admin_container.events
+    .title Events (#{@events_number})
+    .create_event= link_to "Create Event", "/events/new"
+    .header_row
+      .label.name Name
+      .label.location Location
+      .label.date Date
+      .label.attending Attending
+    - @events.each do |event|
+      =link_to "/events/#{event.id}/edit" do
+        .event
+          -if event.published == false
+            .name
+              %img( src='/assets/lock.png')
+              %span= event.name
+          -else
+            .name= event.name
+          .location= event.location
+          - if event.datetime
+            .date= event.datetime.strftime('%A, %b. %d %Y')
+          - else
+            .date
+          .attending= event.users.count

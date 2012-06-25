@@ -1,0 +1,34 @@
+.wrapper
+  = render :partial => '/admin/menu'
+
+  .admin_container
+    =form_for @event do |f|
+      .form
+        %p Event Name:
+        %p= f.text_field :name
+    
+        %p Event Description:
+        %p= f.text_area :description
+        %p Speakers
+        -if @speakers
+          - @speakers.each do |speaker|
+            .speaker
+              .name= speaker.name
+              .bio= speaker.bio
+        %p Event Location:
+        %p= f.text_field :location
+        %p Location Address:
+        %p= f.text_field :location_address
+        %p City:
+        %p= f.text_field :location_city
+        %p State:
+        %p= f.select :location_state, options_for_select(us_states, @event.location_state)
+        %p Zipcode:
+        %p= f.text_field :location_zipcode
+        %p Location URL (Google Maps):
+        %p= f.text_field :location_url
+        %p Date and Time:
+        %p= datetime_select("event","datetime", :start_year => 2011, :order => [:month, :day, :year])
+        %p Image Upload:
+        %p= f.file_field :image
+        %p= f.submit "Create Event"

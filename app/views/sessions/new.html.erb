@@ -1,16 +1,22 @@
-<div class="login_container">
-	<div class="login_header">Administrator Login </div>
-	<div class="login_form">  
-	<%= form_tag sessions_path do %>  
-	  <div class="login_field">  
-		<div class="login_label">Email:</div>
-		<%= text_field_tag :email, params[:email], :class => "login_input" %>  
-	  </div>  
-	  <div class="login_field">  
-		<div class="login_label">Password:</div>
-		<%= password_field_tag :password %>  
-	  </div>  
-	  <div><%= submit_tag "Login", :class => "login_button" %></div>  
-	<% end %>
-	</div>
+<div class="wrapper">
+  <div class="subscribe_box">
+  	<div class="event_label_header">SIGN IN TO YOUR TEDxYALE ACCOUNT</div>
+  	<hr class="event_label_line"/>
+  	<%= form_tag sessions_path do %>
+	  
+  	  <div class="subscribe_field">
+  		<span class="subscribe_field_label">Email Address:</span>
+  		<%= text_field_tag :email, params[:email], :class => "subscribe_input" %>
+  	  </div>
+  	  
+  	  <div class="subscribe_field">
+  		<span class="subscribe_field_label">Password:</span>
+  		<%= password_field_tag :password, params[:password], :class => "subscribe_input" %>
+  	  </div>
+	  
+  	  <div class="subscribe_actions">
+  		<%= submit_tag "Login", :class => "subscribe_submit"%>
+  	  </div>
+  	<% end %>
+  </div>
 </div>

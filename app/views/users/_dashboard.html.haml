@@ -1,0 +1,15 @@
+.menu_left
+  .menu
+    .title
+      .image
+      .name= @user.name
+    .item.current_events
+      %a( href="/dashboard/current_events" ) Current Events
+    .item.past_events
+      %a( href="/dashboard/attended_events" ) Attended Events
+    .item.preferences
+      %a( href="/dashboard/preferences" ) Preferences
+  %button.attend
+    %a( href="/events" )
+      %span.plus +
+      %span Attend an Event

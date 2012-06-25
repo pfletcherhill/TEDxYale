@@ -1,0 +1,22 @@
+.wrapper
+  = render :partial => 'menu'
+
+  .admin_container.users
+    .title Users (#{@users_number})
+    .header_row
+      .label.name Name
+      .label.email Email
+      .label.affiliation Affiliation
+      .label.year Year
+      .label.status Status
+    - @users.each do |user|
+      .user
+        .name= user.name
+        .email= user.email
+        .affiliation= user.affiliation
+        .year= user.year
+        - if user.admin == 'a'
+          .admin Team
+        -else
+          .admin User
+        

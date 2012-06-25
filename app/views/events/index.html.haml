@@ -1,0 +1,31 @@
+.wrapper
+  .events
+    %h2 TEDxYale Events
+    %h5 TEDxYale is all about events. From our flagship, annual conference to monthly salons, we organize events to engage the Yale community and to provide a forum for spreading ideas. 
+.carousal
+  .wrapper_events
+    -@carousals.each do |event|
+      %a(href='/events/#{event.id}')
+        .event_carousal
+          .image
+            =image_tag event.thumbnail.url(:medium)
+            .date= event.datetime.strftime('%m.%e.%g')
+          .name= link_to "#{event.name}", "/events/#{event.id}"
+          .location= event.location
+    .events_menu
+      .item.all_events.selected All Events
+      .item.salons Salons
+      .item.conferences Conferences
+.wrapper
+  .all
+    -@events.each do |event|
+      .event{:class => event.sort}
+        .event_cover{:class => event.sort}
+        .image
+          %a( href='/events/#{event.id}' )=image_tag event.thumbnail.url(:medium)
+        .details
+          .name= link_to "#{event.name}", "/events/#{event.id}"
+          .date= event.datetime.strftime('%A, %B %e, %G')
+          .description= event.description
+        
+        

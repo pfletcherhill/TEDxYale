@@ -11,3 +11,8 @@
  *= require_self
  *= require_tree .
 */
+
+@font-face {
+  src: url('/assets/HelveticaNeueItalic.ttf');
+  font-family: 'Helvetica Neue'
+}

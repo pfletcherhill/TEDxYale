@@ -1,0 +1,25 @@
+.wrapper
+  = render :partial => 'dashboard'
+  .menu_right
+    .dashboard
+      .view.preferences
+        %h2 Preferences
+        =form_for @user do |f|
+          -if @user.errors.any?
+            =@user.errors.full_messages.each do |msg|
+              %p= msg
+          .form
+            .item
+              .label Full Name:
+              = f.text_field :name, :value => @user.name
+            .item
+              .label Email:
+              = f.text_field :email, :value => @user.email
+            .item
+              .label Yale Affiliation (if applicable):
+              = f.text_field :affiliation, :value => @user.affiliation
+            .item
+              .label Graduation Year:
+              = f.text_field :year, :value => @user.year
+            
+            = f.submit "Update Preferences"

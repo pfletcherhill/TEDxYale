@@ -1,0 +1,8 @@
+.wrapper
+  = render :partial => 'menu'
+  .menu_right.no_list
+    =form_for @wiki do |f|
+      =f.text_field :title, :class => "wiki_title"
+      %h5 Remember to use html
+      =f.text_area :body, :class => "wiki_body"
+      =f.submit "Add Wiki", :class => "wiki_submit"

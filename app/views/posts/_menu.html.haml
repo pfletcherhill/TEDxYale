@@ -1,0 +1,14 @@
+.menu_left
+  .menu
+    .title
+      .wiki_image
+      .name TEDxYale Wiki
+    -@wikis.each do |wiki|
+      .item{:class => wiki.title.parameterize} 
+        %span= wiki.title
+    .item.return
+      %a(href="/wiki") Return to Wiki
+  %button.attend
+    %a( href="/wiki/new" )
+      %span.plus +
+      %span Add a Wiki Entry

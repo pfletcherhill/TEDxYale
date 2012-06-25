@@ -49,7 +49,8 @@ test:
 production:
   adapter: postgresql
   encoding: unicode
-  database: tedxyale_production
+  host: ec2-23-23-237-0.compute-1.amazonaws.com
+  database: d5t1384045bh3v
   pool: 5
-  username: tedxyale
+  username: pknwdalomkzpix
   password:
