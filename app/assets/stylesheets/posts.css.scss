@@ -24,6 +24,9 @@
   }
   .menu_right {
     .wiki {
+      background: #fff;
+      padding: 25px 20px;
+      box-shadow: 0 0 4px rgba(0,0,0,0.4);
       .title {
         width: 100%;
         border-bottom: 1px solid #333;
@@ -45,11 +48,15 @@
         }
       }
       .body {
-        margin-bottom: 20px;
+        margin-bottom: 30px;
         width: 100%;
         font-family: Helveticaneue;
         p {
           font-family: Helveticaneue;
+        }
+        h3 {
+          font-family: Helveticaneue;
+          text-decoration: underline;
         }
       }
     }
