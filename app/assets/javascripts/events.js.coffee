@@ -11,7 +11,8 @@ jQuery ->
   $(".all").css("min-height",EventHeight + "px");
   
   $(".item.salons").click ->
-    unless $(this).hasClass "selected"
+    if $(this).hasClass "selected"
+    else
       $(".conference").animate({"opacity":".3"}, 300)
       $(".event_cover.conference").show()
       $(".event_cover.salon").hide()
@@ -20,7 +21,8 @@ jQuery ->
       $(this).addClass "selected"
       
   $(".item.conferences").click ->
-    unless $(this).hasClass "selected"
+    if $(this).hasClass "selected"
+    else
       $(".salon").animate({"opacity":".3"}, 300)
       $(".event_cover.salon").show()
       $(".event_cover.conference").hide()
@@ -29,7 +31,8 @@ jQuery ->
       $(this).addClass "selected"
       
   $(".item.all_events").click ->
-    unless $(this).hasClass "selected"
+    if $(this).hasClass "selected"
+    else
       $(".event").animate({"opacity":"1"}, 300)
       $(".event_cover").hide()
       $('.item').removeClass "selected"
