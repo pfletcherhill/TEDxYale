@@ -29,6 +29,7 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])  
     if @user.save  
       UserMailer.welcome_email(@user).deliver
+      UserMailer.notify_admin_email(@user).deliver
       
       session[:user_id] = @user.id   
       redirect_to "/dashboard/current_events", :notice => "Welcome #{@user.name}!"  
@@ -144,6 +145,7 @@ class UsersController < ApplicationController
     
     if @user.save
       respond_to do |format|
+        UserMailer.promote_email(@user).deliver
         format.html { redirect_to "/admin/users", :notice => "User promoted" }
         format.json { head :no_content }
       end
