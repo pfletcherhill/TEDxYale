@@ -52,3 +52,4 @@ gem "paperclip", "~> 3.0"
 
 #Amazon S3
 gem 'aws-s3'
+gem 'aws-sdk'

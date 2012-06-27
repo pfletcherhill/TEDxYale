@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120625032759) do
+ActiveRecord::Schema.define(:version => 20120627032232) do
 
   create_table "admins", :force => true do |t|
     t.string   "email"
@@ -90,6 +90,7 @@ ActiveRecord::Schema.define(:version => 20120625032759) do
     t.string   "location_state"
     t.string   "location_zipcode"
     t.boolean  "published",              :default => false
+    t.string   "sort"
     t.string   "header_file_name"
     t.string   "header_content_type"
     t.integer  "header_file_size"
@@ -98,7 +99,6 @@ ActiveRecord::Schema.define(:version => 20120625032759) do
     t.string   "thumbnail_content_type"
     t.integer  "thumbnail_file_size"
     t.datetime "thumbnail_updated_at"
-    t.string   "sort"
   end
 
   create_table "posts", :force => true do |t|
