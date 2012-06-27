@@ -5,4 +5,12 @@ require File.expand_path('../application', __FILE__)
 TEDxYale::Application.initialize!
 
 #Mailer method
-#config.action_mailer.delivery_method = :smtp
+ActionMailer::Base.smtp_settings = {
+:user_name => "teamtedxyale",
+:password => "gripa2013",
+:domain => "tedxyale.com",
+:address => "smtp.sendgrid.net",
+:port => 587,
+:authentication => :plain,
+:enable_starttls_auto => true
+}
