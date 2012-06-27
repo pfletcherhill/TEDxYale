@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   def index
-    @wikis = Post.all
+    @wikis = Post.order('title ASC')
   end
   
   def edit
@@ -27,7 +27,11 @@ class PostsController < ApplicationController
     @wiki = Post.new
   end
   
+  def show
+  end
+  
   def create
+    @wikis = Post.all
     @wiki = Post.new(params[:post])
     
     respond_to do |format|
@@ -38,6 +42,16 @@ class PostsController < ApplicationController
         format.html { redirect_to "/wiki/new", notice: 'Better luck next time' }
         format.json { render json: @wiki.errors, status: :unprocessable_entity }
       end
+    end
+  end
+  
+  def destroy
+    @wiki = Post.find(params[:id])
+    @wiki.destroy
+    
+    respond_to do |format|
+      format.html { redirect_to "/wiki", notice: @wiki.title + ' was deleted.' }
+      format.json { head :no_content }
     end
   end
 end

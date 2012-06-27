@@ -74,6 +74,18 @@
       padding: 0px;
       font-family: Helveticaneuelight;
       margin-bottom: 10px;
+      float: left;
+    }
+    span.delete {
+      float: right;
+      font-family: Helveticaneuebold;
+      a {
+        color: #000;
+        text-decoration: none;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
     }
     .wiki_body {
       width: 680px;
