@@ -22,7 +22,7 @@ class AdminController < ApplicationController
   end
   
   def users
-    @users = User.all
+    @users = User.order('name ASC')
     @users_number = @users.count
     
     respond_to do |format|

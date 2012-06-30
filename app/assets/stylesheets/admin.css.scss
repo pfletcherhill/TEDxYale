@@ -4,23 +4,70 @@
 
 .admin_menu {
   width: 180px;
-  background: #fff;
-  -webkit-box-shadow: 0 0 2px rgba(0,0,0,0.4);
-	-moz-box-shadow: 0 0 2px rgba(0,0,0,0.4);
-	box-shadow: 0 0 2px rgba(0,0,0,0.4);
 	position:fixed;
 	.title {
-	  color: #ff0000;
-	  padding: 10px;
+	  color: #e60000;
+	  font-size: 18px;
+	  font-family: Helveticaneuelight;
+	  padding: 10px 15px;
+	  border-bottom: 1px solid #dadada;
 	}
 	.item {
-	  padding: 10px;
+	  border-bottom: 1px solid #dadada;
+	  &.selected {
+	    background: #fafafa;
+	    width: 180px;
+	    border: 1px solid #bbb;
+	    border-right: 0px;
+	    a {
+	      font-size: 16px;
+  	    font-family: Helveticaneuebold;
+  	    color: #333;
+  	    text-decoration: none;
+  	    display: block;
+  	    width: 150px;
+  	    height: 100%;
+  	    padding: 15px;
+  	    &:hover {
+  	      background: #fafafa;
+  	      background-image: none;
+  	    }
+	    }
+	  }
+	  a {
+	    font-size: 14px;
+	    font-family: Helveticaneuebold;
+	    color: #333;
+	    text-decoration: none;
+	    display: block;
+	    width: 150px;
+	    height: 100%;
+	    padding: 12px 15px;
+	    &:hover {
+	      background: #fff;
+        background-image: url('/assets/menu_arrow.png');
+        background-repeat: no-repeat;
+        background-position: 150px;
+        background-size: 7px;
+	    }
+	  }
 	}
 }
 .admin_container {
   width: 800px;
-  margin-left: 200px;
+  margin-left: 180px;
+  padding-left: 20px;
   min-height: 300px;
+  border-left: 1px solid #bbb;
+  hr {
+    height: 100%;
+    width: 1px;
+    position: absolute;
+    border: 0px;
+    background: #BBB;
+    margin: 0px;
+    left: 506px;
+  }
   .title {
     text-transform: uppercase;
     height: 30px;
@@ -108,66 +155,115 @@
   
 }
 .users {
-  .header_row {
-    height: 30px;
-    background: #333;
-    .label {
-      float:left;
-      color: #fff;
-      padding: 5px;
-      line-height:20px;
+  .detail {
+    position: fixed;
+    width: 300px;
+    z-index: 0;
+    img {
+      width: 100px;
+      margin-left: 90px;
+      opacity: 0.6;
+      margin-top: 30px;
     }
-    .name {
-      width: 200px;
+    h5 {
+      color: #dadada;
+      font-family: Helveticaneuebold;
+      font-size: 20px;
+      text-align: center;
     }
-    .email {
-      width: 230px;
-    }
-    .affiliation {
-      width: 140px;
-    }
-    .year, .admin {
-      width: 60px;
+    .item {
+      clear: both;
+      padding: 3px 0;
+      .left {
+        float: left;
+        width: 70px;
+        font-family: Helveticaneuebold;
+      }
+      .right {
+        float: left;
+        width: 210px;
+        font-family: Helveticaneuelight;
+      }
     }
   }
-  .user {
-    width: 800px;
-    height: auto;
-    clear: both;
-    border-bottom: 1px solid #dadada;
-    cursor: pointer;
-    .name {
-      float: left;
-      width: 200px;
-      padding: 5px;
-      line-height: 20px;
+  .index {
+    width: 500px;
+    margin-left: 300px;
+    overflow: hidden;
+    padding-bottom: 50px;
+    .header_row {
+      height: 20px;
+      border-bottom: 1px solid #e60000;
+      .label {
+        float:left;
+        color: #e60000;
+        font-family: Helveticaneuelight;
+        padding: 5px;
+        line-height:10px;
+      }
+      .name {
+        width: 200px;
+        padding-left: 15px;
+      }
+      .count {
+        float: right;
+        font-family: Helveticaneuelight;
+        color: #e60000;
+        font-style: italic;
+        margin-right: 10px;
+      }
     }
-    .email {
-      float: left;
-      width: 230px;
-      padding: 5px;
-      line-height: 20px;
-    }
-    .affiliation {
-      float: left;
-      width: 140px;
-      padding: 5px;
-      line-height: 20px;
-    }
-    .year, .admin {
-      float: left;
-      width: 60px;
-      padding: 5px;
-      line-height: 20px;
-    }
-    .delete {
-      float: left;
-      width: 40px;
-      padding: 5px;
-      line-height: 20px;
-    }
-    &:hover {
-      background: #eee;
+    .user {
+      width: 490px;
+      padding-left: 10px;
+      height: auto;
+      clear: both;
+      border-bottom: 1px solid #dadada;
+      cursor: pointer;
+      overflow: auto;
+      font-family: Helveticaneue;
+      .name {
+        float: left;
+        width: 200px;
+        padding: 8px 5px;
+        line-height: 20px;
+      }
+      .email {
+        float: left;
+        width: 230px;
+        padding: 8px 5px;
+        line-height: 20px;
+      }
+      &:hover {
+        background: #fff;
+      }
+      &.open {
+        background: #fafafa;
+        margin-left: -1px;
+        z-index: 10;
+        position: relative;
+        border-right: 1px solid #dadada;
+        padding-left: 11px;
+        width: 489px;
+        color: #000;
+        cursor: default;
+      }
+      .close {
+        float: left;
+        height: 10px;
+        width: 10px;
+        background-image: url('/assets/x.png');
+        background-repeat: no-repeat;
+        background-size: 10px 10px;
+        background-position: center;
+        margin-top: 13px;
+        margin-left: 20px;
+        display: none;
+        opacity: 0.6;
+        &:hover {
+          opacity: 1;
+        }
+      }
     }
   }
 }
