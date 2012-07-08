@@ -13,7 +13,7 @@ class VideosController < ApplicationController
   end
   
   def index
-    @videos = Video.all
+    @videos = Video.order('speaker ASC')
     
   end
   
