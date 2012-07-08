@@ -14,11 +14,17 @@ jQuery ->
       $('.image .play', this).hide()
       $('.info .title', this).stop().hide(200)
     )
+  $(".player .player_container").hover(
+    ->$('.player_container .close').fadeIn(300)
+    ->$('.player_container .close').fadeOut(300)
+    )
+  $(".close").click ->
+    $(".player_container").html('')
+    
   $(".videos .video").click ->
-      #playerWidth = $(window).width()
-      #playerHeight = playerWidth * 506 / 900
-      code = $(this).attr('code')
-      $(".player").animate({"height":"506px"}, 500)
-      $("body").delay(300).scrollTo(140, 200)
-      $(".player_container").html('<iframe width=900 height=506 src="http://www.youtube.com/embed/' + code + '?rel=0&autoplay=1&showinfo=0" frameborder="0" allowfullscreen ></iframe>')
+    code = $(this).attr('code')
+    $(".player").show().animate({"height":"562px"}, 500)
+    $("body").delay(300).scrollTo(140, 200)
+    $(".player_container").html('<iframe width=1000 height=562 src="http://www.youtube.com/embed/' + code + '?rel=0&autoplay=1&showinfo=0" frameborder="0" allowfullscreen ></iframe>')
+    $(".player_container").append('<div class="close"></div>')
     
