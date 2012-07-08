@@ -5,9 +5,11 @@ jQuery ->
   $(".videos .video").hover(
     ->
       $('.info', this).fadeIn(300)
+      $('.image .play_cover', this).animate({'opacity':'0.3'}, 300)
       $('.image .play', this).show()
     ->
       $('.info', this).stop().fadeOut(300)
+      $('.image .play_cover', this).css('opacity','0')
       $('.image .play', this).hide()
     )
   $(".videos .video").click ->

@@ -59,9 +59,19 @@
         width: 184px;
         height: 104px; 
       }
+      .play_cover {
+        width: 100%;
+        height: 100%;
+        background: #000;
+        opacity: 0;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        z-index: 11;
+      }
       .play {
         display: none;
-        z-index: 11;
+        z-index: 12;
         position: absolute;
         top: 32px;
         left: 80px;
