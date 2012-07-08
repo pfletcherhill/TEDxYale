@@ -5,6 +5,8 @@ jQuery ->
   $(".videos .video").hover(
     ->
       $('.info', this).fadeIn(300)
+      $('.image').css('z-index','5')
+      $('.image', this).css('z-index', '10')
       $('.image .play_cover', this).animate({'opacity':'0.3'}, 300)
       $('.image .play', this).show()
     ->
