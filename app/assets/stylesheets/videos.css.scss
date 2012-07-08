@@ -48,6 +48,7 @@
     height: 104px;
     cursor: pointer;
     position: relative;
+    box-shadow: 0 0 2px rgba(0,0,0,0.3);
     .image {
       position: absolute;
       top: 0px;
@@ -80,13 +81,12 @@
       height: 100px;
       background: #fff;
       box-shadow: 0 0 4px rgba(0,0,0,0.4);
-      padding-top: 114px;
+      padding-top: 124px;
       padding-left: 20px;
       z-index: 9;
       .speaker {
         font-family: Helveticaneuelight;
         color: #000;
-        margin-top: 10px;
       }
       .title {
         font-family: Helveticaneuebold;

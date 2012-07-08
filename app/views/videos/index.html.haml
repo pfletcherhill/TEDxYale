@@ -12,6 +12,7 @@
           =image_tag video.still.url(:small)
           .play
         .info
-          .speaker= video.speaker + ':'
+          -if video.speaker != ''
+            .speaker= video.speaker + ':'
           .title= video.title
           .event= video.event
