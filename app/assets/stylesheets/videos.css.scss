@@ -25,9 +25,15 @@
   width: 100%;
   background: #000;
   height: 0px;
-  iframe {
+  .player_container {
+    width: 900px;
     margin-left: auto;
     margin-right: auto;
+    height: 506px;
+    iframe {
+      margin-left: auto;
+      margin-right: auto;
+    }
   }
 }
 .nav_bar {
@@ -45,7 +51,7 @@
     margin: 10px;
     float: left;
     width: 184px;
-    height: 170px;
+    height: 185px;
     cursor: pointer;
     position: relative;
     .event {
@@ -96,7 +102,7 @@
       	height: 0; 
       	border-top: 20px solid transparent;
       	border-bottom: 20px solid transparent;
-      	border-left: 24px solid #fff;	
+      	border-left: 24px solid #e60000;	
       }
     }
     .info {

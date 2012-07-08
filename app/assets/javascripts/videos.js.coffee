@@ -10,15 +10,15 @@ jQuery ->
       $('.image .play', this).show()
       $('.info .title', this).show(200);
     ->
-      $('.image .play_cover', this).css('opacity','0')
+      $('.image .play_cover', this).stop().css('opacity','0')
       $('.image .play', this).hide()
-      $('.info .title', this).hide(200)
+      $('.info .title', this).stop().hide(200)
     )
   $(".videos .video").click ->
-      playerWidth = $(window).width()
-      playerHeight = playerWidth * 506 / 900
+      #playerWidth = $(window).width()
+      #playerHeight = playerWidth * 506 / 900
       code = $(this).attr('code')
-      $(".player").animate({"height":playerHeight}, 500)
-      $("body").delay(300).scrollTo(160, 200)
-      $(".player").html('<iframe width=' + playerWidth + ' height=' + playerHeight + ' src="http://www.youtube.com/embed/' + code + '?rel=0&autoplay=1&showinfo=0" frameborder="0" allowfullscreen ></iframe>')
+      $(".player").animate({"height":"506px"}, 500)
+      $("body").delay(300).scrollTo(140, 200)
+      $(".player_container").html('<iframe width=900 height=506 src="http://www.youtube.com/embed/' + code + '?rel=0&autoplay=1&showinfo=0" frameborder="0" allowfullscreen ></iframe>')
     
