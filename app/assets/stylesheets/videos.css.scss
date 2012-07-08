@@ -45,16 +45,26 @@
     margin: 10px;
     float: left;
     width: 184px;
-    height: 104px;
+    height: 170px;
     cursor: pointer;
     position: relative;
-    box-shadow: 0 0 2px rgba(0,0,0,0.3);
+    .event {
+      line-height: 11px;
+      font-size: 11px;
+      background: #303030;
+      color: #fff;
+      padding: 8px;
+      width: 168px;
+      font-family: Helveticaneuelight;
+      text-transform: uppercase;
+      box-shadow: 0 0 3px rgba(0,0,0,0.4);
+    }
     .image {
-      position: absolute;
-      top: 0px;
-      left: 0px;
       height: 104px;
       z-index: 10;
+      width: 184px;
+      position: relative;
+      cursor: pointer;
       img {
         width: 184px;
         height: 104px; 
@@ -68,6 +78,7 @@
         top: 0px;
         left: 0px;
         z-index: 11;
+        cursor: pointer;
       }
       .play {
         display: none;
@@ -83,33 +94,23 @@
       }
     }
     .info {
-      display: none;
       position: absolute;
-      top: -10px;
-      left: -20px;
-      width: 184px;
-      height: 100px;
+      top: 130px;
+      width: 168px;
+      padding: 8px;
       background: #fff;
-      box-shadow: 0 0 4px rgba(0,0,0,0.4);
-      padding-top: 124px;
-      padding-left: 20px;
-      padding-right: 20px;
-      z-index: 9;
+      box-shadow: 0 0 3px rgba(0,0,0,0.4);
       .speaker {
-        font-family: Helveticaneuelight;
+        font-family: Helveticaneuebold;
         color: #000;
       }
       .title {
-        font-family: Helveticaneuebold;
+        font-family: Helveticaneuelight;
+        font-style: italic;
         color: #e60000;
         margin:0px;
         font-size: 14px;
-      }
-      .event {
-        font-family: Helveticaneuelight;
-        color: #777;
-        margin: 0px;
-        padding: 0px;
+        display: none;
       }
     }
   }

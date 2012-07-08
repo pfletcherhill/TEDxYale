@@ -4,15 +4,15 @@
 jQuery ->
   $(".videos .video").hover(
     ->
-      $('.info', this).fadeIn(300)
       $('.image').css('z-index','5')
       $('.image', this).css('z-index', '10')
       $('.image .play_cover', this).animate({'opacity':'0.3'}, 300)
       $('.image .play', this).show()
+      $('.info .title', this).show(200);
     ->
-      $('.info', this).fadeOut(300)
       $('.image .play_cover', this).css('opacity','0')
       $('.image .play', this).hide()
+      $('.info .title', this).hide(200)
     )
   $(".videos .video").click ->
       playerWidth = $(window).width()

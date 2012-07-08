@@ -8,12 +8,12 @@
   .videos
     -@videos.each do |video|
       .video{'code' => "#{video.link.split('/')[3]}"}
+        .event= video.event
         .image
           =image_tag video.still.url(:small)
           .play_cover
           .play
         .info
-          -if video.speaker != ''
-            .speaker= video.speaker + ':'
           .title= video.title
-          .event= video.event
+          -if video.speaker != ''
+            .speaker= video.speaker
