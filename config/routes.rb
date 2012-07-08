@@ -80,7 +80,10 @@ TEDxYale::Application.routes.draw do
   
   #TV 
   
-  match "/tv" => "tv#index"
+  resources :videos
+  
+  match "/tv/new" => 'videos#new'  
+  match "/tv" => "videos#index"
   
   #Dashboard
   

@@ -1,0 +1,17 @@
+.wrapper
+  .videos_info
+    %h2 TEDxYale TV
+    %h5 TEDxYale is all about events. From our flagship, annual conference to monthly salons, we organize events to engage the Yale community and to provide a forum for spreading ideas.
+.player
+.wrapper
+  //.nav_bar
+  .videos
+    -@videos.each do |video|
+      .video{'code' => "#{video.link.split('/')[3]}"}
+        .image
+          =image_tag video.still.url(:small)
+          .play
+        .info
+          .speaker= video.speaker + ':'
+          .title= video.title
+          .event= video.event

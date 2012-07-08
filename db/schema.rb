@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120627032232) do
+ActiveRecord::Schema.define(:version => 20120707194929) do
 
   create_table "admins", :force => true do |t|
     t.string   "email"
@@ -108,20 +108,17 @@ ActiveRecord::Schema.define(:version => 20120627032232) do
     t.datetime "updated_at", :null => false
   end
 
-  create_table "presenters", :force => true do |t|
-    t.integer  "speaker_id"
-    t.integer  "event_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
   create_table "speakers", :force => true do |t|
     t.string   "name"
     t.text     "bio"
-    t.string   "image_url"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",             :null => false
+    t.datetime "updated_at",             :null => false
     t.string   "twitter"
+    t.string   "thumbnail_file_name"
+    t.string   "thumbnail_content_type"
+    t.integer  "thumbnail_file_size"
+    t.datetime "thumbnail_updated_at"
+    t.integer  "event_id"
   end
 
   create_table "subscriptions", :force => true do |t|
@@ -141,6 +138,22 @@ ActiveRecord::Schema.define(:version => 20120627032232) do
     t.datetime "created_at",                 :null => false
     t.datetime "updated_at",                 :null => false
     t.string   "year"
+  end
+
+  create_table "videos", :force => true do |t|
+    t.string   "title"
+    t.string   "speaker"
+    t.text     "description"
+    t.string   "affiliation"
+    t.string   "event"
+    t.string   "event_link"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+    t.string   "link"
+    t.string   "still_file_name"
+    t.string   "still_content_type"
+    t.integer  "still_file_size"
+    t.datetime "still_updated_at"
   end
 
 end

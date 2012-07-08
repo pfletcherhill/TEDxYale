@@ -24,37 +24,68 @@ jQuery ->
             """
             <div class='item'>
               <div class="left">Name:</div>
-              <div class="right">#{@user.name}</div>
+              <div class="align_right">#{@user.name}</div>
             </div>
             <div class='item'>
               <div class="left">Email:</div>
-              <div class="right">#{@user.email}</div>
+              <div class="align_right">#{@user.email}</div>
             </div>
             <div class="item">
               <div class="left">Type:</div>
-              <div class="right type"></div>
+              <div class="align_right type"></div>
             </div>
             <div class='item'>
               <div class="left">Affiliation:</div>
-              <div class="right">#{@user.affiliation}</div>
+              <div class="align_right">#{@user.affiliation}</div>
             </div>
             <div class='item'>
               <div class="left">Year:</div>
-              <div class="right">#{@user.year}</div>
+              <div class="align_right">#{@user.year}</div>
             </div>
             <div class="item">
               <div class="left">Events:</div>
-              <div class="right">#{@user.events}</div>
+              <div class="align_right">#{@user.events}</div>
             </div>
             """
           )
           if @user.admin == 'a'
-            $(".right.type").html("Admin")
+            $(".align_right.type").html("Admin")
           else
-            $(".right.type").html("
+            $(".align_right.type").html("
               User <a href='/promote?user_id=#{@user.id}'>(Promote)</a>
             ")
-      
+            
+  #Set list height
+  listHeight = $(window).height() - 310
+  $(".right .list").height(listHeight + 'px')
+  
+  $(".item.speakers span").click ->
+    $(this).hide()
+    $(".item.speakers .new_speaker").show()
+  
+  #Add speaker post
+  ## $(".item.speakers span.add_speaker").click ->
+  #     name = $('.item.speakers input.name').val()
+  #     console.log name
+  #     bio = $('.item.speakers textarea.bio').val()
+  #     console.log bio
+  #     twitter = $('.item.speakers input.twitter').val()
+  #     console.log twitter
+  #     eventId = $('.item.speakers .event_id').val()
+  #     console.log eventId
+  #     $.ajax
+  #       url: '/speakers'
+  #       type: 'POST'
+  #       dataType: 'json'
+  #       data:
+  #         name: { source : name }
+  #         bio: { source : bio }
+  #         twitter: { source : twitter }
+  #         event_id: { source : eventId }
+  #       success: (@speaker) =>
+  #         console.log @speaker.id
+    
+  #Set container height    
   ContainerHeight = $(".admin_container").height()
   $(".detail").css('height', ContainerHeight)    
   

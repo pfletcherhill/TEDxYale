@@ -1,0 +1,23 @@
+.wrapper
+  = render :partial => '/admin/menu'
+  
+  .admin_container.tv
+    =form_for @video do |f|
+      .form
+        %p Title:
+        = f.text_field :title
+        %p Youtube Link:
+        = f.text_field :link
+        %p Speaker:
+        = f.text_field :speaker
+        %p Speaker Affiliation:
+        = f.text_field :affiliation
+        %p Event:
+        = f.text_field :event
+        %p Event Link
+        = f.text_field :event_link
+        %p Description:
+        = f.text_area :description
+        %p Still Upload:
+        %p= f.file_field :still
+        %p= f.submit "Add Video"

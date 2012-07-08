@@ -15,8 +15,6 @@ class EventsController < ApplicationController
   def index
     @events = Event.where({ :published => true }).order("datetime DESC")
     @carousals = @events.limit(3).reverse
-    #@future_events = @events.where( :datetime < Datetime.current )
-    #@past_events = @events.where( :datetime > Datetime.current )
     @salons = @events.where({ :type => '1' })
     @conferences = @events.where({ :type => '2' })
     @past_events = @events.all(:conditions => ['datetime < ?', DateTime.now])
@@ -59,6 +57,7 @@ class EventsController < ApplicationController
     @users = @event.users
     @users_count = @users.count
     @speakers = @event.speakers
+    @speaker = Speaker.new
     
     @checked_in = Attendee.where({ :event_id => @event.id, :checked_in => true })
     @checked_in_users = @checked_in.map { |attendee| attendee.user }

@@ -2,4 +2,20 @@
   = render :partial => 'menu'
 
   .admin_container.tv
-    .title TV
+    =link_to "New Video", "/tv/new"
+    %table
+      %tbody
+        %tr
+          %th Title
+          %th Speaker
+          %th Event
+          %th
+          %th
+      -@videos.each do |video|
+        %tr
+          %td= video.title
+          %td= video.speaker
+          %td= video.event
+          %td= link_to "Edit", "/videos/#{video.id}/edit"
+          %td= link_to "Delete", video, confirm: 'Are you sure you want to delete this video?', method: :delete
+      

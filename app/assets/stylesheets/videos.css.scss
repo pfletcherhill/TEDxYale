@@ -1,0 +1,105 @@
+// Place all the styles related to the Videos controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.videos_info {
+  clear: both;
+  padding-bottom: 15px;
+  h2 {
+    font-family: Helveticaneuebold;
+    font-size: 25px;
+    line-height: 35px;
+    width: 100%;
+    border-bottom: 1px solid #dadada;
+    margin: 0;
+    text-align: center;
+  }
+  h5 {
+    font-family: Helveticaneuelight;
+    font-size: 14px;
+    color: #777;
+    padding: 10px 0;
+    margin: 0;
+  }
+}
+.player {
+  width: 100%;
+  background: #000;
+  height: 0px;
+  iframe {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+.nav_bar {
+  background: #fff;
+  width: 1010px;
+  height: 50px;
+  box-shadow: 0 0 3px rgba(0,0,0,0.4);
+  margin: 20px 0;
+}
+.videos {
+  margin: 20px 0;
+  width: 1020px;
+  margin-left: -10px;
+  .video {
+    margin: 10px;
+    float: left;
+    width: 184px;
+    height: 104px;
+    cursor: pointer;
+    position: relative;
+    .image {
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      height: 104px;
+      z-index: 10;
+      img {
+        width: 184px;
+        height: 104px; 
+      }
+      .play {
+        display: none;
+        z-index: 11;
+        position: absolute;
+        top: 32px;
+        left: 80px;
+        width: 0; 
+      	height: 0; 
+      	border-top: 20px solid transparent;
+      	border-bottom: 20px solid transparent;
+      	border-left: 24px solid #000;	
+      }
+    }
+    .info {
+      display: none;
+      position: absolute;
+      top: -10px;
+      left: -20px;
+      width: 204px;
+      height: 100px;
+      background: #fff;
+      box-shadow: 0 0 4px rgba(0,0,0,0.4);
+      padding-top: 114px;
+      padding-left: 20px;
+      z-index: 9;
+      .speaker {
+        font-family: Helveticaneuelight;
+        color: #000;
+        margin-top: 10px;
+      }
+      .title {
+        font-family: Helveticaneuebold;
+        color: #e60000;
+        margin:0px;
+        font-size: 14px;
+      }
+      .event {
+        font-family: Helveticaneuelight;
+        color: #777;
+        margin: 0px;
+        padding: 0px;
+      }
+    }
+  }
+}

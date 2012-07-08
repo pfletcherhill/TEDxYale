@@ -1,62 +1,94 @@
 .wrapper
   = render :partial => '/admin/menu'
 
-  .admin_container
-    =link_to "Event Page", "/events/#{@event.id}"
-    -if @event.published == false
-      =link_to "Publish This Event", publish_events_path(:id => @event.id), :method => :put
-    -else
-      =link_to "Unpublish This Event", unpublish_events_path(:id => @event.id), :method => :put
-    .registration_link= link_to "Registration", "/events/#{@event.id}/registration"
-    =link_to 'Delete Event', "/events/#{@event.id}", confirm: 'Are you sure you want to delete this event?', method: :delete
-    =form_for @event do |f|
-      .form
-        %p Event Name:
-        %p= f.text_field :name, :value => @event.name
-    
-        %p Event Description:
-        %p= f.text_area :description, :value => @event.description
-        %p Speakers
-        - @speakers.each do |speaker|
-          .speaker
-            .name= speaker.name
-            .bio= speaker.bio
-        %a( href="/speakers/new") Add a Speaker
-        %p Event Location:
-        %p= f.text_field :location, :value => @event.location
-        %p Location Address:
-        %p= f.text_field :location_address, :value => @event.location_address
-        %p City:
-        %p= f.text_field :location_city, :value => @event.location_city
-        %p State:
-        %p= f.select :location_state, options_for_select(us_states, @event.location_state)
-        %p Zipcode:
-        %p= f.text_field :location_zipcode, :value => @event.location_zipcode
-        %p Location URL (Google Maps):
-        %p= f.text_field :location_url, :value => @event.location_url
-        %p Date and Time:
-        -if @event.datetime
-          %p= datetime_select("event","datetime", :start_year => 2011, :order => [:month, :day, :year], :default => { :month => @event.datetime.month, :day => @event.datetime.day, :year => @event.datetime.year, :hour => @event.datetime.hour, :min => @event.datetime.min })
+  .admin_container.events
+    .left
+      =form_for @event do |f|
+        .form
+          .item
+            %label Event Name:
+            = f.text_field :name, :value => @event.name
+          .item  
+            %label Event Description:
+            = f.text_area :description, :value => @event.description
+          .item.speakers
+            %label Speakers
+            - @speakers.each do |speaker|
+              .speaker
+                .name= speaker.name
+                .bio= speaker.bio
+            %span Add a Speaker
+            .new_speaker
+              =form_for @speaker do |s|
+                =s.text_field :name, :placeholder => "Speaker Name"
+                =s.text_area :bio, :placeholder => "Speaker Bio"
+                =s.text_field :twitter, :placeholder => "Twitter Tag"
+                =s.hidden_field :event_id, :value => @event.id
+                =button_to "Add Speaker", :action => "/speakers/create", :remote => true, :form => { "data-type" => "json" }
+          .item
+            %label Event Location:
+            = f.text_field :location, :value => @event.location
+          .item
+            %label Location Address:
+            = f.text_field :location_address, :value => @event.location_address
+          .item
+            %label City:
+            = f.text_field :location_city, :value => @event.location_city
+          .item
+            %label State:
+            = f.select :location_state, options_for_select(us_states, @event.location_state)
+          .item
+            %label Zipcode:
+            = f.text_field :location_zipcode, :value => @event.location_zipcode
+          .item
+            %label Location URL (Google Maps):
+            = f.text_field :location_url, :value => @event.location_url
+          .item
+            %label Date and Time:
+            %br
+            -if @event.datetime
+              = datetime_select("event","datetime", :start_year => 2011, :order => [:month, :day, :year], :default => { :month => @event.datetime.month, :day => @event.datetime.day, :year => @event.datetime.year, :hour => @event.datetime.hour, :min => @event.datetime.min })
+            -else
+              = datetime_select("event","datetime", :start_year => 2011, :order => [:month, :day, :year] )
+          .item
+            -if @event.header.url(:large)
+              %label Header Image:
+              .image
+                =image_tag @event.header.url(:large)
+            %label Header Upload:
+            = f.file_field :header
+          .item
+            -if @event.thumbnail.url(:medium)
+              %label Thumbnail Image:
+              .image
+                =image_tag @event.thumbnail.url(:medium)
+            %label Thumbnail Upload:
+            = f.file_field :thumbnail
+          .item
+            = f.submit "Update Event"
+    .right
+      .nav
+        =link_to "Event Page", "/events/#{@event.id}"
+        -if @event.published == false
+          =link_to "Publish This Event", publish_events_path(:id => @event.id), :method => :put
         -else
-          %p= datetime_select("event","datetime", :start_year => 2011, :order => [:month, :day, :year] )
-        %p Header Upload:
-        %p= f.file_field :header
-        %p Thumbnail Upload:
-        %p= f.file_field :thumbnail
-        %p= f.submit "Update Event"
-    .list
-      %p Attendees (#{@users_count}):
-      - @users.each do |user|
-        .user
-          .top
-            .name= user.name
-            / .check_in= link_to "Check In", check_in_attendees_path(:user_id => user, :event_id => @event.id), :method => :put
-          .bottom
-            .email= user.email
-            .affiliation= user.affiliation
-            .year= user.year
-      %p Checked In (#{@checked_in_count}):
-      - @checked_in_users.each do |user|
-        .user
-          .top
-            .name= user.name
+          =link_to "Unpublish This Event", unpublish_events_path(:id => @event.id), :method => :put
+        = link_to "Registration", "/events/#{@event.id}/registration"
+        =link_to 'Delete Event', "/events/#{@event.id}", confirm: 'Are you sure you want to delete this event?', method: :delete
+      .list_header
+        .attendees.active Attendees (#{@users_count})
+        .checked_in.inactive Checked In (#{@checked_in_count}) 
+      .list
+        - @users.each do |user|
+          .user
+            .top
+              .name= user.name
+              / .check_in= link_to "Check In", check_in_attendees_path(:user_id => user, :event_id => @event.id), :method => :put
+            .bottom
+              .email= user.email
+              .affiliation= user.affiliation
+              .year= user.year
+        - @checked_in_users.each do |user|
+          .user
+            .top
+              .name= user.name

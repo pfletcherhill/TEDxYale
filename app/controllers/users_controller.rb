@@ -82,6 +82,10 @@ class UsersController < ApplicationController
   def destroy
     @user = User.find(params[:id])
     @user.destroy
+    @attendees = Attendee.where(:user_id => @user.id)
+    @attendees.each do |attendee|
+      attendee.destroy
+    end
 
     respond_to do |format|
       format.html { redirect_to "/admin/users", notice: 'User was deleted' }

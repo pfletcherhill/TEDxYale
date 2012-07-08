@@ -307,12 +307,7 @@
 	background: -moz-linear-gradient(0% 100% 90deg, #7A29CC, #9933FF);
 	-pie-background: linear-gradient(#9933FF, #7A29CC);
 }
-#event_header {
-	background: -moz-linear-gradient(0% 100% 90deg, #000, #000);
-	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#000), to(#000));
-	background: -moz-linear-gradient(0% 100% 90deg, #000, #000);
-	-pie-background: linear-gradient(#000, #000);
-}
+
 .team_application {
 	height:928px;
 	margin-top:2px;
