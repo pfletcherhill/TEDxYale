@@ -12,7 +12,7 @@ jQuery ->
     ->
       $('.image .play_cover', this).stop().css('opacity','0')
       $('.image .play', this).hide()
-      $('.info .title', this).stop().hide(200)
+      $('.info .title', this).hide(200)
     )
   $(".player .player_container").hover(
     ->$('.player_container .close').fadeIn(300)
