@@ -30,7 +30,7 @@ TEDxYale::Application.routes.draw do
   match "/salons" => "users#event_saman"
   
   match "/join" => "users#join"
-    
+      
   #Admin Panel
   
   match "/admin" => "admin#users"

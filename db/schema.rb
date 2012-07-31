@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120707194929) do
+ActiveRecord::Schema.define(:version => 20120730180151) do
 
   create_table "admins", :force => true do |t|
     t.string   "email"
@@ -20,6 +20,19 @@ ActiveRecord::Schema.define(:version => 20120707194929) do
     t.string   "password_salt"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
+  end
+
+  create_table "announcements", :force => true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.string   "summary"
+    t.string   "background_file_name"
+    t.string   "background_content_type"
+    t.integer  "background_file_size"
+    t.datetime "background_updated_at"
+    t.string   "link"
+    t.datetime "created_at",              :null => false
+    t.datetime "updated_at",              :null => false
   end
 
   create_table "applicants", :force => true do |t|
@@ -138,6 +151,7 @@ ActiveRecord::Schema.define(:version => 20120707194929) do
     t.datetime "created_at",                 :null => false
     t.datetime "updated_at",                 :null => false
     t.string   "year"
+    t.string   "twitter"
   end
 
   create_table "videos", :force => true do |t|

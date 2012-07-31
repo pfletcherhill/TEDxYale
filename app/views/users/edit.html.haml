@@ -21,5 +21,8 @@
             .item
               .label Graduation Year:
               = f.text_field :year, :value => @user.year
+            .item
+              .label Twitter Handle
+              = f.text_field :twitter, :value => @user.twitter
             
             = f.submit "Update Preferences"

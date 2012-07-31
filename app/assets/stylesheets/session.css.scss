@@ -1,3 +1,58 @@
 // Place all the styles related to the Session controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.wrapper {
+  .box {
+    width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    h2 {
+      font-family: Helveticaneuebold;
+      color: #555;
+      font-size: 25px;
+      text-align: center;
+    }
+    .form {
+      input {
+        width: 468px;
+        padding: 15px;
+        line-height: 40px;
+        font-size: 20px;
+        border: 1px solid #dadada;
+        margin: 0px;
+        color: #555;
+        font-family: Helveticaneuelight;
+        outline: none;
+        -webkit-transition: 0.2s;
+        margin-bottom: 10px;
+        &:hover {
+          border: 1px solid #999;
+        }
+        &:focus {
+          border: 1px solid #888;
+        }
+      }
+      .submit {
+        width: 100%;
+        background: #eee;
+        border: 1px solid #777;
+        color: #444;
+        font-family: Helveticaneuelight;
+        outline: none;
+        -webkit-transition: 0.2s;
+        cursor: pointer;
+        &:hover {
+          border: 1px solid #555;
+          background: #fafafa;
+        }
+        &:focus {
+          border: 1px solid #555;
+          background: #fafafa;
+        }
+        &:active {
+          background: #fff;
+        }
+      }
+    }
+  }
+}

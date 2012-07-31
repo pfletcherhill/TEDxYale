@@ -37,39 +37,60 @@
 }
 //Event Show
 .event {
-  padding: 5px;
-  .left {
+  position: relative;
+  .nav {
+    width: 100px;
     float: left;
-    width: 660px;
-    margin-top: 10px;
-    margin-right: 0px;
-    .image {
-      width: 100%;
-      position: relative;
-      z-index: 0;
-      img {
-        width: 660px;
+    margin-right: 20px;
+    .date {
+      width: 100px;
+      height: 80px;
+      border-radius: 50px;
+      background: #444;
+      text-align: center;
+      padding: 10px 0px;
+      p {
+        padding: 0px;
+        margin: 0px;
+      }
+      p.month, p.year {
+        font-size: 11px;
+        line-height: 15px;
+        color: #fff;
+        font-family: Helveticaneuelight;
+      }
+      p.day {
+        font-size: 50px;
+        line-height: 50px;
+        color: #fff;
+        font-family: Helveticaneuebold;
       }
     }
-    .info {
-      padding-right: 20px;
-      .title {
-        h2 {
-          font-size: 35px;
-          font-family: Helveticaneuebold, 'times new roman', arial, sans-serif;
-          font-weight: bold;
-          padding: 15px 0;
-          margin: 5px 0;
-        }
+  }
+  .middle {
+    width: 550px;
+    float: left;
+    margin-right: 20px;
+    h1 {
+      margin: 0px;
+      padding: 0px;
+      font-family: Helveticaneuebold;
+      color: #333;
+      font-size: 40px;
+      line-height: 40px;
+    }
+    .image {
+      margin: 15px 0;
+      img {
+        width: 550px;
       }
-      .about {
-        border-bottom: 1px solid #dadada;
-        padding-bottom: 25px;
-        font-family: Helveticaneuelight;
-        font-size: 16px;
-        line-height: 22px;
-        color: #777;
-      }
+    }
+    .description {
+      color: #444;
+      font-size: 15px;
+      line-height: 21px;
+      color: #777;
+      font-family: Helveticaneuelight;
     }
     .speakers {
       margin: 20px 0px;
@@ -117,22 +138,19 @@
       }
     }
   }
-  .right {
-    float:left;
-    width: 280px;
-    position:relative;
+  .menu {
+    width: 315px;
+    float: left;
     z-index: 1;
     .attend {
-      width: 100%;
+      width: 265px;
       height: 80px;
       text-align: center;
       vertical-align: middle;
-      box-shadow: 0 0 3px rgba(0,0,0,0.4);
+      border: 1px solid #dadada;
       background: #f9f9f9;
       padding: 25px;
       padding-bottom: 30px;
-      border-top-right-radius: 3px;
-      border-top-left-radius: 3px;
       p {
         margin-top: -35px;
         color: #f7f7f7;
@@ -143,7 +161,7 @@
       a.register {
         padding: 15px;
         display: block;
-        width: 250px;
+        width: 235px;
         height: 50px;
         color: #fff;
         text-shadow: -1px -1px 1px rgba(0,0,0,0.3);
@@ -175,7 +193,7 @@
       a.registered {
         padding: 15px;
         display: block;
-        width: 250px;
+        width: 235px;
         height: 50px;
         color: #fff;
         text-shadow: -1px -1px 1px rgba(0,0,0,0.3);
@@ -208,7 +226,7 @@
       .past {
         padding: 15px;
         display: block;
-        width: 250px;
+        width: 235px;
         height: 50px;
         color: #777;
         text-decoration: none;
@@ -221,14 +239,12 @@
       }
     }
     .details {
-      width: 100%;
-      box-shadow: 0 0 3px rgba(0,0,0,0.3);
+      width: 265px;
+      border: 1px solid #dadada;
       background: #fff;
       padding: 25px;
-      margin-top: 2px;
+      margin-top: 1px;
       padding-bottom: 30px;
-      border-bottom-right-radius: 3px;
-      border-bottom-left-radius: 3px;
       .date {
         font-family: Helveticaneuebold;
         font-size: 15px;

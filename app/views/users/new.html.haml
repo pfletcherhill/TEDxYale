@@ -1,0 +1,31 @@
+.wrapper
+  .signup
+    %h1 Get Involved with TEDxYale
+    %h2 Before the Year Even Begins...
+    .form
+      =form_for @user do |f|
+        =f.text_field :name, :placeholder => "Full Name", :class => "validates"
+        =f.text_field :email, :placeholder => "Email Address", :class => "validates"
+        .next_line Register
+        .password
+          =f.password_field :password, :placeholder => "Password"
+          =f.password_field :password_confirmation, :placeholder => "Password Confirmation"
+        =f.submit "Register", :class => "register"
+  .icons
+    .icon.events
+      %a.symbol.events( href="/events" )
+      %h3 Events
+      .description From our annual conference to monthly salons, TEDxYale is all about events. Each one is unique with a different speaker, a different location, and a different audience. 
+    .icon.tv
+      %a.symbol.tv( href="/tv" )
+      %h3 TEDxYale TV
+      .description Each event is filmed, and we have collected all of our talks and a large selection of TED talks affiliated with Yale in some way. Search for a specific video or have us select one randomly for you.
+    .icon.community
+      %a.symbol.community( href="/about" )
+      %h3 Community
+      .description TED conferences are not lectures, they are experiences. TEDxYale is in the process of creating a vibrant community centered around the sharing of ideas and experiences. 
+    .icon.conference
+      %a.symbol.conference( href="/events" )
+      %h3 2013
+      .description Our annual conference is coming to Yale again in February 2013. Details will be updated as they are confirmed, so stay tuned.
+.padding

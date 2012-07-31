@@ -1,33 +1,28 @@
 .wrapper
   .event
-    .nav
-      .date
-        %p.month= @event.datetime.strftime('%B')
-        %p.day= @event.datetime.strftime('%e')
-        %p.year= @event.datetime.strftime('%G')
-    .middle
-      %h1= @event.name
-      .image
-        -if @event.header.url(:large) != '/headers/large/missing.png'
+    .left
+      - if @event.header.url(:large)
+        .image
           =image_tag @event.header.url(:large)
-        -else
-          %img(src='/assets/2012.jpg')
-      .description= @event.description
-      .speakers
-        - @speakers.each do |speaker|
-          .speaker
-            -if speaker.image_url
-              .image
-                %img( src='/assets/#{speaker.image_url}' )
-            .details
-              .name= speaker.name
-              .bio= speaker.bio
-              -if speaker.twitter
-                .twitter
-                  %img(src='/assets/twitter.png')
-                  %a(href='https://twitter.com/#!/#{speaker.twitter}')= speaker.twitter
-      .videos
-    .menu
+      .info
+        .title
+          %h2.name= @event.name
+        .about
+          .description= @event.description
+        .speakers
+          - @speakers.each do |speaker|
+            .speaker
+              -if speaker.image_url
+                .image
+                  %img( src='/assets/#{speaker.image_url}' )
+              .details
+                .name= speaker.name
+                .bio= speaker.bio
+                -if speaker.twitter
+                  .twitter
+                    %img(src='/assets/twitter.png')
+                    %a(href='https://twitter.com/#!/#{speaker.twitter}')= speaker.twitter
+    .right
       .attend
         -if @event.datetime.past?
           .past Past Event
@@ -58,4 +53,4 @@
               .published
                 %img( src='/assets/lock.png')
                 %span Unpublished
-      
+  

@@ -27,17 +27,12 @@
 <!--Header Start-->
 <div class="header">
 	<div id="header_container">
-	  <% if current_user %>
-		  <a href="/dashboard/current_events" class="logo_link"><img src="/assets/logo.png" id="logo"/></a>
-		<% else %>
-		  <a href="/" class="logo_link"><img src="/assets/logo.png" id="logo"/></a>
-		<% end %>
+	  <a href="/" class="logo_link"><img src="/assets/tedxyale_logo.png" id="logo"/></a>
 		<% if current_user %>
 		  <% if current_admin %>
 			  <a class="header_item_link">
 		      <div class="header_item user">
 		        <div class='name'>
-		          <img src="/assets/TEDxer.png"/>
 		          <%= current_user.name %>
 		        </div>
 		        <ul class="dropdown_menu">
@@ -52,7 +47,6 @@
 			  <a class="header_item_link">
 		      <div class="header_item user">
 		        <div class='name'>
-		          <img src="/assets/TEDxer.png"/>
 		          <%= current_user.name %>
 		        </div>
 		        <ul class="dropdown_menu">
@@ -63,7 +57,7 @@
 		    </a>
 			<% end %>
 		<% else %> 
-		<a href="/login" class="header_item_link"><div class="header_item">LOGIN</div></a>
+		<a href="/login" class="header_item_link"><div class="header_item login">LOGIN</div></a>
 		<% end %>
 		<a href="/about" class="header_item_link"><div class="header_item" id="item_events">ABOUT</div></a>
 		<a href="/tv" class="header_item_link"><div class="header_item" id="item_events">TV</div></a>

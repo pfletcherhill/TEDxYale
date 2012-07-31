@@ -2,23 +2,27 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .wrapper {
-  .about_title {
-    font-family: Helveticaneuebold;
-    font-size: 25px;
-    line-height: 35px;
-    width: 100%;
-    border-bottom: 1px solid #dadada;
-    margin: 0;
-    text-align: center;
-    margin-bottom: 10px;
-  }
   .left {
     width: 280px;
     margin-right: 20px;
     float: left;
+    padding-left: 5px;
+    position: fixed;
+    h3 {
+      font-family: Helveticaneuebold;
+      color: #333;
+      font-size: 45px;
+      line-height: 50px;
+      width: 270px;
+      margin: 0px;
+      padding-left: 10px;
+      padding-bottom: 3px;
+      border-bottom: 3px solid #888;
+    }
     ul {
       list-style-type: none;
       padding: 0px;
+      margin: 0px;
       li {
         font-family: Helveticaneuebold;
         border-bottom: 1px solid #DADADA;
@@ -29,6 +33,7 @@
         color: #333;
         text-decoration: none;
         padding: 10px;
+        -webkit-transition: 0.2s;
         &:hover {
           background: #eee;
           background-image: url('/assets/menu_arrow.png');
@@ -36,17 +41,90 @@
           background-position: 265px;
           background-size: 7px;
         }
+        &.active {
+          color: #e60000;
+        }
       }
     }
   }
   .right {
     width: 700px;
     float: left;
-    h3 {
-      font-family: Helveticaneuebold;
-    }
-    p {
-      font-family: Helveticaneuelight;
+    margin-left: 300px;
+    margin-top: 24px;
+    .section {
+      h4 {
+        font-family: Helveticaneuebold;
+        font-size: 20px;
+        line-height: 30px;
+        padding: 0px;
+        margin: 0px;
+        border-bottom: 2px solid #dadada;
+      }
+      p {
+        font-family: Helveticaneuelight;
+        font-size: 14px;
+        line-height: 21px;
+      }
+      &.current {
+        h4 {
+          border-bottom: 2px solid #e60000;
+        }
+      }
+      .member {
+        width: 50%;
+        float: left;
+        padding: 15px 0;
+        .image {
+          float: left;
+          padding-right: 15px;
+          img {
+            width: 100px;
+            height: 100px;
+          }
+        }
+        .info {
+          padding-top: 20px;
+          float: left;
+          .name {
+            font-family: Helveticaneuebold;
+            color: #333;
+            font-size: 15px;
+          }
+          .title {
+            margin-top: 2px;
+            font-family: Helveticaneue;
+            font-style: italic;
+          }
+          .twitter {
+            margin-top: 2px;
+            img {
+              height: 15px;
+              width: 15px;
+              float: left
+            }
+            a {
+              float: left;
+              text-decoration: none;
+              font-family: Helveticaneuelight;
+              line-height: 15px;
+              font-size: 13px;
+              padding-left: 3px;
+              color: #33CCFF;
+              &:hover {
+                text-decoration: underline;
+                color: #29A3CC;
+              }
+            }
+          }
+        }
+      }
+      .partner {
+        margin: 15px 0;
+        img {
+          border: 1px solid #dadada;
+        }
+      }
     }
   }
 }

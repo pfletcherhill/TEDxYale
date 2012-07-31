@@ -1,0 +1,162 @@
+// Place all the styles related to the Announcements controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.signup {
+  width: 1000px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid #dadada;
+  h1 {
+    font-family: Helveticaneuebold;
+    color: #333;
+    font-size: 45px;
+  }
+  h2 {
+    font-family: Helveticaneuebold;
+    color: #555;
+    font-size: 25px;
+  }
+  .form {
+    margin-top: 30px;
+    width: 1000px;
+    position: relative;
+    form {
+      input {
+        width: 313px;
+        padding: 15px;
+        line-height: 40px;
+        font-size: 20px;
+        border: 1px solid #dadada;
+        margin: 0px;
+        color: #555;
+        font-family: Helveticaneuelight;
+        outline: none;
+        -webkit-transition: 0.2s;
+        &:hover {
+          border: 1px solid #999;
+        }
+        &:focus {
+          border: 1px solid #888;
+        }
+      }
+      .password {
+        display: none;
+        input {
+          margin-top: 10px;
+        }
+      }
+      .next_line {
+        padding: 15px;
+        line-height: 40px;
+        font-size: 20px;
+        width: 268px;
+        position: absolute;
+        right: 0px;
+        top: 0px;
+        background: #eee;
+        border: 1px solid #777;
+        color: #444;
+        font-family: Helveticaneuelight;
+        outline: none;
+        -webkit-transition: 0.2s;
+        cursor: pointer;
+        text-align: center;
+        &:hover {
+          border: 1px solid #555;
+          background: #fafafa;
+        }
+      }
+      .register {
+        display: none;
+        width: 300px;
+        position: absolute;
+        right: 0px;
+        top: 0px;
+        background: #eee;
+        border: 1px solid #777;
+        color: #444;
+        font-family: Helveticaneuelight;
+        outline: none;
+        -webkit-transition: 0.2s;
+        cursor: pointer;
+        &:hover {
+          border: 1px solid #555;
+          background: #fafafa;
+        }
+        &:focus {
+          border: 1px solid #555;
+          background: #fafafa;
+        }
+        &:active {
+          background: #fff;
+        }
+      }
+    }
+  }
+}
+.icons {
+  width: 1000px;
+  padding-top: 50px;
+  .icon {
+    width: 250px;
+    float: left;
+    min-height: 200px;
+    &:hover {
+      .symbol {
+        background: #ff0000;
+        opacity: 1;
+      }
+      h3 {
+        color: #ff0000;
+      }
+    }
+    .symbol {
+      display: block;
+      height: 110px;
+      width: 110px;
+      border-radius: 55px;
+      background: #e60000;
+      margin-left:70px;
+      cursor: pointer;
+      -webkit-transition: 0.2s;
+      opacity: 0.85;
+      &.events {
+        background-image: url('/assets/symbol_events.png');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 90px 90px;
+      }
+      &.tv {
+        background-image: url('/assets/symbol_tv.png');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 100px 100px;
+      }
+      &.community {
+        background-image: url('/assets/symbol_community.png');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 90px 90px;
+      }
+      &.conference {
+        background-image: url('/assets/symbol_2013.png');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 95px 95px;
+      }
+    }
+    h3 {
+      text-align: center;
+      color: #777;
+      font-family: Helveticaneuelight;
+      font-size: 18px;
+      -webkit-transition: 0.2s;
+    }
+    .description {
+      font-family: Helveticaneuelight;
+      font-size: 12px;
+      padding: 0px 15px;
+      color: #666;
+      text-align: center;
+    }
+  }
+}
