@@ -6,11 +6,11 @@
       =form_for @user do |f|
         =f.text_field :name, :placeholder => "Full Name", :class => "validates"
         =f.text_field :email, :placeholder => "Email Address", :class => "validates"
-        .next_line Register
+        .next_line Sign Up
         .password
           =f.password_field :password, :placeholder => "Password"
           =f.password_field :password_confirmation, :placeholder => "Password Confirmation"
-        =f.submit "Register", :class => "register"
+        =f.submit "Sign Up", :class => "register"
   .icons
     .icon.events
       %a.symbol.events( href="/events" )
