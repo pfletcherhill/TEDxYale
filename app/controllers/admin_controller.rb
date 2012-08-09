@@ -44,6 +44,10 @@ class AdminController < ApplicationController
   def finance
   end
   
+  def speakers
+    @speakers = Speaker.all
+  end
+  
   def tv
     @videos = Video.order('title ASC')
   end

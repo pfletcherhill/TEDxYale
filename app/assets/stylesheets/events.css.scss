@@ -94,44 +94,58 @@
     }
     .speakers {
       margin: 20px 0px;
-      .image {
-        float: left;
-        width: 100px;
-        margin-right: 20px;
-        img {
-          width: 100px;
-        }
+      h3 {
+        font-family: Helveticaneuebold;
+        font-size: 20px;
+        line-height: 30px;
+        padding: 0px;
+        margin: 0px;
+        border-bottom: 2px solid #DADADA;
       }
-      .details {
-        float: left;
-        width: 520px;
-        .name {
-          font-family: Helveticaneuebold;
-          font-size: 18px;
-          margin-bottom: 5px;
-        }
-        .bio {
-          font-family: Helveticaneuelight;
-          font-size: 15px;
-          color: #777;
-        }
-        .twitter {
-          margin-top: 10px;
+      .speaker {
+        overflow: auto;
+        border-bottom: 1px solid #eee;
+        .image {
+          float: left;
+          width: 100px;
+          margin-right: 20px;
           img {
-            width: 25px;
-            height: 25px;
-            float: left;
+            width: 100px;
           }
-          a {
-            float: left;
+        }
+        .details {
+          float: left;
+          width: 420px;
+          margin-top: 10px;
+          margin-bottom: 10px;
+          .name {
+            font-family: Helveticaneuebold;
+            font-size: 18px;
+            margin-bottom: 5px;
+          }
+          .bio {
             font-family: Helveticaneuelight;
-            color: #29ABE2;
             font-size: 15px;
-            text-decoration: none;
-            line-height: 25px;
-            padding-left: 3px;
-            &:hover {
-              text-decoration:underline;
+            color: #777;
+          }
+          .twitter {
+            margin-top: 10px;
+            img {
+              width: 25px;
+              height: 25px;
+              float: left;
+            }
+            a {
+              float: left;
+              font-family: Helveticaneuelight;
+              color: #29ABE2;
+              font-size: 15px;
+              text-decoration: none;
+              line-height: 25px;
+              padding-left: 3px;
+              &:hover {
+                text-decoration:underline;
+              }
             }
           }
         }

@@ -8,6 +8,9 @@
           .item
             %label Event Name:
             = f.text_field :name, :value => @event.name
+          .item 
+            %label Event Type: 
+            = f.select :sort, options_for_select(["salon","conference"], @event.sort)
           .item  
             %label Event Description:
             = f.text_area :description, :value => @event.description

@@ -1,7 +1,7 @@
 class Speaker < ActiveRecord::Base
   belongs_to :event
   
-  validates_presence_of :name
+  validates_presence_of :name, :event_id
   
   has_attached_file :thumbnail, 
     :styles => { :small => "100x"},

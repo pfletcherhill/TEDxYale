@@ -10,22 +10,22 @@
       .image
         -if @event.header.url(:large) != '/headers/large/missing.png'
           =image_tag @event.header.url(:large)
-        -else
-          %img(src='/assets/2012.jpg')
       .description= @event.description
-      .speakers
-        - @speakers.each do |speaker|
-          .speaker
-            -if speaker.image_url
+      -if @speakers.count != 0
+        .speakers
+          %h3 Speakers
+          - @speakers.each do |speaker|
+            .speaker
               .image
-                %img( src='/assets/#{speaker.image_url}' )
-            .details
-              .name= speaker.name
-              .bio= speaker.bio
-              -if speaker.twitter
-                .twitter
-                  %img(src='/assets/twitter.png')
-                  %a(href='https://twitter.com/#!/#{speaker.twitter}')= speaker.twitter
+                -if speaker.thumbnail.url(:small) != '/thumbnails/small/missing.png'
+                  =image_tag speaker.thumbnail.url(:small)
+              .details
+                .name= speaker.name
+                .bio= speaker.bio
+                -if speaker.twitter
+                  .twitter
+                    %img(src='/assets/twitter.png')
+                    %a(href='https://twitter.com/#!/#{speaker.twitter}')= speaker.twitter
       .videos
     .menu
       .attend

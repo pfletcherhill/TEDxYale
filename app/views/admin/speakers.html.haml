@@ -1,0 +1,19 @@
+.wrapper
+  = render :partial => 'menu'
+
+  .admin_container.speakers
+    %h1 Speakers (#{@events_number})
+    .create_event= link_to "Add Speaker", "/speakers/new"
+    %table
+      %tbody
+        %tr
+          %th Name
+          %th Bio
+          %th Event
+          %th Twitter
+        - @speakers.each do |speaker|
+          %tr
+            %td.name= speaker.name
+            %td.bio= speaker.bio
+            %td.event= speaker.event.name
+            %td.twitter= speaker.twitter
