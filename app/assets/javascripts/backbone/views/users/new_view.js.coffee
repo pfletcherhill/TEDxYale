@@ -20,12 +20,14 @@ class TEDxYale.Views.Users.NewView extends Backbone.View
     e.preventDefault()
     e.stopPropagation()
     @$("form#new-user input.register").addClass 'loading'
+    @$("form#new-user input").attr('disabled',true)
     @model.unset("errors")
     @collection.create(@model.toJSON(),
       success: (user) =>
         @model = user
         @setupAddInfo()
       error: (user, jqXHR) =>
+        @$("form#new-user input").attr('disabled',false)
         @model.set({errors: $.parseJSON(jqXHR.responseText)})
     )
   
@@ -48,7 +50,6 @@ class TEDxYale.Views.Users.NewView extends Backbone.View
     return this
     
   setupAddInfo: =>
-    $("form#new-user input").attr('disabled',true)
     $("form#new-user input.register").removeClass('loading').addClass('confirmed').val("Signed Up")
     @$("form#update-user").backboneLink(@model)
     $(@el).append(@editTemplate( @model.toJSON() ))
