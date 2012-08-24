@@ -22,7 +22,7 @@
               .details
                 .name= speaker.name
                 .bio= speaker.bio
-                -if speaker.twitter
+                -if speaker.twitter != ''
                   .twitter
                     %img(src='/assets/twitter.png')
                     %a(href='https://twitter.com/#!/#{speaker.twitter}' target='_blank')= speaker.twitter

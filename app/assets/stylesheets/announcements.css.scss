@@ -14,12 +14,49 @@
     font-family: Helveticaneuebold;
     color: #555;
     font-size: 25px;
+    span {
+      color: #e60000;
+    }
   }
   .form {
     margin-top: 30px;
     width: 1000px;
     position: relative;
+    input:disabled {
+      color: #999;
+      border: 1px solid #dadada;
+      cursor: normal;
+      &:hover {
+        color: #999;
+        border: 1px solid #dadada;
+        cursor: normal;
+      }
+    }
+    .confirm {
+      margin-top: 30px;
+    }
+    .add_info {
+      margin-top: 30px;
+      h2 {
+        -webkit-transition: opacity 0.3s;
+        opacity: 0;
+        line-height: 25px;
+      }
+      input[type='text'] {
+        -webkit-transition: opacity 0.3s;
+        opacity: 0
+      }
+      &.visible {
+        h2 {
+          opacity: 1;
+        }
+        input {
+          opacity: 1;
+        }
+      }
+    }
     form {
+      position: relative;
       input {
         width: 313px;
         padding: 15px;
@@ -30,7 +67,7 @@
         color: #555;
         font-family: Helveticaneuelight;
         outline: none;
-        -webkit-transition: 0.2s;
+        -webkit-transition: border 0.2s;
         &:hover {
           border: 1px solid #999;
         }
@@ -66,7 +103,6 @@
         }
       }
       .register {
-        display: none;
         width: 300px;
         position: absolute;
         right: 0px;
@@ -88,6 +124,19 @@
         }
         &:active {
           background: #fff;
+        }
+        &.confirmed {
+          color: #00CC00;
+          border: 1px solid transparent;
+          background-color: transparent;
+          cursor: normal;
+          background-image: url('/assets/check.png');
+          background-position: 65px;
+          background-repeat: no-repeat;
+          &:hover {
+            background-color: transparent;
+            border: 1px solid transparent;
+          }
         }
       }
     }

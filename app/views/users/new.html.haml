@@ -2,15 +2,7 @@
   .signup
     %h1 Get Involved with TEDxYale
     %h2 Before the Year Even Begins...
-    .form
-      =form_for @user do |f|
-        =f.text_field :name, :placeholder => "Full Name", :class => "validates"
-        =f.text_field :email, :placeholder => "Email Address", :class => "validates"
-        .next_line Sign Up
-        .password
-          =f.password_field :password, :placeholder => "Password"
-          =f.password_field :password_confirmation, :placeholder => "Password Confirmation"
-        =f.submit "Sign Up", :class => "register"
+    #user_form.form
   .icons
     .icon.events
       %a.symbol.events( href="/events" )
@@ -29,3 +21,9 @@
       %h3 2013
       .description Our annual conference is coming to Yale again in February 2013. Details will be updated as they are confirmed, so stay tuned.
 .padding
+
+:javascript
+  $(function() {
+    window.router = new TEDxYale.Routers.Router({user: #{@user.to_json.html_safe}});
+    Backbone.history.start();
+  });

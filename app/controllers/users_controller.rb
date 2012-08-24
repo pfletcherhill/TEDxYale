@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   
-  before_filter :require_login, :only => ["index", "show", "edit", "update", "registration"]
+  before_filter :require_login, :only => ["index", "show", "edit", "registration"]
 
   def require_login
     unless logged_in?
@@ -24,19 +24,21 @@ class UsersController < ApplicationController
   def new  
     @user = User.new  
   end  
-    
-  def create  
-    @user = User.new(params[:user])  
-    if @user.save  
-      UserMailer.welcome_email(@user).deliver
-      UserMailer.notify_admin_email(@user).deliver
-      
-      session[:user_id] = @user.id   
-      redirect_to "/dashboard/current_events", :notice => "Welcome #{@user.name}!"  
-    else  
-      render "new"  
-    end  
-  end 
+  
+  def create
+    @user = User.new(params[:user])
+    respond_to do |format|
+      if @user.save
+        format.html
+        format.json { render json: @user }
+        UserMailer.welcome_email(@user).deliver
+        UserMailer.notify_admin_email(@user).deliver
+      else
+        format.html
+        format.json { render json: @user.errors, status: :unprocessable_entity }
+      end
+    end
+  end
   
   # GET /users
   # GET /users.json
