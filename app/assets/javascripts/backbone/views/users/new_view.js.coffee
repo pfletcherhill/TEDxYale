@@ -19,6 +19,7 @@ class TEDxYale.Views.Users.NewView extends Backbone.View
   save: (e) ->
     e.preventDefault()
     e.stopPropagation()
+    @$("form#new-user input.register").addClass 'loading'
     @model.unset("errors")
     @collection.create(@model.toJSON(),
       success: (user) =>
@@ -31,6 +32,7 @@ class TEDxYale.Views.Users.NewView extends Backbone.View
   update: (event) ->
     event.preventDefault()
     event.stopPropagation()
+    @$("form#update-user input.register").addClass 'loading'
     params = 
       affiliation: @$('form#update-user input.affiliation').val()
       year: @$('form#update-user input.year').val()
@@ -47,7 +49,7 @@ class TEDxYale.Views.Users.NewView extends Backbone.View
     
   setupAddInfo: =>
     $("form#new-user input").attr('disabled',true)
-    $("form#new-user input.register").addClass('confirmed').val("Signed Up")
+    $("form#new-user input.register").removeClass('loading').addClass('confirmed').val("Signed Up")
     @$("form#update-user").backboneLink(@model)
     $(@el).append(@editTemplate( @model.toJSON() ))
     @$(".add_info").delay(200).addClass 'visible'
@@ -55,6 +57,6 @@ class TEDxYale.Views.Users.NewView extends Backbone.View
   
   finishForm: =>
     $("form#update-user input").attr('disabled',true)
-    $("form#update-user input.register").addClass('confirmed').val("Added Info")
+    $("form#update-user input.register").removeClass('loading').addClass('confirmed').val("Added Info")
     $(@el).append(@confirmTemplate( @model.toJSON() ))
     @$(".add_info input:last").focus()
