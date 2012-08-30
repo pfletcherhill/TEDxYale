@@ -5,18 +5,18 @@ TEDxYale::Application.routes.draw do
   root :to => "users#new"
   
   match "/subscribe" => "subscriptions#new"
-  
   match "/join/community_pr" => "users#community_pr"
-  
   match "/join/design" => "users#design"
-  
   match "/join/events" => "users#events"
-  
   match "/join/finance" => "users#finance"
-  
   match "/join/production" => "users#production"
-  
   match "/join" => "users#join"
+  
+  #Secret
+  match "/secret" => "users#secret"
+  match "/check_code/:code" => "users#check_code"
+  match "/add_user" => "users#add_user"
+  match "/authenticate/:code" => "users#authenticate"
   
   resources :sessions
       
