@@ -7,6 +7,8 @@ TEDxYale::Application.routes.draw do
   match "/join" => "applications#new"
   match "/app_email/:id" => "applications#app_mailer"
   
+  match "/signup" => "users#signup"
+  
   resources :applications
   
   resources :sessions

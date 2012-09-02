@@ -25,12 +25,16 @@ class UsersController < ApplicationController
     @user = User.new  
   end  
   
+  def signup
+    @user = User.new
+  end
+  
   def create
     @user = User.new(params[:user])
     respond_to do |format|
       if @user.save
-        format.html
-        format.json { render json: @user }
+        format.html { redirect_to '/signup' }
+        format.json { render json: @user, status: :created, location: @user }
         UserMailer.welcome_email(@user).deliver
         UserMailer.notify_admin_email(@user).deliver
       else

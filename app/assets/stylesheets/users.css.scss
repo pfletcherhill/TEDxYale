@@ -244,3 +244,38 @@
     }
   }
 }
+.bazaar {
+  width: 900px;
+  padding: 50px;
+  margin: auto;
+  input {
+    width: 840px;
+    padding: 30px;
+    font-size: 30px;
+    font-family: Helveticaneuebold;
+    color: #e60000;
+    background: #fff;
+    border: 1px solid #dadada;
+    outline: none;
+    margin-bottom: 30px;
+  }
+  input[ type= "submit" ] {
+    width: 100%;
+    height: 100px;
+    text-align: center;
+    margin-top: 10px;
+    background: #ff0000;
+    font-family: Helveticaneue;
+    color: #fff;
+    font-size: 35px;
+    line-height: 20px;
+    text-shadow: -1px -1px 0 rgba(0,0,0,0.3);
+    background: -moz-linear-gradient(0% 100% 90deg, #CF0000, #E60000);
+	  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#E60000), to(#CF0000));
+    background: -moz-linear-gradient(0% 100% 90deg, #CF0000, #E60000);
+    -pie-background: linear-gradient(#E60000, #CF0000);
+    border-radius: 3px;
+    border: 1px solid #990000;
+    cursor: pointer;
+  }
+}
