@@ -33,12 +33,13 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
     respond_to do |format|
       if @user.save
-        format.html { redirect_to '/signup' }
+        format.html
         format.json { render json: @user }
         UserMailer.welcome_email(@user).deliver
+        #UserMailer.notify_admin_email(@user).deliver
       else
-        format.html { redirect_to '/signup' }
-        format.json { render json: @user }
+        format.html
+        format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
   end
