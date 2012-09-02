@@ -35,8 +35,8 @@ class UsersController < ApplicationController
       if @user.save
         format.html { redirect_to '/signup' }
         format.json { render json: @user, status: :created, location: @user }
-        #UserMailer.welcome_email(@user).deliver
-        UserMailer.notify_admin_email(@user).deliver
+        UserMailer.welcome_email(@user).deliver
+        #UserMailer.notify_admin_email(@user).deliver
       else
         format.html
         format.json { render json: @user.errors, status: :unprocessable_entity }
