@@ -38,7 +38,7 @@ class UsersController < ApplicationController
         UserMailer.welcome_email(@user).deliver
         #UserMailer.notify_admin_email(@user).deliver
       else
-        format.html
+        format.html { redirect_to '/signup' }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
