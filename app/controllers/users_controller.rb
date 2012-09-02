@@ -37,7 +37,7 @@ class UsersController < ApplicationController
         format.json { render json: @user }
         UserMailer.welcome_email(@user).deliver
       else
-        format.html
+        format.html { redirect_to '/signup' }
         format.json { render json: @user }
       end
     end
