@@ -16,4 +16,10 @@ class UserMailer < ActionMailer::Base
     @user = user
     mail(:to => user.email, :subject => "You've been promoted to admin")
   end
+  
+  def new_app_email(email, name, app)
+    @app = app
+    @name = name
+    mail(:to => email, :subject => "Thanks for applying")
+  end
 end
