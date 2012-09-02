@@ -34,12 +34,11 @@ class UsersController < ApplicationController
     respond_to do |format|
       if @user.save
         format.html { redirect_to '/signup' }
-        format.json { render json: @user, status: :created, location: @user }
+        format.json { render json: @user }
         UserMailer.welcome_email(@user).deliver
-        #UserMailer.notify_admin_email(@user).deliver
       else
         format.html
-        format.json { render json: @user.errors, status: :unprocessable_entity }
+        format.json { render json: @user }
       end
     end
   end
