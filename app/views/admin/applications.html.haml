@@ -1,0 +1,16 @@
+.wrapper
+  = render :partial => 'menu'
+
+  .admin_container.applications
+    .title Applications (#{@applications_number})
+    %table
+      %tbody
+        %tr
+          %th Name
+          %th Email
+          %th
+        -@applications.each do |app|
+          %tr
+            %td= app.name
+            %td= app.email
+            %td= link_to "Show", app

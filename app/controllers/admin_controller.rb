@@ -41,6 +41,16 @@ class AdminController < ApplicationController
     end
   end
   
+  def applications
+    @applications = Application.all
+    @applications_number = @applications.count
+    
+    respond_to do |format|
+      format.html
+      format.json { render json: @applications }
+    end
+  end
+  
   def finance
   end
   

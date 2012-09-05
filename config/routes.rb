@@ -25,18 +25,13 @@ TEDxYale::Application.routes.draw do
   match "/join" => "users#join"
       
   #Admin Panel
-  
   match "/admin" => "admin#users"
-  
   match "/admin/users" => "admin#users"
-  
   match "/admin/events" => "admin#events"
-  
   match "/admin/finance" => "admin#finance"
-
   match "/admin/speakers" => "admin#speakers"
-  
   match "/admin/tv" => "admin#tv"
+  match "/admin/applications" => "admin#applications"
   
   match "promote" => "users#promote", :as => "promote_users"
   

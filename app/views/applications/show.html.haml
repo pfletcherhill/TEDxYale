@@ -1,0 +1,31 @@
+.wrapper
+  = render :partial => '/admin/menu'
+
+  .admin_container.applications
+    %p
+      %b Name:
+      =@application.name
+    %p
+      %b Email:
+      =@application.email
+    %p
+      %b Affiliation:
+      =@application.affiliation
+    %p
+      %b Year:
+      =@application.year
+    %p
+      %b Bio:
+      =@application.bio
+    %p
+      %b Team(s):
+      -if @application.events_team
+        Events Team
+      -if @application.finance_team
+        Finance Team
+      -if @application.community_team
+        Community Relations
+    %p
+      %b Experiences:
+      =@application.experiences
+    

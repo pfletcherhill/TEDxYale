@@ -62,28 +62,6 @@ jQuery ->
   $(".item.speakers span").click ->
     $(this).hide()
     $(".item.speakers .new_speaker").show()
-  
-  #Add speaker post
-  ## $(".item.speakers span.add_speaker").click ->
-  #     name = $('.item.speakers input.name').val()
-  #     console.log name
-  #     bio = $('.item.speakers textarea.bio').val()
-  #     console.log bio
-  #     twitter = $('.item.speakers input.twitter').val()
-  #     console.log twitter
-  #     eventId = $('.item.speakers .event_id').val()
-  #     console.log eventId
-  #     $.ajax
-  #       url: '/speakers'
-  #       type: 'POST'
-  #       dataType: 'json'
-  #       data:
-  #         name: { source : name }
-  #         bio: { source : bio }
-  #         twitter: { source : twitter }
-  #         event_id: { source : eventId }
-  #       success: (@speaker) =>
-  #         console.log @speaker.id
     
   #Set container height    
   ContainerHeight = $(".admin_container").height()
@@ -100,4 +78,7 @@ jQuery ->
     $(".item.users").css('border-bottom','0px')
   if $(".admin_container").hasClass "tv"
     $(".item.tv").addClass "selected"
-    $(".item.finance").css('border-bottom','0px')
+    $(".item.speakers").css('border-bottom','0px')
+  if $(".admin_container").hasClass "applications"
+    $(".item.applications").addClass "selected"
+    $(".item.users").css("border-bottom","0px")

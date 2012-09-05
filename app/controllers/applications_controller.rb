@@ -14,4 +14,13 @@ class ApplicationsController < ApplicationController
       end
     end
   end
+  
+  def show
+    @application = Application.find(params[:id])
+    
+    respond_to do |format|
+      format.html
+      format.json { render json: @application }
+    end
+  end
 end
