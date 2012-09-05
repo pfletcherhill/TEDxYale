@@ -1,4 +1,17 @@
 class ApplicationsController < ApplicationController
+  
+  before_filter :require_login, :only => ["show"]
+  
+  def require_login
+    unless logged_in?
+      redirect_to '/login' # halts request cycle
+    end
+  end
+ 
+  def logged_in?
+    !!current_admin
+  end
+  
   def create
     @application = Application.new(params[:application])
     respond_to do |format|

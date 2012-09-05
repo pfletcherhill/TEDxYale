@@ -88,9 +88,13 @@ class TEDxYale.Views.Applications.NewView extends Backbone.View
   
   save: (event) ->
     event.preventDefault()
+    @$("form button").html("Processing...").addClass 'loading'
     @model.url = '/applications'
     @model.save(null,
       success: (application) =>
         @model.sendAppEmail()
-        window.location = "/"
+        @finishApplication(application)
     )
+  
+  finishApplication: (app) ->
+    @$(".application").html('<div class="message">Thanks for applying, <b>' + app.get('name') + '</b>!</div>')
