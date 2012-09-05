@@ -149,6 +149,22 @@
     }
   }
 }
+.interest {
+  width: 100%;
+  border-bottom: 1px solid #dadada;
+  padding: 20px 0;
+  text-align: center;
+  a {
+    font-family: Helveticaneuebold;
+    color: #e60000;
+    font-size: 18px;
+    opacity: 0.9;
+    -webkit-transition: opacity 0.2s;
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
 .icons {
   width: 1000px;
   padding-top: 50px;
