@@ -1,6 +1,6 @@
 class ApplicationsController < ApplicationController
   
-  before_filter :require_login, :only => ["show"]
+  before_filter :require_login
   
   def require_login
     unless logged_in?
