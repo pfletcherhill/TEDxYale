@@ -39,9 +39,6 @@
           /                 %span Registered
           /             -else
           = link_to "Register for this Event", "http://www.eventbrite.com/event/2877690249", :class => "register"
-          //= link_to "Register for this Event", signup_attendees_path(:user_id => current_user.id, :event_id => @event.id, :checked_in => false), :method => :post, :class => "register"
-          /-else
-            /= link_to "Register for this Event", "/", :class => "register"
       .details
         .date= @event.datetime.strftime('%A, %B %e, %G')
         .time= @event.datetime.strftime('%l:%M %p')
