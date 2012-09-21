@@ -32,15 +32,16 @@
         -if @event.datetime.past?
           .past Past Event
         -else
-          -if current_user
-            -if @event.users.exists?(:id => current_user.id)
-              %a.registered( href='/unregister?event_id=#{@event.id}&user_id=#{current_user.id}' )
-                %img( src='/assets/registered.png')
-                %span Registered
-            -else
-              = link_to "Register for this Event", signup_attendees_path(:user_id => current_user.id, :event_id => @event.id, :checked_in => false), :method => :post, :class => "register"
-          -else
-            = link_to "Register for this Event", "/", :class => "register"
+          / -if current_user
+          /             -if @event.users.exists?(:id => current_user.id)
+          /               %a.registered( href='/unregister?event_id=#{@event.id}&user_id=#{current_user.id}' )
+          /                 %img( src='/assets/registered.png')
+          /                 %span Registered
+          /             -else
+          = link_to "Register for this Event", "http://www.eventbrite.com/event/2877690249", :class => "register"
+          //= link_to "Register for this Event", signup_attendees_path(:user_id => current_user.id, :event_id => @event.id, :checked_in => false), :method => :post, :class => "register"
+          /-else
+            /= link_to "Register for this Event", "/", :class => "register"
       .details
         .date= @event.datetime.strftime('%A, %B %e, %G')
         .time= @event.datetime.strftime('%l:%M %p')
