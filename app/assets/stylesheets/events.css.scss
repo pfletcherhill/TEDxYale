@@ -496,9 +496,17 @@
             font-size: 20px;
             color: #333;
             text-decoration: none;
+            &:hover {
+              text-decoration: underline;
+            }
           }
-          &:hover {
-            text-decoration: underline;
+          span {
+            color: white;
+            background: #e60000;
+            vertical-align: top;
+            padding: 5px;
+            border-radius: 15px;
+            margin-left: 5px;
           }
         }
         .date {

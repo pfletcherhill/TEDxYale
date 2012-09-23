@@ -24,7 +24,11 @@
         .image
           %a( href='/events/#{event.id}' )=image_tag event.thumbnail.url(:medium)
         .details
-          .name= link_to "#{event.name}", "/events/#{event.id}"
+          .name
+            = link_to "#{event.name}", "/events/#{event.id}"
+            -if event.datetime.past?
+            -else
+              %span Current Event
           .date= event.datetime.strftime('%A, %B %e, %G')
           .description= event.description
         
