@@ -50,10 +50,11 @@
               .published
                 %img( src='/assets/lock.png')
                 %span Unpublished
-      .sponsors
-        %h5 Partners
-        -@sponsorships.each do |sponsorship|
-          //-if sponsorship.sponsor.thumbnail.url(:medium) != '/thumbnails/medium/missing.png'
-          =image_tag sponsorship.sponsor.thumbnail.url(:medium)
-          .name= sponsorship.sponsor.name
+      -if @sponsorships.present?
+        .sponsors
+          %h5 Partners
+          -@sponsorships.each do |sponsorship|
+            //-if sponsorship.sponsor.thumbnail.url(:medium) != '/thumbnails/medium/missing.png'
+            =image_tag sponsorship.sponsor.thumbnail.url(:medium)
+            .name= sponsorship.sponsor.name
       
