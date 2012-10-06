@@ -23,6 +23,7 @@ class EventsController < ApplicationController
   
   def show
     @event = Event.find(params[:id])
+    @sponsorships = @event.sponsorships
     if current_user
       @attendee = Attendee.where({ :event_id => @event.id, :user_id => current_user.id })
     end

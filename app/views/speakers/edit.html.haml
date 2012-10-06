@@ -1,0 +1,11 @@
+.wrapper
+  =form_for @speaker do |f|
+    %p=f.text_field :name
+    %p=f.text_area :bio
+    %p=f.text_field :twitter
+    -if @speaker.thumbnail.url(:small)
+      %label Thumbnail Image:
+      .image
+        =image_tag @speaker.thumbnail.url(:small)
+    %p= f.file_field :thumbnail
+    %p=f.submit

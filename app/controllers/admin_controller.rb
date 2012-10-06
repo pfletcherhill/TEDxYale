@@ -61,7 +61,13 @@ class AdminController < ApplicationController
   def tv
     @videos = Video.order('title ASC')
   end
+  
   def wiki
+  end
+  
+  def sponsors
+    @sponsors = Sponsor.all
+    @sponsorships = Sponsorship.all
   end
   
 end

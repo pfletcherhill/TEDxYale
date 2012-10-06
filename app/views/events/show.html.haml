@@ -32,12 +32,6 @@
         -if @event.datetime.past?
           .past Past Event
         -else
-          / -if current_user
-          /             -if @event.users.exists?(:id => current_user.id)
-          /               %a.registered( href='/unregister?event_id=#{@event.id}&user_id=#{current_user.id}' )
-          /                 %img( src='/assets/registered.png')
-          /                 %span Registered
-          /             -else
           = link_to "Register for this Event", "http://www.eventbrite.com/event/2877690249", :class => "register"
       .details
         .date= @event.datetime.strftime('%A, %B %e, %G')
@@ -56,4 +50,10 @@
               .published
                 %img( src='/assets/lock.png')
                 %span Unpublished
+      .sponsors
+        %h5 Partners
+        -@sponsorships.each do |sponsorship|
+          //-if sponsorship.sponsor.thumbnail.url(:medium) != '/thumbnails/medium/missing.png'
+          =image_tag sponsorship.sponsor.thumbnail.url(:medium)
+          .name= sponsorship.sponsor.name
       

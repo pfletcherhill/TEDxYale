@@ -1,5 +1,7 @@
 TEDxYale::Application.routes.draw do
 
+  resources :sponsors, :sponsorships
+
   resources :users
 
   root :to => "users#new"
@@ -32,6 +34,7 @@ TEDxYale::Application.routes.draw do
   match "/admin/speakers" => "admin#speakers"
   match "/admin/tv" => "admin#tv"
   match "/admin/applications" => "admin#applications"
+  match "/admin/sponsors" => "admin#sponsors"
   
   match "promote" => "users#promote", :as => "promote_users"
   
@@ -85,5 +88,8 @@ TEDxYale::Application.routes.draw do
   
   #speakers
   resources :speakers
+  
+  # Sponsors
+  match "/sponsorships/new" => "sponsors#new_sponsorship"
   
 end

@@ -2,6 +2,8 @@ class Event < ActiveRecord::Base
   has_many :attendees
   has_many :users, :through => :attendees
   has_many :speakers
+  has_many :sponsorships
+  has_many :sponsors, :through => :sponsorships
   
   has_attached_file :header, 
     :styles => { :large => "660x" },

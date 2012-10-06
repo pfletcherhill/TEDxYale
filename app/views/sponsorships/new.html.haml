@@ -1,0 +1,12 @@
+.wrapper
+  =form_for @sponsorship do |f|
+    %label Amount
+    %p=f.text_field :amount
+    %label Primary Sponsor?
+    %p=f.check_box :primary
+    %label Sponsor
+    %p= f.select :sponsor_id, options_from_collection_for_select(@sponsors, :id, :name), :include_blank => true
+    %label Event
+    %p= f.select :event_id, options_from_collection_for_select(@events, :id, :name), :include_blank => true
+    %p=f.submit
+    

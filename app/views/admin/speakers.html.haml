@@ -11,9 +11,11 @@
           %th Bio
           %th Event
           %th Twitter
+          %th
         - @speakers.each do |speaker|
           %tr
             %td.name= speaker.name
             %td.bio= speaker.bio
             %td.event= speaker.event.name
             %td.twitter= speaker.twitter
+            %td= link_to "Edit", "/speakers/#{speaker.id}/edit"

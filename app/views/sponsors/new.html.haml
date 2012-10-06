@@ -1,0 +1,9 @@
+.wrapper
+  =form_for @sponsor do |f|
+    %label Name:
+    %p=f.text_field :name
+    %label Description:
+    %p=f.text_area :description
+    %p Thumbnail Upload:
+    %p= f.file_field :thumbnail
+    %p=f.submit

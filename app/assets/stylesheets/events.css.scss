@@ -321,6 +321,23 @@
         }
       }
     }
+    .sponsors {
+      h5 {
+        font-family: Helveticaneuebold;
+        font-size: 20px;
+        color: #333;
+        border-bottom: 1px solid #777;
+        padding-bottom: 5px;
+      }
+      img {
+        width: 100%;
+      }
+      .name {
+        font-family: Helveticaneuelight;
+        font-size: 14px;
+        text-align: center;
+      }
+    }
   }
 }
 //Event Index

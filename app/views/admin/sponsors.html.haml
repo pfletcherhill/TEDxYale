@@ -1,0 +1,39 @@
+.wrapper
+  = render :partial => 'menu'
+  
+  .admin_container.sponsors
+    =link_to "New Sponsor", "/sponsors/new"
+    =link_to "New Sponsorship", "/sponsorships/new"
+    %h3 Sponsors
+    %table
+      %tbody
+        %tr
+          %th Name
+          %th Description
+          %th
+        -@sponsors.each do |sponsor|
+          %tr
+            %td= sponsor.name
+            %td= sponsor.description
+            %td= link_to "Edit", "/sponsors/#{sponsor.id}/edit"
+    
+    %h3 Sponsorships
+    %table
+      %tbody
+        %tr
+          %th Amount
+          %th Primary
+          %th Sponsor
+          %th Event
+        -@sponsorships.each do |sponsorship|
+          %tr
+            %td= sponsorship.amount
+            -if sponsorship.primary
+              %td Primary
+            -else
+              %td
+            %td= sponsorship.sponsor.name
+            %td= sponsorship.event.name
+            
+          
+          
