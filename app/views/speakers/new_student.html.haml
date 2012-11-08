@@ -1,0 +1,30 @@
+.wrapper
+  .announcement
+    %h1.message Become a Student Speaker
+  .wrap
+    .speaker_form
+      =form_for @speaker do |f|
+        %label Name:
+        %p=f.text_field :name, :placeholder => "Handsome Dan"
+        %label Email:
+        %p=f.text_field :email, :placeholder => "handsome@yale.edu"
+        %label College:
+        %p=f.text_field :college, :placeholder => "The 13th College"
+        %label Graduation Year:
+        %p=f.text_field :year, :placeholder => "1701"
+        %label Talk Topic:
+        %p=f.text_field :talk_title, :placeholder => "The Science of TED Talks"
+        %p=f.submit "Register as a Speaker"
+    .speaker_details
+      .logo
+        %img(src='/assets/ssc_white.jpg')
+      .text
+        %h4 What is the competition?
+        %p The Student Speaker Competition determines the 5-6 student speakers who represent the current Yale student body at our annual TEDxYale conference. Last year, our student speakers ended up giving some of the most convincing and moving talks at the event. 
+        %h4 How it works
+        %p The competition is made up of two rounds. The first round is for anyone to participate in and involves a 3 minute summary of your TED talk. The first round is given in front of the TEDxYale team. For the second round, our team selects the 8-10 best talks from the first round, and those students perform in front of our TEDxYale team and members. The final round is filmed, and we will be uploading your talks to our website for popular voting. 
+        %h4 Details of the competition
+        %p 1. You must submit your name, email, and other details to the left by Friday November 23rd
+        %p 2. The first round of the competition will be held in Sudler Hall on Tuesday, November 27th
+        %p 3. After the advancing speakers are determined, the second round will be held in Sudler Hall on Thursday, December 6th
+    

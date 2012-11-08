@@ -1,3 +1,93 @@
 // Place all the styles related to the Speakers controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.form_notice {
+  text-align: center;
+  margin-bottom: 15px;
+  border: 1px solid red;
+  border-radius: 10px;
+  padding: 5px;
+  font-family: Helveticaneuelight;
+  color: red;
+}
+.form {
+  .form_section {
+    position: relative;
+    clear: both;
+    .speaker_left {
+      width: 450px;
+      float: left;
+      input {
+        width: 408px;
+      }
+    }
+    .speaker_right {
+      width: 500px;
+      float: left;
+      margin-left: 50px;
+      input {
+        width: 478px;
+      }
+      textarea {
+        width: 478px;
+        padding: 10px;
+        border: 1px solid #777;
+        font-family: Helveticaneuelight;
+        font-size: 15px;
+        height: 148px;
+        outline: none;
+        resize: none;
+        &:hover, &:focus {
+          border: 1px solid #ff0000;
+        }
+      }
+    }
+    input {
+      border: 1px solid #777;
+      background: white;
+      padding: 15px 10px;
+      font-size: 20px;
+      font-family: Helveticaneue;
+      -webkit-transition: 0.2s;
+      outline: none;
+      margin-bottom: 10px;
+      &:hover, &:focus {
+        border: 1px solid #ff0000;
+      }
+    }
+  }
+  .menu {
+    width: 980px;
+    clear: both;
+    font-family: Helveticaneuebold;
+    font-size: 25px;
+    line-height: 40px;
+    background: white;
+    border: 1px solid #dadada;
+    padding: 10px;
+    input {
+      float: right;
+      height: 40px;
+      width: 175px;
+      font-size: 13px;
+      cursor: pointer;
+      background-image: -webkit-gradient(
+      	linear,
+      	left bottom,
+      	left top,
+      	color-stop(0.38, #CC0000),
+      	color-stop(0.69, #e60000)
+      );
+      padding: 0px 20px;
+      line-height: 38px;
+      color: white;
+      text-shadow: -1px -1px 0px rgba(0,0,0,0.2);
+      text-decoration: none;
+      border: 1px solid #800000;
+      border-radius: 5px;
+      &:hover {
+        background: #e60000;
+      }
+    }
+  }
+}

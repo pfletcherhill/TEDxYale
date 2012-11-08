@@ -3,12 +3,17 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   
   helper_method :current_user
+  helper_method :current_speaker
   helper_method :current_admin
 
   private
 
   def current_user
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
+  end
+  
+  def current_speaker
+    @current_speaker ||= Speaker.find(session[:speaker_id]) if session[:speaker_id]
   end
   
   def current_admin

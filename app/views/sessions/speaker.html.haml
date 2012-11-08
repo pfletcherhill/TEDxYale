@@ -1,0 +1,11 @@
+.wrapper
+  .box
+    %h2 Login to you Speaker Account
+    .form
+      -if notice
+        .form_notice=notice
+      = form_tag "/sessions/student_create", :method => "post" do
+        =text_field_tag :email, params[:email], :placeholder => "Email"
+        =password_field_tag :password, params[:password], :placeholder => "Speaker Code"
+        =submit_tag "Login", :class => "submit"
+    %a(href="/login" class="login_link") Log in as Admin Instead

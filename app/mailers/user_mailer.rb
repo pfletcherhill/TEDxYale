@@ -22,4 +22,10 @@ class UserMailer < ActionMailer::Base
     @name = name
     mail(:to => email, :subject => "Thanks for applying")
   end
+  
+  def speaker_email(speaker, password)
+    @speaker = speaker
+    @password = password
+    mail(:to => speaker.email, :subject => "TEDxYale Student Speaker Competition")
+  end
 end

@@ -88,8 +88,15 @@ TEDxYale::Application.routes.draw do
   
   #speakers
   resources :speakers
+  match "/become_a_speaker" => "speakers#new_student"
+  match "/speaker_login" => "sessions#speaker"
+  match "/speaker" => "speakers#admin"
+  match "/sessions/student_create" => "sessions#speaker_create"
   
   # Sponsors
   match "/sponsorships/new" => "sponsors#new_sponsorship"
+  
+  # 2013
+  match "/2013" => "events#2013"
   
 end

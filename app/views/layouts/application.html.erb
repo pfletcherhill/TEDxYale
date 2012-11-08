@@ -56,13 +56,25 @@
   			  </div>
 		    </a>
 			<% end %>
+		<% elsif current_speaker %>
+	    <a class="header_item_link">
+	      <div class="header_item user">
+	        <div class='name'>
+	          <%= current_speaker.name %>
+	        </div>
+	        <ul class="dropdown_menu">
+			      <li><a href="/speaker">Speaker Panel</a></li>
+			      <li><a href="/logout">Logout</a></li>
+			    </ul>
+			  </div>
+	    </a>
 		<% else %> 
 		<a href="/login" class="header_item_link"><div class="header_item login">LOGIN</div></a>
 		<% end %>
 		<a href="/about" class="header_item_link"><div class="header_item" id="item_events">ABOUT</div></a>
 		<a href="/tv" class="header_item_link"><div class="header_item" id="item_events">TV</div></a>
 		<a href="/events" class="header_item_link"><div class="header_item" id="item_events">EVENTS</div></a>
-		<a href="/events" class="header_item_link"><div class="header_item" id="item_2013">2013</div></a>
+		<a href="/2013" class="header_item_link"><div class="header_item" id="item_2013">2013</div></a>
 	</div>
 </div>
 <!--Header End-->

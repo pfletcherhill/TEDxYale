@@ -1,0 +1,26 @@
+.wrapper
+  .form
+    =form_for @speaker do |f|
+      .menu
+        Your Speaker Profile
+        =f.submit "Save Information"
+      .form_section
+        .speaker_left
+          %h3 Personal Details:
+          %label Name:
+          %p=f.text_field :name
+          %label Email:
+          %p=f.text_field :email
+          %label College:
+          %p=f.text_field :college
+          %label Graduation Year:
+          %p=f.text_field :year
+        .speaker_right
+          %h3 Talk Details:
+          %label Talk Topic:
+          %p=f.text_field :talk_title
+          %label Talk Summary
+          %p=f.text_area :talk_about, :placeholder => "Limit your summary to 200 words"
+  .info
+      
+      
