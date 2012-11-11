@@ -11,7 +11,8 @@ class Speaker < ActiveRecord::Base
   
   attr_accessor :password
 
-  before_save :generate_password    
+  before_create :generate_password
+  #before_save :generate_password, :on => "create"    
 
   validates_presence_of :name  
   validates_presence_of :email 

@@ -11,11 +11,21 @@
           %th Bio
           %th Event
           %th Twitter
+          %th College
+          %th Year
+          %th Talk Title
           %th
         - @speakers.each do |speaker|
           %tr
             %td.name= speaker.name
             %td.bio= speaker.bio
-            %td.event= speaker.event.name
+            -if speaker.event
+              %td.event= speaker.event.name
+            -else
+              %td.event
             %td.twitter= speaker.twitter
+            %td.college= speaker.college
+            %td.year= speaker.year
+            %td.title= speaker.talk_title
+            %td.summary= speaker.talk_about
             %td= link_to "Edit", "/speakers/#{speaker.id}/edit"
