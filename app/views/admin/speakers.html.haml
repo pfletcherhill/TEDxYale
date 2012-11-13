@@ -2,8 +2,8 @@
   = render :partial => 'menu'
 
   .admin_container.speakers
-    %h1 Speakers (#{@events_number})
-    .create_event= link_to "Add Speaker", "/speakers/new"
+    .create_speaker= link_to "+ Add Speaker", "/speakers/new"
+    %h1 Speakers (#{@speakers.count})
     %table
       %tbody
         %tr
@@ -14,6 +14,7 @@
           %th College
           %th Year
           %th Talk Title
+          %th Talk Summary
           %th
         - @speakers.each do |speaker|
           %tr

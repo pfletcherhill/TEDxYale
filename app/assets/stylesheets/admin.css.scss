@@ -59,6 +59,10 @@
   padding-left: 20px;
   min-height: 300px;
   border-left: 1px solid #bbb;
+  h1 {
+    font-family: Helveticaneuebold;
+    font-size: 25px;
+  }
   hr {
     height: 100%;
     width: 1px;
@@ -70,9 +74,20 @@
   }
   table {
     border-collapse: collapse;
-    border: 1px solid #dadada;
-    padding: 5px;
     width: 100%;
+    tr {
+      border-bottom: 1px solid #dadada;
+      th {
+        text-align: left;
+        padding: 0px;
+        font-family: Helveticaneuebold;
+      }
+      td {
+        border-collapse: collapse;
+        padding: 5px 0px;
+        font-family: Helveticaneue;
+      }
+    }
   }
   .left {
     float: left;
@@ -416,4 +431,29 @@
 }
 .wiki {
   
+}
+.speakers {
+  .create_speaker {
+    float: right;
+    text-align: right;
+    padding: 0px 10px;
+    background: transparent;
+    border: 1px solid #777;
+    -webkit-transition: 0.2s;
+    a {
+      font-family: Helveticaneuebold;
+      font-size: 13px;
+      line-height: 20px;
+      text-decoration: none;
+      color: #333;
+      -webkit-transition: 0.2s;
+    }
+    &:hover {
+      background: white;
+      border: 1px solid #cc0000;
+      a {
+        color: #cc0000;
+      }
+    }
+  }
 }
