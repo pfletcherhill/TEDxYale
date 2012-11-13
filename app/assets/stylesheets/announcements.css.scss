@@ -5,6 +5,34 @@
   width: 1000px;
   padding-bottom: 40px;
   border-bottom: 1px solid #dadada;
+  .ssc_announcement {
+    position: relative;
+    display: block;
+    width: 1000px;
+    background-image: url('/assets/ted_bg.png');
+    height: 200px;
+    background-size: 1200px;
+    background-position: 0 -100px;
+    -webkit-transition: 0.5s;
+    cursor: pointer;
+    &:hover {
+      background-position: -150px -175px;
+      background-size: 1500px;
+      #text {
+        color: white;
+      }
+    }
+    #text {
+      position: absolute;
+      bottom: 30px;
+      left: 20px;
+      font-family: Helveticaneue;
+      font-size: 40px;
+      color: #eee;
+      text-decoration: none;
+      -webkit-transition: 0.2s;
+    }
+  }
   h1 {
     font-family: Helveticaneuebold;
     color: #333;
