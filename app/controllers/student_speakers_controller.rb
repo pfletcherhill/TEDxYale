@@ -1,11 +1,22 @@
 class StudentSpeakersController < ApplicationController
   
-  before_filter :require_login, :only => ["new", "create", "vote"]
+  before_filter :require_login, :only => ["new", "create"]
+  before_filter :require_user, :only => ["vote"]
     
   def require_login
     unless logged_in?
       redirect_to '/login' # halts request cycle
     end
+  end
+  
+  def require_user
+    unless logged_into_user?
+      redirect_to '/2013'
+    end
+  end
+  
+  def logged_into_user?
+    !!current_user
   end
  
   def logged_in?
