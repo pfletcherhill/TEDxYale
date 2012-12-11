@@ -1,0 +1,9 @@
+development:
+  app_id: '321791014603315'
+  secret_key: '84a49fd02383cdef3c3d6811ce971528'
+  callback_url: 'http://localhost:3000/2013'
+ 
+production:
+  app_id: '321791014603315'
+  secret_key: '84a49fd02383cdef3c3d6811ce971528'
+  callback_url: 'http://tedxyale.com/2013'

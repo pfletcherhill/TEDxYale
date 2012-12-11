@@ -3,7 +3,7 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
 #Hash changes
-if window.location.href.indexOf('#') > -1
+if window.location.href.indexOf('#') > -1 && window.location.href.indexOf('about') > -1
   hash = location.hash.substring(1)
   jQuery ->
     $('body').stop().scrollTo($('.section.' + hash), 700, {offset: -135})

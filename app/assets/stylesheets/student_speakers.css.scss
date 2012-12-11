@@ -1,0 +1,142 @@
+// Place all the styles related to the StudentSpeakers controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+#leaderboard {
+  width: 958px;
+  padding: 20px;
+  margin-bottom: 30px;
+  border: 1px solid #dadada;
+  min-height: 215px;
+  .student_leader {
+    float: left;
+    width: 300px;
+    margin-left: 29px;
+    &:first-child {
+      margin-left: 0px;
+    }
+    .rank_info {
+      font-family: Helveticaneuebold;
+      font-size: 20px;
+      padding-bottom: 10px;
+    }
+    .rank_image {
+      width: 300px;
+      position: relative;
+      height: 183px;
+      img {
+        width: 300px;
+        height: 183px;
+      }
+      .image_cover {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        height: 100%;
+        width: 100%;
+        background: blue;
+        opacity: 0.4;
+      }
+    }
+    .rank_votes {
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      width: 100%;
+      text-align: center;
+      font-family: Helveticaneuelight;
+      font-size: 100px;
+      line-height:  183px;
+      color: white;
+    }
+  }
+}
+.students_menu {
+  position: absolute;
+  width: 300px;
+  &.fixed {
+    position: fixed;
+    top: 100px;
+  }
+  ul {
+    list-style-type: none;
+    padding: 0px;
+    margin: 0px;
+    li a {
+      display: block;
+      font-family: Helveticaneuebold;
+      border-bottom: 1px solid #DADADA;
+      font-size: 15px;
+      position: relative;
+      z-index: 0;
+      cursor: pointer;
+      color: #333;
+      text-decoration: none;
+      padding: 10px;
+      -webkit-transition: background 0.2s;
+      &:hover {
+        background: #eee;
+        background-image: url('/assets/menu_arrow.png');
+        background-repeat: no-repeat;
+        background-position: 265px;
+        background-size: 7px;
+      }
+      &.active {
+        color: #e60000;
+      }
+    }
+  }
+}
+.students_container {
+  width: 670px;
+  position: relative;
+  margin-left: 330px;
+  min-height: 500px;
+  .student_video {
+    border-bottom: 2px solid #dadada;
+    margin-bottom: 20px;
+    min-height: 245px;
+    .student_image {
+      width: 400px;
+      height: 225px;
+      float: left;
+      position: relative;
+      background-color: black;
+      img {
+        width: 400px;
+        height: 225px;
+      }
+      .play {
+        height: 80px;
+        width: 80px;
+        background-color: black;
+        position: absolute;
+        cursor: pointer;
+        top: 72px;
+        left: 160px;
+        background-image: url("/assets/play.png");
+        background-position: center;
+        background-repeat: no-repeat;
+        -webkit-transition: 0.2s;
+        &:hover {
+          background-color: #f60000;
+        }
+      }
+    }
+    .student_info {
+      padding-left: 20px;
+      width: 250px;
+      margin-left: 400px;
+      .student_name {
+        font-family: Helveticaneuebold;
+        font-size: 20px;
+        line-height: 25px;
+      }
+      .student_talk {
+        font-family: Helveticaneuelight;
+        font-size: 35px;
+        line-height: 40px;
+        margin-bottom: 15px;
+      }
+    }
+  }
+}

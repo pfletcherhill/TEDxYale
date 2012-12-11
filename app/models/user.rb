@@ -14,6 +14,22 @@ class User < ActiveRecord::Base
 	
 	has_many :attendees
 	has_many :events, :through => :attendees
+	has_many :votes
+	
+	def votes_left
+	  votes = self.votes.count
+	  10 - votes
+	end
+	
+	def has_votes?
+	  votes = self.votes.count
+	  votes = 10 - votes
+	  if votes > 0
+	    true
+	  else
+	    false
+	  end
+	end
 	
   def encrypt_password  
     if password.present?  

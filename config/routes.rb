@@ -97,6 +97,9 @@ TEDxYale::Application.routes.draw do
   match "/sponsorships/new" => "sponsors#new_sponsorship"
   
   # 2013
-  match "/2013" => "events#2013"
+  resources :student_speakers
+  match "/2013" => "events#conference"
+  match "/facebook" => "student_speakers#facebook"
+  match "/users/:id/vote/:video" => "student_speakers#vote"
   
 end

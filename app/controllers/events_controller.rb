@@ -122,4 +122,8 @@ class EventsController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  def conference
+    @speakers = StudentSpeaker.all
+  end
 end

@@ -7,4 +7,3 @@ class TEDxYale.Routers.ApplicationsRouter extends Backbone.Router
 
   newApplication: ->
     @view = new TEDxYale.Views.Applications.NewView(model: @application)
-    $("#application").html(@view.render().el)

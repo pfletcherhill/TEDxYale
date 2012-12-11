@@ -1,0 +1,14 @@
+<div class="student_video" data-id="<%= id %>">
+  <div class="student_image">
+    <img src="<%= thumbnail %>"/>
+    <div class="play" data-youtube="<%= youtube %>"></div>
+  </div>
+  <div class="student_info">
+    <div class="student_name"><%= name %></div>
+    <div class="student_talk"><%= talk %></div>
+    <div class="student_votes">
+      <button data-id="<%= id %>" id="vote">Vote for <%= name.split(" ")[0] %></button>
+      <span><%= votes %> votes</span>
+    </div>
+  </div>
+</div>
