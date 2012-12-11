@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
     
     if user  
       session[:user_id] = user.id
-      redirect_to "/dashboard/current_events", :notice => "Welcome back #{user.name}"  
+      redirect_to "/2013", :notice => "Welcome back #{user.name}"  
     else
       flash[:notice] = 'Invalid Email or Password'
       render "new"

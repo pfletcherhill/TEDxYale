@@ -83,6 +83,10 @@
       &.active {
         color: #e60000;
       }
+      span {
+        font-style: italic;
+        font-family: Helveticaneue;
+      }
     }
   }
 }
@@ -136,6 +140,26 @@
         font-size: 32px;
         line-height: 38px;
         margin-bottom: 15px;
+      }
+      button#vote {
+        background: -moz-linear-gradient(0% 100% 90deg, #CF0000, #E60000);
+    	  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#E60000), to(#CF0000));
+        background: -moz-linear-gradient(0% 100% 90deg, #CF0000, #E60000);
+        -pie-background: linear-gradient(#E60000, #CF0000);
+        border-radius: 3px;
+        border: 1px solid #990000;
+        cursor: pointer;
+        padding: 10px;
+        color: white;
+        font-family: Helveticaneue;
+        &:hover {
+          background: #e60000;
+        }
+      }
+      .student_votes span {
+        font-style: italic;
+        font-family: Helveticaneue;
+        font-size: 16px;
       }
       .vote_fb {
         background-image: url("/assets/facebook_logo.png");
