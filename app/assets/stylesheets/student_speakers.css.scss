@@ -133,9 +133,29 @@
       }
       .student_talk {
         font-family: Helveticaneuelight;
-        font-size: 35px;
-        line-height: 40px;
+        font-size: 32px;
+        line-height: 38px;
         margin-bottom: 15px;
+      }
+      .vote_fb {
+        background-image: url("/assets/facebook_logo.png");
+        background-repeat: no-repeat;
+        height: 30px;
+        background-size: auto 30px;
+        padding-left: 30px;
+        line-height: 30px;
+        cursor: pointer;
+        span {
+          background-image: url("/assets/facebook_bg.png");
+          height: 30px;
+          display: block;
+          background-repeat: no-repeat;
+          background-size: 105px 30px;
+          color: white;
+          font-family: Arial;
+          padding-left: 10px;
+          font-size: 11px;
+        }
       }
     }
   }

@@ -1,16 +1,11 @@
 .wrapper
   .announcement.student_speakers
-    -if current_user
-      %h1.message Help Pick 2013's Student Speakers
-    -else
-      %h1.message TEDxYale 2013 Arrives on Feb. 23rd.
+    %h1.message Help Pick 2013's Student Speakers
   / .student_speaker
   /     %a(href="/become_a_speaker" class="student_speakers")
   /       %h2 Audition for a Student Speaker Position
-  -if current_user
-    #students
+  #students
   
-
 :javascript
   $(function() {
     window.router = new TEDxYale.Routers.CompetitionRouter({currentUser: #{current_user.to_json.html_safe}});
