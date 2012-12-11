@@ -21,6 +21,14 @@ class User < ActiveRecord::Base
 	  10 - votes
 	end
 	
+	def is_admin?
+	  if self.admin == 'a'
+	    true
+	  else
+	    false
+	  end
+	end
+	
 	def has_votes?
 	  votes = self.votes.count
 	  votes = 10 - votes

@@ -61,7 +61,7 @@ class StudentSpeakersController < ApplicationController
   
   def vote
     user = User.find(params[:id])
-    if user.has_votes?
+    if user.has_votes? || user.is_admin?
       video = StudentSpeaker.find(params[:video])
       vote = Vote.new(:user_id => user.id, :student_speaker_id => video.id)
       if vote.save
