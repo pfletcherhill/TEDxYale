@@ -1,6 +1,15 @@
 // Place all the styles related to the StudentSpeakers controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.voting_text {
+  font-family: Helveticaneuelight;
+  font-size: 15px;
+  line-height: 22px;
+  margin-bottom: 30px;
+  span {
+    font-family: Helveticaneuebold;
+  }
+}
 #leaderboard {
   width: 958px;
   padding: 20px;
