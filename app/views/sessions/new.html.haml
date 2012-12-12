@@ -1,6 +1,9 @@
 .wrapper
   .box
-    %h2 Sign in to Your TEDxYale Account
+    .facebook
+      .user_fb.fb_login
+        %span Connect with Facebook
+    %h2 Or Sign in to Your TEDxYale Account
     .form
       =form_tag sessions_path do
         =text_field_tag :email, params[:email], :placeholder => "Email"

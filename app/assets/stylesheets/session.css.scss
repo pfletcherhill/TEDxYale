@@ -7,11 +7,37 @@
     margin-left: auto;
     margin-right: auto;
     text-align: center;
+    .facebook {
+      padding-bottom: 25px;
+      border-bottom: 1px solid #dadada;
+      .user_fb {
+        background-image: url("/assets/facebook_logo.png");
+        background-repeat: no-repeat;
+        background-size: auto 46px;
+        width: 272px;
+        margin: auto;
+        height: 46px;
+        cursor: pointer;
+        span {
+          background-image: url("/assets/facebook_bg.png");
+          background-repeat: no-repeat;
+          background-size: 225px 46px;
+          display: block;
+          line-height: 46px;
+          margin-left: 46px;
+          color: white;
+          font-size: 16px;
+          font-family: Helveticaneue;
+        }
+      }
+    }
     h2 {
       font-family: Helveticaneuebold;
       color: #555;
-      font-size: 25px;
+      font-size: 18px;
       text-align: center;
+      padding-top: 15px;
+      padding-bottom: 10px;
     }
     .form {
       input {

@@ -165,7 +165,7 @@
           background: #e60000;
         }
       }
-      .student_votes span {
+      .student_votes span.votes {
         font-style: italic;
         font-family: Helveticaneue;
         font-size: 16px;
@@ -179,6 +179,7 @@
         line-height: 30px;
         cursor: pointer;
         span {
+          font-style: regular;
           background-image: url("/assets/facebook_bg.png");
           height: 30px;
           display: block;
