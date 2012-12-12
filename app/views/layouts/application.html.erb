@@ -64,9 +64,10 @@
 		      <div class="header_item user">
 		        <div class='name'>
 		          <%= current_user.name %>
+		          <div class="user_icon"><%= current_user.votes.count %></div>
 		        </div>
 		        <ul class="dropdown_menu">
-  			      <li><a href="/2013"><%= current_user.votes.count %> votes made</a></li>
+  			      <li><a class="votes_left" href="/2013"><%= current_user.votes.count %> votes made</a></li>
   			      <li><a href="/admin/events">Admin</a></li>
   			      <li><a href="/wiki">Wiki</a></li>
   			      <li><a href="/logout">Logout</a></li>
@@ -78,9 +79,10 @@
 		      <div class="header_item user">
 		        <div class='name'>
 		          <%= current_user.name %>
+		          <div class="user_icon"><%= current_user.votes_left %></div>
 		        </div>
 		        <ul class="dropdown_menu">
-  			      <li><a href="/2013"><%= current_user.votes_left %> votes left</a></li>
+  			      <li><a class="votes_left" href="/2013"><%= current_user.votes_left %> votes left</a></li>
   			      <li><a href="/logout">Logout</a></li>
   			    </ul>
   			  </div>

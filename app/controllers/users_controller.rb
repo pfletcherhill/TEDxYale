@@ -166,5 +166,14 @@ class UsersController < ApplicationController
       end
     end
   end
-   
+  
+  def votes_count
+    user = current_user
+    if user.is_admin?
+      render json: user.votes.count
+    else
+      render json: user.votes_left
+    end
+  end
+  
 end

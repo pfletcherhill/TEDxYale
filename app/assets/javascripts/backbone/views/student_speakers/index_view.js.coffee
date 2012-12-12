@@ -30,11 +30,20 @@ class TEDxYale.Views.StudentSpeakers.IndexView extends Backbone.View
     for model, i in speakers
       model.set rank: i+1
       $("#leaderboard").append(@leaderTemplate( model.toJSON() ))
-    
+  
+  renderUserIcon: =>
+    votes = TEDxYale.user.get('votes')
+    @$(".user_icon").html(votes)
+    if TEDxYale.user.get('admin') == 'a'
+      @$(".dropdown_menu .votes_left").html(votes + ' votes made')
+    else
+      @$(".dropdown_menu .votes_left").html(votes + ' votes left')
+      
   renderVotes: (id) =>
     @speakers.fetch success: (speakers) =>
       @speakers = speakers
       @renderVoting()
+      TEDxYale.user.fetchVotesCount().then @renderUserIcon
       for model in speakers.models
         votes = model.get('votes')
         $(".student_video[data-id=#{model.id}] .student_votes span").html("#{votes} votes")

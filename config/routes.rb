@@ -8,7 +8,6 @@ TEDxYale::Application.routes.draw do
 
   match "/join" => "applications#new"
   match "/app_email/:id" => "applications#app_mailer"
-  
   match "/signup" => "users#signup"
   
   resources :applications
@@ -101,5 +100,6 @@ TEDxYale::Application.routes.draw do
   match "/2013" => "events#conference"
   match "/facebook" => "student_speakers#facebook"
   match "/users/:id/vote/:video" => "student_speakers#vote"
+  match "/me/votes_count" => "users#votes_count"
   
 end

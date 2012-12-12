@@ -14,6 +14,14 @@ class TEDxYale.Models.User extends Backbone.Model
         console.log data 
       error: ->
         alert 'No more votes!'
+  
+  fetchVotesCount: ->
+    $.ajax
+      type: 'GET'
+      dataType: 'json'
+      url: '/me/votes_count'
+      success: (data) =>
+        @set votes: data
         
 class TEDxYale.Collections.UsersCollection extends Backbone.Collection
   model: TEDxYale.Models.User

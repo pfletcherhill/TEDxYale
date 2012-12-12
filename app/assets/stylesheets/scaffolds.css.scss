@@ -58,6 +58,20 @@ div {
 	left:0px;
 	z-index:100;
 }
+.user_icon {
+  position: absolute;
+  top: 23px;
+  right: 12px;
+  background: red;
+  height: 16px;
+  width: 16px;
+  text-align: center;
+  line-height: 16px;
+  border-radius: 8px;
+  font-size: 9px;
+  color: white;
+  font-family: Helveticaneue;
+}
 #header_container {
 	height:80px;
 	width: 1000px;
@@ -101,6 +115,7 @@ div {
 	  min-width: 100px;
 	  text-align: center;
 	  .name {
+	    position: relative;
 	    padding: 0 18px;
 	  }
 	  ul {
