@@ -1,6 +1,21 @@
 // Place all the styles related to the Posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+//Mixins
+@mixin HN-Light {
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-weight: lighter;
+}
+@mixin HN-Bold {
+  font-family: "HelveticaNeue-Bold", "Helvetica Neue Bold", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-weight: bold;
+}
+@mixin HN-Regular {
+  font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-weight: normal;
+}
+
 .wrapper {
   .menu_left {
     .menu {
@@ -30,12 +45,12 @@
       .title {
         width: 100%;
         border-bottom: 1px solid #333;
-        font-family: Helveticaneuebold;
+        @include HN-Bold;
         font-size: 25px;
         padding-bottom: 5px;
         margin-bottom: 10px;
         a {
-          font-family: Helveticaneuelight;
+          @include HN-Light;
           float: right;
           font-style: italic;
           color: #e60000;
@@ -50,12 +65,12 @@
       .body {
         margin-bottom: 30px;
         width: 100%;
-        font-family: Helveticaneue;
+        @include HN-Regular;
         p {
-          font-family: Helveticaneue;
+          @include HN-Regular;
         }
         h3 {
-          font-family: Helveticaneue;
+          @include HN-Regular;
           text-decoration: underline;
         }
       }
@@ -66,7 +81,7 @@
       background: #fff;
       border: 1px solid #dadada;
       color: #333;
-      font-family: Helveticaneuebold;
+      @include HN-Bold;
       font-size: 25px;
       margin-bottom: 10px;
       outline: none;
@@ -79,13 +94,13 @@
       color: #e60000;
       margin: 0px;
       padding: 0px;
-      font-family: Helveticaneuelight;
+      @include HN-Light;
       margin-bottom: 10px;
       float: left;
     }
     span.delete {
       float: right;
-      font-family: Helveticaneuebold;
+      @include HN-Bold;
       a {
         color: #000;
         text-decoration: none;
@@ -100,7 +115,7 @@
       background: #fff;
       border: 1px solid #dadada;
       color: #333;
-      font-family: Helveticaneue;
+      @include HN-Regular;
       outline: none;
       font-size: 14px;
       margin-bottom: 10px;
@@ -113,7 +128,7 @@
       height: 50px;
       text-align: center;
       background: #ff0000;
-      font-family: Helveticaneue;
+      @include HN-Regular;
       color: #fff;
       font-size: 15px;
       line-height: 20px;

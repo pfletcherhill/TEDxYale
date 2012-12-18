@@ -28,4 +28,9 @@ class UserMailer < ActionMailer::Base
     @password = password
     mail(:to => speaker.email, :subject => "TEDxYale Student Speaker Competition")
   end
+  
+  def ticket_email(ticket)
+    @ticket = ticket
+    mail(:to => @ticket.email, :subject => "TEDxYale 2013 Ticket Confirmation" )
+  end
 end

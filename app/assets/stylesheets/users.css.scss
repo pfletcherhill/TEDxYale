@@ -1,6 +1,21 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+//Mixins
+@mixin HN-Light {
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-weight: lighter;
+}
+@mixin HN-Bold {
+  font-family: "HelveticaNeue-Bold", "Helvetica Neue Bold", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-weight: bold;
+}
+@mixin HN-Regular {
+  font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-weight: normal;
+}
+
 .menu_left {
   width: 260px;
   float: left;
@@ -27,7 +42,7 @@
         vertical-align: middle;
         line-height: 25px;
         font-size: 20px;
-        font-family: Helveticaneuebold;
+        @include HN-Bold;
         height: 50px;
         margin-left: 10px;
         float: left;
@@ -35,7 +50,7 @@
       }
     }
     .item {
-      font-family: Helveticaneuebold;
+      @include HN-Bold;
       border-bottom: 1px solid #dadada;
       font-size: 15px;
       position:relative;
@@ -62,7 +77,7 @@
     width: 100%;
     text-align: center;
     background: #ff0000;
-    font-family: Helveticaneue;
+    @include HN-Regular;
     color: #fff;
     font-size: 15px;
     line-height: 20px;
@@ -106,7 +121,7 @@
     min-height: 150px;
     h2 {
       font-size: 15px;
-      font-family: Helveticaneuebold;
+      @include HN-Bold;
       width: 100%;
       border-bottom: 1px solid #dadada;
       margin: 0;
@@ -115,7 +130,7 @@
         color: #E60000;
       }
       span.add_attended {
-        font-family: Helveticaneuelight;
+        @include HN-Light;
         float: right;
         font-style:italic;
         font-size: 13px;
@@ -159,9 +174,9 @@
       .info {
         float: left;
         margin-left: 15px;
-        font-family: Helveticaneue;
+        @include HN-Regular;
         a.name {
-          font-family: Helveticaneuebold;
+          @include HN-Bold;
           text-decoration: none;
           color: #333;
           font-size: 15px;
@@ -183,7 +198,7 @@
         box-shadow: 0 0 3px rgba(0,0,0,0.4);
         margin-bottom: 15px;
         .label {
-          font-family: Helveticaneuelight;
+          @include HN-Light;
           color: #777;
           width: 100%;
           line-height: 15px;
@@ -191,7 +206,7 @@
           margin-bottom: 10px;
         }
         input {
-          font-family: Helveticaneue;
+          @include HN-Regular;
           width: 660px;
           height: 35px;
           color: #E60000;
@@ -211,7 +226,7 @@
         text-align: center;
         margin-top: 10px;
         background: #ff0000;
-        font-family: Helveticaneue;
+        @include HN-Regular;
         color: #fff;
         font-size: 16px;
         line-height: 20px;
@@ -252,7 +267,7 @@
     width: 840px;
     padding: 30px;
     font-size: 30px;
-    font-family: Helveticaneuebold;
+    @include HN-Bold;
     color: #e60000;
     background: #fff;
     border: 1px solid #dadada;
@@ -265,7 +280,7 @@
     text-align: center;
     margin-top: 10px;
     background: #ff0000;
-    font-family: Helveticaneue;
+    @include HN-Regular;
     color: #fff;
     font-size: 35px;
     line-height: 20px;

@@ -1,6 +1,21 @@
 // Place all the styles related to the Applications controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+//Mixins
+@mixin HN-Light {
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-weight: lighter;
+}
+@mixin HN-Bold {
+  font-family: "HelveticaNeue-Bold", "Helvetica Neue Bold", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-weight: bold;
+}
+@mixin HN-Regular {
+  font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-weight: normal;
+}
+
 .wrapper {
   .application {
     position: relative;
@@ -9,12 +24,12 @@
       margin-left: 4px;
       width: 650px;
       h1 {
-        font-family: Helveticaneuebold;
+        @include HN-Bold;
         color: #333;
         font-size: 45px;
       }
       p {
-        font-family: Helveticaneuelight;
+        @include HN-Light;
       }
       input {
         width: 280px;
@@ -23,7 +38,7 @@
         margin-bottom: 15px;
         font-size: 16px;
         color: #333;
-        font-family: Helveticaneuelight;
+        @include HN-Light;
         border: 1px solid #dadada;
         background: #fff;
         outline: none;
@@ -42,7 +57,7 @@
         margin: 0px;
         border: 1px solid #dadada;
         resize: none;
-        font-family: Helveticaneuelight;
+        @include HN-Light;
         font-size: 14px;
         outline: none;
         &:hover {
@@ -72,12 +87,12 @@
           h3 {
             margin: 0px;
             margin-bottom: 5px;
-            font-family: Helveticaneuebold;
+            @include HN-Bold;
           }
           ul {
             margin: 0px;
             //padding-left: 20px;
-            font-family: Helveticaneuelight;
+            @include HN-Light;
             list-style: none;
             padding: 0px;
           }
@@ -95,10 +110,10 @@
         width: 150px;
         margin-top: 20px;
         margin-left: 20px;
-        font-family: Helveticaneue;
+        @include HN-Regular;
         font-style: italic;
         span {
-          font-family: Helveticaneuebold;
+          @include HN-Bold;
         }
       }
       ul {
@@ -127,7 +142,7 @@
             margin: 0px;
             padding: 10px 0px;
             border-top: 1px solid #dadada;
-            font-family: Helveticaneuebold;
+            @include HN-Bold;
             width: 150px;
             text-align: left;
             &:hover, &:focus {
@@ -148,7 +163,7 @@
       width: 250px;
       margin-top: 15px;
       height: 35px;
-      font-family: Helveticaneuebold;
+      @include HN-Bold;
       color: #333;
       font-size: 15px;
       background: #EEE;
@@ -171,7 +186,7 @@
       text-align: center;
       margin: 50px 0;
       font-size: 20px;
-      font-family: Helveticaneuelight;
+      @include HN-Light;
       color: #ff0000;
     }
   }

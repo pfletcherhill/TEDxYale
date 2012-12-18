@@ -1,6 +1,21 @@
 // Place all the styles related to the Session controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+//Mixins
+@mixin HN-Light {
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-weight: lighter;
+}
+@mixin HN-Bold {
+  font-family: "HelveticaNeue-Bold", "Helvetica Neue Bold", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-weight: bold;
+}
+@mixin HN-Regular {
+  font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-weight: normal;
+}
+
 .wrapper {
   .box {
     width: 500px;
@@ -27,12 +42,12 @@
           margin-left: 46px;
           color: white;
           font-size: 16px;
-          font-family: Helveticaneue;
+          @include HN-Regular;
         }
       }
     }
     h2 {
-      font-family: Helveticaneuebold;
+      @include HN-Bold;
       color: #555;
       font-size: 18px;
       text-align: center;
@@ -48,7 +63,7 @@
         border: 1px solid #dadada;
         margin: 0px;
         color: #555;
-        font-family: Helveticaneuelight;
+        @include HN-Light;
         outline: none;
         -webkit-transition: 0.2s;
         margin-bottom: 10px;
@@ -64,7 +79,7 @@
         background: #eee;
         border: 1px solid #777;
         color: #444;
-        font-family: Helveticaneuelight;
+        @include HN-Light;
         outline: none;
         -webkit-transition: 0.2s;
         cursor: pointer;
@@ -86,7 +101,7 @@
       display: block;
       outline: none;
       text-align: center;
-      font-family: Helveticaneuelight;
+      @include HN-Light;
       font-style: italic;
       color: red;
       font-size: 15px;

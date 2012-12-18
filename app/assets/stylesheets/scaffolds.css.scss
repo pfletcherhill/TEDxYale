@@ -1,3 +1,17 @@
+//Mixins
+@mixin HN-Light {
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-weight: lighter;
+}
+@mixin HN-Bold {
+  font-family: "HelveticaNeue-Bold", "Helvetica Neue Bold", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-weight: bold;
+}
+@mixin HN-Regular {
+  font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-weight: normal;
+}
+
 body {
   background-color: #fff;
   color: #333;
@@ -70,7 +84,7 @@ div {
   border-radius: 8px;
   font-size: 9px;
   color: white;
-  font-family: Helveticaneue;
+  @include HN-Regular;
 }
 #header_container {
 	height:80px;
@@ -97,7 +111,7 @@ div {
 	font-size:15px;
 	float:right;
 	cursor:pointer;
-	font-family:Helveticaneue;
+	@include HN-Regular;
 	color:#666;
 	-webkit-transition: 0.2s;
 	border-left: 1px solid #eee;
@@ -130,7 +144,7 @@ div {
   	    a {
   	      padding: 8px 10px;
   	      color: #777;
-  	      font-family: Helveticaneuelight;
+  	      @include HN-Light;
   	      text-transform: uppercase;
   	      text-decoration: none;
   	      font-size: 12px;
@@ -183,7 +197,7 @@ div {
 	      padding: 0 10px;
 	      line-height: 30px;
 	      font-size: 14px;
-	      font-family: Helveticaneue;
+	      @include HN-Regular;
 	      text-decoration: none;
 	      background: #eee;
 	      cursor: pointer;
@@ -209,7 +223,7 @@ div {
 	      }
 	    }
 	    p {
-	      font-family: Helveticaneue;
+	      @include HN-Regular;
 	      font-size: 13px;
 	      color: #333;
 	      padding-bottom: 30px;
@@ -222,7 +236,7 @@ div {
 	    float: left;
 	    padding-bottom: 30px;
 	    .title {
-	      font-family: Helveticaneuebold;
+	      @include HN-Bold;
 	      font-size: 13px;
 	      color: #e60000;
 	      border-bottom: 1px solid #e60000;
@@ -230,11 +244,11 @@ div {
 	      span {
 	        float: right;
 	        font-style: italic;
-	        font-family: Helveticaneuelight;
+	        @include HN-Light;
 	      }
 	    }
 	    p {
-	      font-family: Helveticaneue;
+	      @include HN-Regular;
 	      margin-top: 8px;
 	    }
 	  }

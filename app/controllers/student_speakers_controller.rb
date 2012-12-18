@@ -71,4 +71,28 @@ class StudentSpeakersController < ApplicationController
       render json: user, status: :unprocessable_entity
     end
   end
+  
+  def early_bird
+    @stripe_key = ENV['Stripe_Publishable_Key']
+  end
+  
+  def process_stripe
+    @ticket = Ticket.new(:name => params[:name], :email => params[:email])
+    if @ticket.valid?
+      Stripe.api_key = ENV['Stripe_Secret_Key']
+      token = params[:stripeToken]
+      charge = Stripe::Charge.create(
+        :amount => 1000,
+        :currency => "usd",
+        :card => token,
+        :description => "TEDxYale Early-Bird Ticket"
+      )
+      @ticket.save
+      UserMailer.ticket_email(@ticket).deliver
+      redirect_to "/early_bird", :notice => "Payment Processed!"
+    else
+      redirect_to "/early_bird", :notice => "better luck next time"
+    end
+  end
+  
 end

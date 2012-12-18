@@ -101,5 +101,8 @@ TEDxYale::Application.routes.draw do
   match "/facebook" => "student_speakers#facebook"
   match "/users/:id/vote/:video" => "student_speakers#vote"
   match "/me/votes_count" => "users#votes_count"
+  match "/voting_data" => "student_speakers#voting_data"
+  match "/early_bird" => "student_speakers#early_bird"
+  match "/process_stripe" => "student_speakers#process_stripe"
   
 end

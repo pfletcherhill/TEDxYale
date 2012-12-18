@@ -47,3 +47,9 @@ gem 'aws-sdk'
 
 #Backbone
 gem "rails-backbone"
+
+#d3
+gem "d3-rails"
+
+#Stripe
+gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'

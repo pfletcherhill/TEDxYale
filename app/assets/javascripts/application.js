@@ -17,4 +17,5 @@
 //= require backbone_rails_sync
 //= require backbone_datalink
 //= require backbone/te_dx_yale
+//= require d3
 //= require_tree .

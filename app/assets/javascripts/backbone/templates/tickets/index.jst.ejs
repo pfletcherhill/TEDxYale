@@ -1,0 +1,30 @@
+<form controller="student_speakers" action="process_stripe" method="POST" id="payment-form">
+  <div class="form-row">
+    <label>Full Name</label>
+    <input name="name"></input>
+  </div>
+  <div class="form-row">
+    <label>Email</label>
+    <input name="email"></input>
+  </div>
+  <div class="form-row">
+    <label>Ticket Type</label>
+    <input type="radio" name="amount" value="10" checked>$10 Early-Bird TEDxYale Ticket<br>
+  </div>
+  <div class="form-row">
+    <label>Card Number</label>
+    <input class="card-number" placeholder='XXXXXXXXXXXXXXXX'></input>
+  </div>
+  <div class="form-row">
+    <label>Security Code</label>
+    <input class="card-cvc" maxlength='3' placeholder='XXX'></input>
+  </div>
+  <div class="form-row">
+    <label>Expiration</label>
+    <input class="card-expiry-month" maxlength='2' placeholder="MM"></input>
+    <span> / </span>
+    <input class="card-expiry-year" maxlength='4' placeholder="YYYY"></input>
+  </div>
+  <div class="payment-errors"></div>
+  <button type="submit" class="submit-button">Submit Payment &rarr;</button>
+</form>

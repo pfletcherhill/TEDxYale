@@ -20,4 +20,6 @@ unless Rails.env.production?
   ENV['AWS_ACCESS_KEY_ID'] = credentials['AWS_ACCESS_KEY_ID']
   ENV['AWS_SECRET_ACCESS_KEY'] = credentials['AWS_SECRET_ACCESS_KEY']
   ENV['S3_BUCKET_NAME'] = credentials['S3_BUCKET_NAME']
+  ENV['Stripe_Publishable_Key'] = credentials['Stripe_Publishable_Key']
+  ENV['Stripe_Secret_Key'] = credentials['Stripe_Secret_Key']
 end

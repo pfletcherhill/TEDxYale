@@ -47,7 +47,7 @@ class TEDxYale.Views.StudentSpeakers.IndexView extends Backbone.View
       for model in speakers.models
         votes = model.get('votes')
         $(".student_video[data-id=#{model.id}] .student_votes span").html("#{votes} votes")
-    
+      
   setupWaypoints: ->
     $(".students_menu").waypoint({ offset: 100 })
   

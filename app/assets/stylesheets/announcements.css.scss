@@ -1,6 +1,21 @@
 // Place all the styles related to the Announcements controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+//Mixins
+@mixin HN-Light {
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-weight: lighter;
+}
+@mixin HN-Bold {
+  font-family: "HelveticaNeue-Bold", "Helvetica Neue Bold", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-weight: bold;
+}
+@mixin HN-Regular {
+  font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-weight: normal;
+}
+
 .signup {
   width: 1000px;
   padding-bottom: 40px;
@@ -26,7 +41,7 @@
       position: absolute;
       bottom: 30px;
       left: 20px;
-      font-family: Helveticaneue;
+      @include HN-Regular;
       font-size: 40px;
       color: #eee;
       text-decoration: none;
@@ -34,12 +49,12 @@
     }
   }
   h1 {
-    font-family: Helveticaneuebold;
+    @include HN-Bold;
     color: #333;
     font-size: 45px;
   }
   h2 {
-    font-family: Helveticaneuebold;
+    @include HN-Bold;
     color: #555;
     font-size: 25px;
     span {
@@ -93,7 +108,7 @@
         border: 1px solid #dadada;
         margin: 0px;
         color: #555;
-        font-family: Helveticaneuelight;
+        @include HN-Light;
         outline: none;
         -webkit-transition: border 0.2s;
         &:hover {
@@ -120,7 +135,7 @@
         background: #eee;
         border: 1px solid #777;
         color: #444;
-        font-family: Helveticaneuelight;
+        @include HN-Light;
         outline: none;
         -webkit-transition: 0.2s;
         cursor: pointer;
@@ -138,7 +153,7 @@
         background: #eee;
         border: 1px solid #777;
         color: #444;
-        font-family: Helveticaneuelight;
+        @include HN-Light;
         outline: none;
         -webkit-transition: 0.2s;
         cursor: pointer;
@@ -183,7 +198,7 @@
   padding: 20px 0;
   text-align: center;
   a {
-    font-family: Helveticaneuebold;
+    @include HN-Bold;
     color: #e60000;
     font-size: 18px;
     opacity: 0.9;
@@ -247,12 +262,12 @@
     h3 {
       text-align: center;
       color: #777;
-      font-family: Helveticaneuelight;
+      @include HN-Light;
       font-size: 18px;
       -webkit-transition: 0.2s;
     }
     .description {
-      font-family: Helveticaneuelight;
+      @include HN-Light;
       font-size: 12px;
       padding: 0px 15px;
       color: #666;

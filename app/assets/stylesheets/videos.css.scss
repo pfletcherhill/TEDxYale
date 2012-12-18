@@ -1,11 +1,26 @@
 // Place all the styles related to the Videos controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+//Mixins
+@mixin HN-Light {
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-weight: lighter;
+}
+@mixin HN-Bold {
+  font-family: "HelveticaNeue-Bold", "Helvetica Neue Bold", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-weight: bold;
+}
+@mixin HN-Regular {
+  font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-weight: normal;
+}
+
 .videos_info {
   clear: both;
   padding-bottom: 15px;
   h2 {
-    font-family: Helveticaneuebold;
+    @include HN-Bold;
     font-size: 25px;
     line-height: 35px;
     width: 100%;
@@ -14,7 +29,7 @@
     text-align: center;
   }
   h5 {
-    font-family: Helveticaneuelight;
+    @include HN-Light;
     font-size: 14px;
     color: #777;
     padding: 10px 0;
@@ -80,7 +95,7 @@
       color: #333;
       padding: 6px;
       width: 172px;
-      font-family: Helveticaneuelight;
+      @include HN-Light;
       text-transform: uppercase;
       z-index: 1;
       position: relative;
@@ -132,11 +147,11 @@
       background: #fff;
       box-shadow: 0 0 3px rgba(0,0,0,0.4);
       .speaker {
-        font-family: Helveticaneuebold;
+        @include HN-Bold;
         color: #000;
       }
       .title {
-        font-family: Helveticaneuelight;
+        @include HN-Light;
         font-style: italic;
         color: #e60000;
         margin:0px;

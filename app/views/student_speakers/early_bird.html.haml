@@ -1,0 +1,18 @@
+.wrapper
+  .announcement.student_speakers
+    %img(src="/assets/2013_header.jpg")
+  -if notice
+    .notice
+      %h4=notice
+      %p 
+        We're sending you an email right now with the details. If you don't receive it or have any questions, email 
+        %a(href="mailto:curator@tedxyale.com") curator@tedxyale.com.
+      %a(href="/early_bird" class="another") Get Another Ticket
+  -else
+    #ticket-form
+  
+:javascript
+  $(function() {
+    window.router = new TEDxYale.Routers.TicketsRouter({currentUser: #{current_user.to_json.html_safe}, stripeKey: '#{@stripe_key}'});
+    Backbone.history.start();
+  });

@@ -1,3 +1,11 @@
+GIT
+  remote: https://github.com/stripe/stripe-ruby
+  revision: 0c281891948a793e79cc997d31918ba7f987f7ae
+  specs:
+    stripe (1.7.8)
+      multi_json (>= 1.0.4, < 2)
+      rest-client (~> 1.4)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -49,6 +57,8 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.2.0)
+    d3-rails (0.0.5)
+      railties (>= 3.1)
     daemons (1.1.8)
     ejs (1.0.0)
     erubis (2.7.0)
@@ -163,6 +173,7 @@ DEPENDENCIES
   aws-sdk
   bcrypt-ruby
   coffee-rails (~> 3.2.1)
+  d3-rails
   haml
   heroku
   jquery-rails
@@ -172,5 +183,6 @@ DEPENDENCIES
   rails (= 3.2.0)
   rails-backbone
   sass-rails (~> 3.2.3)
+  stripe!
   thin
   uglifier (>= 1.0.3)
