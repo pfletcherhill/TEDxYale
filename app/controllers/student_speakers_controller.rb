@@ -82,7 +82,7 @@ class StudentSpeakersController < ApplicationController
       Stripe.api_key = ENV['Stripe_Secret_Key']
       token = params[:stripeToken]
       charge = Stripe::Charge.create(
-        :amount => 100,
+        :amount => 1000,
         :currency => "usd",
         :card => token,
         :description => "TEDxYale Early-Bird Ticket"
