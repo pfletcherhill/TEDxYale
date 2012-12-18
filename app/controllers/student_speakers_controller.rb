@@ -77,7 +77,7 @@ class StudentSpeakersController < ApplicationController
   end
   
   def process_stripe
-    @ticket = Ticket.new(:name => params[:name], :email => params[:email])
+    @ticket = Ticket.new(:name => params[:name], :email => params[:email], :amount => '10')
     if @ticket.valid?
       Stripe.api_key = ENV['Stripe_Secret_Key']
       token = params[:stripeToken]
