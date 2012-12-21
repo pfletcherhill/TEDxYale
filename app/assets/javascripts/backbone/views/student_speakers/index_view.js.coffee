@@ -64,7 +64,6 @@ class TEDxYale.Views.StudentSpeakers.IndexView extends Backbone.View
   events:
     'click .play' : 'openVideo'
     'click .fb_login' : 'login'
-    'click button#vote' : 'vote'
     'waypoint.reached .students_menu' : 'setMenu'
   
   login: (event) ->
@@ -80,13 +79,6 @@ class TEDxYale.Views.StudentSpeakers.IndexView extends Backbone.View
       $(".students_menu").addClass 'fixed'
     else if direction == 'up'
       $(".students_menu").removeClass 'fixed'
- 
-  vote: (event) ->
-    unless TEDxYale.user.id
-      @login()
-    else
-      id = $(event.target).data('id')
-      TEDxYale.user.voteFor(id).then @renderVotes
       
   openVideo: (event) ->
     youtube = $(event.target).data('youtube')

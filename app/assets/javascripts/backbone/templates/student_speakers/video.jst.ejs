@@ -6,13 +6,5 @@
   <div class="student_info">
     <div class="student_name"><%= name %></div>
     <div class="student_talk"><%= talk %></div>
-    <div class="student_votes">
-      <% if(TEDxYale.user.id) { %>
-        <button data-id="<%= id %>" id="vote">Vote for <%= name.split(" ")[0] %></button>
-        <span class="votes"><%= votes %> votes</span>
-      <%} else {%>
-        <div class="vote_fb fb_login"><span>Connect to Vote</span></div>
-      <% }%>
-    </div>
   </div>
 </div>

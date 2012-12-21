@@ -60,16 +60,16 @@ class StudentSpeakersController < ApplicationController
   end
   
   def vote
-    user = User.find(params[:id])
-    if user.has_votes? || user.is_admin?
-      video = StudentSpeaker.find(params[:video])
-      vote = Vote.new(:user_id => user.id, :student_speaker_id => video.id)
-      if vote.save
-        render json: vote
-      end
-    else
-      render json: user, status: :unprocessable_entity
-    end
+    # user = User.find(params[:id])
+    #     if user.has_votes? || user.is_admin?
+    #       video = StudentSpeaker.find(params[:video])
+    #       vote = Vote.new(:user_id => user.id, :student_speaker_id => video.id)
+    #       if vote.save
+    #         render json: vote
+    #       end
+    #     else
+    #       render json: user, status: :unprocessable_entity
+    #     end
   end
   
   def early_bird
