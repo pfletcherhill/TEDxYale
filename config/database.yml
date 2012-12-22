@@ -50,8 +50,8 @@ production:
   adapter:	postgresql
   encoding:	unicode
   pool:	5
-  database:	d7491mdp56rhl4
-  username:	otjgtbanwyflbv
-  password:	L4dlxtfg3uWIHwVuEr5E7vuj48
-  host:	ec2-23-23-234-187.compute-1.amazonaws.com
+  database:	d4rllh17ldipm
+  username:	jeeuxyesgkqgvb
+  password:	EI_B7L1-6Jmsa0VcW2z5zlbYjr
+  host:	ec2-54-243-234-201.compute-1.amazonaws.com
   port:	5432
