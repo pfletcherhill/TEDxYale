@@ -46,4 +46,27 @@ class Speaker < ActiveRecord::Base
       nil
     end
   end
+  
+  def status_percentage
+    tasks = Array.new
+    tasks << (self.coming_from && !self.coming_from.empty? ? 1 : 0)
+    tasks << (self.transportation && !self.transportation.empty? ? 1 : 0)
+    tasks << (self.arrival && !self.arrival.empty? ? 1 : 0)
+    tasks << (self.housing && !self.housing.empty? ? 1 : 0)
+    tasks << (self.post_event && !self.post_event.empty? ? 1 : 0)
+    tasks << (self.diet && !self.diet.empty? ? 1 : 0)
+    tasks << (self.guest && !self.guest.empty? ? 1 : 0)
+    tasks << (self.status && !self.status.empty? ? 1 : 0)
+    tasks << (self.scheduling && !self.scheduling.empty? ? 1 : 0)
+    tasks << (self.twitter && self.website ? 1 : 0)
+    tasks << (self.thumbnail.url(:small) != "/thumbnails/small/missing.png" ? 1 : 0)
+    tasks << (self.short_bio ? 1 : 0)
+    tasks << (self.talk_title ? 1 : 0)
+    tasks << (self.talk_about ? 1 : 0)
+    tasks << (self.release_form ? 1 : 0)
+    length = tasks.length
+    complete = tasks.sum * 100
+    return (complete / length).to_s + "%"
+  end
+  
 end

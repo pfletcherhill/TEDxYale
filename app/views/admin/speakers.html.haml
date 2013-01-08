@@ -2,31 +2,24 @@
   = render :partial => 'menu'
 
   .admin_container.speakers
-    .create_speaker= link_to "+ Add Speaker", "/speakers/new"
+    .create= link_to "+ Add Speaker", "/speakers/new"
     %h1 Speakers (#{@speakers.count})
     %table
       %tbody
         %tr
           %th Name
-          %th Bio
+          %th Email
           %th Event
+          %th Short Bio
           %th Twitter
-          %th College
-          %th Year
           %th Talk Title
-          %th Talk Summary
           %th
         - @speakers.each do |speaker|
           %tr
             %td.name= speaker.name
-            %td.bio= speaker.bio
-            -if speaker.event
-              %td.event= speaker.event.name
-            -else
-              %td.event
+            %td.email= speaker.email
+            %td.event= speaker.event ? speaker.event.name : ""
+            %td.bio= speaker.short_bio
             %td.twitter= speaker.twitter
-            %td.college= speaker.college
-            %td.year= speaker.year
             %td.title= speaker.talk_title
-            %td.summary= speaker.talk_about
-            %td= link_to "Edit", "/speakers/#{speaker.id}/edit"
+            %td= link_to "Show", "/admin/speakers/#{speaker.id}"

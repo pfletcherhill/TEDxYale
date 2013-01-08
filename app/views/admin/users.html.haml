@@ -2,18 +2,19 @@
   = render :partial => 'menu'
 
   .admin_container.users
-    .detail
-      %img( src='/assets/TEDxer_empty.png' )
-      %h5 Select a User...
-    %hr.border
-    .index
-      .header_row
-        .label.name Name
-        .label.email Email
-        %span.count= "#{@users_number} users"
-      - @users.each do |user|
-        .user{'data-id' => "#{user.id}"}
-          .name= user.name
-          .email= user.email
-          = link_to "", user, confirm: 'Are you sure?', method: :delete, :class => "close"
-          
+    %h1 Users (#{@users.count})
+    %table
+      %tbody
+        %tr
+          %th Name
+          %th Email
+          %th Votes
+          %th
+          %th
+        - @users.each do |user|
+          %tr
+            %td= user.name
+            %td= user.email
+            %td= user.votes.count
+            %td= link_to "Show", "/admin/users/#{user.id}"
+            %td= link_to "Delete", user, confirm: 'Are you sure?', method: :delete, :class => "close"

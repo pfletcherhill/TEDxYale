@@ -1,0 +1,83 @@
+.wrapper
+  = render :partial => 'menu'
+
+  .admin_container.speakers
+    %h5
+      = @speaker.event ? @speaker.event.name + " speaker:" : "Speaker:"
+      %span.float-right= @speaker.status_percentage + " Complete"
+    %h1 Personal Information
+    %table.show_speaker
+      %tbody
+        %tr
+          %td Name
+          %td= @speaker.name
+        %tr
+          %td Email
+          %td= @speaker.email
+        %tr
+          %td Twitter Handle
+          %td= @speaker.twitter
+        %tr
+          %td Website
+          %td= @speaker.website
+        %tr
+          %td Image
+          %td
+            -if @speaker.thumbnail.url(:small) != "/thumbnails/small/missing.png"
+              = link_to "Small Image", @speaker.thumbnail.url(:small)
+            -if @speaker.thumbnail.url(:large) != "/thumbnails/large/missing.png"
+              = link_to "Large Image", @speaker.thumbnail.url(:large)
+        %tr
+          %td Short Bio
+          %td= @speaker.short_bio
+        %tr
+          %td Bio
+          %td= @speaker.bio
+    %h1 Questionnaire
+    %table.show_speaker
+      %tbody
+        %tr
+          %td Where are you coming from?
+          %td= @speaker.coming_from
+        %tr
+          %td What is your preferred method of transportation?
+          %td= @speaker.transportation
+        %tr
+          %td When do you plan to arrive in New Haven?
+          %td= @speaker.arrival
+        %tr
+          %td Do you need housing in New Haven the night of February 22nd?
+          %td= @speaker.housing
+        %tr
+          %td Are you available for the post-event dinner and after party?
+          %td= @speaker.post_event
+        %tr
+          %td Do you have any dietary limitations? If so, what are they?
+          %td= @speaker.diet
+        %tr
+          %td Will you be bringing a guest to the conference? If so, what is his/her name and email address?
+          %td= @speaker.guest
+        %tr
+          %td What is the current status of your talk?
+          %td= @speaker.status
+        %tr
+          %td We want to talk with you on the phone or via skype at least three times before the conference. When are you available to talk the week of January 20th? We can schedule the second meeting after our first conversation.
+          %td= @speaker.scheduling  
+    %h1 Talk Information
+    %table.show_speaker
+      %tbody
+        %tr
+          %td Talk Title
+          %td= @speaker.talk_title
+        %tr
+          %td Talk Summary
+          %td= @speaker.talk_about
+    %h1 Release Form
+    %table.show_speaker
+      %tbody
+        %tr
+          %td Status
+          %td= @speaker.release_form ? "Complete" : "Incomplete"
+        %tr
+          %td Release Date
+          %td= @speaker.release_date ? @speaker.release_date.strftime('%A, %B %d %Y') : ""

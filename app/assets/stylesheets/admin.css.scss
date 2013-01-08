@@ -73,6 +73,29 @@
   padding-left: 20px;
   min-height: 300px;
   border-left: 1px solid #bbb;
+  .create {
+    float: right;
+    text-align: right;
+    padding: 0px 10px;
+    background: transparent;
+    border: 1px solid #777;
+    -webkit-transition: 0.2s;
+    a {
+      @include HN-Bold;
+      font-size: 13px;
+      line-height: 20px;
+      text-decoration: none;
+      color: #333;
+      -webkit-transition: 0.2s;
+    }
+    &:hover {
+      background: white;
+      border: 1px solid #cc0000;
+      a {
+        color: #cc0000;
+      }
+    }
+  }
   h1 {
     @include HN-Bold;
     font-size: 25px;
@@ -89,6 +112,9 @@
   table {
     border-collapse: collapse;
     width: 100%;
+    tr:nth-child(even) {
+      background: #eee;
+    }
     tr {
       border-bottom: 1px solid #dadada;
       th {
@@ -266,66 +292,7 @@
   
 }
 .events {
-  overflow: auto;
-  .create_event {
-    float: right;
-    position: absolute;
-    top: 0;
-    right: 0;
-  }
-  .header_row {
-    height: 30px;
-    background: #333;
-    .label {
-      float:left;
-      color: #fff;
-      padding: 5px;
-      line-height:20px;
-    }
-    .name {
-      width: 240px;
-    }
-    .location {
-      width: 250px;
-    }
-    .date {
-      width: 190px;
-    }
-    .attending {
-      width: 70px;
-    }
-  }
-  .event {
-    width: 800px;
-    min-height: 30px;
-    height: auto;
-    border-bottom: 1px solid #dadada;
-    cursor:pointer;
-    line-height: 20px;
-    padding: 0px;
-    &:hover {
-      background: #eee;
-    }
-    .name, .location, .date, .attending {
-      padding: 5px;
-      float: left;
-    }
-    .name {
-      width: 240px;
-      img {
-        height: 10px;
-      }
-    }
-    .location {
-      width: 250px;
-    }
-    .date {
-      width: 190px;
-    }
-    .attending {
-      width: 80px;
-    }
-  }
+  
 }
 .finance {
   
@@ -447,27 +414,21 @@
   
 }
 .speakers {
-  .create_speaker {
-    float: right;
-    text-align: right;
-    padding: 0px 10px;
-    background: transparent;
-    border: 1px solid #777;
-    -webkit-transition: 0.2s;
-    a {
-      @include HN-Bold;
-      font-size: 13px;
-      line-height: 20px;
-      text-decoration: none;
-      color: #333;
-      -webkit-transition: 0.2s;
+  h5 {
+    @include HN-Regular;
+    font-size: 15px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #777;
+    span.float-right {
+      text-align: right;
+      float: right;
+      color: red;
     }
-    &:hover {
-      background: white;
-      border: 1px solid #cc0000;
-      a {
-        color: #cc0000;
-      }
+  }
+  table.show_speaker {
+    td:first-child {
+      width: 50%;
+      padding-right: 10px;
     }
   }
 }

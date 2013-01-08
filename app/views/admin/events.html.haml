@@ -2,25 +2,25 @@
   = render :partial => 'menu'
 
   .admin_container.events
-    .title Events (#{@events_number})
-    .create_event= link_to "Create Event", "/events/new"
-    .header_row
-      .label.name Name
-      .label.location Location
-      .label.date Date
-      .label.attending Attending
-    - @events.each do |event|
-      =link_to "/events/#{event.id}/edit" do
-        .event
-          -if event.published == false
-            .name
-              %img( src='/assets/lock.png')
-              %span= event.name
-          -else
-            .name= event.name
-          .location= event.location
-          - if event.datetime
-            .date= event.datetime.strftime('%A, %b. %d %Y')
-          - else
-            .date
-          .attending= event.users.count
+    .create= link_to "Create Event", "/events/new"
+    %h1 Events (#{@events.count})
+    %table
+      %tbody
+        %tr
+          %th Name
+          %th Location
+          %th Date
+          %th Speakers
+          %th
+        - @events.each do |event|
+          %tr
+            %td
+              -if event.published == false
+                %img( src='/assets/lock.png')
+                = event.name
+              -else
+                = event.name
+            %td= event.location
+            %td= event.datetime ? event.datetime.strftime('%A, %b. %d %Y') : ""
+            %td= event.speakers.count
+            %td= link_to "Edit Event", "/events/#{event.id}/edit"

@@ -55,7 +55,12 @@ class AdminController < ApplicationController
   end
   
   def speakers
+    @events = Event.all
     @speakers = Speaker.all
+  end
+  
+  def show_speaker
+    @speaker = Speaker.find(params[:id])
   end
   
   def tv
