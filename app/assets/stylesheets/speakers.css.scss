@@ -16,100 +16,192 @@
   font-weight: normal;
 }
 
-.form_notice {
-  text-align: center;
-  margin-bottom: 15px;
-  border: 1px solid red;
-  border-radius: 10px;
-  padding: 5px;
-  @include HN-Light;
-  color: red;
+@mixin transition ($transition) {
+	-webkit-transition: #{$transition};  
+	-moz-transition:    #{$transition};
+	-ms-transition:     #{$transition};
+	-o-transition:      #{$transition};  
 }
-h5 {
-  text-align: center;
-  @include HN-Light;
-  font-style: italic;
-  font-size: 20px;
-  color: red;
-}
-.form {
-  .form_section {
-    position: relative;
-    clear: both;
-    .speaker_left {
-      width: 450px;
-      float: left;
-      input {
-        width: 408px;
-      }
+
+// Speaker Header
+.speaker-header {
+  padding: 10px;
+  width: 980px;
+  background: white;
+  border: 1px solid #dadada;
+  @include HN-Bold;
+  .image {
+    float: left;
+    width: 40px;
+    height: 40px;
+    img {
+      width: 40px;
+      height: 40px;
     }
-    .speaker_right {
-      width: 500px;
-      float: left;
-      margin-left: 50px;
-      input {
-        width: 478px;
-      }
-      textarea {
-        width: 478px;
-        padding: 10px;
-        border: 1px solid #777;
-        @include HN-Light;
-        font-size: 15px;
-        height: 148px;
-        outline: none;
-        resize: none;
-        &:hover, &:focus {
-          border: 1px solid #ff0000;
-        }
-      }
-    }
-    input {
-      border: 1px solid #777;
-      background: white;
-      padding: 15px 10px;
-      font-size: 20px;
-      @include HN-Regular;
-      -webkit-transition: 0.2s;
-      outline: none;
-      margin-bottom: 10px;
-      &:hover, &:focus {
-        border: 1px solid #ff0000;
-      }
+    &.missing {
+      width: 36px;
+      height: 36px;
+      border: 2px solid #AAA;
     }
   }
-  .menu {
-    width: 980px;
-    clear: both;
-    @include HN-Bold;
-    font-size: 25px;
+  .name {
+    font-size: 30px;
     line-height: 40px;
+    margin-left: 50px;
+  }
+}
+
+// Container
+.speaker-container {
+  width: 1000px;
+  min-height: 300px;
+  position: relative;
+  margin-top: 20px;
+}
+
+// Speaker Menu
+.speaker-menu {
+  width: 200px;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  background: white;
+  border: 1px solid #dadada;
+  ul {
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+  }
+  li {
+    width: 200px;
+    border-bottom: 1px solid #dadada;
+  }
+  a {
+    display: block;
+    text-decoration: none;
+    @include HN-Regular;
+    width: 180px;
+    padding: 10px;
+    color: #333;
+    @include transition(0.2s);
+    &:hover {
+      background: #fafafa;
+      color: black;
+    }
+    &.selected {
+      border-right: 5px solid #e60000;
+      width: 176px;
+    }
+  }
+}
+
+// Speaker Form
+.speaker-form {
+  margin-left: 220px;
+  width: 780px;
+  margin-top: 0px;
+  .form-header {
+    @include HN-Bold;
+    font-size: 30px;
+    line-height: 30px;
+    padding-bottom: 7px;
+    width: 100%;
+    border-bottom: 1px solid #dadada;
+    margin-bottom: 20px;
+    span.notice {
+      float: right;
+      @include HN-Regular;
+      color: red;
+      font-size: 15px;
+      font-style: italic;
+    }
+  }
+  .document {
     background: white;
     border: 1px solid #dadada;
+    padding: 25px;
+    @include HN-Regular;
+    h1 {
+      text-align: center;
+      border-bottom: 1px solid #eee;
+      @include HN-Regular;
+      line-height: 45px;
+    }
+  }
+  .certify {
+    @include HN-Regular;
+    font-size: 20px;
+    margin: 20px 0px;
+    line-height: 30px;
+  }
+  label {
+    @include HN-Regular;
+    font-size: 15px;
+  }
+  p {
+    margin: 0px;
+  }
+  input, textarea {
+    width: 400px;
+    @include HN-Regular;
+    margin: 7px 0px;
+    outline: none;
+    background: white;
     padding: 10px;
-    input {
-      float: right;
-      height: 40px;
-      width: 175px;
-      font-size: 13px;
-      cursor: pointer;
-      background-image: -webkit-gradient(
-      	linear,
-      	left bottom,
-      	left top,
-      	color-stop(0.38, #CC0000),
-      	color-stop(0.69, #e60000)
-      );
-      padding: 0px 20px;
-      line-height: 38px;
-      color: white;
-      text-shadow: -1px -1px 0px rgba(0,0,0,0.2);
-      text-decoration: none;
-      border: 1px solid #800000;
-      border-radius: 5px;
-      &:hover {
-        background: #e60000;
-      }
+    border: 1px solid #dadada;
+    margin-bottom: 15px;
+  }
+  input {
+    font-size: 20px;
+    line-height: 30px;
+  }
+  input[type='file'] {
+    width: 400px;
+    font-size: 18px;
+    line-height: 20px;
+    border: 0px;
+    padding: 0px;
+    background: transparent;
+  }
+  textarea {
+    resize: none;
+    font-size: 14px;
+    line-height: 18px;
+    height: 200px;
+  }
+  input[type='submit'] {
+    width: 200px;
+    @include transition(0.2s);
+    cursor: pointer;
+    &:hover {
+      background: #fafafa;
+      color: #e60000;
+    }
+    &:active {
+      background: #eee;
+    }
+  }
+}
+
+//Checklist
+.checklist {
+  @include HN-Regular;
+  h5 {
+    @include HN-Regular;
+    font-size: 16px;
+    line-height: 25px;
+    margin: 10px 0;
+    border-bottom: 1px solid #dadada;
+  }
+  input[type='checkbox'] {
+    width: 30px;
+  }
+  a {
+    color: #333;
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+      color: black;
     }
   }
 }

@@ -1,0 +1,28 @@
+.wrapper
+  = render :partial => 'header'
+  .speaker-container
+    = render :partial => 'menu', :locals => { :selected => "personal" }
+    .speaker-form
+      .form-header
+        Personal Information
+        %span.notice= notice
+      =form_for @speaker do |f|
+        %label Name:
+        %p=f.text_field :name
+        %label Email:
+        %p=f.text_field :email
+        %label Twitter Handle:
+        %p=f.text_field :twitter
+        %label Website Link:
+        %p=f.text_field :website
+        %label Photo (at least 500x500px):
+        %p=f.file_field :thumbnail
+        %label Short Bio (fewer than 100 words):
+        %p=f.text_area :short_bio
+        %br
+        .form-header New Password
+        %label New Password:
+        %p=f.password_field :password
+        %label Old Password (Access Code):
+        %p=f.password_field :password_confirmation
+        %p=f.submit "Save Info"

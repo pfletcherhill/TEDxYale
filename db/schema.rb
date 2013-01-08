@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121218011618) do
+ActiveRecord::Schema.define(:version => 20130108052842) do
 
   create_table "admins", :force => true do |t|
     t.string   "email"
@@ -133,6 +133,7 @@ ActiveRecord::Schema.define(:version => 20121218011618) do
     t.string   "thumbnail_content_type"
     t.integer  "thumbnail_file_size"
     t.datetime "thumbnail_updated_at"
+    t.string   "paralink"
   end
 
   create_table "posts", :force => true do |t|
@@ -160,6 +161,19 @@ ActiveRecord::Schema.define(:version => 20121218011618) do
     t.string   "password_hash"
     t.string   "talk_title"
     t.text     "talk_about"
+    t.text     "short_bio"
+    t.boolean  "release_form"
+    t.datetime "release_date"
+    t.string   "coming_from"
+    t.string   "transportation"
+    t.string   "arrival"
+    t.string   "housing"
+    t.string   "post_event"
+    t.text     "diet"
+    t.text     "guest"
+    t.text     "status"
+    t.text     "scheduling"
+    t.string   "website"
   end
 
   create_table "sponsors", :force => true do |t|

@@ -91,6 +91,11 @@ TEDxYale::Application.routes.draw do
   match "/speaker_login" => "sessions#speaker"
   match "/speaker" => "speakers#admin"
   match "/sessions/student_create" => "sessions#speaker_create"
+  match "/speaker/personal" => "speakers#personal"
+  match "/speaker/questionnaire" => "speakers#questionnaire"
+  match "/speaker/talk" => "speakers#talk_information"
+  match "/speaker/account" => "speakers#account"
+  match "/speaker/release_form" => "speakers#release_form"
   
   # Sponsors
   match "/sponsorships/new" => "sponsors#new_sponsorship"

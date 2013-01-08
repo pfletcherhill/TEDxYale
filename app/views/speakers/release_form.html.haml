@@ -1,0 +1,46 @@
+.wrapper
+  = render :partial => 'header'
+  .speaker-container
+    = render :partial => 'menu', :locals => { :selected => "release_form" }
+    .speaker-form
+      .form-header
+        Release Form
+        %span.notice= notice
+      .document
+        %h1 TEDxYale Permission Release
+        TEDxYale (“TEDxYale”) will be recording all the presentations at the TEDxYale event to be held February 23rd, 2013 (the “Event”). TEDxYale is operated under license of TED Conferences LLC (“TED”). Beyond the Event, the goal of both TED and TEDxYale is to spread great ideas, by making these presentations freely and widely available to a global audience.
+        %br
+        %br
+        This release (the “Release”) will serve as our agreement concerning your participation at the Event.  In consideration for the platform provided to you, and in support of the goal of “ideas worth spreading,” you grant TEDxYale, TED, and other entities — e.g., broadcasters — as TEDxYale or TED may designate from time to time (collectively, the “TED Parties”) the right to record, stream, film and photograph your presentation at the Event (the “Presentation”) and to distribute, broadcast, edit, translate (as discussed below) or otherwise disseminate it, without any further approval from you, in whole or in part, throughout the world, in perpetuity, in any and all media now known or hereafter developed.  This grant to the TED Parties includes, but is not limited to, the right to use the Presentation either alone or together with supporting information, such as your name, voice, photograph, likeness and biographical data (collectively, “Supporting Information”).  
+        %br
+        %br
+        Examples of permitted uses of the Presentation and Supporting Information include displaying the Presentation on the TEDx YouTube channel or on TED’s website, TED.com; broadcasting the Presentation on television; and distributing the Presentation on DVDs, mobile phones, films, and other video distribution channels, such as iTunes. 
+        %br
+        %br
+        TEDxYale and TED encourage intelligent public debate around each presentation.  Accordingly, your Presentation may be distributed under a “Creative Commons” license, which allows each distributed presentation to be re-published in non-commercial, non-derivative works, as long as appropriate credit is given and the presentation is not edited or distorted.  By signing this Release, you acknowledge and agree that you do not object to the distribution of the Presentation by the TED Parties under a Creative Commons license.
+        %br
+        %br
+        TEDxYale and TED place a great emphasis on reaching a global audience. To achieve this goal, your Presentation may be translated into any language.  Translators follow the guidelines established through TED’s Open Translation Project. By signing this release, you acknowledge and agree that you do not object to having your Presentation and Supporting Information translated in this way.
+        %br
+        %br
+        In addition, you understand and agree that: (i) TEDxYale and TED aren’t obligated to use the Presentation or Supporting Information in any way; (ii) you won’t receive any form of payment in connection with the use of the Presentation and/or Supporting Information; and (iii) you may not revoke the rights granted in this Release. 
+        %br
+        %br
+        You affirm that: (i) you have the full power and authority to grant the rights and releases set forth in this Release; (ii) you are the sole author of the Presentation; (iii) you own all rights to the Presentation, including, but not limited to, all copyrights and trademark rights; (iv) you will advise TEDxYale in writing of all third-party material contained in the Presentation (to which you have not secured all necessary rights); and (v) use of the Presentation as permitted by this Release will not violate the rights of any third party.  
+        %br
+        %br
+        If any third party claims that the use of the Presentation violates its rights, you agree to cooperate fully with TEDxYale and TED to defend against or otherwise respond to such claim.
+        %br
+        %br
+        This Release contains the entire understanding between you and TEDxYale regarding the Presentation and/or Supporting Information and may not be modified except in a writing signed by both of us. 
+      -if @speaker.release_form
+        %p.certify
+          You have already signed the TEDxYale Permission Release. Please contact
+          %a( href="mailto:curator@tedxyale.com" ) curator@tedxyale.com
+          with any questions or concerns.
+      -else  
+        =form_for @speaker do |f|
+          %p.certify I, #{@speaker.name}, certify that I have read and agree with the TEDxYale Permission Release above.
+          =f.hidden_field :release_date, :value => DateTime.now
+          =f.hidden_field :release_form, :value => true
+          =f.submit "Accept"

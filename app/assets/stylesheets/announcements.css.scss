@@ -16,10 +16,45 @@
   font-weight: normal;
 }
 
+@mixin transition ($transition) {
+	-webkit-transition: #{$transition};  
+	-moz-transition:    #{$transition};
+	-ms-transition:     #{$transition};
+	-o-transition:      #{$transition};  
+}
+
 .signup {
   width: 1000px;
   padding-bottom: 40px;
   border-bottom: 1px solid #dadada;
+  a {
+    img {
+      width: 1000px;
+      display: block;
+      border-bottom: 1px solid #dadada;
+      padding-bottom: 20px;
+      margin-bottom: 25px;
+    }
+  }
+  span {
+    @include HN-Light;
+    font-size: 50px;
+    line-height: 50px;
+  }
+  a.announcement-button {
+    float: right;
+    background: #eee;
+    border: 1px solid #dadada;
+    color: #333;
+    padding: 18px 25px;
+    text-decoration: none;
+    @include HN-Light;
+    font-size: 16px;
+    @include transition(0.2s);
+    &:hover {
+      background: white;
+    }
+  }
   .ssc_announcement {
     position: relative;
     display: block;

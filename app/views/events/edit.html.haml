@@ -14,6 +14,9 @@
           .item  
             %label Event Description:
             = f.text_area :description, :value => @event.description
+          .item
+            %label Event Paralink:
+            = f.text_field :paralink, :value => @event.paralink
           .item.speakers
             %label Speakers
             - @speakers.each do |speaker|

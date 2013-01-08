@@ -53,3 +53,6 @@ gem "d3-rails"
 
 #Stripe
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
+
+# Dropbox
+gem 'dropbox'

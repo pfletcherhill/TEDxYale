@@ -1,0 +1,8 @@
+.speaker-header
+  -if @speaker.thumbnail.url(:small) == "/thumbnails/small/missing.png"
+    .image.missing
+  -else
+    .image
+      =image_tag @speaker.thumbnail.url(:small)
+    
+  .name= @speaker.name

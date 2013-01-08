@@ -1,0 +1,28 @@
+.wrapper
+  = render :partial => 'header'
+  .speaker-container
+    = render :partial => 'menu', :locals => { :selected => "questionnaire" }
+    .speaker-form
+      .form-header 
+        Speaker Questionnaire
+        %span.notice= notice
+      =form_for @speaker do |f|
+        %label Where are you coming from?
+        %p=f.text_field :coming_from
+        %label What is your preferred method of transportation?
+        %p=f.text_field :transportation
+        %label When do you plan to arrive in New Haven?
+        %p=f.text_field :arrival
+        %label Do you need housing in New Haven the night of February 22nd?
+        %p=f.text_field :housing
+        %label Are you available for the post-event dinner and after party?
+        %p=f.text_field :post_event
+        %label Do you have any dietary limitations? If so, what are they?
+        %p=f.text_area :diet
+        %label Will you be bringing a guest to the conference? If so, what is his/her name and email address?
+        %p=f.text_area :guest
+        %label What is the current status of your talk?
+        %p=f.text_area :status
+        %label We want to talk with you on the phone or via skype at least three times before the conference. When are you available to talk the week of January 20th? We can schedule the second meeting after our first conversation.
+        %p=f.text_area :scheduling
+        %p=f.submit "Save Info"

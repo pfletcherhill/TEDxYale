@@ -1,0 +1,14 @@
+.wrapper
+  = render :partial => 'header'
+  .speaker-container
+    = render :partial => 'menu', :locals => { :selected => "talk" }
+    .speaker-form
+      .form-header 
+        Talk Information
+        %span.notice= notice
+      =form_for @speaker do |f|
+        %label Talk Title:
+        %p=f.text_field :talk_title
+        %label Talk Summary:
+        %p=f.text_area :talk_about, :placeholder => "Please limit your summary to 200 words"
+        %p=f.submit "Save Info"

@@ -1,27 +1,31 @@
 .wrapper
-  .form
-    =form_for @speaker do |f|
-      .menu
-        Your Speaker Profile
-        %span.notice=notice
-        =f.submit "Save Information"
-      .form_section
-        .speaker_left
-          %h3 Personal Details:
-          %label Name:
-          %p=f.text_field :name
-          %label Email:
-          %p=f.text_field :email
-          %label College:
-          %p=f.text_field :college
-          %label Graduation Year:
-          %p=f.text_field :year
-        .speaker_right
-          %h3 Talk Details:
-          %label Talk Topic:
-          %p=f.text_field :talk_title
-          %label Talk Summary
-          %p=f.text_area :talk_about, :placeholder => "Limit your summary to 200 words"
-  .info
-      
-      
+  = render :partial => 'header'
+  .speaker-container
+    = render :partial => 'menu', :locals => { :selected => "checklist" }
+    .speaker-form
+      .form-header
+        Checklist
+        %span.notice= notice
+      .checklist
+        %h5 To be completed as soon as possible:
+        //Ugly haml
+        <input type='checkbox' disabled='disabled' #{@speaker.release_form ? "checked" : ''}><a href="/speaker/release_form">Fill out TEDx release form on the website</a></input>
+        %br
+        <input type='checkbox' disabled='disabled' #{@speaker.questionnaire ? "checked" : ''}><a href="/speaker/questionnaire">Complete speaker questionnaire on the website</a></input>
+        %br
+        <input type='checkbox' disabled='disabled' #{@speaker.thumbnail.url(:small) != "/thumbnails/small/missing.png" ? "checked" : ''}><a href="/speaker/personal">Upload a photo of you (at least 500 x 500 pixels)</a></input>
+        %br
+        <input type='checkbox' disabled='disabled' #{@speaker.short_bio && !@speaker.short_bio.empty? ? "checked" : ''}><a href="/speaker/personal">Upload a short bio (<100 words)</a></input>
+        %br
+        <input type='checkbox' disabled='disabled' #{@speaker.website && !@speaker.website.empty? ? "checked" : ''}><a href="/speaker/personal">Submit your Website link (if applicable)</a></input>
+        %br
+        <input type='checkbox' disabled='disabled' #{@speaker.twitter && !@speaker.twitter.empty? ? "checked" : ''}><a href="/speaker/personal">Submit your Twitter handle (if applicable)</a></input>
+        %h5 To be completed by February 1st:
+        <input type='checkbox' disabled='disabled' #{@speaker.talk_title && !@speaker.talk_title.empty? ? "checked" : ''}><a href="/speaker/talk">Submit the title of your TED talk</a></input>
+        %br
+        <input type='checkbox' disabled='disabled' #{@speaker.talk_about && !@speaker.talk_about.empty? ? "checked" : ''}><a href="/speaker/talk">Submit a bulleted summary of your talk (this can be very brief)</a></input>
+        %h5 To be completed by February 16th:
+        %input(type = 'checkbox' disabled='disabled') Send speakers@tedxyale.com your complete slide show (with .pptx extension)
+        
+        
+        

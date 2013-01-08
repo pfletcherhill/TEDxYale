@@ -12,9 +12,6 @@
             .date= event.datetime.strftime('%m.%e.%g')
           .name
             = link_to "#{event.name}", "/events/#{event.id}"
-            -if event.datetime.past?
-            -else
-              %span Current
           .location= event.location
     .events_menu
       .item.all_events.selected All Events
