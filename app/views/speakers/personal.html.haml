@@ -17,8 +17,8 @@
         %p=f.text_field :website
         %label Photo (at least 500x500px):
         %p=f.file_field :thumbnail
-        %label Short Bio (fewer than 100 words):
-        %p=f.text_area :short_bio
+        %label Short Bio (in third person):
+        %p=f.text_area :short_bio, :placeholder => "Please limit to 100 words"
         %br
         .form-header New Password
         %label New Password:
