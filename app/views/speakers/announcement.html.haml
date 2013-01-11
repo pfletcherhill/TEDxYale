@@ -1,0 +1,13 @@
+.wrapper
+  = render :partial => 'header'
+  .speaker-container
+    = render :partial => 'menu', :locals => { :selected => "announcement" }
+    .speaker-form
+      .form-header
+        Announcement Video
+        %span.notice= notice
+      .announcement-text
+        %p We will be announcing speakers on our website one by one. To supplement your announcement, we request a short welcome video from you. Look over the specifications below, and send your video to speakers@tedxyale.com as soon as you can. Be creative, but please keep it brief (less than one minute). If you need help in filming yourself or deciding what to say, do not hesitate to reach out to us.
+        %p 1. It should begin with a short introduction, such as “Hi, my name is _____, and I am a _____.”
+        %p 2. You should then express your specific y. For instance, “My y is _____.” Your y should correspond with the topic of your talk.
+        %p 3. The video should end with some form of “see you at TEDxYale on February 23rd.”

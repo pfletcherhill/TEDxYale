@@ -674,3 +674,99 @@
     }
   }
 }
+
+/******************************/
+/***** Conference Styling *****/
+/******************************/
+
+#conference {
+  position: relative;
+  top: -30px;
+}
+/* Header */
+.conference-header {
+  width: 100%;
+  height: 30px;
+  position: fixed;
+  top: 80px;
+  left: 0px;
+  border-bottom: 1px solid black;
+  border-top: 2px solid red;
+  background: black;
+  opacity: .85;
+  a {
+    font-size: 15px;
+    line-height: 30px;
+    @include HN-Bold;
+    color: white;
+    margin-right: 20px;
+    text-decoration: none;
+    -webkit-transition: 0.2s;
+    &:hover {
+      color: red;
+    }
+  }
+  a.register_to_attend {
+    float: right;
+    margin-right: 0px;
+    background: red;
+    padding: 0 15px;
+    line-height: 31px;
+    &:hover {
+      color: white;
+      background: #cc0000;
+    }
+  }
+}
+
+/* Body */
+.conference-container {
+  width: 1000px;
+  margin: auto;
+  h1 {
+    @include HN-Bold;
+    color: #333;
+    font-size: 50px;
+    line-height: 50px;
+    padding-bottom: 5px;
+    border-bottom: 3px solid #aaa;
+  }
+}
+.theme {
+  height: 300px;
+  position: relative;
+  .theme-left {
+    @include HN-Bold;
+    position: absolute;
+    top: 70px;
+    color: white;
+    font-size: 100px;
+    width: 300px;
+    line-height: 90px;
+  }
+  .theme-right {
+    @include HN-Light;
+    position: absolute;
+    top: 70px;
+    right: 0px;
+  }
+}
+.conference-body {
+  width: 100%;
+  min-width: 1000px;
+  min-height: 300px;
+  &.grey {
+    background: #eee;
+    border-top: 1px solid #dadada;
+    border-bottom: 1px solid #dadada;
+  }
+  &.home {
+    background-image: url('/assets/ted_bg.png');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: top;
+  }
+  img {
+    width: 1000px;
+  }
+}

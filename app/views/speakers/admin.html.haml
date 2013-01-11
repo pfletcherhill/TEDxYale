@@ -13,9 +13,13 @@
         %br
         <input type='checkbox' disabled='disabled' #{@speaker.questionnaire ? "checked" : ''}><a href="/speaker/questionnaire">Complete speaker questionnaire on the website</a></input>
         %br
-        <input type='checkbox' disabled='disabled' #{@speaker.thumbnail.url(:small) != "/thumbnails/small/missing.png" ? "checked" : ''}><a href="/speaker/personal">Upload a photo of you (at least 500 x 500 pixels)</a></input>
+        <input type='checkbox' disabled='disabled' #{@speaker.time_limit ? "checked" : '' }><a href="/speaker/talk">Request a specific time limit for your talk</a></input>
         %br
-        <input type='checkbox' disabled='disabled' #{@speaker.short_bio && !@speaker.short_bio.empty? ? "checked" : ''}><a href="/speaker/personal">Upload a short bio (<100 words)</a></input>
+        <input type='checkbox' disabled='disabled' #{@speaker.announcement_video ? "checked" : '' }><a href="/speaker/announcement">Film your announcement video and send it to speakers@tedxyale.com</a></input>
+        %br
+        <input type='checkbox' disabled='disabled' #{@speaker.thumbnail.url(:small) != "/thumbnails/small/missing.png" ? "checked" : ''}><a href="/speaker/personal">Upload a photo of yourself (at least 500 x 500 pixels)</a></input>
+        %br
+        <input type='checkbox' disabled='disabled' #{@speaker.short_bio && !@speaker.short_bio.empty? ? "checked" : ''}><a href="/speaker/personal">Upload a short bio (fewer than 100 words)</a></input>
         %br
         <input type='checkbox' disabled='disabled' #{@speaker.website && !@speaker.website.empty? ? "checked" : ''}><a href="/speaker/personal">Submit your Website link (if applicable)</a></input>
         %br
@@ -23,7 +27,7 @@
         %h5 To be completed by February 1st:
         <input type='checkbox' disabled='disabled' #{@speaker.talk_title && !@speaker.talk_title.empty? ? "checked" : ''}><a href="/speaker/talk">Submit the title of your TED talk</a></input>
         %br
-        <input type='checkbox' disabled='disabled' #{@speaker.talk_about && !@speaker.talk_about.empty? ? "checked" : ''}><a href="/speaker/talk">Submit a bulleted summary of your talk (this can be very brief)</a></input>
+        <input type='checkbox' disabled='disabled' #{@speaker.talk_about && !@speaker.talk_about.empty? ? "checked" : ''}><a href="/speaker/talk">Submit a summary of your talk (this can be very brief)</a></input>
         %h5 To be completed by February 16th:
         %input(type = 'checkbox' disabled='disabled') Send your complete slide show (with .pptx extension) to speakers@tedxyale.com 
         

@@ -1,7 +1,7 @@
 class SpeakersController < ApplicationController
   
-  before_filter :require_login, :except => ["new_student", "create", "admin", "personal", "questionnaire", "talk_information", "account", "release_form", "update"]
-  before_filter :require_speaker, :only => ["admin", "update", "personal", "questionnaire", "talk_information", "account", "release_form"]
+  before_filter :require_login, :except => ["new_student", "create", "admin", "personal", "questionnaire", "talk_information", "account", "release_form", "announcement", "update"]
+  before_filter :require_speaker, :only => ["admin", "update", "personal", "questionnaire", "talk_information", "account", "release_form", "announcement"]
   
   def require_login
     unless logged_in?
@@ -96,6 +96,10 @@ class SpeakersController < ApplicationController
   end
   
   def release_form
+    @speaker = current_speaker
+  end
+  
+  def announcement
     @speaker = current_speaker
   end
   

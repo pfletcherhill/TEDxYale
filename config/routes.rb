@@ -97,6 +97,7 @@ TEDxYale::Application.routes.draw do
   match "/speaker/talk" => "speakers#talk_information"
   match "/speaker/account" => "speakers#account"
   match "/speaker/release_form" => "speakers#release_form"
+  match "/speaker/announcement" => "speakers#announcement"
   
   # Sponsors
   match "/sponsorships/new" => "sponsors#new_sponsorship"
@@ -110,5 +111,6 @@ TEDxYale::Application.routes.draw do
   match "/voting_data" => "student_speakers#voting_data"
   match "/early_bird" => "student_speakers#early_bird"
   match "/process_stripe" => "student_speakers#process_stripe"
+  match "/events/2013/speakers" => "events#conference_speakers"
   
 end

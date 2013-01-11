@@ -130,4 +130,10 @@ class EventsController < ApplicationController
   def conference
     @speakers = StudentSpeaker.all
   end
+  
+  def conference_speakers
+    event = Event.where(:paralink => "2013").first
+    speakers = event.speakers
+    render json: speakers.to_json(:only => [:name, :thumbnail])
+  end
 end

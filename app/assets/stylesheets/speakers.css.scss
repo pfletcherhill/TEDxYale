@@ -137,6 +137,12 @@
   label {
     @include HN-Regular;
     font-size: 15px;
+    display: block;
+    width: 430px;
+    &.small {
+      font-size: 12px;
+      font-style: italic;
+    }
   }
   p {
     margin: 0px;
@@ -183,6 +189,13 @@
   }
 }
 
+.announcement-text {
+  p {
+    @include HN-Regular;
+    font-size: 13px;
+    margin-bottom: 10px;
+  }
+}
 //Checklist
 .checklist {
   @include HN-Regular;

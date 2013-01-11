@@ -25,3 +25,8 @@
         %a( href="/speaker/release_form" class="selected") Release Form
       -else
         %a( href="/speaker/release_form" ) Release Form
+    %li
+      -if selected == 'announcement'
+        %a( href="/speaker/announcement" class="selected") Announcement Video
+      -else
+        %a( href="/speaker/announcement" ) Announcement Video

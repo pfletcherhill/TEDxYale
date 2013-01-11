@@ -9,6 +9,10 @@
       =form_for @speaker do |f|
         %label Talk Title:
         %p=f.text_field :talk_title
+        %label Requested Time Limit:
+        %label.small For student speakers, we ask that you choose either 6 or 9 minutes. Professionals are given either 12 or 18 minutes.
+        %p=f.text_field :time_limit
         %label Talk Summary:
-        %p=f.text_area :talk_about, :placeholder => "Please limit your summary to 200 words"
+        %label.small Please limit your talk summary to 200 words.
+        %p=f.text_area :talk_about
         %p=f.submit "Save Info"

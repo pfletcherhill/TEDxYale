@@ -3,13 +3,11 @@
     %h1.message
       Congratulations Student Speakers
       %a(href="/early_bird") Reserve Your Ticket
-  / .student_speaker
-  /     %a(href="/become_a_speaker" class="student_speakers")
-  /       %h2 Audition for a Student Speaker Position
   #students
+  /#conference
   
-:javascript
-  $(function() {
-    window.router = new TEDxYale.Routers.CompetitionRouter({currentUser: #{current_user.to_json.html_safe}});
-    Backbone.history.start();
-  });
+  :javascript
+    $(function() {
+      window.router = new TEDxYale.Routers.CompetitionRouter({currentUser: #{current_user.to_json.html_safe}});
+      Backbone.history.start();
+    });

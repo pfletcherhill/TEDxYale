@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130108052842) do
+ActiveRecord::Schema.define(:version => 20130111200139) do
 
   create_table "admins", :force => true do |t|
     t.string   "email"
@@ -174,6 +174,9 @@ ActiveRecord::Schema.define(:version => 20130108052842) do
     t.text     "status"
     t.text     "scheduling"
     t.string   "website"
+    t.string   "time_limit"
+    t.string   "announcement_video"
+    t.string   "slideshow"
   end
 
   create_table "sponsors", :force => true do |t|
