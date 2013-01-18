@@ -1,13 +1,13 @@
-.wrapper
-  .announcement.student_speakers
-    %h1.message
-      Congratulations Student Speakers
-      %a(href="/early_bird") Reserve Your Ticket
-  #students
-  /#conference
+/ .wrapper
+/   .announcement.student_speakers
+/     %h1.message
+/       Congratulations Student Speakers
+/       %a(href="/early_bird") Reserve Your Ticket
+/   #students
+#conference
   
   :javascript
     $(function() {
-      window.router = new TEDxYale.Routers.CompetitionRouter({currentUser: #{current_user.to_json.html_safe}});
+      window.router = new TEDxYale.Routers.ConferenceRouter({currentUser: #{current_user.to_json.html_safe}});
       Backbone.history.start();
     });
