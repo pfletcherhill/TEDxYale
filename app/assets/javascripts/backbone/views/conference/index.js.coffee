@@ -4,6 +4,7 @@ class TEDxYale.Views.Conference.IndexView extends Backbone.View
   
   template: JST["backbone/templates/conference/index"]
   speakerTemplate: JST["backbone/templates/conference/speaker"]
+  emptyTemplate: JST["backbone/templates/conference/blank_speaker"]
   
   el: '#conference'
   
@@ -13,7 +14,10 @@ class TEDxYale.Views.Conference.IndexView extends Backbone.View
     
   renderSpeakers: ->
     for speaker in @speakers.models
-      console.log speaker
+      if speaker.get('public')
+        $("#speakers-container").append( @speakerTemplate( speaker.toJSON() ))
+      else
+        $("#speakers-container").append( @emptyTemplate())
   
   calculateDivPosition: ->
     width = $(".reserve-ticket button").width() / 2 + 11

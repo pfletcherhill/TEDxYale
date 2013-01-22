@@ -1,7 +1,7 @@
 class AddPublicBoolean < ActiveRecord::Migration
-  def up
-  end
-
-  def down
+  def change
+    change_table :speakers do |t|
+      t.boolean :public
+    end
   end
 end
