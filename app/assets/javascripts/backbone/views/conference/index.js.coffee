@@ -29,7 +29,7 @@ class TEDxYale.Views.Conference.IndexView extends Backbone.View
     
   render: ->
     $(@el).html(@template())
-    @renderSpeakers()
+    #@renderSpeakers()
     @calculateDivPosition()
     return this
     
