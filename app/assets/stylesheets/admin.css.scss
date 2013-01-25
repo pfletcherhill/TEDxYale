@@ -431,4 +431,9 @@
       padding-right: 10px;
     }
   }
+  .delete-speaker {
+    display: block;
+    margin-top: 20px;
+    @include HN-Bold;
+  }
 }

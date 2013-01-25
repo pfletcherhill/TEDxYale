@@ -84,3 +84,4 @@
         %tr
           %td Release Date
           %td= @speaker.release_date ? @speaker.release_date.strftime('%A, %B %d %Y') : ""
+    =link_to "Delete Speaker", "/speakers/#{@speaker.id}", :confirm => "Are you sure?", :method => :delete, :class => "delete-speaker"

@@ -74,6 +74,17 @@ class SpeakersController < ApplicationController
     end
   end
   
+  def destroy
+    @speaker = Speaker.find(params[:id])
+    respond_to do |format|
+      if @speaker.destroy
+        format.html { redirect_to "/admin/speakers" }
+      else
+        format.html { redirect_to "/admin/speakers/#{@speaker.id}" }
+      end
+    end
+  end
+  
   def new_student
     @speaker = Speaker.new
   end
