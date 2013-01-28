@@ -98,6 +98,8 @@ TEDxYale::Application.routes.draw do
   match "/speaker/account" => "speakers#account"
   match "/speaker/release_form" => "speakers#release_form"
   match "/speaker/announcement" => "speakers#announcement"
+  match "/speaker/:id/public" => "speakers#public"
+  match "/speaker/:id/unpublic" => "speakers#unpublic"
   
   # Sponsors
   match "/sponsorships/new" => "sponsors#new_sponsorship"

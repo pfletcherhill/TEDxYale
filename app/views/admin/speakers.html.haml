@@ -10,8 +10,8 @@
           %th Name
           %th Email
           %th Event
-          %th Twitter
           %th Talk Title
+          %th Public
           %th Status
           %th
         - @speakers.each do |speaker|
@@ -19,7 +19,7 @@
             %td.name= speaker.name
             %td.email= speaker.email
             %td.event= speaker.event ? speaker.event.name : ""
-            %td.twitter= speaker.twitter
             %td.title= speaker.talk_title
+            %td.public= speaker.public ? "Published" : "Private"
             %td.status= speaker.status_percentage
             %td= link_to "Show", "/admin/speakers/#{speaker.id}"

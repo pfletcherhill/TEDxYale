@@ -114,4 +114,18 @@ class SpeakersController < ApplicationController
     @speaker = current_speaker
   end
   
+  def public
+    @speaker = Speaker.find(params[:id])
+    @speaker.public = true
+    @speaker.save
+    redirect_to "/admin/speakers"
+  end
+  
+  def unpublic
+    @speaker = Speaker.find(params[:id])
+    @speaker.public = false
+    @speaker.save
+    redirect_to "/admin/speakers"
+  end
+  
 end

@@ -432,7 +432,7 @@
     }
   }
   .delete-speaker {
-    display: block;
+    display: inline-block;
     margin-top: 20px;
     @include HN-Bold;
   }

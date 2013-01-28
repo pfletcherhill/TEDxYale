@@ -5,6 +5,7 @@ class TEDxYale.Views.Conference.IndexView extends Backbone.View
   template: JST["backbone/templates/conference/index"]
   speakerTemplate: JST["backbone/templates/conference/speaker"]
   emptyTemplate: JST["backbone/templates/conference/blank_speaker"]
+  lightboxTemplate: JST["backbone/templates/conference/lightbox"]
   
   el: '#conference'
   
@@ -17,7 +18,9 @@ class TEDxYale.Views.Conference.IndexView extends Backbone.View
       if speaker.get('public')
         $("#speakers-container").append( @speakerTemplate( speaker.toJSON() ))
       else
-        $("#speakers-container").append( @emptyTemplate())
+        numb = Math.floor((100)*Math.random())+150
+        color = "rgba(#{numb}, #{numb}, #{numb}, 1)"
+        $("#speakers-container").append( @emptyTemplate(color: color))
   
   calculateDivPosition: ->
     width = $(".reserve-ticket button").width() / 2 + 11
@@ -29,12 +32,15 @@ class TEDxYale.Views.Conference.IndexView extends Backbone.View
     
   render: ->
     $(@el).html(@template())
-    #@renderSpeakers()
+    @renderSpeakers()
     @calculateDivPosition()
     return this
     
   events:
     "mousemove" : "setBackground"
+    "click #lightbox #background" : "hideLightbox"
+    "click #lightbox .close" : "hideLightbox"
+    "click .conference-speaker" : "openLightbox"
   
   setBackground: (event) ->
     @calculateDivPosition()
@@ -48,4 +54,14 @@ class TEDxYale.Views.Conference.IndexView extends Backbone.View
     if position < 100
       position = 100
     $(".tickets").css({"background-size": position + "%"}, 100)
+  
+  openLightbox: (event) ->
+    id = $(event.target).data('id')
+    if id
+      speaker = @speakers.get(id)
+      $('#lightbox-container').html( @lightboxTemplate( speaker.toJSON() ))
+      $('#lightbox').removeClass 'hidden'
+  
+  hideLightbox: (event) ->
+    $("#lightbox").addClass 'hidden'
     

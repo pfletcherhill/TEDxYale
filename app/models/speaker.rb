@@ -69,4 +69,16 @@ class Speaker < ActiveRecord::Base
     return (complete / length).to_s + "%"
   end
   
+  def as_json
+    {
+      "id" => id,
+      "name" => name,
+      "public" => public,
+      "thumbnail" => thumbnail.url(:large) != "/thumbnails/large/missing.png" ? thumbnail.url(:large) : "",
+      "bio" => short_bio, 
+      "twitter" => twitter,
+      "talk" => talk_title
+    }
+  end
+  
 end
