@@ -75,4 +75,8 @@ class AdminController < ApplicationController
     @sponsorships = Sponsorship.all
   end
   
+  def edit_speaker
+    @speaker = Speaker.find(params[:id])
+  end
+  
 end

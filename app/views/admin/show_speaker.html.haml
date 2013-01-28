@@ -89,3 +89,4 @@
       =link_to "Unpublish Speaker", "/speaker/#{@speaker.id}/unpublic", :confirm => "Are you sure you want to unpublish this speaker?", :class => "delete-speaker"
     -else
       =link_to "Publish Speaker", "/speaker/#{@speaker.id}/public", :confirm => "Are you sure you want to publish this speaker?", :class => "delete-speaker"
+    =link_to "Edit Speaker", "/admin/speakers/#{@speaker.id}/edit", :class => "delete-speaker"

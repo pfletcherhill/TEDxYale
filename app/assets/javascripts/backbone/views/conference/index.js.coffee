@@ -16,7 +16,11 @@ class TEDxYale.Views.Conference.IndexView extends Backbone.View
   renderSpeakers: ->
     for speaker in @speakers.models
       if speaker.get('public')
-        $("#speakers-container").append( @speakerTemplate( speaker.toJSON() ))
+        if speaker.get('crop')
+          crop = speaker.get('crop')
+        else
+          crop = "0 -50px"
+        $("#speakers-container").append( @speakerTemplate( speaker: speaker, crop: crop ))
       else
         numb = Math.floor((100)*Math.random())+150
         color = "rgba(#{numb}, #{numb}, #{numb}, 1)"

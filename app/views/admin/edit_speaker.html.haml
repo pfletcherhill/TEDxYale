@@ -1,0 +1,30 @@
+.wrapper
+  = render :partial => 'menu'
+
+  .admin_container.speakers
+    %h5
+      = @speaker.event ? @speaker.event.name + " speaker:" : "Speaker:"
+    =form_for @speaker do |f|
+      %label Name
+      =f.text_field :name
+      %br
+      %label Email
+      =f.text_field :email
+      %br
+      %label Twitter
+      =f.text_field :twitter
+      %br
+      %label Crop
+      =f.text_field :crop
+      %br
+      %label Image
+      %br
+      =image_tag @speaker.thumbnail.url(:large)
+      %br
+      =f.file_field :thumbnail
+      %br
+      %label Bio
+      %br
+      =f.text_area :short_bio
+      %br
+      =f.submit

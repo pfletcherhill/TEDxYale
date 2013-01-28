@@ -77,7 +77,8 @@ class Speaker < ActiveRecord::Base
       "thumbnail" => thumbnail.url(:large) != "/thumbnails/large/missing.png" ? thumbnail.url(:large) : "",
       "bio" => short_bio, 
       "twitter" => twitter,
-      "talk" => talk_title
+      "talk" => talk_title,
+      "crop" => crop
     }
   end
   

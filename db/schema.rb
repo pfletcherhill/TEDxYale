@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130112141416) do
+ActiveRecord::Schema.define(:version => 20130128013133) do
 
   create_table "admins", :force => true do |t|
     t.string   "email"
@@ -178,6 +178,7 @@ ActiveRecord::Schema.define(:version => 20130112141416) do
     t.string   "announcement_video"
     t.string   "slideshow"
     t.boolean  "public"
+    t.string   "crop"
   end
 
   create_table "sponsors", :force => true do |t|

@@ -1,3 +1,3 @@
-<div class="conference-speaker" style="background-image: url(<%= thumbnail %>)" data-id=<%= id %>>
-  <div class="name white" data-id=<%= id %>><%= name %></div>
+<div class="conference-speaker" style="background-image: url(<%= speaker.get('thumbnail') %>); background-position: <%= crop %>" data-id=<%= speaker.id %>>
+  <div class="name white" data-id=<%= speaker.id %>><%= speaker.get('name') %></div>
 </div>

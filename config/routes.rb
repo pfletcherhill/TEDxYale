@@ -32,6 +32,7 @@ TEDxYale::Application.routes.draw do
   match "/admin/finance" => "admin#finance"
   match "/admin/speakers" => "admin#speakers"
   match "/admin/speakers/:id" => "admin#show_speaker"
+  match "/admin/speakers/:id/edit" => "admin#edit_speaker"
   match "/admin/tv" => "admin#tv"
   match "/admin/applications" => "admin#applications"
   match "/admin/sponsors" => "admin#sponsors"
