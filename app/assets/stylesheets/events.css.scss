@@ -802,7 +802,7 @@
     cursor: pointer;
     .name {
       @include HN-Bold;
-      color: black;
+      color: #555;
       font-size: 30px;
       position: absolute;
       padding-left: 5px;
@@ -818,9 +818,49 @@
       opacity: 0.7;
     }
   }
-  
-  #speakers-break {
-    clear: both;
+}
+
+#speakers-break {
+  clear: both;
+}
+
+.schedule {
+  table {
+    margin-top: 20px;
+    border-collapse: collapse;
+    width: 300px;
+    float: left;
+    margin-right: 50px;
+    tr {
+      border-bottom: 1px solid black;
+      &:last-child {
+        border: 0px;
+      }
+    }
+    .time {
+      @include HN-Light;
+      font-size: 15px;
+      vertical-align: top;
+      line-height: 30px;
+      width: 80px;
+      border: 0px;
+    }
+    li, p, td {
+      @include HN-Regular;
+    }
+    h4 {
+      margin: 0px;
+      padding: 0px;
+      font-size: 15px;
+      line-height: 30px;
+      @include HN-Bold;
+      color: black;
+    }
+    ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 5px 0px 15px 0px;
+    }
   }
 }
 
