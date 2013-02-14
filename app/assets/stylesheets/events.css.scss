@@ -864,6 +864,26 @@
   }
 }
 
+.partners {
+  table {
+    margin-top: 20px;
+    .image {
+      width: 30%;
+      vertical-align: top;
+      img {
+        width: 90%;
+        border: 1px solid #777;
+      }
+    }
+    .gant {
+      @include HN-Regular;
+      font-size: 11px;
+      span {
+        @include HN-Bold;
+      }
+    }
+  }
+}
 #lightbox {
   position: fixed;
   top: 0px;
