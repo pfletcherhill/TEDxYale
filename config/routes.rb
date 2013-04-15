@@ -27,7 +27,9 @@ TEDxYale::Application.routes.draw do
       
   #Admin Panel
   match "/admin" => "admin#users"
-  match "/admin/users" => "admin#users"
+  match "/admin/users" => "admin#lists"
+  match "/admin/users/all" => "admin#users"
+  match "/admin/lists/:id" => "admin#show_list"
   match "/admin/events" => "admin#events"
   match "/admin/finance" => "admin#finance"
   match "/admin/speakers" => "admin#speakers"

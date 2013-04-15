@@ -1,0 +1,23 @@
+.wrapper
+  = render :partial => 'menu'
+
+  .admin_container.users
+    %h1 User Lists (#{@lists.count})
+    %table
+      %tbody
+        %tr
+          %th Name
+          %th About
+          %th Users
+          %th
+        %tr
+          %td All Users
+          %td Every user in the database
+          %td= @user_count
+          %td= link_to "Show", "/admin/users/all"
+        - @lists.each do |list|
+          %tr
+            %td= list.name
+            %td= list.about
+            %td= list.users.count
+            %td= link_to "Show", "/admin/lists/#{list.id}"

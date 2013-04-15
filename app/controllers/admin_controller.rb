@@ -31,6 +31,15 @@ class AdminController < ApplicationController
     end
   end
   
+  def lists
+    @lists = List.all
+    @user_count = User.count
+  end
+  
+  def show_list
+    @list = List.find(params[:id])
+  end
+  
   def events
     @events = Event.all
     @events_number = @events.count

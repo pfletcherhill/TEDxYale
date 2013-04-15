@@ -1,0 +1,20 @@
+.wrapper
+  = render :partial => 'menu'
+
+  .admin_container.users
+    %h1 #{@list.name} Users (#{@list.users.count})
+    %table
+      %tbody
+        %tr
+          %th Name
+          %th Email
+          %th Votes
+          %th
+          %th
+        - @list.users.each do |user|
+          %tr
+            %td= user.name
+            %td= user.email
+            %td= user.votes.count
+            %td= link_to "Show", "/admin/users/#{user.id}"
+            %td= link_to "Delete", user, confirm: 'Are you sure?', method: :delete, :class => "close"

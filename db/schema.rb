@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130128013133) do
+ActiveRecord::Schema.define(:version => 20130415171919) do
 
   create_table "admins", :force => true do |t|
     t.string   "email"
@@ -136,6 +136,13 @@ ActiveRecord::Schema.define(:version => 20130128013133) do
     t.string   "paralink"
   end
 
+  create_table "lists", :force => true do |t|
+    t.string   "name"
+    t.text     "about"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "posts", :force => true do |t|
     t.string   "title"
     t.text     "body"
@@ -243,6 +250,7 @@ ActiveRecord::Schema.define(:version => 20130128013133) do
     t.string   "tedtalk"
     t.string   "code"
     t.boolean  "has_access"
+    t.integer  "list_id"
   end
 
   create_table "videos", :force => true do |t|

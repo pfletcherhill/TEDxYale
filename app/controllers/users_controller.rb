@@ -27,18 +27,19 @@ class UsersController < ApplicationController
   
   def signup
     @user = User.new
+    @list = List.where(:name => "Bulldog Days 2013").first
   end
   
   def create
     @user = User.new(params[:user])
     respond_to do |format|
       if @user.save
-        format.html
+        format.html { redirect_to "/signup", notice: "Successfuly registered!" }
         format.json { render json: @user }
-        UserMailer.welcome_email(@user).deliver
-        UserMailer.notify_admin_email(@user).deliver
+        #UserMailer.welcome_email(@user).deliver
+        #UserMailer.notify_admin_email(@user).deliver
       else
-        format.html
+        format.html { redirect_to "/signup", notice: @user.errors.full_messages.first }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end

@@ -15,6 +15,7 @@ class User < ActiveRecord::Base
 	has_many :attendees
 	has_many :events, :through => :attendees
 	has_many :votes
+	belongs_to :list
 	
 	def votes_left
 	  votes = self.votes.count

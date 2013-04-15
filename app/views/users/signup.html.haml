@@ -1,5 +1,8 @@
 .bazaar
+  -if notice
+    .notice= notice
   =form_for @user do |f|
+    =f.hidden_field :list_id, :value => @list.id
     =f.text_field :name, :placeholder => "Full Name"
     =f.text_field :email, :placeholder => "Email Address"
     =f.submit "Signup for TEDxYale"
