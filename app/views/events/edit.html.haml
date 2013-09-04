@@ -30,7 +30,7 @@
                 =s.text_area :bio, :placeholder => "Speaker Bio"
                 =s.text_field :twitter, :placeholder => "Twitter Tag"
                 =s.hidden_field :event_id, :value => @event.id
-                =button_to "Add Speaker", :action => "/speakers/create", :remote => true, :form => { "data-type" => "json" }
+                //=button_to "Add Speaker", :action => "/speakers/create", :remote => true, :form => { "data-type" => "json" }
           .item
             %label Event Location:
             = f.text_field :location, :value => @event.location

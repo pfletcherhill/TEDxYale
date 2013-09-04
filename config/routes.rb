@@ -53,8 +53,8 @@ TEDxYale::Application.routes.draw do
   get "/attend", to: "attendees#register", :as => "signup_attendees"
   get "/unregister", to: "attendees#unregister", :as => "delete_attendees"
   get "/events/:id/registration", to: "events#registration"
-  get "/publish", to: "events#publish", :as => "publish_events"
-  get "/unpublish", to: "events#unpublish", :as => "unpublish_events"
+  put "/publish", to: "events#publish", :as => "publish_events"
+  put "/unpublish", to: "events#unpublish", :as => "unpublish_events"
   
   #About
   
