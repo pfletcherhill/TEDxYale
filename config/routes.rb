@@ -48,13 +48,13 @@ TEDxYale::Application.routes.draw do
   resources :attendees
   
   get "/events", to: "events#index"
-  get "check_in", to: "attendees#check_in", :as => "check_in_attendees"
-  get "check_out", to: "attendees#check_out", :as => "check_out_attendees"
-  get "attend", to: "attendees#register", :as => "signup_attendees"
-  get "unregister", to: "attendees#unregister", :as => "delete_attendees"
-  get "events/:id/registration", to: "events#registration"
-  get "publish", to: "events#publish", :as => "publish_events"
-  get "unpublish", to: "events#unpublish", :as => "unpublish_events"
+  get "/check_in", to: "attendees#check_in", :as => "check_in_attendees"
+  get "/check_out", to: "attendees#check_out", :as => "check_out_attendees"
+  get "/attend", to: "attendees#register", :as => "signup_attendees"
+  get "/unregister", to: "attendees#unregister", :as => "delete_attendees"
+  get "/events/:id/registration", to: "events#registration"
+  put "/publish", to: "events#publish", :as => "publish_events"
+  put "/unpublish", to: "events#unpublish", :as => "unpublish_events"
   
   #About
   

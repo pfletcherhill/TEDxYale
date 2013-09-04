@@ -1,4 +1,9 @@
 class Event < ActiveRecord::Base
+
+  attr_accessible :name, :location, :location_url, :image, :location_address, 
+                  :location_city, :location_state, :location_zipcode, 
+                  :published, :datetime, :sort, :paralink, :description
+
   has_many :attendees
   has_many :users, :through => :attendees
   has_many :speakers
