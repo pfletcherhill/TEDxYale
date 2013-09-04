@@ -8,5 +8,4 @@ class TEDxYale.Routers.ApplicationsRouter extends Backbone.Router
     ".*"        : "newApplication"
 
   newApplication: ->
-    console.log @options
     @view = new TEDxYale.Views.Applications.New(@options)

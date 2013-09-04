@@ -28,8 +28,8 @@ class TEDxYale.Views.Applications.New extends Backbone.View
     return this
   
   renderError: (message) ->
-    $("#application-form .error").html(message)
-    $("#application-form .error").slideDown(100)
+    $(".form-footer .error").html(message)
+    $(".form-footer .error").slideDown(100)
   
   saveQuestions: (application) ->
     $(".question").each ->
@@ -57,8 +57,8 @@ class TEDxYale.Views.Applications.New extends Backbone.View
   save: (event) ->
     event.preventDefault()
     if confirm "Are you sure?"
-      $("#application-form .error").hide()
-      @$("#application-form button").html("<span>☺</span> Processing App...")
+      $(".form-footer .error").hide()
+      @$(".form-footer button").html("<span>☺</span> Processing App...")
       @model.url = '/applications'
       @model.save({application_cycle_id: @options.applicationCycle.id},
         success: (application) =>
@@ -67,5 +67,5 @@ class TEDxYale.Views.Applications.New extends Backbone.View
           @$(".panel").html("<div class='message'>Congratulations! Your application has been submitted! We will be in touch shortly.</div>")
         error: =>
           @renderError("We were unable to process your application! Please make sure all fields are filled out then re-submit.")
-          @$("#application-form button").html("<span>☺</span> Apply for TEDxYale")
+          @$(".form-footer button").html("<span>☺</span> Apply for TEDxYale")
       )
