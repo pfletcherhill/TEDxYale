@@ -11,6 +11,10 @@ gem 'protected_attributes'
 gem 'rails-observers'
 gem 'actionpack-action_caching'
 
+group :production do
+  gem 'rails_12factor'
+end
+
 gem 'thin'
 gem 'pg'
 gem 'haml'
