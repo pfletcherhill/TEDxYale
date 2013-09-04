@@ -1,9 +1,12 @@
 class TEDxYale.Routers.ApplicationsRouter extends Backbone.Router
+  
   initialize: (options) ->
-    @application = new TEDxYale.Models.Application()
+    options["model"] = new TEDxYale.Models.Application()
+    @options = options
 
   routes:
     ".*"        : "newApplication"
 
   newApplication: ->
-    @view = new TEDxYale.Views.Applications.NewView(model: @application)
+    console.log @options
+    @view = new TEDxYale.Views.Applications.New(@options)

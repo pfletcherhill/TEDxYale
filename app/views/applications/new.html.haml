@@ -2,6 +2,10 @@
 
 :javascript
   $(function() {
-    window.router = new TEDxYale.Routers.ApplicationsRouter();
+    window.router = new TEDxYale.Routers.ApplicationsRouter({
+      applicationCycle: #{@application_cycle.to_json(include: [:application_questions])},
+      model: #{@application.to_json.html_safe},
+      roles: #{ApplicationRole.all.to_json.html_safe}
+    });
     Backbone.history.start();
   });

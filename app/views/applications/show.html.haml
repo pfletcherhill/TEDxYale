@@ -2,30 +2,39 @@
   = render :partial => '/admin/menu'
 
   .admin_container.applications
-    %p
-      %b Name:
-      =@application.name
-    %p
-      %b Email:
-      =@application.email
-    %p
-      %b Affiliation:
-      =@application.affiliation
-    %p
-      %b Year:
-      =@application.year
-    %p
-      %b Bio:
-      =@application.bio
-    %p
-      %b Team(s):
-      -if @application.events_team
-        Events Team
-      -if @application.finance_team
-        Finance Team
-      -if @application.community_team
-        Community Relations
-    %p
-      %b Experiences:
-      =@application.experiences
+    %table
+      %tr
+        %td App ID
+        %td= @application.id
+      %tr
+        %td App Cycle
+        %td= link_to @application.application_cycle.name, @application.application_cycle
+      %tr
+        %td Name
+        %td= @application.name
+      %tr
+        %td Email
+        %td= @application.email
+      %tr
+        %td Affiliation
+        %td= @application.affiliation
+      %tr
+        %td Year
+        %td= @application.year
+      %tr
+        %td Major
+        %td= @application.major
+      %tr
+        %td Hometown
+        %td= @application.hometown
+      %tr
+        %td Submitted
+        %td= @application.created_at.in_time_zone("Eastern Time (US & Canada)").strftime("%c")
     
+    %h2 Questions
+    %table
+      - @application.application_answers.each do |answer|
+        %tr
+          %td= answer.application_question.content
+          %td= answer.application_question.application_role.try(:name)
+          %td= answer.content

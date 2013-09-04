@@ -1,0 +1,7 @@
+=form_for @question do |f|
+  = f.hidden_field :application_cycle_id, value: @application_cycle.id
+  %p Application Role (leave blank if general)
+  = f.select :application_role_id, options_from_collection_for_select(ApplicationRole.all, "id", "name", @question.application_role_id), include_blank: true
+  %p Content:
+  %p= f.text_area :content
+  %p= f.submit

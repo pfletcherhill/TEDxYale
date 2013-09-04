@@ -1,0 +1,10 @@
+<h1>Questions</h1>
+<p>Please fill out the following questions. We will be reading a lot of applications, so try to be economical with words.</p>
+<br/>
+<% for (i = 0; i < questions.length; i++) { %>
+  <% var question = questions[i]; %>
+  <div class="question" data-id="<%= question.id %>">
+    <label><%= question.get("content") %></label>
+    <textarea></textarea>
+  </div>
+<% } %>

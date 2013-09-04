@@ -1,0 +1,11 @@
+.wrapper
+  = render :partial => '/admin/menu'
+
+  .admin_container
+    %h1 New Application Cycle
+    =form_for @application_cycle do |f|
+      %p Name:
+      %p= f.text_field :name
+      %p Description
+      %p= f.text_area :description
+      %p= f.submit "Create Application Cycle"

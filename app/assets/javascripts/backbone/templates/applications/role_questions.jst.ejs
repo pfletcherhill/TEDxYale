@@ -1,0 +1,17 @@
+<div class="form-role">
+  <h2 class="toggle-form-role"><%= role.name %></h2>
+  <% if (role.description) { %>
+    <p><%= role.description %></p>
+  <% } %>
+  <div class="form-role-questions" style="display: none">
+    <br/>
+    <% for (i = 0; i < questions.length; i++) { %>
+      <% question = questions[i]; %>
+      <div class="question" data-id="<%= question.id %>">
+        <label><%= question.get("content") %></label>
+        <textarea></textarea>
+      </div>
+    <% } %>
+  </div>
+</div>
+  

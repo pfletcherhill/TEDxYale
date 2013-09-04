@@ -1,5 +1,6 @@
 class AdminController < ApplicationController
   
+  respond_to :html, :json
   before_filter :require_login
   
   def require_login
@@ -51,13 +52,10 @@ class AdminController < ApplicationController
   end
   
   def applications
-    @applications = Application.all
-    @applications_number = @applications.count
-    
-    respond_to do |format|
-      format.html
-      format.json { render json: @applications }
-    end
+    @application_cycles = ApplicationCycle.all
+    #@applications = Application.all
+    #@applications_number = @applications.count
+    respond_with @application_cycles
   end
   
   def finance

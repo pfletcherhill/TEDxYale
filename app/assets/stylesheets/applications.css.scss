@@ -1,6 +1,4 @@
-// Place all the styles related to the Applications controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+@import "mixins";
 
 //Mixins
 @mixin HN-Light {
@@ -16,42 +14,191 @@
   font-weight: normal;
 }
 
+// Vars
+$width: 1000px;
+$panel-width: 600px;
+$header-height: 80px;
+$bg-height: 300px;
+$panel-diff: 50px;
+
+.apply-background {
+  width: 100%;
+  min-width: $width;
+  position: absolute;
+  top: $header-height;
+  left: 0;
+  height: $bg-height;
+  background-color: black;
+  background-image: asset-url("apply_bg.jpg", image);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
 .wrapper {
+  
   .application {
     position: relative;
-    width: 1000px;
-    .panel {
-      margin-left: 4px;
-      width: 650px;
-      h1 {
-        @include HN-Bold;
-        color: #333;
-        font-size: 45px;
+    margin-top: $bg-height - $panel-diff;
+    width: $width;
+  }
+  
+  .panel,
+  .menu {
+    display: inline-block;
+    box-sizing: border-box;
+    
+    h1,
+    h2 {
+      color: #333;
+      margin: 0;
+    }
+    
+    h1 {
+      font-size: 60px;
+      line-height: 75px;
+      @include HN-Light;
+    }
+    
+    h2 {
+      @include HN-Bold;
+      font-size: 30px;
+      line-height: 50px;
+    }
+    
+    p {
+      @include HN-Light;
+    }
+  }
+  
+  .panel {
+    margin-top: $panel-diff;
+    width: $panel-width;
+    
+    h1 {
+      font-weight: 100;
+    }
+  }
+  
+  .menu {
+    display: inline-block;
+    vertical-align: top;
+    padding: 20px 30px;
+    width: $width - $panel-width;
+    background: white;
+    border: 1px solid #dadada;
+  }
+  
+  .panel {
+    padding-right: 50px;
+    
+    .question {
+      margin-bottom: 20px;
+    }
+    
+    input,
+    textarea {
+      box-sizing: border-box;
+    }
+    
+    label {
+      @include HN-Bold;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+      display: block;
+    }
+    
+    input {
+      width: 100%;
+      padding: 15px 10px;
+      font-size: 16px;
+      color: #333;
+      @include HN-Light;
+      border: 1px solid #dadada;
+      background: #fff;
+      outline: none;
+      @include transition(border 0.2s);
+      margin-bottom: 10px;
+      
+      &:hover {
+        border: 1px solid #888;
       }
-      p {
-        @include HN-Light;
+      
+      &:focus {
+        border: 1px solid #777;
       }
-      input {
-        width: 280px;
-        padding: 15px 10px;
-        margin-right: 20px;
-        margin-bottom: 15px;
-        font-size: 16px;
-        color: #333;
-        @include HN-Light;
-        border: 1px solid #dadada;
-        background: #fff;
-        outline: none;
-        -webkit-transition: border 0.2s;
+    }
+    
+    textarea {
+      width: 100%;
+    }
+    
+    .error,
+    .message {
+      font-size: 16px;
+      line-height: 22px;
+      border-radius: 10px;
+      box-sizing: border-box;
+      padding: 20px;
+      @include HN-Bold;
+    }
+    
+    .error {
+      margin-bottom: 20px;
+      color: #b94a48;
+      background-color: #f2dede;
+      border: 1px solid #eed3d7;      
+    }
+    
+    .message {
+      color: #468847;
+      background-color: #dff0d8;
+      border-color: #d6e9c6;
+    }
+    
+    .submit {
+      background: #00B26B;
+      color: white;
+      padding: 30px;
+      font-size: 20px;
+      border: 0px;
+      line-height: 20px;
+      @include transition(0.2s);
+      cursor: pointer;
+      border-radius: 10px;
+      
+      span {
+        font-size: 40px;
+        vertical-align: top;
+      }
+      
+      &:hover {
+        background: #00FF99;
+      }
+    }
+    
+    .form-role {
+      background: white;
+      border: 1px solid #dadada;
+      box-sizing: border-box;
+      margin-bottom: 20px;
+      padding: 20px;
+      
+      h2 {
+        @include transition(0.15s);
+        cursor: pointer;
+        display: inline-block;
+        
         &:hover {
-          border: 1px solid #888;
-        }
-        &:focus {
-          border: 1px solid #777;
+          color: red;
         }
       }
+    }
+  }
+  .application {
+    .panel {
+      
+      
       textarea {
-        width: 608px;
         height: 200px;
         padding: 10px;
         margin: 0px;
@@ -100,12 +247,6 @@
       }
     }
     .menu {
-      position: absolute;
-      border-left: 1px solid #dadada;
-      right: 0px;
-      top: 0px;
-      width: 300px;
-      height: 100%;
       .deadline {
         width: 150px;
         margin-top: 20px;
@@ -181,13 +322,6 @@
         border: 1px solid #ff0000;
         color:#fff;
       }
-    }
-    .message {
-      text-align: center;
-      margin: 50px 0;
-      font-size: 20px;
-      @include HN-Light;
-      color: #ff0000;
     }
   }
 }

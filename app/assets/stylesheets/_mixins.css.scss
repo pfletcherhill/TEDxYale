@@ -1,0 +1,27 @@
+@mixin transition($x) {  transition: #{$x};
+  -moz-transition: #{$x};
+  -webkit-transition: #{$x};
+  -o-transition: #{$x};
+}
+
+@mixin shadow($x) {
+  -moz-box-shadow: $x;
+  -webkit-box-shadow: $x;
+  box-shadow: $x;
+}
+
+@mixin calc($attribute, $x) {
+  #{$attribute}: -moz-calc(#{$x});
+  #{$attribute}: -webkit-calc(#{$x});
+  #{$attribute}: -o-calc(#{$x});
+  #{$attribute}: calc(#{$x});
+}
+
+@mixin linear-gradient($direction, $x, $y) {
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#{$x}), to(#{$y}));
+  background-image: -moz-linear-gradient(#{$direction}, #{$x}, #{$y});
+  background-image: -ms-linear-gradient(#{$direction}, #{$x}, #{$y});
+  background-image: -webkit-linear-gradient(#{$direction}, #{$x}, #{$y});
+  background-image: -o-linear-gradient(#{$direction}, #{$x}, #{$y});
+  background-image: linear-gradient(#{$direction}, #{$x}, #{$y});
+}

@@ -2,15 +2,18 @@
   = render :partial => 'menu'
 
   .admin_container.applications
-    .title Applications (#{@applications_number})
+    .create= link_to "Create Application Cycle", new_application_cycle_path
+    %h1 Application Cycles
     %table
       %tbody
         %tr
           %th Name
           %th Email
+          %th Apps #
           %th
-        -@applications.each do |app|
+        -@application_cycles.each do |app|
           %tr
             %td= app.name
-            %td= app.email
-            %td= link_to "Show", app
+            %td= app.description
+            %td= app.applications.count
+            %td= link_to "Open", app

@@ -1,100 +1,71 @@
 TEDxYale.Views.Applications ||= {}
 
-class TEDxYale.Views.Applications.NewView extends Backbone.View
+class TEDxYale.Views.Applications.New extends Backbone.View
   template: JST["backbone/templates/applications/index"]
-  basicTemplate: JST["backbone/templates/applications/basic"]
-  teamsTemplate: JST["backbone/templates/applications/teams"]
-  experienceTemplate: JST["backbone/templates/applications/experience"]
+  generalQuestionsTemplate: JST["backbone/templates/applications/general_questions"]
+  roleQuestionsTemplate: JST["backbone/templates/applications/role_questions"]
   
-  initialize: ->
-    @user = new TEDxYale.Models.User
-    @model = new TEDxYale.Models.Application
+  el: "#application"
   
-  render: ->
-    $(@el).html(@template(@model.toJSON() ))
-    @renderBasic()
+  initialize: (options) ->
+    @render(options)
+  
+  renderQuestions: (questions) ->
+    generals = new Backbone.Collection(questions).where({application_role_id: null})
+    $(".form-questions").html(@generalQuestionsTemplate(questions: generals))
+
+  renderRoles: (roles, questions) ->
+    questions = new Backbone.Collection(questions)
+    for role in roles
+      $(".form-roles").append(@roleQuestionsTemplate(role: role, questions: questions.where({application_role_id: role.id})))
+    
+  render: (options) ->
+    @options = options
+    $(@el).html(@template())
+    @renderQuestions(options.applicationCycle.application_questions)
+    @renderRoles(options.roles, options.applicationCycle.application_questions)
+    @$("#application-form").backboneLink(@model)
     return this
   
+  renderError: (message) ->
+    $("#application-form .error").html(message)
+    $("#application-form .error").slideDown(100)
+  
+  saveQuestions: (application) ->
+    $(".question").each ->
+      if $("textarea", this).val().length > 0
+        answer = new Backbone.Model({
+          application_question_id: $(this).data("id"),
+          application_id: application.id,
+          content: $("textarea", this).val()
+        })
+        answer.url = "/application_answers"
+        answer.save null
+    
   events:
-    'click button.basic' : 'renderBasic'
-    'click button.teams' : 'renderTeams'
-    'click button.experience' : 'renderExperience'
-    'click .team.events' : 'addEvents'
-    'click .team.finance' : 'addFinance'
-    'click .team.community' : 'addCommunity'
-    'click .team.events.selected' : 'removeSelectedEvents'
-    'click .team.finance.selected' : 'removeSelectedFinance'
-    'click .team.community.selected' : 'removeSelectedCommunity'
+    'click .toggle-form-role' : 'toggleFormRole'
     'submit form' : 'save'
-  
-  pointer: (top) ->
-    @$("#pointer").css('top',top + 'px')
-  renderBasic: ->
-    @$('.panel').html(@basicTemplate())
-    @$('form').backboneLink(@model)
-    @$('form input.name').val(@model.get('name'))
-    @$('form input.email').val(@model.get('email'))
-    @$('form input.affiliation').val(@model.get('affiliation'))
-    @$('form input.year').val(@model.get('year'))
-    @$('form textarea.bio').val(@model.get('bio'))
-    @pointer('5')
-  
-  renderTeams: ->
-    @$('.panel').html(@teamsTemplate())
-    @$('form').backboneLink(@model)
-    @$('.team.events').addClass 'selected' if @model.get('events_team')
-    @$('.team.finance').addClass 'selected' if @model.get('finance_team')
-    @$('.team.community').addClass 'selected' if @model.get('community_team')
-    @pointer('44')
-  
-  renderExperience: ->
-    @$('.panel').html(@experienceTemplate())
-    @$('form').backboneLink(@model)
-    @$('form textarea.experiences').val(@model.get('experiences'))
-    @pointer('83')
+    'click button.submit' : 'save'
     
-  addEvents: ->
-    @$(".team.events").addClass 'selected'
-    @model.set events_team: true
-  
-  addFinance: ->
-    @$(".team.finance").addClass 'selected'
-    @model.set finance_team: true
-    
-  addCommunity: ->
-    @$(".team.community").addClass 'selected'  
-    @model.set community_team: true
-  
-  removeSelectedEvents: (event) ->
-    if $(event.target).hasClass 'team'
-      $(event.target).removeClass 'selected'
+  toggleFormRole: (event) ->
+    $div = $(".form-role-questions", $(event.target).closest(".form-role"))
+    if $div.is(":hidden")
+      $div.slideDown(100)
     else
-      $(event.target).parents('.team').removeClass 'selected'
-    @model.set events_team: false
-  
-  removeSelectedFinance: (event) ->
-    if $(event.target).hasClass 'team'
-      $(event.target).removeClass 'selected'
-    else
-      $(event.target).parents('.team').removeClass 'selected'
-    @model.set finance_team: false
-  
-  removeSelectedCommunity: (event) ->
-    if $(event.target).hasClass 'team'
-      $(event.target).removeClass 'selected'
-    else
-      $(event.target).parents('.team').removeClass 'selected'
-    @model.set community_team: false
+      $div.slideUp(100)
   
   save: (event) ->
     event.preventDefault()
-    @$("form button").html("Processing...").addClass 'loading'
-    @model.url = '/applications'
-    @model.save(null,
-      success: (application) =>
-        @model.sendAppEmail()
-        @finishApplication(application)
-    )
-  
-  finishApplication: (app) ->
-    @$(".application").html('<div class="message">Thanks for applying, <b>' + app.get('name') + '</b>!</div>')
+    if confirm "Are you sure?"
+      $("#application-form .error").hide()
+      @$("#application-form button").html("<span>☺</span> Processing App...")
+      @model.url = '/applications'
+      @model.save({application_cycle_id: @options.applicationCycle.id},
+        success: (application) =>
+          @saveQuestions(application)
+          $(window).scrollTop(0)
+          @$(".panel").html("<div class='message'>Congratulations! Your application has been submitted! We will be in touch shortly.</div>")
+        error: =>
+          @renderError("We were unable to process your application! Please make sure all fields are filled out then re-submit.")
+          @$("#application-form button").html("<span>☺</span> Apply for TEDxYale")
+      )

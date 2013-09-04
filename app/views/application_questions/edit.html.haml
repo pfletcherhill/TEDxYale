@@ -1,0 +1,7 @@
+.wrapper
+  = render :partial => '/admin/menu'
+
+  .admin_container
+    %h5= @question.application_cycle.name
+    %h1 Edit Question
+    = render partial: "/application_questions/form"

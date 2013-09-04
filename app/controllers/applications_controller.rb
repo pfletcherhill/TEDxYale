@@ -1,6 +1,6 @@
 class ApplicationsController < ApplicationController
   
-  before_filter :require_login
+  before_filter :require_login, except: [:new]
   
   def require_login
     unless logged_in?
@@ -10,6 +10,11 @@ class ApplicationsController < ApplicationController
  
   def logged_in?
     !!current_admin
+  end
+  
+  def new
+    @application = Application.new
+    @application_cycle = ApplicationCycle.find_by_slug(params[:slug])
   end
   
   def create

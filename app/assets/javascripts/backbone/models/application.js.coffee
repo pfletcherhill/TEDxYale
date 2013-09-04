@@ -5,14 +5,10 @@ class TEDxYale.Models.Application extends Backbone.Model
     email: null
     affiliation: null
     year: null
-    bio: null
-    experiences: null
-    events_team: false
-    finance_team: false
-    community_team: false
+    major: null
+    hometown: null
   
   sendAppEmail: ->
-    console.log @
     $.ajax
       type: "POST"
       dataType: "json"

@@ -1,52 +1,45 @@
 TEDxYale::Application.routes.draw do
 
-  resources :sponsors, :sponsorships
-
-  resources :users
+  resources :sponsors, :sponsorships, :users, :applications, :sessions, :subscriptions, 
+            :application_cycles, :application_questions, :application_answers
 
   root :to => "users#new"
 
-  match "/join" => "applications#new"
-  match "/app_email/:id" => "applications#app_mailer"
-  match "/signup" => "users#signup"
-  
-  resources :applications
-  
-  resources :sessions
-      
-  resources :subscriptions
-    
-  match "/register" => "users#new"
-  
-  get "login" => "sessions#new", :as => "login"
-  get "logout" => "sessions#destroy", :as => "logout" 
-  
-  match "/salons" => "users#event_saman"
-  
-  match "/join" => "users#join"
+  get "/join", to: "applications#new"
+  get "/app_email/:id", to: "applications#app_mailer"
+  get "/signup", to: "users#signup"    
+  get "/register", to: "users#new"
+  get "login", to: "sessions#new"
+  get "logout", to: "sessions#destroy"
+  get "/salons", to: "users#event_saman"
+  get "/join", to: "users#join"
       
   #Admin Panel
-  match "/admin" => "admin#users"
-  match "/admin/users" => "admin#lists"
-  match "/admin/users/all" => "admin#users"
-  match "/admin/lists/:id" => "admin#show_list"
-  match "/admin/events" => "admin#events"
-  match "/admin/finance" => "admin#finance"
-  match "/admin/speakers" => "admin#speakers"
-  match "/admin/speakers/:id" => "admin#show_speaker"
-  match "/admin/speakers/:id/edit" => "admin#edit_speaker"
-  match "/admin/tv" => "admin#tv"
-  match "/admin/applications" => "admin#applications"
-  match "/admin/sponsors" => "admin#sponsors"
+  get "/admin", to: "admin#users"
+  get "/admin/users", to: "admin#lists"
+  get "/admin/users/all", to: "admin#users"
+  get "/admin/lists/:id", to: "admin#show_list"
+  get "/admin/events", to: "admin#events"
+  get "/admin/finance", to: "admin#finance"
+  get "/admin/speakers", to: "admin#speakers"
+  get "/admin/speakers/:id", to: "admin#show_speaker"
+  get "/admin/speakers/:id/edit", to: "admin#edit_speaker"
+  get "/admin/tv", to: "admin#tv"
+  get "/admin/applications", to: "admin#applications"
+  get "/admin/sponsors", to: "admin#sponsors"
   
-  match "promote" => "users#promote", :as => "promote_users"
+  # Application Cycles
+  get "/application_cycles/:id/new_question", to: "application_cycles#new_question"
+  get "/apply/:slug", to: "applications#new"
+  
+  get "promote", to: "users#promote", :as => "promote_users"
   
   #Wiki
   
   resources :posts
   
-  match "/wiki" => "posts#index"
-  match "/wiki/new" => "posts#new"
+  get "/wiki", to: "posts#index"
+  get "/wiki/new", to: "posts#new"
   
   #Events
   
@@ -54,68 +47,61 @@ TEDxYale::Application.routes.draw do
   
   resources :attendees
   
-  match "/events" => "events#index"
-  
-  match "check_in" => "attendees#check_in", :as => "check_in_attendees"
-  
-  match "check_out" => "attendees#check_out", :as => "check_out_attendees"
-  
-  match "attend" => "attendees#register", :as => "signup_attendees"
-  
-  match "unregister" => "attendees#unregister", :as => "delete_attendees"
-  
-  match "events/:id/registration" => "events#registration"
-  
-  match "publish" => "events#publish", :as => "publish_events"
-  
-  match "unpublish" => "events#unpublish", :as => "unpublish_events"
+  get "/events", to: "events#index"
+  get "check_in", to: "attendees#check_in", :as => "check_in_attendees"
+  get "check_out", to: "attendees#check_out", :as => "check_out_attendees"
+  get "attend", to: "attendees#register", :as => "signup_attendees"
+  get "unregister", to: "attendees#unregister", :as => "delete_attendees"
+  get "events/:id/registration", to: "events#registration"
+  get "publish", to: "events#publish", :as => "publish_events"
+  get "unpublish", to: "events#unpublish", :as => "unpublish_events"
   
   #About
   
-  match "/about" => "about#index"
+  get "/about", to: "about#index"
   
   #TV 
   
   resources :videos
   
-  match "/tv/new" => 'videos#new'  
-  match "/tv" => "videos#index"
+  get "/tv/new" => 'videos#new'  
+  get "/tv", to: "videos#index"
   
   #Dashboard
   
-  match "/dashboard/current_events" => "users#current_events"
-  match "/dashboard/attended_events" => "users#attended_events"
-  match "/dashboard/preferences" => "users#edit"
+  get "/dashboard/current_events", to: "users#current_events"
+  get "/dashboard/attended_events", to: "users#attended_events"
+  get "/dashboard/preferences", to: "users#edit"
   
-  match "add_attended" => "attendees#add_attended", :as => "add_attendees"
+  get "add_attended", to: "attendees#add_attended", :as => "add_attendees"
   
   #speakers
   resources :speakers
-  match "/become_a_speaker" => "speakers#new_student"
-  match "/speaker_login" => "sessions#speaker"
-  match "/speaker" => "speakers#admin"
-  match "/sessions/student_create" => "sessions#speaker_create"
-  match "/speaker/personal" => "speakers#personal"
-  match "/speaker/questionnaire" => "speakers#questionnaire"
-  match "/speaker/talk" => "speakers#talk_information"
-  match "/speaker/account" => "speakers#account"
-  match "/speaker/release_form" => "speakers#release_form"
-  match "/speaker/announcement" => "speakers#announcement"
-  match "/speaker/:id/public" => "speakers#public"
-  match "/speaker/:id/unpublic" => "speakers#unpublic"
+  get "/become_a_speaker", to: "speakers#new_student"
+  get "/speaker_login", to: "sessions#speaker"
+  get "/speaker", to: "speakers#admin"
+  get "/sessions/student_create", to: "sessions#speaker_create"
+  get "/speaker/personal", to: "speakers#personal"
+  get "/speaker/questionnaire", to: "speakers#questionnaire"
+  get "/speaker/talk", to: "speakers#talk_information"
+  get "/speaker/account", to: "speakers#account"
+  get "/speaker/release_form", to: "speakers#release_form"
+  get "/speaker/announcement", to: "speakers#announcement"
+  get "/speaker/:id/public", to: "speakers#public"
+  get "/speaker/:id/unpublic", to: "speakers#unpublic"
   
   # Sponsors
-  match "/sponsorships/new" => "sponsors#new_sponsorship"
+  get "/sponsorships/new", to: "sponsors#new_sponsorship"
   
   # 2013
   resources :student_speakers
-  match "/2013" => "events#conference"
-  match "/facebook" => "student_speakers#facebook"
-  match "/users/:id/vote/:video" => "student_speakers#vote"
-  match "/me/votes_count" => "users#votes_count"
-  match "/voting_data" => "student_speakers#voting_data"
-  match "/early_bird" => "student_speakers#early_bird"
-  match "/process_stripe" => "student_speakers#process_stripe"
-  match "/events/2013/speakers" => "events#conference_speakers"
+  get "/2013", to: "events#conference"
+  get "/facebook", to: "student_speakers#facebook"
+  get "/users/:id/vote/:video", to: "student_speakers#vote"
+  get "/me/votes_count", to: "users#votes_count"
+  get "/voting_data", to: "student_speakers#voting_data"
+  get "/early_bird", to: "student_speakers#early_bird"
+  get "/process_stripe", to: "student_speakers#process_stripe"
+  get "/events/2013/speakers", to: "events#conference_speakers"
   
 end

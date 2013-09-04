@@ -1,0 +1,46 @@
+.wrapper
+  = render :partial => '/admin/menu'
+
+  .admin_container
+    %h1= @application_cycle.name
+    %p= @application_cycle.description
+    %br
+    
+    %h2 Questions
+    =link_to "New Question", "/application_cycles/#{@application_cycle.id}/new_question"
+    %table
+      %tr
+        %th Content
+        %th Role
+        %th
+      - @application_cycle.application_questions.each do |question|
+        %tr
+          %td= question.content
+          %td= question.application_role.try(:name)
+          %td= link_to "Edit", edit_application_question_path(question)
+    %br
+    
+    %h2 Applications
+    %table
+      %tr
+        %th App ID
+        %th Name
+        %th Email
+        %th College
+        %th Year
+        %th Major
+        %th Hometown
+        %th Answers
+        %th
+      - @application_cycle.applications.each do |app|
+        %tr
+          %td= app.id
+          %td= app.name
+          %td= app.email
+          %td= app.affiliation
+          %td= app.year
+          %td= app.major
+          %td= app.hometown
+          %td= app.application_answers.count
+          %td= link_to "Show", app
+          

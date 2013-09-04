@@ -1,26 +1,24 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.0'
-
-# Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
-
+gem 'rails', '4.0.0'
+gem 'rake', '10.1.0'
+gem 'uglifier', '>= 1.3.0'
 gem 'pg'
 
+# Rails 4 compatibility
+gem 'protected_attributes'
+gem 'rails-observers'
+gem 'actionpack-action_caching'
 
-# Gems used only for assets and not required
-# in production environments by default.
-group :assets do
-  gem 'sass-rails',   '~> 3.2.3'
-  gem 'coffee-rails', '~> 3.2.1'
+gem 'thin'
+gem 'pg'
+gem 'haml'
 
-  # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-  # gem 'therubyracer'
-
-  gem 'uglifier', '>= 1.0.3'
-end
-
+gem 'json'
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
+gem 'sass-rails'
+gem 'coffee-rails'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
@@ -39,7 +37,7 @@ gem 'thin'
 gem 'haml'
 
 #Paperclip
-gem "paperclip", "~> 3.0"
+gem "paperclip"
 
 #Amazon S3
 gem 'aws-s3'
@@ -47,9 +45,6 @@ gem 'aws-sdk'
 
 #Backbone
 gem "rails-backbone"
-
-#d3
-gem "d3-rails"
 
 #Stripe
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
