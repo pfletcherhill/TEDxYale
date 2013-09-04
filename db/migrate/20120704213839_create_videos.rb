@@ -11,7 +11,6 @@ class CreateVideos < ActiveRecord::Migration
       t.timestamps
     end
     change_table :speakers do |t|
-      t.remove :image_url
       t.has_attached_file :thumbnail
       t.integer :event_id
     end
