@@ -8,12 +8,14 @@
       %tbody
         %tr
           %th Name
-          %th Email
+          %th End date
+          %th Description
           %th Apps #
           %th
         -@application_cycles.each do |app|
           %tr
             %td= app.name
+            %td= app.end_date ? app.end_date.strftime("%c") : "-"
             %td= app.description
             %td= app.applications.count
             %td= link_to "Open", app

@@ -20,6 +20,19 @@ class ApplicationCyclesController < ApplicationController
     end
   end
   
+  def edit
+    @application_cycle = ApplicationCycle.find(params[:id])
+  end
+  
+  def update
+    @application_cycle = ApplicationCycle.find(params[:id])
+    if @application_cycle.update_attributes(params[:application_cycle])
+      redirect_to "/admin/applications"
+    else
+      render :edit
+    end
+  end
+  
   def new_question
     @application_cycle = ApplicationCycle.find(params[:id])
     @question = ApplicationQuestion.new

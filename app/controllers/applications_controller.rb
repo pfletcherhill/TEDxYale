@@ -13,8 +13,12 @@ class ApplicationsController < ApplicationController
   end
   
   def new
-    @application = Application.new
     @application_cycle = ApplicationCycle.find_by_slug(params[:slug])
+    if !@application_cycle.end_date || (@application_cycle.end_date > DateTime.now())
+      @application = Application.new
+    else
+      render :over
+    end
   end
   
   def create
@@ -23,7 +27,6 @@ class ApplicationsController < ApplicationController
       if @application.save
         format.html { redirect_to '/', notice: 'Thank you for applying, #{@application.name}.' }
         format.json { render json: @application, status: :created, location: @application }
-        #UserMailer.new_app_email(@application.email, @application.name, @application).deliver
       else
         format.html
         format.json { render json: @application.errors, status: :unprocessable_entity }

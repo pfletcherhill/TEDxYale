@@ -4,6 +4,7 @@
   .admin_container
     %h1= @application_cycle.name
     %p= @application_cycle.description
+    =link_to "Edit Application Cycle", edit_application_cycle_path(@application_cycle)
     %br
     
     %h2 Questions

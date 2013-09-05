@@ -56,7 +56,7 @@ class TEDxYale.Views.Applications.New extends Backbone.View
   
   save: (event) ->
     event.preventDefault()
-    if confirm "Are you sure?"
+    if confirm "Are you sure you want to submit your application?"
       $(".form-footer .error").hide()
       @$(".form-footer button").html("<span>☺</span> Processing App...")
       @model.url = '/applications'
