@@ -1,4 +1,6 @@
 //Mixins
+@import "mixins";
+
 @mixin HN-Light {
   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
   font-weight: lighter;
@@ -34,13 +36,78 @@ body {
 }
 .wrapper {
   width:1000px;
-  //padding-left: 5px;
   position:relative;
   margin-left:auto;
   margin-right:auto;
   min-height: 100%;
   clear: both;
 }
+
+.banner {
+  width: 100%;
+  min-width: 1000px;
+  height: 400px;
+  position: absolute;
+  top: 80px;
+  background: black;
+}
+
+.apply-banner {
+  background-image: url("/assets/team-11.jpg");
+}
+
+.banner-bg,
+.banner-text {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.banner-bg {
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  z-index: 0;
+}
+
+.banner-text {
+  text-align: center;
+  z-index: 1;
+  overflow: hidden;
+  background-color: rgba(0,0,0,0.3);
+  @include transition(background-color 0.3s);
+  
+  &:hover {
+    background-color: rgba(0,0,0,0.5);
+  }
+  
+  h1,
+  h4 {
+    margin: 0;
+    text-transform: uppercase;
+    color: white;
+  }
+  
+  h1 {
+    margin-top: 150px;
+    font-size: 80px;
+    line-height: 100px;
+    @include HN-Bold;
+  }
+  
+  h4 {
+    font-size: 20px;
+    line-height: 20px;
+    @include HN-Light;
+  }
+}
+
+.banner-wrapper {
+  margin-top: 400px;
+}
+
 .padding {
   width: 100%;
   clear: both;
