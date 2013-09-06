@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>TEDxYale</title>
+  <title><%= yield(:title).empty? ? "TEDxYale" : yield(:title) %></title>
   <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico">
   <%= stylesheet_link_tag "application", :media => "all" %>
   <%= javascript_include_tag "jquery", "scrollto", "application" %>
   <%= csrf_meta_tags %>
-  <meta property="og:title" content="TEDxYale" /> 
-  <meta property="og:image" content="/assets/fb_logo.jpg" /> 
+  <meta property="og:title" content="<%= yield(:title).empty? ? "TEDxYale" : yield(:title) %>" /> 
+  <meta property="og:image" content="/assets/fb_logo.jpg" />
   <meta property="og:description" content="Through events and multimedia, TEDxYale connect the world’s brightest minds with the world’s best stories." /> 
   <script type="text/javascript">
 

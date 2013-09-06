@@ -21,7 +21,7 @@ class TEDxYale.Views.Applications.New extends Backbone.View
     
   render: (options) ->
     @options = options
-    $(@el).html(@template())
+    $(@el).html(@template(cycle: @options.applicationCycle))
     @renderQuestions(options.applicationCycle.application_questions)
     @renderRoles(options.roles, options.applicationCycle.application_questions)
     @$("#application-form").backboneLink(@model)
@@ -66,6 +66,6 @@ class TEDxYale.Views.Applications.New extends Backbone.View
           $(window).scrollTop(0)
           @$(".panel").html("<div class='message'>Congratulations! Your application has been submitted! We will be in touch shortly.</div>")
         error: =>
-          @renderError("We were unable to process your application! Please make sure all fields are filled out then re-submit.")
+          @renderError("We were unable to process your application! Please make sure all fields are filled out, then re-submit.")
           @$(".form-footer button").html("<span>☺</span> Apply for TEDxYale")
       )
