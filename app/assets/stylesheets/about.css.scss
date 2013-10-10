@@ -3,6 +3,8 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 //Mixins
+@import "mixins";
+
 @mixin HN-Light {
   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
   font-weight: lighter;
@@ -92,11 +94,18 @@
         padding: 15px 0;
         .image {
           float: left;
-          padding-right: 15px;
+          margin-right: 15px;
+          width: 100px;
+          height: 100px;
+          @include border-radius(51px);
+          background-position: center;
+          background-size: cover;
+          background-repeat: no-repeat;
           img {
             width: 100px;
             height: 100px;
           }
+          
         }
         .info {
           padding-top: 20px;
