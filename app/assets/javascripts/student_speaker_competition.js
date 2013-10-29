@@ -68,4 +68,10 @@ $(document).ready(function() {
   $('.comp-application form').on('ajax:error', function() {
     renderMessage("Whoops, we encountered an error! Please make sure the form is filled out and correct.", 'error')
   })
+  
+  // Load video
+  var src= "https://s3.amazonaws.com/TEDxYale/mp4s/cody.mp4";
+  var video = $('#video');
+  $('source', video).attr('src', src);
+  video.load();
 });  

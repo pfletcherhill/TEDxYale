@@ -262,12 +262,19 @@ $panel-diff: 50px;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: top;
+    overflow: hidden;
+    
+    video {
+      z-index: 0;
+      position: absolute;
+    }
     
     .hover {
       position: absolute;
       bottom: 50px;
       color: white;
       padding-right: 20%;
+      z-index: 1;
       
       h1 {
         @include HN-Light;
