@@ -70,8 +70,15 @@ $(document).ready(function() {
   })
   
   // Load video
-  var src= "https://s3.amazonaws.com/TEDxYale/mp4s/cody.mp4";
+  var sources = [
+    "https://s3.amazonaws.com/TEDxYale/mp4s/cody.mp4",
+    "https://s3.amazonaws.com/TEDxYale/mp4s/clemantine.mp4",
+    "https://s3.amazonaws.com/TEDxYale/mp4s/eddy.mp4",
+    "https://s3.amazonaws.com/TEDxYale/mp4s/sam.mp4",
+    "https://s3.amazonaws.com/TEDxYale/mp4s/dj.mp4"
+  ];
+  
   var video = $('#video');
-  $('source', video).attr('src', src);
+  $('source', video).attr('src', sources[Math.floor(Math.random()*(sources.length))]);
   video.load();
 });  
