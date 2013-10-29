@@ -258,10 +258,7 @@ $panel-diff: 50px;
     top: $header-height;
     height: $background-height;
     width: 100%;
-    background-image: image-url("compbg.png");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: top;
+    background: black;
     overflow: hidden;
     
     video {

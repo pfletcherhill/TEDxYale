@@ -78,7 +78,7 @@ $(document).ready(function() {
     "https://s3.amazonaws.com/TEDxYale/mp4s/dj.mp4"
   ];
   
-  var video = $('#video');
+  var video = $('#video-background');
   $('source', video).attr('src', sources[Math.floor(Math.random()*(sources.length))]);
   video.load();
 });  

@@ -46,10 +46,11 @@ body {
 .banner {
   width: 100%;
   min-width: 1000px;
-  height: 400px;
+  height: 500px;
   position: absolute;
   top: 80px;
   background: black;
+  overflow: hidden;
 }
 
 .apply-banner {
@@ -99,13 +100,16 @@ body {
   
   h4 {
     font-size: 20px;
-    line-height: 20px;
     @include HN-Light;
+    width: 500px;
+    margin: auto;
+    line-height: 1.5em;
+    margin-top: 20px;
   }
 }
 
 .banner-wrapper {
-  margin-top: 400px;
+  margin-top: 500px;
 }
 
 .padding {
