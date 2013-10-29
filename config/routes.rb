@@ -104,4 +104,8 @@ TEDxYale::Application.routes.draw do
   get "/process_stripe", to: "student_speakers#process_stripe"
   get "/events/2013/speakers", to: "events#conference_speakers"
   
+  # 2014
+  get "/2014", to: "applications#student_speaker_competition"
+  get "/student_speaker_competition", to: "applications#student_speaker_competition"
+  
 end

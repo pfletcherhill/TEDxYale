@@ -13,7 +13,7 @@ class ApplicationsController < ApplicationController
   end
   
   def new
-    @application_cycle = ApplicationCycle.find_by_slug(params[:slug])
+    @application_cycle = ApplicationCycle.find_by_slug(params[:slug]) if params[:slug]
     if !@application_cycle.end_date || (@application_cycle.end_date > DateTime.now())
       @application = Application.new
     else
@@ -21,14 +21,20 @@ class ApplicationsController < ApplicationController
     end
   end
   
+  def student_speaker_competition
+    @application = Application.new
+    @cycle = ENV['speaker_application_cycle'].to_i
+    @nominate_cycle = ENV['nominate_application_cycle'].to_i
+  end
+  
   def create
     @application = Application.new(params[:application])
     respond_to do |format|
       if @application.save
-        format.html { redirect_to '/', notice: 'Thank you for applying, #{@application.name}.' }
+        format.html { redirect_to root_url, notice: 'Thank you for applying, #{@application.name}.' }
         format.json { render json: @application, status: :created, location: @application }
       else
-        format.html
+        format.html { render }
         format.json { render json: @application.errors, status: :unprocessable_entity }
       end
     end

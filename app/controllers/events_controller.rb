@@ -136,4 +136,5 @@ class EventsController < ApplicationController
     speakers = event.speakers.shuffle
     render json: speakers.as_json
   end
+  
 end

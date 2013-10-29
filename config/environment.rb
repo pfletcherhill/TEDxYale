@@ -13,6 +13,8 @@ unless Rails.env.production?
   ENV['Stripe_Secret_Key'] = credentials['Stripe_Secret_Key']
   ENV['Sendgrid_User'] = credentials['Sendgrid_User']
   ENV['Sendgrid_Pass'] = credentials['Sendgrid_Pass']
+  ENV['speaker_application_cycle'] = credentials['speaker_application_cycle']
+  ENV['nominate_application_cycle'] = credentials['nominate_application_cycle']
 end
 
 # Mailer method

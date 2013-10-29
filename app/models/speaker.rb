@@ -18,6 +18,7 @@ class Speaker < ActiveRecord::Base
   validates_uniqueness_of :email
 
   belongs_to :event
+  belongs_to :list
 
   def generate_password
     unless self.password

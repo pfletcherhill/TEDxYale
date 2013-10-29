@@ -246,3 +246,197 @@ $panel-diff: 50px;
     }
   }
 }
+
+// Student speaker competition
+#student-speaker-competition {
+  
+  $background-height: 500px;
+  
+  .background {
+    min-width: $width;
+    position: absolute;
+    top: $header-height;
+    height: $background-height;
+    width: 100%;
+    background-image: image-url("compbg.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top;
+    
+    .hover {
+      position: absolute;
+      bottom: 50px;
+      color: white;
+      padding-right: 20%;
+      
+      h1 {
+        @include HN-Light;
+        font-weight: 100;
+        font-size: 5em;
+        line-height: 1.3em;
+      }
+      
+      p {
+        font-size: 1.4em;
+        line-height: 1.5em;
+        @include HN-Light;
+      }
+    }
+  }
+  
+  .main {
+    margin-top: $background-height - 20px;
+    
+    h2 {
+      @include HN-Bold;
+      text-transform: uppercase;
+    }
+    
+    p {
+      @include HN-Light;
+      font-size: 1.2em;
+      line-height: 1.5em;
+    }
+  }
+  
+  .buttons {
+    background: transparent;
+    height: 50px;
+    display: inline-block;
+    border: 1px solid #777;
+    border-radius: 10px;
+    margin-top: 20px;
+    
+    button {
+      height: 50px;
+      border: none;
+      float: left;
+      display: block;
+      padding: 0 20px;
+      margin: 0;
+      background: transparent;
+      border-left: 1px solid #777;
+      cursor: pointer;
+      @include HN-Bold;
+      color: #333;
+      text-transform: uppercase;
+      font-size: 1.2em;
+      outline: none;
+      
+      &:hover,
+      &:focus {
+        background: #eee;
+      }
+      
+      &:first-child {
+        border: none;
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
+      }
+      
+      &:last-child {
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+      }
+      
+      &:active,
+      &.active {
+        background: #ddd;
+        color: black;
+      }
+    }
+  }
+  
+  .main,
+  .secondary {
+    padding: 20px 0;
+  }
+  
+  .message {
+    border-top: 1px solid;
+    @include HN-Regular;
+    font-size: 1.2em;
+    line-height: 1.2em;
+    padding: 15px 0;
+    color: #3a87ad;
+    background-color: #d9edf7;
+    border-color: #bce8f1;
+    
+    &.success {
+      color: #468847;
+      background-color: #dff0d8;
+      border-color: #d6e9c6;
+    }
+
+    &.error {
+      color: #b94a48;
+      background-color: #f2dede;
+      border-color: #eed3d7;
+    }
+  }
+  
+  .secondary {
+    background: #fafafa;
+    border-top: 1px solid #dadada;
+    width: 100%;
+    
+    form {
+      margin-top: 20px;
+      .form-field {
+        margin-bottom: 20px;
+      }
+      
+      label,
+      input,
+      textarea {
+        width: 50%;
+      }
+      
+      label {
+        display: block;
+        text-transform: uppercase;
+        @include HN-Regular;
+      }
+      
+      input,
+      textarea {
+        @include HN-Light;
+        line-height: 1.3em;
+        border: 1px solid #dadada;
+        padding: 10px;
+        outline: none;
+        resize: none;
+      }
+      
+      input {
+        font-size: 1.5em;
+      }
+      
+      textarea {
+        height: 70px;
+        font-size: 1.3em;
+      }
+      
+      input[type=submit] {
+        width: auto;
+        border: 2px solid red;
+        border-radius: 10px;
+        font-size: 2.5em;
+        line-height: 1em;
+        padding: 20px;
+        color: red;
+        cursor: pointer;
+        background: white;
+        
+        &:hover,
+        &:focus {
+          background: #fafafa;
+        }
+        
+        &:active {
+          background: #eee;
+        }
+      }
+    }
+  }
+}

@@ -28,6 +28,9 @@
         %td Hometown
         %td= @application.hometown
       %tr
+        %td About
+        %td= @application.bio
+      %tr
         %td Submitted
         %td= @application.created_at.in_time_zone("Eastern Time (US & Canada)").strftime("%c")
     
