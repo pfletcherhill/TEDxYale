@@ -79,6 +79,8 @@ $(document).ready(function() {
   ];
   
   var video = $('#video-background');
-  $('source', video).attr('src', sources[Math.floor(Math.random()*(sources.length))]);
-  video.load();
+  if (video[0].canPlayType && video[0].canPlayType('video/mp4')) {
+    $('source', video).attr('src', sources[Math.floor(Math.random()*(sources.length))]);
+    video.load();
+  }
 });  
