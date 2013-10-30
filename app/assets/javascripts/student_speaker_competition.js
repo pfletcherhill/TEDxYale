@@ -79,7 +79,7 @@ $(document).ready(function() {
   ];
   
   var video = $('#video-background');
-  if (video[0].canPlayType && video[0].canPlayType('video/mp4')) {
+  if (video[0] && video[0].canPlayType && video[0].canPlayType('video/mp4')) {
     $('source', video).attr('src', sources[Math.floor(Math.random()*(sources.length))]);
     video.load();
   }
