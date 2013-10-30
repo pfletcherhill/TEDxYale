@@ -423,22 +423,22 @@ $panel-diff: 50px;
       
       input[type=submit] {
         width: auto;
-        border: 2px solid red;
+        border: none;
         border-radius: 10px;
         font-size: 2.5em;
         line-height: 1em;
         padding: 20px;
-        color: red;
+        color: white;
         cursor: pointer;
-        background: white;
+        background: red;
         
         &:hover,
         &:focus {
-          background: #fafafa;
+          background: #E60000;
         }
         
         &:active {
-          background: #eee;
+          background: #CC0000;
         }
       }
     }

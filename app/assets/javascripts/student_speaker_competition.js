@@ -43,6 +43,10 @@ $(document).ready(function() {
     $('.message').hide();
   }
   
+  function clearForm() {
+    $('input:text, textarea', '.comp-application form').val('');
+  }
+  
   // Toggle applications
   $('.buttons button').click(function(event) {
     var el = $(event.target);
@@ -53,11 +57,12 @@ $(document).ready(function() {
   
   // Success callback
   $('.comp-application form').on('ajax:success', function() {
-    $('.comp-application').hide();
+    $('.secondary').hide();
+    clearForm();
     var message = "Success! Thank you for ";
-    if (location.hash.substring == 'become_a_speaker') {
+    if (location.hash == '#become_a_speaker') {
       message += "applying to speak. We will be in touch soon. ";
-      message += "In the meantime, if you have any questions, don't hesitate to contact us at curator@tedxyale.com.";
+      message += "In the meantime, if you have any questions, don't hesitate to contact us at curator@tedxyale.com";
     } else {
       message += "your nomination. We will be in touch with him/her shortly.";
     }
