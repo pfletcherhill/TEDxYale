@@ -33,4 +33,12 @@ class UserMailer < ActionMailer::Base
     @ticket = ticket
     mail(:to => @ticket.email, :subject => "TEDxYale 2013 Ticket Confirmation" )
   end
+  
+  def student_nomination_email(app)
+    @app = app
+    @curator = ["Austin Jaspers", "Mikayla Thompson"][rand(0..1)]
+    email_with_name = "#{@app.name} <#{@app.email}>"
+    from_address = "#{@curator} <curator@tedxyale.com"
+    mail(from: from_address, to: email_with_name, subject: "You've been nominated")
+  end
 end

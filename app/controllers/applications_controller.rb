@@ -48,4 +48,18 @@ class ApplicationsController < ApplicationController
       format.json { render json: @application }
     end
   end
+  
+  def admin
+    @applications = ApplicationCycle.find(ENV['speaker_application_cycle']).applications
+    @nominations = ApplicationCycle.find(ENV['nominate_application_cycle']).applications
+  end
+  
+  def email_nomination
+    @app = Application.find(params[:id])
+    UserMailer.student_nomination_email(@app).deliver
+    @app.emailed = true
+    @app.save
+    redirect_to admin_competition_path
+  end
+  
 end

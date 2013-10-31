@@ -1,0 +1,50 @@
+<div class="wrapper">
+  <%= render "/admin/menu", selected: "competition" %>
+  
+  <div class="admin_container admin-competition">
+    <h1>Applications (<%= @applications.count %>)</h1>
+    <p>Students who want to audition.</p>
+    <table>
+      <tr>
+        <th>App ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Affiliation</th>
+        <th>Year</th>
+        <th>About</th>
+      </tr>
+      <% @applications.each do |app| %>
+        <tr>
+          <td><%= app.id %></td>
+          <td><%= app.name %></td>
+          <td><%= app.email %></td>
+          <td><%= app.affiliation %></td>
+          <td><%= app.year %></td>
+          <td><%= app.bio %></td>
+        </tr>
+      <% end %>
+    </table>
+    <br/><br/>
+    
+    <h1>Nominations</h1>
+    <p>Students who have been nominated by someone else.</p>
+    <table>
+      <tr>
+        <th>App ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>About</th>
+        <th></th>
+      </tr>
+      <% @nominations.each do |app| %>
+        <tr>
+          <td><%= app.id %></td>
+          <td><%= app.name %></td>
+          <td><%= app.email %></td>
+          <td><%= app.bio %></td>
+          <td><%= !app.emailed ? link_to("Email", email_nomination_path(app.id), method: :post, confirm: "Are you sure you want to send #{app.name} an email?") : "Sent" %></td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

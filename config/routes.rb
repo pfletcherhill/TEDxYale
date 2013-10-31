@@ -27,6 +27,7 @@ TEDxYale::Application.routes.draw do
   get "/admin/tv", to: "admin#tv"
   get "/admin/applications", to: "admin#applications"
   get "/admin/sponsors", to: "admin#sponsors"
+  get "/admin/competition", to: "applications#admin"
   
   # Application Cycles
   get "/application_cycles/:id/new_question", to: "application_cycles#new_question"
@@ -107,5 +108,6 @@ TEDxYale::Application.routes.draw do
   # 2014
   get "/2014", to: "applications#student_speaker_competition"
   get "/student_speaker_competition", to: "applications#student_speaker_competition"
+  post "/email_nomination/:id", to: "applications#email_nomination", as: "email_nomination"
   
 end
