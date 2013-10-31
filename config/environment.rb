@@ -11,16 +11,16 @@ unless Rails.env.production?
   ENV['S3_BUCKET_NAME'] = credentials['S3_BUCKET_NAME']
   ENV['Stripe_Publishable_Key'] = credentials['Stripe_Publishable_Key']
   ENV['Stripe_Secret_Key'] = credentials['Stripe_Secret_Key']
-  ENV['Sendgrid_User'] = credentials['SENDGRID_USERNAME']
-  ENV['Sendgrid_Pass'] = credentials['SENDGRID_PASSWORD']
+  ENV['SENDGRID_USERNAME'] = credentials['SENDGRID_USERNAME']
+  ENV['SENDGRID_PASSWORD'] = credentials['SENDGRID_PASSWORD']
   ENV['speaker_application_cycle'] = credentials['speaker_application_cycle']
   ENV['nominate_application_cycle'] = credentials['nominate_application_cycle']
 end
 
 # Mailer method
 ActionMailer::Base.smtp_settings = {
-:user_name => ENV['Sendgrid_User'],
-:password => ENV['Sendgrid_Pass'],
+:user_name => ENV['SENDGRID_USERNAME'],
+:password => ENV['SENDGRID_PASSWORD'],
 :domain => "tedxyale.com",
 :address => "smtp.sendgrid.net",
 :port => 587,
