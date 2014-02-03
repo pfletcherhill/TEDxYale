@@ -2,6 +2,7 @@
 //= require jquery_ujs
 //= require moment
 //= require underscore
+//= require swfobject
 //= require backbone
 //= require backbone_rails_sync
 //= require backbone_datalink
