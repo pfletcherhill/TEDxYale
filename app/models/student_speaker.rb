@@ -1,11 +1,13 @@
 class StudentSpeaker < ActiveRecord::Base
   
-  has_many :votes
+  attr_accessible :name, :thumbnail, :youtube
   
-  validates_presence_of :thumbnail, :talk, :name, :youtube
+  has_many :votes, dependent: :destroy
+  
+  validates_presence_of :thumbnail, :name, :youtube
   
   has_attached_file :thumbnail, 
-    :styles => { :medium => "400x225", :small => "150x100"},
+    :styles => { :medium => "400x225#", :small => "150x100#"},
     :storage => :s3,
         :s3_credentials => {
           :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
@@ -21,7 +23,7 @@ class StudentSpeaker < ActiveRecord::Base
       "youtube" => youtube,
       "thumbnail" => thumbnail.url(:medium),
       "description" => description,
-      "votes" => votes.count
+      "votes" => votes_count
     }
   end
         

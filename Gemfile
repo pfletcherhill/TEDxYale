@@ -31,7 +31,8 @@ gem 'mechanize'
 gem 'bcrypt-ruby', :require => 'bcrypt'
 
 #Facebook
-gem "koala"
+#gem "koala"
+gem 'omniauth-facebook'
 
 #Heroku
 gem "heroku"

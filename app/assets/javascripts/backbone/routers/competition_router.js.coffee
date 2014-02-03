@@ -1,22 +1,35 @@
 class TEDxYale.Routers.CompetitionRouter extends Backbone.Router
   initialize: (options) ->
     @speakers = new TEDxYale.Collections.StudentSpeakers()
-    TEDxYale.user = new TEDxYale.Models.User
-    TEDxYale.user.set options.currentUser
+    @speakers.url = "/student_speakers"
+    @leaders = new TEDxYale.Collections.StudentSpeakers()
+    @leaders.url = "/student_speaker_leaders"
+    TEDxYale.user = new TEDxYale.Models.User(options.currentUser) unless TEDxYale.user
+    @view = new TEDxYale.Views.StudentSpeakers.IndexView
 
   routes:
-    ":id"       : "scrollTo"
+    "leaders"   : "leaders"
+    ":id"       : "show"
     ".*"        : "index"
-
-  index: ->
+    
+  leaders: ->      
+    @view.resetMenu("leaders")
+    @leaders.fetch success: (speakers) =>
+      @view.render(speakers, "leaders")
+      
+  index: ->      
+    @view.resetMenu("all")
     @speakers.fetch success: (speakers) =>
-      @view = new TEDxYale.Views.StudentSpeakers.IndexView(collection: speakers)
+      @view.render(speakers, "all")
   
-  scrollTo: (id) ->
-    if @view
-      @view.scroll(id)
-    else
+  show: (id) ->
+    speaker = @speakers.get(id)
+    if !speaker && @speakers.length > 0
+      window.location = "#"
+    else if !speaker
       @speakers.fetch success: (speakers) =>
-        @view = new TEDxYale.Views.StudentSpeakers.IndexView(collection: speakers)
-        @view.scroll(id)
+        @view.render(speakers, "all")
+        @show(id)
+    else
+      @view.renderVideo(speaker)
       

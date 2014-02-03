@@ -289,7 +289,7 @@ $panel-diff: 50px;
   }
   
   .main {
-    margin-top: $background-height - 20px;
+    margin-top: $background-height + 80px;
     
     h2 {
       @include HN-Bold;

@@ -1,0 +1,10 @@
+<div id="students"></div>
+
+<script type="text/javascript">
+  $(function() {
+    window.router = new TEDxYale.Routers.CompetitionRouter({
+      currentUser: <%= current_user.to_json.html_safe %>
+    });
+    Backbone.history.start();
+  });
+</script>

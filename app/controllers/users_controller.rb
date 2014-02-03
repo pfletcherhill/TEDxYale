@@ -168,13 +168,8 @@ class UsersController < ApplicationController
     end
   end
   
-  def votes_count
-    user = current_user
-    if user.is_admin?
-      render json: user.votes.count
-    else
-      render json: user.votes_left
-    end
+  def me
+    render json: current_user.as_json
   end
   
 end

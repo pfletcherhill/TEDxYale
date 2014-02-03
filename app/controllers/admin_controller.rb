@@ -66,6 +66,10 @@ class AdminController < ApplicationController
     @speakers = Speaker.all
   end
   
+  def student_speakers
+    @speakers = StudentSpeaker.all
+  end
+  
   def show_speaker
     @speaker = Speaker.find(params[:id])
   end

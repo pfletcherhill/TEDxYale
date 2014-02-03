@@ -7,9 +7,6 @@ class User < ActiveRecord::Base
   validates_presence_of :name  
   validates_presence_of :email 
   validates_uniqueness_of :email
-  #validates_presence_of :password_confirmation, :on => :create
-  #validates_presence_of :password, :on => :create
-  #validates_confirmation_of :password  
 	
 	has_many :attendees
 	has_many :events, :through => :attendees
@@ -41,7 +38,7 @@ class User < ActiveRecord::Base
 	
   def encrypt_password  
     if password.present?  
-  		self.password_salt = BCrypt::Engine.generate_salt  
+  		self.password_salt = BCrypt::Engine.generate_salt
   		self.password_hash = BCrypt::Engine.hash_secret(password, password_salt)  
   	end  
   end 
@@ -53,6 +50,21 @@ class User < ActiveRecord::Base
     else
       nil
     end
+  end
+  
+  def self.from_omniauth(auth)
+    where(email: auth.info.email).first_or_initialize.tap do |user|
+      user.uid = auth.uid
+      user.name = auth.info.name
+      user.email = auth.info.email
+      user.oauth_token = auth.credentials.token
+      user.oauth_expires_at = Time.at(auth.credentials.expires_at)
+      user.save!
+    end
+  end
+  
+  def as_json (options = {})
+    super(only: [:id, :name, :email, :affiliation, :year], methods: [:votes_left])
   end
   
 end

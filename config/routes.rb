@@ -28,6 +28,7 @@ TEDxYale::Application.routes.draw do
   get "/admin/applications", to: "admin#applications"
   get "/admin/sponsors", to: "admin#sponsors"
   get "/admin/competition", to: "applications#admin"
+  get "/admin/student_speakers", to: "admin#student_speakers"
   
   # Application Cycles
   get "/application_cycles/:id/new_question", to: "application_cycles#new_question"
@@ -98,8 +99,8 @@ TEDxYale::Application.routes.draw do
   resources :student_speakers
   get "/2013", to: "events#conference"
   get "/facebook", to: "student_speakers#facebook"
-  get "/users/:id/vote/:video", to: "student_speakers#vote"
-  get "/me/votes_count", to: "users#votes_count"
+  post "/users/:id/vote/:video", to: "student_speakers#vote"
+  get "/me", to: "users#me"
   get "/voting_data", to: "student_speakers#voting_data"
   get "/early_bird", to: "student_speakers#early_bird"
   get "/process_stripe", to: "student_speakers#process_stripe"
@@ -109,5 +110,11 @@ TEDxYale::Application.routes.draw do
   get "/2014", to: "applications#student_speaker_competition"
   get "/student_speaker_competition", to: "applications#student_speaker_competition"
   post "/email_nomination/:id", to: "applications#email_nomination", as: "email_nomination"
+  get "/student_speaker_leaders", to: "student_speakers#leaders"
+  
+  # Facebook
+  get 'auth/:provider/callback', to: 'sessions#create_from_facebook'
+  get 'auth/failure', to: redirect('/2014')
+  get 'signout', to: 'sessions#destroy', as: 'signout'
   
 end

@@ -1,0 +1,24 @@
+<div class="wrapper padded">
+  <%= render "menu" %>
+  
+  <div class="admin_container speakers">
+    <%= link_to "Add Student Speaker", "/student_speakers/new" %>
+    <h1>Student Speakers (<%= @speakers.count %>)</h1>
+    
+    <table>
+      <thead>
+        <th>Name</th>
+        <th>Youtube</th>
+      </thead>
+      <tbody>
+        <% @speakers.each do |speaker| %>
+          <tr>
+            <td><%= speaker.name %></td>
+            <td><%= speaker.youtube %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    
+  </div>
+</div>

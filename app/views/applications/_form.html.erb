@@ -1,0 +1,46 @@
+<div class="comp-application wrapper">  
+  <%= form_for @application, remote: true, format: :json do |f| %>
+    <%= f.hidden_field :application_cycle_id, value: @cycle, id: "cycle-id" %>
+  
+    <div class="form-field">
+      <label>Full name</label>
+      <%= f.text_field :name %>
+    </div>
+  
+    <div class="form-field">
+      <label>Email address</label>
+      <%= f.text_field :email %>
+    </div>
+  
+    <div class="speaker-field">
+      <div class="form-field">
+        <label>Yale affiliation (college if applicable)</label>
+        <%= f.text_field :affiliation %>
+      </div>
+    
+      <div class="form-field">
+        <label>Graduation year</label>
+        <%= f.text_field :year %>
+      </div>
+    </div>
+  
+    <div class="form-field">
+      <div class="speaker-field">
+        <label>Briefly describe the content of your talk. This can be as simple as only the title.</label>
+      </div>
+      <div class="nominate-field">
+        <label>Briefly describe why you are nominating this person.</label>
+      </div>
+      <%= f.text_area :bio %>
+    </div>
+  
+    <div class="form-field">
+      <div class="speaker-field">
+        <%= f.submit "Apply to speak" %>
+      </div>
+      <div class="nominate-field">
+        <%= f.submit "Nominate a friend" %>
+      </div>
+    </div>
+  <% end %>
+</div>

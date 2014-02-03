@@ -1,10 +1,12 @@
-<div class="student_video" data-id="<%= id %>">
-  <div class="student_image">
-    <img src="<%= thumbnail %>"/>
-    <div class="play" data-youtube="<%= youtube %>"></div>
+<a href="#<%= id %>" class="student-video" data-id="<%= id %>">
+  <div class="student-info">
+    <% if (rank) { %>
+      <%= rank %>.
+    <% } %>
+    <%= name %>
   </div>
-  <div class="student_info">
-    <div class="student_name"><%= name %></div>
-    <div class="student_talk"><%= talk %></div>
+  <div class="student-image" style="background-image: url(<%= thumbnail %>)">
+    <div class="image-cover"></div>
+    <div class="votes"><%= votes %></div>
   </div>
-</div>
+</a>

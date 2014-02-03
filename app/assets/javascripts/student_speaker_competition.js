@@ -1,18 +1,18 @@
 $(document).ready(function() {
   
   // Check hash
-  if (window.location.href.indexOf('#') > -1 && 
-      (window.location.href.indexOf('student_speaker_competition') > -1 ||
-      window.location.href.indexOf('2014') > -1)) {
-        
-    // Router
-    var hash = location.hash.substring(1);
-    if (hash == 'become_a_speaker') {
-      adjustHtml('.speaker-field', '.nominate-field', hash, 0);
-    } else {
-      adjustHtml('.nominate-field', '.speaker-field', hash, 0);
-    }
-  }
+  // if (window.location.href.indexOf('#') > -1 && 
+  //       (window.location.href.indexOf('student_speaker_competition') > -1 ||
+  //       window.location.href.indexOf('2014') > -1)) {
+  //         
+  //     // Router
+  //     var hash = location.hash.substring(1);
+  //     if (hash == 'become_a_speaker') {
+  //       adjustHtml('.speaker-field', '.nominate-field', hash, 0);
+  //     } else {
+  //       adjustHtml('.nominate-field', '.speaker-field', hash, 0);
+  //     }
+  //   }
   
   // Shows/hide correct elements
   // Changes hash
@@ -88,4 +88,5 @@ $(document).ready(function() {
     $('source', video).attr('src', sources[Math.floor(Math.random()*(sources.length))]);
     video.load();
   }
+  
 });  

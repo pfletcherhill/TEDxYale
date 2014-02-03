@@ -1,6 +1,6 @@
 class ApplicationsController < ApplicationController
   
-  before_filter :require_login, only: [:show]
+  before_filter :require_login, only: [:show, :admin]
   
   def require_login
     unless logged_in?
@@ -22,7 +22,7 @@ class ApplicationsController < ApplicationController
   end
   
   def student_speaker_competition
-    @application = Application.new
+    #@application = Application.new
     @cycle = ENV['speaker_application_cycle'].to_i
     @nominate_cycle = ENV['nominate_application_cycle'].to_i
   end

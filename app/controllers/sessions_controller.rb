@@ -10,11 +10,17 @@ class SessionsController < ApplicationController
     
     if user  
       session[:user_id] = user.id
-      redirect_to "/2013", :notice => "Welcome back #{user.name}"  
+      redirect_to root_url
     else
       flash[:notice] = 'Invalid Email or Password'
       render "new"
     end  
+  end
+  
+  def create_from_facebook
+    user = User.from_omniauth(env["omniauth.auth"])
+    session[:user_id] = user.id
+    redirect_to "/2014"
   end
   
   def speaker_create

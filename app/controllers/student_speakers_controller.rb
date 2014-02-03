@@ -1,6 +1,6 @@
 class StudentSpeakersController < ApplicationController
   
-  before_filter :require_login, :only => ["new", "create"]
+  before_filter :require_login, :only => ["admin", "new", "create"]
   before_filter :require_user, :only => ["vote"]
     
   def require_login
@@ -28,16 +28,25 @@ class StudentSpeakersController < ApplicationController
     render json: @speakers.as_json
   end
   
+  def show
+    @speaker = StudentSpeaker.find(params[:id])
+    render json: @speaker.as_json
+  end
+  
+  def leaders
+    @speakers = StudentSpeaker.order("-votes_count").first(3)
+    render json: @speakers.as_json
+  end
+  
   def new
     @speaker = StudentSpeaker.new
   end
   
   def create
     @speaker = StudentSpeaker.new(params[:student_speaker])
-    
     respond_to do |format|
       if @speaker.save
-        format.html { redirect_to "/admin", notice: "Thanks for registering! We've sent you an email with a speaker code." }
+        format.html { redirect_to "/admin/student_speakers" }
         format.json { render json: @speaker, status: :created, location: @speaker }
       else
         format.html { redirect_to "/student_speakers/new" }
@@ -60,16 +69,16 @@ class StudentSpeakersController < ApplicationController
   end
   
   def vote
-    # user = User.find(params[:id])
-    #     if user.has_votes? || user.is_admin?
-    #       video = StudentSpeaker.find(params[:video])
-    #       vote = Vote.new(:user_id => user.id, :student_speaker_id => video.id)
-    #       if vote.save
-    #         render json: vote
-    #       end
-    #     else
-    #       render json: user, status: :unprocessable_entity
-    #     end
+    user = User.find(params[:id])
+    if user.has_votes? || user.is_admin?
+      video = StudentSpeaker.find(params[:video])
+      vote = Vote.new(:user_id => user.id, :student_speaker_id => video.id)
+      if vote.save
+        render json: vote
+      end
+    else
+      render json: user, status: :unprocessable_entity
+    end
   end
   
   def early_bird

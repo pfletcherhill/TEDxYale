@@ -1,0 +1,46 @@
+<div id="student-speaker-competition">
+  <div class="background">
+    <video autoplay loop="loop" id="video-background" width="100%">
+      <source src="" type="video/mp4">
+      Your browser does not support HTML5 video.
+    </video>
+    <div class="wrapper">
+      <div class="hover">
+        <h1>Student Speaker Competition 2014</h1>
+        <p>TEDxYale 2014 will be held on March 29th, and we want to select a group of students to join our growing speaker list. In past years, our student speakers have given some of the most convincing and moving talks, so we're looking for people with a story to tell. <b>Please help us select our student speakers by voting in the competition!</b></p>
+      </div>
+    </div>
+  </div>
+  
+  <div class="main wrapper">    
+    <h2>How it works</h2>
+    <p>Ten incredible students have reached the final round of the competition, and we need your help in deciding who will speak on March 29th! Once you log in with facebook, you'll be given <b>10 votes to distribute however you want</b>. We encourage you not to give one person all your votes and to spend some time viewing all the talks. Happy voting!</p>
+    <p><b>Voting will end at 11:59pm on Monday, February 10th.</b></p>
+    
+    <!-- Apply and nominate buttons
+    <div class="buttons">
+      <button data-link="become_a_speaker" data-show=".speaker-field" data-hide=".nominate-field">Apply to speak</button>
+      <button data-link="nominate_a_friend" data-show=".nominate-field" data-hide=".speaker-field">Nominate a friend</button>
+    </div>
+    //-->
+    
+  </div>
+  
+  <div class="message" style="display: none">
+    <div class="wrapper"></div>
+  </div>
+  
+  <div class="secondary">
+    <div class="wrapper">
+      <div class="facebook">
+        <a href="/auth/facebook" class="user_fb fb_login">
+          <span>Connect with Facebook to Vote</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  applicationCycleIds = [<%= @cycle.to_json %>, <%= @nominate_cycle.to_json %>]
+</script>

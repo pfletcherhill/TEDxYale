@@ -1,19 +1,174 @@
-// Place all the styles related to the StudentSpeakers controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-
 //Mixins
-@mixin HN-Light {
-  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-  font-weight: lighter;
+@import "mixins";
+
+// Variables
+$header-height: 80px;
+$menu-height: 50px;
+$speaker-menu-height: 90px;
+
+#video-player {
+  width: 100%;
+  height: 562px + $speaker-menu-height;
+  background: black;
+  position: relative;
+  
+  iframe,
+  #speaker-menu {
+    position: absolute;
+    left: 50%;
+    margin-left: -500px;
+  }
+  
+  #speaker-menu {
+    width: 1000px;
+    height: $speaker-menu-height;
+    bottom: 0;
+    
+    .name {
+      color: white;
+      display: inline-block;
+      @include HN-Light;
+      line-height: $speaker-menu-height;
+      font-size: 1.6em;
+    }
+    
+    .vote {
+      float: right;
+      height: $speaker-menu-height / 2;
+      margin-top: $speaker-menu-height / 4;
+      border: 2px solid white;
+      color: white;
+      background: transparent;
+      @include border-radius(5px);
+      @include HN-Regular;
+      font-size: $speaker-menu-height / 5;
+      padding: 0 25px;
+      cursor: pointer;
+      @include transition(0.2s);
+      outline: none;
+      
+      &:hover {
+       background: #333;
+      }
+    }
+  }
 }
-@mixin HN-Bold {
-  font-family: "HelveticaNeue-Bold", "Helvetica Neue Bold", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-  font-weight: bold;
+
+#competition-menu {
+  width: 100%;
+  background: #eee;
+  height: $menu-height;
+  border-bottom: 1px solid #dadada;
+  
+  .competition-menu-item {
+    float: left;
+    padding: 0 10px;
+    
+    a.menu-item-link {
+      padding: 5px 10px;
+      @include HN-Bold;
+      line-height: $menu-height;
+      font-size: $menu-height / 3;
+      color: #333;
+      text-decoration: none;
+      @include border-radius(5px);
+      @include transition(0.2s);
+      outline: none;
+      
+      &:hover {
+        background: #ddd;
+      }
+      
+      &.selected {
+        color: red;
+        background: #dadada;
+      }
+    }
+  }
+  
+  .menu-item-right {
+    padding: 0 20px;
+    @include HN-Regular;
+    line-height: $menu-height;
+    font-size: $menu-height / 3;
+    
+    span {
+      @include HN-Bold;
+    }
+  }
+  
+  .menu-item-social {
+    padding-top: 15px;
+  }
+  
+  .menu-item-right {
+    float: right;
+  }
 }
-@mixin HN-Regular {
-  font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-  font-weight: normal;
+
+#student-videos {
+  margin-top: 20px;
+  min-height: 200px;
+  
+  .student-video {
+    display: block;
+    float: left;
+    @include calc(width, "33% - 30px");
+    padding: 10px;
+    background: white;
+    border: 1px solid #eee;
+    margin: 5px;
+    @include transition(border 0.2s);
+    cursor: pointer;
+    text-decoration: none;
+    color: #111;
+    
+    &:hover {
+      border: 1px solid #ccc;
+      
+      .image-cover {
+        opacity: 0.1;
+      }
+    };
+    
+    .student-info {
+      @include HN-Bold;
+      font-size: 20px;
+      padding-bottom: 10px;
+    }
+    
+    .votes {
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      width: 100%;
+      text-align: center;
+      @include HN-Light;
+      font-size: 100px;
+      line-height:  183px;
+      color: white;
+    }
+    
+    .student-image {
+      width: 100%;
+      height: 200px;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: top;
+      position: relative;
+    }
+    
+    .image-cover {
+      width: 100%;
+      height: 100%;
+      opacity: 0.25;
+      background-color: blue;
+      position: absolute;
+      top: 0;
+      left: 0;
+      @include transition(opacity 0.2s);
+    }
+  }
 }
 
 .voting_text {
@@ -25,6 +180,7 @@
     @include HN-Bold;
   }
 }
+
 #leaderboard {
   width: 958px;
   padding: 20px;
@@ -74,248 +230,7 @@
     }
   }
 }
-.students_menu {
-  position: absolute;
-  width: 300px;
-  &.fixed {
-    position: fixed;
-    top: 100px;
-  }
-  ul {
-    list-style-type: none;
-    padding: 0px;
-    margin: 0px;
-    li a {
-      display: block;
-      @include HN-Bold;
-      border-bottom: 1px solid #DADADA;
-      font-size: 15px;
-      position: relative;
-      z-index: 0;
-      cursor: pointer;
-      color: #333;
-      text-decoration: none;
-      padding: 10px;
-      -webkit-transition: background 0.2s;
-      &:hover {
-        background: #eee;
-        background-image: url('/assets/menu_arrow.png');
-        background-repeat: no-repeat;
-        background-position: 265px;
-        background-size: 7px;
-      }
-      &.active {
-        color: #e60000;
-      }
-      span {
-        font-style: italic;
-        @include HN-Regular;
-      }
-    }
-  }
-}
-.students_container {
-  width: 670px;
-  position: relative;
-  margin-left: 330px;
-  min-height: 500px;
-  .student_video {
-    border-bottom: 2px solid #dadada;
-    margin-bottom: 20px;
-    min-height: 245px;
-    .student_image {
-      width: 400px;
-      height: 225px;
-      float: left;
-      position: relative;
-      background-color: black;
-      img {
-        width: 400px;
-        height: 225px;
-      }
-      .play {
-        height: 80px;
-        width: 80px;
-        background-color: black;
-        position: absolute;
-        cursor: pointer;
-        top: 72px;
-        left: 160px;
-        background-image: url("/assets/play.png");
-        background-position: center;
-        background-repeat: no-repeat;
-        -webkit-transition: 0.2s;
-        &:hover {
-          background-color: #f60000;
-        }
-      }
-    }
-    .student_info {
-      padding-left: 20px;
-      width: 250px;
-      margin-left: 400px;
-      .student_name {
-        @include HN-Bold;
-        font-size: 20px;
-        line-height: 25px;
-      }
-      .student_talk {
-        @include HN-Light;
-        font-size: 32px;
-        line-height: 38px;
-        margin-bottom: 15px;
-      }
-      button#vote {
-        background: -moz-linear-gradient(0% 100% 90deg, #CF0000, #E60000);
-    	  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#E60000), to(#CF0000));
-        background: -moz-linear-gradient(0% 100% 90deg, #CF0000, #E60000);
-        -pie-background: linear-gradient(#E60000, #CF0000);
-        border-radius: 3px;
-        border: 1px solid #990000;
-        cursor: pointer;
-        padding: 10px;
-        color: white;
-        @include HN-Regular;
-        &:hover {
-          background: #e60000;
-        }
-      }
-      .student_votes span.votes {
-        font-style: italic;
-        @include HN-Regular;
-        font-size: 16px;
-      }
-      .vote_fb {
-        background-image: url("/assets/facebook_logo.png");
-        background-repeat: no-repeat;
-        height: 30px;
-        background-size: auto 30px;
-        padding-left: 30px;
-        line-height: 30px;
-        cursor: pointer;
-        span {
-          font-style: regular;
-          background-image: url("/assets/facebook_bg.png");
-          height: 30px;
-          display: block;
-          background-repeat: no-repeat;
-          background-size: 105px 30px;
-          color: white;
-          font-family: Arial;
-          padding-left: 10px;
-          font-size: 11px;
-        }
-      }
-    }
-  }
-}
 
-//Early-bird tickets
-.student_speakers {
-  h1 {
-    text-align: left;
-    span.black {
-      @include HN-Bold;
-      color: black;
-    }
-    span.grey {
-      color: #333;
-    }
-    span.white {
-      color: #777;
-    }
-  }
-  img {
-    width: 1000px;
-    margin-top: 10px;
-  }
-  a {
-    @include HN-Bold;
-    background: -moz-linear-gradient(0% 100% 90deg, #E60000, #ff0000);
-	  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#ff0000), to(#E60000));
-    background: -moz-linear-gradient(0% 100% 90deg, #E60000, #ff0000);
-    -pie-background: linear-gradient(#ff0000, #E60000);
-    border-radius: 3px;
-    border: 1px solid #990000;
-    font-size: 18px;
-    line-height: 21px;
-    padding: 10px 25px;
-    position: absolute;
-    right: 0px;
-    top: -8px;
-    color: white;
-    text-decoration: none;
-    &:hover {
-      background: red;
-    }
-  }
-}
-table.conference_stats {
-  width: 1000px;
-  td {
-    text-align: center;
-    @include HN-Light; 
-    font-size: 50px;
-  }
-}
-.payment-errors {
-  font-family: HelveticaNeue-Bold;
-  margin-bottom: 10px;
-  color: red;
-}
-form#payment-form {
-  .form-row {
-    margin-bottom: 10px;
-    label {
-      display: block;
-      @include HN-Bold;
-      font-size: 14px;
-    }
-    input {
-      width: 300px;
-      background: white;
-      border: 1px solid #dadada;
-      font-size: 20px;
-      padding: 10px;
-      @include HN-Regular;
-      outline: none;
-      -webkit-transition: border 0.2s;
-      &.card-expiry-month { 
-        width: 50px;
-      }
-      &.card-expiry-year {
-        width: 100px;
-      }
-      &:focus {
-        border: 1px solid #777;
-      }
-    }
-    input[type='radio'] {
-      width: auto;
-      margin-top: 8px;
-    }
-    @include HN-Regular;
-    font-size: 15px;
-  }
-  button {
-    @include HN-Bold;
-    background: -moz-linear-gradient(0% 100% 90deg, #E60000, #ff0000);
-	  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#ff0000), to(#E60000));
-    background: -moz-linear-gradient(0% 100% 90deg, #E60000, #ff0000);
-    -pie-background: linear-gradient(#ff0000, #E60000);
-    border-radius: 3px;
-    border: 1px solid #990000;
-    font-size: 18px;
-    line-height: 21px;
-    padding: 10px 25px;
-    color: white;
-    text-decoration: none;
-    cursor: pointer;
-    &:hover {
-      background: red;
-    }
-  }
-}
 .notice {
   h4 {
     @include HN-Bold;

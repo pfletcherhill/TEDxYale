@@ -16,36 +16,47 @@
   font-weight: normal;
 }
 
+.facebook {
+  .user_fb {
+    display: inline-block;
+    background-image: url("/assets/facebook_logo.png");
+    background-repeat: no-repeat;
+    background-size: auto 46px;
+    height: 46px;
+    cursor: pointer;
+    text-decoration: none;
+    
+    span {
+      background-image: url("/assets/facebook_bg.png");
+      background-repeat: no-repeat;
+      background-size: 100% 46px;
+      display: block;
+      line-height: 46px;
+      margin-left: 46px;
+      color: white;
+      font-size: 16px;
+      @include HN-Regular;
+      padding: 0 20px;
+    }
+  }
+}
+
 .wrapper {
   .box {
     width: 500px;
     margin-left: auto;
     margin-right: auto;
     text-align: center;
+    
     .facebook {
       padding-bottom: 25px;
       border-bottom: 1px solid #dadada;
+      
       .user_fb {
-        background-image: url("/assets/facebook_logo.png");
-        background-repeat: no-repeat;
-        background-size: auto 46px;
-        width: 272px;
         margin: auto;
-        height: 46px;
-        cursor: pointer;
-        span {
-          background-image: url("/assets/facebook_bg.png");
-          background-repeat: no-repeat;
-          background-size: 225px 46px;
-          display: block;
-          line-height: 46px;
-          margin-left: 46px;
-          color: white;
-          font-size: 16px;
-          @include HN-Regular;
-        }
       }
     }
+    
     h2 {
       @include HN-Bold;
       color: #555;

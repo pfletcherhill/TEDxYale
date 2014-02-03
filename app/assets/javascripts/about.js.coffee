@@ -1,7 +1,3 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
-
 #Hash changes
 if window.location.href.indexOf('#') > -1 && window.location.href.indexOf('about') > -1
   hash = location.hash.substring(1)
