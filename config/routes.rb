@@ -29,6 +29,7 @@ TEDxYale::Application.routes.draw do
   get "/admin/sponsors", to: "admin#sponsors"
   get "/admin/competition", to: "applications#admin"
   get "/admin/student_speakers", to: "admin#student_speakers"
+  get "/admin/votes", to: "admin#votes"
   
   # Application Cycles
   get "/application_cycles/:id/new_question", to: "application_cycles#new_question"

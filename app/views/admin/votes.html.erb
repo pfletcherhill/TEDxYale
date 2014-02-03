@@ -1,0 +1,22 @@
+<div class="wrapper padded">
+  <h1>Competition Votes (<%= Vote.count %>)</h1>
+  
+  <table>
+    <thead>
+      <th>Name</th>
+      <% @student_speakers.each do |s| %>
+        <th><%= s.name %></th>
+      <% end %>
+    </thead>
+    <tbody>
+      <% @users.each do |u| %>
+        <tr>
+          <td><%= u.name %> (<%= u.email %>)</td>
+          <% @student_speakers.each do |s| %>
+            <td><%= u.votes.where(student_speaker_id: s.id).count %></td>
+          <% end %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

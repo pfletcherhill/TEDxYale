@@ -78,6 +78,11 @@ class AdminController < ApplicationController
     @videos = Video.order('title ASC')
   end
   
+  def votes
+    @users = User.all
+    @student_speakers = StudentSpeaker.all
+  end
+  
   def wiki
   end
   
