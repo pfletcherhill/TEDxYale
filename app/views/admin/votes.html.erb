@@ -5,7 +5,7 @@
     <thead>
       <th>Name</th>
       <% @student_speakers.each do |s| %>
-        <th><%= s.name %></th>
+        <th><%= s.name %> (<%= s.votes_count %>)</th>
       <% end %>
     </thead>
     <tbody>
