@@ -5,9 +5,10 @@ class User < ActiveRecord::Base
   before_save :encrypt_password    
 	
   validates_presence_of :name  
-  validates_presence_of :email 
-  validates_uniqueness_of :email
-	
+  # only validate email if not logged in with fb
+  validates_presence_of :email, if: "uid.nil?" 
+  validates_uniqueness_of :email, if: "uid.nil?"
+  
 	has_many :attendees
 	has_many :events, :through => :attendees
 	has_many :votes
