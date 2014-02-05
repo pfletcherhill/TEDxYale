@@ -80,7 +80,7 @@ class AdminController < ApplicationController
   
   def votes
     @users = User.all
-    @student_speakers = StudentSpeaker.all
+    @student_speakers = StudentSpeaker.order("-votes_count")
   end
   
   def wiki
