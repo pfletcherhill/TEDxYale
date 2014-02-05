@@ -19,8 +19,13 @@ class SessionsController < ApplicationController
   
   def create_from_facebook
     user = User.from_omniauth(env["omniauth.auth"])
-    session[:user_id] = user.id
-    redirect_to "/2014"
+    p user
+    if user
+      session[:user_id] = user.id
+      redirect_to "/2014", notice: "id: #{user.id}"
+    else
+      redirect_to "/2014", notice: "We encountered an error processing your request! Please try again. If the problem persists, contact curator@tedxyale.com about the issue."
+    end
   end
   
   def speaker_create

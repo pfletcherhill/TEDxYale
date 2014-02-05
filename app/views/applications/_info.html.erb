@@ -32,6 +32,9 @@
   
   <div class="secondary">
     <div class="wrapper">
+      <% if notice %>
+        <div id="notice"><%= notice %></div>
+      <% end %>
       <div class="facebook">
         <a href="/auth/facebook" class="user_fb fb_login">
           <span>Connect with Facebook to Vote</span>

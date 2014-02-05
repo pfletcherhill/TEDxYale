@@ -115,6 +115,12 @@ body {
   margin-top: 500px + 80px;
 }
 
+#notice {
+  @include HN-Bold;
+  color: red;
+  margin: 20px 0;
+}
+
 .padding {
   width: 100%;
   clear: both;
@@ -329,8 +335,6 @@ div {
 	  }
 	}
 }
-#notice {
-  color: green; }
 
 .field_with_errors {
   padding: 2px;

@@ -106,9 +106,14 @@ $speaker-menu-height: 90px;
   }
 }
 
+// Student video variables
+$video-height: 200px;
+$play-height: 60px;
+$play-width: 40px;
+
 #student-videos {
   margin-top: 20px;
-  min-height: 200px;
+  min-height: $video-height;
   
   .student-video {
     display: block;
@@ -129,7 +134,7 @@ $speaker-menu-height: 90px;
       .image-cover {
         opacity: 0.1;
       }
-    };
+    }
     
     .student-info {
       @include HN-Bold;
@@ -147,6 +152,17 @@ $speaker-menu-height: 90px;
       font-size: 100px;
       line-height:  183px;
       color: white;
+    }
+    
+    .play {
+      position: absolute;
+      @include calc(top, "50% - (#{$play-height} / 2)");
+      @include calc(left, "50% - (#{$play-width} / 2)");
+      width: 0; 
+    	height: 0; 
+    	border-top: ($play-height / 2) solid transparent;
+    	border-bottom: ($play-height / 2) solid transparent;
+    	border-left: $play-width solid #fff;
     }
     
     .student-image {

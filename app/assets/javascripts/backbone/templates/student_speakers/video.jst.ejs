@@ -1,12 +1,16 @@
-<a href="#<%= id %>" class="student-video" data-id="<%= id %>">
+<a href="#<%= video.id %>" class="student-video" data-id="<%= video.id %>">
   <div class="student-info">
-    <% if (rank) { %>
-      <%= rank %>.
+    <% if (video.rank) { %>
+      <%= video.rank %>.
     <% } %>
-    <%= name %>
+    <%= video.name %>
   </div>
-  <div class="student-image" style="background-image: url(<%= thumbnail %>)">
+  <div class="student-image" style="background-image: url(<%= video.thumbnail %>)">
     <div class="image-cover"></div>
-    <div class="votes"><%= votes %></div>
+    <% if (type == 'leaders') { %>
+      <div class="votes"><%= video.votes %></div>
+    <% } else { %>
+      <div class="play"></div>
+    <% } %>
   </div>
 </a>

@@ -38,7 +38,7 @@ class TEDxYale.Views.StudentSpeakers.IndexView extends Backbone.View
       model.set(rank: null)
       if type == "leaders"
         model.set(rank: i + 1)
-      $("#student-videos").append(@videoTemplate( model.toJSON() ))
+      $("#student-videos").append(@videoTemplate(video: model.toJSON(), type: type))
   
   renderVotesLeft: ->
     votes = TEDxYale.user.get('votes_left')
