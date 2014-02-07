@@ -7,6 +7,7 @@
     <table>
       <thead>
         <tr>
+          <th></th>
           <% @student_speakers.each do |s| %>
             <th><%= s.name %></th>
           <% end %>
@@ -14,8 +15,23 @@
       </thead>
       <tbody>
         <tr>
+          <td>Total Votes</td>
           <% @student_speakers.each do |s| %>
             <td><%= s.votes_count %></td>
+          <% end %>
+        </tr>
+        
+        <tr>
+          <td>Last day</td>
+          <% @student_speakers.each do |s| %>
+            <td><%= s.votes.where("created_at >= ?", Time.now - 24.hours).count %></td>
+          <% end %>
+        </tr>
+        
+        <tr>
+          <td>Last hour</td>
+          <% @student_speakers.each do |s| %>
+            <td><%= s.votes.where("created_at >= ?", Time.now - 1.hours).count %></td>
           <% end %>
         </tr>
       </tbody>
