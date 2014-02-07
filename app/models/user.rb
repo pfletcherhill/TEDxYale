@@ -65,6 +65,15 @@ class User < ActiveRecord::Base
     end
   end
   
+  def facebook_friends
+    if self.oauth_token
+      graph = Koala::Facebook::API.new(self.oauth_token)
+      return graph.get_connections("me", "friends")
+    else
+      return [] # empty array
+    end
+  end
+  
   def as_json (options = {})
     super(only: [:id, :name, :email, :affiliation, :year], methods: [:votes_left])
   end
