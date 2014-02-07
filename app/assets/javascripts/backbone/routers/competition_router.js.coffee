@@ -8,7 +8,7 @@ class TEDxYale.Routers.CompetitionRouter extends Backbone.Router
     @view = new TEDxYale.Views.StudentSpeakers.IndexView
 
   routes:
-    "leaders"   : "leaders"
+    #"leaders"   : "leaders"
     ":id"       : "show"
     ".*"        : "index"
     
