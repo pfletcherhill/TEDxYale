@@ -69,15 +69,19 @@ class StudentSpeakersController < ApplicationController
   end
   
   def vote
-    user = User.find(params[:id])
-    if user.has_votes? || user.is_admin?
-      video = StudentSpeaker.find(params[:video])
-      vote = Vote.new(:user_id => user.id, :student_speaker_id => video.id)
-      if vote.save
-        render json: vote
+    if (Time.parse(ENV['COMPETITION_END']) - Time.now) >= 0
+      user = User.find(params[:id])
+      if user.has_votes? || user.is_admin?
+        video = StudentSpeaker.find(params[:video])
+        vote = Vote.new(:user_id => user.id, :student_speaker_id => video.id)
+        if vote.save
+          render json: vote
+        end
+      else
+        render json: user, status: :unprocessable_entity
       end
     else
-      render json: user, status: :unprocessable_entity
+      redirect_to "/2014"
     end
   end
   

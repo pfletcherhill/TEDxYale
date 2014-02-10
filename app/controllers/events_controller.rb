@@ -12,6 +12,23 @@ class EventsController < ApplicationController
     !!current_admin
   end
   
+  def root
+    diff = Time.parse(ENV['COMPETITION_END']) - Time.now
+    @seconds_left = diff
+    days = (diff / (60 * 60 * 24)).floor
+    diff -= days * (60 * 60 * 24)
+    hours = (diff / (60 * 60)).floor
+    diff -= hours * (60 * 60)
+    minutes = (diff / 60).floor
+    seconds = (diff - (minutes * 60)).floor
+    @time_left = [
+      days.to_s.rjust(2, '0'),
+      hours.to_s.rjust(2, '0'),
+      minutes.to_s.rjust(2, '0'),
+      seconds.to_s.rjust(2, '0')
+    ].join(":")
+  end
+  
   def index
     @events = Event.where({ :published => true }).order("datetime DESC")
     @carousals = @events.limit(3).reverse

@@ -15,6 +15,7 @@ unless Rails.env.production?
   ENV['SENDGRID_PASSWORD'] = credentials['SENDGRID_PASSWORD']
   ENV['speaker_application_cycle'] = credentials['speaker_application_cycle']
   ENV['nominate_application_cycle'] = credentials['nominate_application_cycle']
+  ENV['COMPETITION_END'] = credentials['COMPETITION_END']
 end
 
 # Mailer method

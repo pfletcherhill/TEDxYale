@@ -1,6 +1,8 @@
 <% content_for :title, "TEDxYale Student Speaker Competition" %>
 
-<% if current_user%>
+<% if @time_left < 0 %>
+  <%= render "closed" %>
+<% elsif current_user %>
   <%= render "voting" %>
 <% else %>
   <%= render "info" %>

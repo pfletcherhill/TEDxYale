@@ -92,6 +92,10 @@ $speaker-menu-height: 90px;
     line-height: $menu-height;
     font-size: $menu-height / 3;
     
+    &.timer {
+      color: red;
+    }
+    
     span {
       @include HN-Bold;
     }

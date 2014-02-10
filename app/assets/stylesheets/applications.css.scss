@@ -251,6 +251,7 @@ $panel-diff: 50px;
 #student-speaker-competition {
   
   $background-height: 500px;
+  $winners-height: 100px;
   
   .background {
     min-width: $width;
@@ -260,6 +261,11 @@ $panel-diff: 50px;
     width: 100%;
     background: black;
     overflow: hidden;
+    
+    &.winners {
+      background: #E60000;
+      height: $background-height - $winners-height;
+    }
     
     video {
       z-index: 0;
@@ -290,6 +296,10 @@ $panel-diff: 50px;
   
   .main {
     margin-top: $background-height + 80px;
+    
+    &.winners {
+      margin-top: $background-height + 80px - $winners-height;
+    }
     
     h2 {
       @include HN-Bold;

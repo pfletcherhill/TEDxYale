@@ -23,6 +23,8 @@ class ApplicationsController < ApplicationController
   
   def student_speaker_competition
     #@application = Application.new
+    @winners = StudentSpeaker.order("-votes_count").first(3)
+    @time_left = Time.parse(ENV['COMPETITION_END']) - Time.now
     @cycle = ENV['speaker_application_cycle'].to_i
     @nominate_cycle = ENV['nominate_application_cycle'].to_i
   end

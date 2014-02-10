@@ -1,0 +1,28 @@
+<div id="student-speaker-competition">
+  <div class="background winners">
+    <div class="wrapper">
+      <div class="hover">
+        <h1>Congratulations, Winners!</h1>
+        <p>Voting is closed, and the top three student speakers have been selected. After just over a week of voting and thousands of people participating, the three students who will be joining our other speakers on March 29th have been determined. <b>TEDxYale 2014: Exploring the Footnotes will be held on Saturday, March 29th in the Yale Repertory Theatre.</b></p>
+      </div>
+    </div>
+  </div>
+  
+  <div class="main wrapper winners">
+    <div id="students-container" class="wrapper">
+      <div id="student-videos">
+        <% @winners.each do |s| %>
+          <a href="<%= s.youtube %>" class="student-video" target="_blank">
+            <div class="student-info">
+              <%= s.name %>
+            </div>
+            <div class="student-image" style="background-image: url(<%= s.thumbnail %>)">
+              <div class="image-cover"></div>
+              <div class="votes"><%= s.votes_count %></div>
+            </div>
+          </a>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
