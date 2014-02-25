@@ -13,6 +13,7 @@ TEDxYale::Application.routes.draw do
   get "logout", to: "sessions#destroy"
   get "/salons", to: "users#event_saman"
   get "/join", to: "users#join"
+  get "/kevin_olusola_salon", to: "events#current_salon"
       
   #Admin Panel
   get "/admin", to: "admin#users"

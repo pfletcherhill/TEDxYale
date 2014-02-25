@@ -952,3 +952,34 @@
     }
   }
 }
+
+.current-salon {
+	h2 {
+    @include HN-Bold;
+    text-transform: uppercase;
+  }
+  
+  p {
+    @include HN-Light;
+    font-size: 1.2em;
+    line-height: 1.5em;
+		margin-bottom: 40px;
+  }
+	
+	.salon-button {
+		display: inline-block;
+		font-size: 2em;
+		line-height: 1em;
+		padding: 20px;
+		border: 2px solid red;
+		border-radius: 10px;
+		text-decoration: none;
+		@include HN-Light;
+		color: red;
+		@include transition(0.2s);
+		
+		&:hover {
+			background: white;
+		}
+	}
+}

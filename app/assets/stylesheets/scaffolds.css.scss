@@ -54,6 +54,11 @@ body {
   top: 80px;
   background: black;
   overflow: hidden;
+
+	&.kevin-olusola {
+		background-image: image-url("kevin_olusola/landscape.jpg");
+		background-size: cover;
+	}
 }
 
 .apply-banner {

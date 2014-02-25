@@ -154,4 +154,7 @@ class EventsController < ApplicationController
     render json: speakers.as_json
   end
   
+  def current_salon
+  end
+  
 end

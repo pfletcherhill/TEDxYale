@@ -1,17 +1,4 @@
-.banner
-  .banner-bg
-    %video(autoplay loop="loop" id="video-background" width="100%")
-      %source(src="" type="video/mp4")
-  %a{:href => "/2014"}
-    .banner-text
-      - if @seconds_left >= 0
-        %h1
-          %span(id = "js-countdown")= @time_left
-          to Vote
-        %h4 We've selected 10 incredible student speakers to compete in the final round of our Student Speaker Competition. <b>Cast your votes now!</b>
-      - else
-        %h1 Voting is closed
-        %h4 Congratulations to the three winners of this year's TEDxYale Student Speaker Competition. <b>See them now!</b>
+%a(href="/kevin_olusola_salon" class="banner kevin-olusola")
 .wrapper.banner-wrapper
   .icons
     .icon.events
