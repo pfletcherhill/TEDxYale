@@ -3,7 +3,7 @@ TEDxYale::Application.routes.draw do
   resources :sponsors, :sponsorships, :users, :applications, :sessions, :subscriptions, 
             :application_cycles, :application_questions, :application_answers
 
-  root :to => "events#root"
+  root to: "events#root"
 
   get "/join", to: "applications#new"
   get "/app_email/:id", to: "applications#app_mailer"

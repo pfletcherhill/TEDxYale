@@ -90,6 +90,10 @@ body {
   
   &:hover {
     background-color: rgba(0,0,0,0.5);
+    
+    h1 {
+      opacity: 1;
+    }
   }
   
   h1,
@@ -100,10 +104,12 @@ body {
   }
   
   h1 {
-    margin-top: 150px;
-    font-size: 80px;
-    line-height: 100px;
-    @include HN-Bold;
+    margin-top: 100px;
+    font-size: 140px;
+    line-height: 200px;
+    opacity: 0.8;
+    @include HN-Light;
+    @include transition(opacity 0.5s);
   }
   
   h4 {

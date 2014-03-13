@@ -76,12 +76,13 @@ $(document).ready(function() {
   
   // Load video
   var sources = [
-    "https://s3.amazonaws.com/TEDxYale/mp4s/cody.mp4",
-    "https://s3.amazonaws.com/TEDxYale/mp4s/clemantine.mp4",
-    "https://s3.amazonaws.com/TEDxYale/mp4s/eddy.mp4",
-    "https://s3.amazonaws.com/TEDxYale/mp4s/sam.mp4",
-    "https://s3.amazonaws.com/TEDxYale/mp4s/dj.mp4"
+    //"https://s3.amazonaws.com/TEDxYale/mp4s/cody.mp4",
+    //"https://s3.amazonaws.com/TEDxYale/mp4s/clemantine.mp4",
+    //"https://s3.amazonaws.com/TEDxYale/mp4s/eddy.mp4",
+    //"https://s3.amazonaws.com/TEDxYale/mp4s/sam.mp4",
+    "https://s3.amazonaws.com/TEDxYale/mp4s/Frame1.mp4"
   ];
+  
   
   var video = $('#video-background');
   if (video[0] && video[0].canPlayType && video[0].canPlayType('video/mp4')) {
